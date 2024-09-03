@@ -1,0 +1,746 @@
+---
+title: "Schedule"
+sidebar: false
+---
+
+Check here to see what you should be doing before, during, and after each class day.
+
+# Calendar
+
+**September**
+
+|Sun|Mon|Tue|Wed|Thu|Fri|Sat|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|1|2|3|[4](schedule.qmd#day1)|5|[6](schedule.qmd#day2)|7|
+|8|[9](schedule.qmd#day3)|10|[11](schedule.qmd#day4)|12|[13](schedule.qmd#day5)|14|
+|15|16|17|18|19|20|21|
+|22|23|24|25|26|27|28|
+|29|30| | | | | |
+
+**October**
+
+|Sun|Mon|Tue|Wed|Thu|Fri|Sat|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|29|30|1|2|3|4|5|
+|6|7|8|9|10|11|12|
+|13|14|15|16|17|18|19|
+|20|21|22|23|24|25|26|
+|27|28|29|30|31|1|2|
+
+**November**
+
+|Sun|Mon|Tue|Wed|Thu|Fri|Sat|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|27|28|29|30|31|1|2|
+|3|4|5|6|7|8|9|
+|10|11|12|13|14|15|16|
+|17|18|19|20|21|22|23|
+|24|25|26|27|28|29|30|
+
+**December**
+
+|Sun|Mon|Tue|Wed|Thu|Fri|Sat|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|1|2|3|4|5|6|7|
+|8|9|10|11|12|13|14|
+|15|16|17|18|19|20|21|
+|22|23|24|25|26|27|28|
+|29|30|31|1|2|3|4|
+
+
+# Week 1: Foundations
+
+## Day 1: Welcome! (9/4) {#day1}
+
+**Before class:**
+
+- Get acquainted with our course by **reading the syllabus** and **touring our course website and Moodle page**.
+
+**During class:** [Introductions and foundations](01-introductions.qmd)
+
+**After class:**
+
+::: {.callout-note title="Required" icon=false}
+The following chapters from *The Effect* lay the foundation for asking good questions. They're written in a fun, conversational style and have some nice humor interspersed throughout.
+
+- *The Effect* [Chapter 1: Designing Research](https://www.theeffectbook.net/ch-TheDesignofResearch.html) (~10 minutes)
+    - Video alternative: [Designing Research](https://youtu.be/yQXqdmenc6M) (~8 minutes)
+- *The Effect* [Chapter 2: Research Questions](https://www.theeffectbook.net/ch-ResearchQuestions.html) (~30 minutes)
+    - Video alternative: [Research Questions](https://youtu.be/ZPuEFjJ2us8) (~11 minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+If you would like to have an additional reference throughout the course that leans more technical and economics-leaning, I recommend starting *Causal Inference: The Mixtape* by reading [Chapter 1: Introduction](https://mixtape.scunning.com/01-introduction) (~35 minutes).
+
+- *Note:* Scott uses the term **endogenous** in Section 1.3 without defining it. This is an economics term that essentially parallels the term **confounding** in statistics. That is, an endogenous variable is (often) one that is a confounder.
+:::
+
+
+## Day 2: Causal identification (9/6) {#day2}
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- *The Effect* [Chapter 5: Identification](https://www.theeffectbook.net/ch-Identification.html) (~50 minutes)
+    - Video alternatives:
+        - [Identification: Data Generating Processes](https://youtu.be/JWNN46aiIAE) (~8 minutes)
+        - [Identification: Alternative Explanations](https://youtu.be/pR_m0HjEcjU) (~9 minutes)
+        - [Identification: Alcohol and Mortality](https://youtu.be/xP_mVOh2R3w) (~9 minutes)
+:::
+
+<!-- **During class:** [Causal identification](02-identification.qmd) -->
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 2: Causal graphs
+
+## Day 1: Causal graph fundamentals {#day3}
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- *The Effect* [Chapter 6: Causal Diagrams](https://www.theeffectbook.net/ch-CausalDiagrams.html) (~40 min)
+    - Video alternatives:
+        - [Causal Diagrams: Causality](https://youtu.be/J6P4RwWdGBw) (~9 minutes)
+        - [Causal Diagrams](https://youtu.be/aMNGfodzKO8) (~12 minutes)
+- *The Effect* [Chapter 7: Drawing Causal Diagrams](https://www.theeffectbook.net/ch-DrawingCausalDiagrams.html) (~30 min)
+    - Video alternatives:
+        - [Drawing Causal Diagrams](https://youtu.be/NOslfkYr_II) (~13 minutes)
+        - [Simplifying Causal Diagrams](https://youtu.be/h5C2iMoHFag) (~12 minutes)
+
+Formulate a research question that relates to an area that you're interested in. In class, we will be using the principles in Chapters 6 and 7 to draw a causal diagram that addresses this research question.
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- *Mixtape* [Chapter 3: Directed Acyclic Graphs](https://mixtape.scunning.com/03-directed_acyclical_graphs) but skip 3.1.3 Backdoor Criterion (~40 minutes)
+:::
+
+<!-- **During class:** [Causal graph fundamentals](03-causal-graphs-intro.qmd) -->
+
+
+## Day 2: Simulating data using causal graphs {#day4}
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- Video: [Key structures in causal graphs](https://youtu.be/UA0vyBnzi9U) (~12 min) ([slides](https://drive.google.com/file/d/1aMWXmbqouuf_IdU9CeY2BfncihyY1AwS/view?usp=sharing))
+    - Note 1: In this video, I refer to a concept called "exchangeability". This is a concept that I included in the last offering of this course. Exchangeability is a causal identification assumption. When the exchangeability assumption is satisfied, we can identify causal effects. When it is not satisfied, I call this "a lack of exchangeability". In the language we have used, this happens when there are alternate (noncausal) explanations for a relationship between two variables. So in the video, whenever you hear "creates a lack of exchangeability", replace that with "leads to the presence of alternate (noncausal) explanations for the relationship between two variables". When you hear "achieve conditional exchangeability", replace that with "we are able to address this alternate explanation when analyzing the data".
+    - Note 2: I use the formal probability ideas of marginal and conditional dependence and independence. You can get the essential ideas from this video by replacing terms in the list below. (If you want to learn or review these probability ideas (not required!), watch my [Probability Essentials](https://youtu.be/acofPsJDq5Y) video.)
+        - "A and B are marginally [independent/dependent]" = "A and B are [unrelated/related] in a general population"
+        - "A and B are conditionally independent" = "A and B are [unrelated/related] in subgroups (in each group defined by one or more variables)"
+
+- 2 readings from [Andrew Heiss's](https://www.andrewheiss.com/) Program Evaluation course:
+    - [Generating random numbers](https://evalsp24.classes.andrewheiss.com/example/random-numbers.html) (~35 min)
+    - [The ultimate guide to generating synthetic data for causal inference](https://evalsp24.classes.andrewheiss.com/example/synthetic-data.html) (Stop when you get to the subsection "Visualizing one variable") (~25 min)
+:::
+
+<!-- **During class:** [Simulating data using causal graphs](04-causal-graphs-simulation.qmd) -->
+
+
+## Day 3: Identifying causal effects with causal graphs {#day5}
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- Video: [Causal and Noncausal Paths](https://youtu.be/ShZP9SR2fbs) (~5 min)
+- Video: [D-Separation](https://youtu.be/eYtSHAlbWYw) (~8 min)
+- Reading: *The Effect* [Chapter 8: Causal Paths and Closing Back Doors](https://www.theeffectbook.net/ch-CausalPaths.html) (~35 minutes)
+    - Video alternatives:
+        - [Causal Pathways](https://youtu.be/ZTSgNR_PiXo) (~9 minutes)
+        - [Closing Causal Pathways, and Collider Variables](https://youtu.be/PJMVtpogJnQ) (~11 minutes)
+        - [Testing Causal Diagrams, and Placebo Tests](https://youtu.be/Zdbuf71i_Mg) (~8 minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- *Mixtape* [Section 3.1.3: Backdoor criterion](https://mixtape.scunning.com/03-directed_acyclical_graphs#backdoor-criterion) (~5 minutes)
+:::
+
+<!-- **During class:** [Identifying causal effects with causal graphs](05-causal-graphs-identification.qmd) -->
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 3: Causal graph wrap-up, randomized experiments, and target trials
+
+## Day 1: Identifying causal effects with causal graphs
+
+- Continuation of last Friday's topic
+
+<!-- **During class:** [Identifying causal effects with causal graphs](05-causal-graphs-identification.qmd) -->
+
+## Day 2: Randomized experiments
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- Reading: [Treatment Allocation and Randomization](https://online.stat.psu.edu/stat509/lesson/8) (~20 minutes) from Penn State's online notes for the course Design and Analysis of Clinical Trials
+:::
+
+<!-- **During class:** [Randomized experiments](06-rct.qmd) -->
+
+## Day 3: Target trial framework
+
+::: {.callout-note title="Required" icon=false}
+- Reading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). [Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5124536/pdf/nihms-790601.pdf). *Journal of Clinical Epidemiology*, *79*, 70–75. (~35 minutes)
+:::
+
+<!-- **During class:** [Target trial framework](07-target-trial.qmd) -->
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 4: Matching and regression discontinuity designs
+
+## Day 1: Matching
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- *The Effect* [Chapter 14: Matching](https://www.theeffectbook.net/ch-Matching.html) (~160 minutes)
+    - Video alternatives:
+        - [Matching](https://youtu.be/nRfRswoZlqo) (~11 minutes)
+        - [Five Questions About Matching](https://youtu.be/bafdI39LcoE) (~13 minutes)
+        - [Distance Matching](https://youtu.be/wMQTuRX3XmM) (~9 minutes)
+        - [Propensity Score Matching](https://youtu.be/1T3JYjhrNwE) (~10 minutes)
+        - [Coarsened Exact Matching and Entropy Balancing](https://youtu.be/Pp-qs-mNEjI) (~8 minutes)
+        - [When Matching Goes Wrong](https://youtu.be/M6AsS4zaWQk) (~14 minutes)
+        - [Treatment Effect Estimation with Matching](https://youtu.be/OE_KzNJl75k) (~7 minutes)
+- Journal article: [Matching Methods for Causal Inference: A Review and a Look Forward](http://dx.doi.org/10.1214/09-STS313) (~60 minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- *Mixtape* [Chapter 5: Matching and Subclassification](https://mixtape.scunning.com/05-matching_and_subclassification) (~140 minutes)
+:::
+
+<!-- **During class:** [Matching](08-matching.qmd) -->
+
+## Day 2: Matching
+
+<!-- **During class:** [Matching](08-matching.qmd) -->
+
+## Day 3: Regression discontinuity
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- *The Effect* [Chapter 20: Regression Discontinuity](https://www.theeffectbook.net/ch-RegressionDiscontinuity.html) (~130 minutes)
+    - Video alternatives:
+        - [Regression Discontinuity](https://youtu.be/5FM4-xbaS58) (~10 minutes)
+        - [Estimating Regression Discontinuity](https://youtu.be/FPBQL0OKmI0) (~11 minutes)
+        - [Adjustments to Regression Discontinuity](https://youtu.be/3HazJ8Tv6d0) (~8 minutes)
+        - [Checking Regression Discontinuity Assumptions](https://youtu.be/WJ7j08xVegY) (~11 minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- *Mixtape* [Chapter 6: Regression Discontinuity](https://mixtape.scunning.com/06-regression_discontinuity) (~170 minutes)
+:::
+
+<!-- **During class:** [Regression discontinuity designs](09-rdd.qmd) -->
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 5: Longitudinal/panel data
+
+## Day 1: Flex Day
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- 
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+## Day 2: Event studies / interrupted times series
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- *The Effect* [Chapter 17: Event Studies](https://www.theeffectbook.net/ch-EventStudies.html) (~70 minutes)
+    - Video alternatives:
+        - [Event Studies](https://youtu.be/_N9u9p-kNgg) (~12 minutes)
+        - [Interrupted Time Series](https://youtu.be/C3PnQxW9LiE) (~8 minutes)
+        - [Event Studies in Finance](https://youtu.be/1cBKzjp4_MI) (~11 minutes)
+:::
+
+**During class:** 
+
+## Day 3: Synthetic control
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- *The Effect* [Section 21.2.1: Synthetic Control](https://www.theeffectbook.net/ch-TheEdge.html#synthetic-control) (~10 minutes)
+    - Video alternatives:
+        - [Other Standard Research Designs](https://youtu.be/csEV78U367Y&t=57) (~5 minutes) (Just the part on the synthetic control method)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- *Mixtape* [Chapter 10: Synthetic Control](https://mixtape.scunning.com/10-synthetic_control) (~70 minutes)
+:::
+
+**During class:** 
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 6: Difference-in-differences
+
+## Day 1: Flex Day
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- 
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+## Day 2: Difference-in-differences and fixed effects models
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- *The Effect* [Chapter 16: Fixed Effects](https://www.theeffectbook.net/ch-FixedEffects.html) (~70 minutes)
+    - Video alternatives:
+        - [Fixed Effects](https://youtu.be/Z1QmFuPV9JA) (~12 minutes)
+        - [Estimating Fixed Effects](https://youtu.be/2Kz1g0RoTtI) (~8 minutes)
+        - [Random Effects](https://youtu.be/Esp0LWTBuk4) (~6 minutes)
+- *The Effect* [Chapter 18: Difference-in-Differences](https://www.theeffectbook.net/ch-DifferenceinDifference.html) (~80 minutes)
+    - Video alternatives:
+        - [Difference in Differences](https://youtu.be/ggYnrOGG97o) (~11 minutes)
+        - [Parallel Trends](https://youtu.be/NcHT8pl57HY) (~9 minutes)
+        - [Estimating Difference in Differences](https://youtu.be/95HxUdn-BJg) (~10 minutes)
+        - [Supporting Parallel Trends](https://youtu.be/ihIWuC6ULjo) (~9 minutes)
+        - [Dynamic Difference-in-Differences](https://youtu.be/_nknBbw-HFQ) (~10 minutes)
+        - [Staggered Treatment in Difference-in-Differences](https://youtu.be/hu2nDbnpALA) (~9 minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- *Mixtape* [Chapter 9: Difference-in-Differences](https://mixtape.scunning.com/09-difference_in_differences) (~230 minutes)
+:::
+
+**During class:** 
+
+## Day 3: Difference-in-differences and fixed effects models
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 7: Instrumental variables
+
+## Day 1: Instrumental variables
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- *The Effect* [Chapter 19: Instrumental Variables](https://www.theeffectbook.net/ch-InstrumentalVariables.html) (~85 minutes)
+    - Video alternatives:
+        - [Instrumental Variables](https://youtu.be/bfQgLnFdLSg) (~10 minutes)
+        - [Instrumental Variable Validity](https://youtu.be/HL8jR9CDlfA) (~10 minutes)
+        - [Estimating Instrumental Variables](https://youtu.be/DjLXqFTvVWg) (~12 minutes)
+        - [Testing Instrumental Variables Assumptions](https://youtu.be/B8MUeudCoWo) (~11 minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- *Mixtape* [Chapter 7: Instrumental Variables](https://mixtape.scunning.com/07-instrumental_variables) (~150 minutes)
+:::
+
+## Day 2: Instrumental variables
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁
+
+🍁 No class on Friday, October 18 🍁
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 8: Doubly robust estimation and project work time
+
+## Day 1: Doubly robust estimation
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+## Day 2: Flex Day
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+## Day 3: Project work
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 9: Causal discovery and sensitivity analyses
+
+## Day 1: Causal discovery
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+## Day 2: Sensitivity analyses
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+## Day 3: Sensitivity analyses
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 10: TBD
+
+## Day 1: TBD
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+## Day 2: TBD
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+## Day 3: TBD
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 11: TBD
+
+## Day 1: TBD
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+## Day 2: TBD
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+## Day 3: TBD
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 12: TBD
+
+## Day 1: TBD
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+## Day 2: TBD
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+## Day 3: TBD
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 13: TBD
+
+## Day 1: TBD
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+🦃 Thanksgiving Break: Wednesday, November 27 - Sunday, December 1 🦃
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 14: Project work time
+
+## Day 1: Project work time
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+## Day 2: Project work time
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+## Day 3: Project work time
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 15: Wrapping up
+
+## Day 1: TBD
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+## Day 2: Last day of class!
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- (~xx minutes)
+:::
+
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
+- (~xx)
+:::
+
+**During class:** 
+

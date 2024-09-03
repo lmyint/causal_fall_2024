@@ -1,0 +1,292 @@
+---
+title: "Syllabus"
+sidebar: false
+---
+
+# Welcome to Causal Inference!
+
+This is a course that is dear to my heart, and I'm excited to rediscover the the fascinating tools of this field with you.
+
+As a graduate student, I actually worked in a completely different area for my dissertation. I focused on studying data from biological technologies (mass spectrometers and sequencing machines) and developing methods to analyze that data.
+
+It was a happy and fortuitous occasion that I decided to take the course Causal Inference in Public Health during my 3rd year. I was immediately drawn in by the goals, tools, and application areas of the field---causal inference researchers really seemed to be studying meaningful and impactful issues. While I had little time to explore more of causal inference for the remainder of my graduate studies, the fascination stuck with me.
+
+When I got to Macalester in 2018, the possibility of engaging more with causal inference opened up. I taught the first version of this course in Spring 2019 and have been steadily learning more over the years, improving this course along the way. I hope that you find ideas that intrigue you and applications that excite you.
+
+Let's have a great semester!
+
+
+<br><br><br><br>
+
+
+# What is this course about?
+
+Causal inference focuses on understanding the effects of causes, rather than trying to identify the causes of effects. In fact, pursuing the former helps us learn about the latter. In learning about how to estimate the effects of causes, we will explore the following topics:
+
+- Potential outcomes framework
+- Causal graphs / graphical causal models
+- Study designs and analytical approaches: randomized experiments, target trial framework, matching, regression discontinuity, event studies/interrupted time series, synthetic control, difference-in-differences, instrumental variables, propensity score and weighting methods, doubly robust estimators
+- Causal discovery
+- Sensitivity / robustness analyses
+
+In terms of big picture goals, I hope that by the end of the course, you are able to:
+
+- Explain the goals of causal inference to general audiences
+- Formulate strategies for identifying causal effects that draw on causal graph methodology, study designs, and data context
+- Analyze data with appropriate methodology to estimate causal effect, and communicate the results and limitations of an analysis to general audiences
+- Conduct simulation studies to explore the properties of statistical methods
+- Communicate the intuition/ideas behind causal inference methods to general audiences
+- Recognize the potential for applying causal inference ideas in daily life
+- Articulate with greater clarity key insights about your process for learning challenging topics and about the way in which you collaborate with others
+
+::: {.callout-note appearance="simple" icon=FALSE title="Course catalog description"}
+"Correlation does not imply causation." We've all heard this mantra, warding us away from reading too much into the association between murder rates and ice cream sales, between shoe size and reading ability, and the like. But this mantra leaves us wanting: how do we study causation? Questions of causation are essential when we try to understand the effects of new medical treatments, policies, or programs. In this course, we'll examine frameworks of thinking, statistical tools, and study designs that enable us to learn about the causal effects of interventions. Some specific topics include graphical causal models, randomized experiments, propensity score methods, instrumental variables, and interrupted time series designs. This course should be useful to those interested in biology, economics, medicine, public policy and any area in which interventions are routinely evaluated.
+:::
+
+
+<br><br><br><br>
+
+
+# Course communication
+
+**Instructor:** Leslie Myint (lez-lee mee-int) (she/her)
+
+**About me:** Aside from data-related topics, I love talking about games! I love playing board games, Dungeons and Dragons (D&D), and Nintendo console games. I also love staying active with weightlifting, rock climbing, Mac intramural soccer, and dance. If it snows enough this winter (fingers crossed!), I'm hoping to learn how to cross-country ski.
+
+**Drop-in hours (office hours):** I'll be setting times for drop-in hours (office hours) based on feedback from the [welcome survey](https://docs.google.com/forms/d/e/1FAIpQLSetfi2z_fDkr_OZ9MBq5AqmCpccSZ0g6tbYLP1f6QtJXlh_9A/viewform?usp=sf_link). I'll update these hours on our [course homepage](index.qmd) and Moodle when they're finalized. I love getting to talk to students outside of class time---whether about class-related topics or anything else. Come chat with me!
+
+I'm also happy to meet one-on-one if my normal drop-in hours don't work. You can schedule a time to meet with me via [Calendly](https://calendly.com/lmyint).
+
+::: {.callout-note title="Call me \"Leslie\""}
+Students sometimes wonder what to call their professors. I prefer to be called Leslie, but if you prefer to be more formal, I am also ok with Professor Myint. My preferred gender pronouns are she/her/hers.
+
+Please help me make sure that I call you by your preferred name and pronouns too!
+:::
+
+
+
+<br><br><br><br>
+
+
+# Textbooks
+
+We will primarily use the following references (freely available online):
+
+- Required readings will generally come from *The Effect: An Introduction to Research Design and Causality* by Nick Huntington-Klein. This book is freely available online [here](https://www.theeffectbook.net/index.html).
+- Optional readings will generally come from *Causal Inference: The Mixtape* by Scott Cunningham. This book is freely available online [here](https://mixtape.scunning.com/).
+
+The following textbooks are also good resources (also freely available online):
+
+- **[PRIMER]**: Causal Inference in Statistics: A Primer, by Judea Pearl, Madelyn Glymour, and Nicholas P. Jewell. PDF freely available [online](http://bayes.cs.ucla.edu/PRIMER/).
+- **[WHATIF]**: Causal Inference: What If, by Miguel A. Hernán and James M. Robins. PDF freely available [online](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/).
+
+
+References for review
+
+- [STAT 155 Notes](https://mac-stat.github.io/Stat155Notes/): An online set of notes for STAT 155 written by the Macalester statistics faculty.
+- [Probability Essentials](https://youtu.be/acofPsJDq5Y): A YouTube video outlining some key ideas from probability. Not required material to know but useful if you want a reference on probability details.
+- [This article](https://medium.com/@EpiEllie/having-confidence-in-confidence-intervals-8f881712d837) by Eleanor Murray has a great explanation of the most common misinterpretation of confidence intervals.
+
+
+<br><br><br><br>
+
+
+# Guiding values
+
+## Community is key
+
+A sense of [community](https://www.educause.edu/research-and-publications/books/learning-spaces/chapter-4-community-hidden-context-learning) and connectedness can provide a powerful environment for learning: Research shows that learning is maximized when students feel a sense of belonging in the educational environment (e.g., Booker, 2016). A negative climate may create barriers to learning, while a positive climate can energize students' learning (e.g., Pascarella & Terenzini, cited in How Learning Works, 2012).
+
+For these reasons, I will be designing our in-class group activities to intentionally foster community and connectedness. You can help cultivate our classroom community by being thoughtful about the way you engage with others in class.
+
+## Reflection is paramount
+
+The *content* you learn will be cool (unbiased opinion!), but it is a **guarantee** that you will venture into areas not covered in your formal education. We only have a short time together, and fields evolve constantly. There will be many times in your career where you will need to learn on your own. What you will need to rely on when you leave Macalester is what I want to ensure you cultivate now: a good learning process. And the cornerstone of a good learning process is **reflection**.
+
+Reflection is not just fundamental to learning content--it's fundamental to learning any sort of intellectual, emotional, or physical skill. For this reason, I will be prioritizing reflection in our activities and assignments throughout the semester.
+
+## Mistakes are essential
+
+> An expert is a person who has made all the mistakes which can be made in a narrow field.
+> 
+> - *Niels Bohr, Nobel Prize-winning physicist*
+
+Perhaps paradoxically, an important way to gain confidence in an area is to make a lot of mistakes. As you move through this course, make note of any time your understanding changed and the situation in which that change happened. Your understanding will grow richer for doing so.
+
+## Communication is a superpower
+
+Every time I go to a conference talk on a technical topic, it is striking how quickly laptops or phones come out because of the inability to follow. Academics notoriously struggle to make ideas accessible to others.
+
+I want communication to be very different for you.
+
+Every time you communicate ideas--whether through writing, visuals, or oral presentation--I want you to be a total boss. The end product of strong communication is a better experience for all those who have given you their attention. What's more, the *process* of crafting effective communication is invaluable for deepening your own understanding:
+
+<center>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Read to collect the dots, write to connect them <a href="https://t.co/YbgnKKFUNn">pic.twitter.com/YbgnKKFUNn</a></p>&mdash; David Perell (@david_perell) <a href="https://twitter.com/david_perell/status/1411871612702543872?ref_src=twsrc%5Etfw">July 5, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+
+
+<br><br><br><br>
+
+
+# What to expect in and out of class
+
+When taking a new course, figuring out the right workflow/cadence of effort throughout the week can be a big adjustment. And most of you are doing this for 4 different courses! Below are some suggestions for what to expect in the course and how to focus your time and attention during and outside of class.
+
+## Outside of class
+
+**Pre-class videos/readings:** Most class periods will have a required video or reading to get acquainted with new concepts before seeing them again in class. Pre-class materials will focus more on conceptual ideas with less emphasis on code. My goal for these videos and readings is for you to familiarize yourself enough with the concepts so that we can go over both conceptual ideas and code in class.
+
+::: {.callout-tip title="Suggestions"}
+- As you take notes on videos/readings, highlight or otherwise mark all the areas where you have questions. Gather up all of these questions in one place, and bring them to class with you.
+- Record any reflections from in-class time about your learning process or interactions with peers while they are still fresh.
+- After learning a new topic in class, it is helpful to attempt the upcoming assignment as soon as possible. Just by getting some rough ideas down quickly, you avoid the difficulty of starting from a blank slate.
+- Come to instructor drop-in hours to chat about the course or anything else! 😃
+:::
+
+
+## During class
+
+Class time will be a mixture of **core idea days** and **flex days**. On our [schedule](schedule.qmd), any day that is not explicitly labeled as a flex day or project work day is a core idea day.
+
+On core idea days, class time will be a mix of interactive lecture and stretches of group work. During the lecture portion, I will pause explanation frequently to prompt a short exercise.
+
+On flex days, there will be options to continue practicing the topics that we have covered recently or to explore some ideas in more detail.
+
+::: {.callout-tip title="Suggestions"}
+- Throughout class time, reference your set of questions from the pre-class material. Have you made progress on addressing those questions? Who or what helped with improving your understanding, and how? Make notes of what concepts are still unclear so that you can review later.
+:::
+
+
+<br><br><br><br>
+
+
+# Capstone course requirements
+
+As a 400-level MSCS capstone, this course has the following expectations for *all* students:
+
+1. Seminars
+    - You will attend and subsequently submit a short reflection for at least 2 MSCS seminars, or other related presentations upon instructor approval.
+
+2. Capstone project
+    - This course includes a substantial project, and you must pass the project in order to pass the course.
+    - If you are an MSCS major, you are required to complete at least one 400-level course, thus at least one capstone project, in your major before spring of your senior year.
+    - You will choose one of these completed projects to later present on MSCS Capstone Days during your senior year (Fall for December graduates and Spring for May graduates).
+    - An overview of our course project is available later in this syllabus, and full details will be available on our course website's [project page](project.qmd).
+
+
+<br><br><br><br>
+
+
+# Grading and feedback
+
+## My philosophy
+
+Grading is thorny issue for many educators because of its [known negative effects on learning and motivation](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4041495/). Nonetheless, it is ever-present in the US education system and at Macalester. Because I am required to submit grades for this course, it's worth me taking a minute to share my philosophy about grading with you.
+
+What excites me about being a teacher is *your learning*.
+
+Learning flourishes in an environment where you find **meaning and value** in what we're exploring, feel **supported when engaging with challenges**, receive **useful feedback**, and **regularly reflect** on your learning.
+
+If I didn't have to give grades, I wouldn't. But because I am required to, it is important to me to create a course structure and grading system that allow learning to flourish:
+
+- **Finding meaning and value:** I am striving to achieve this by:
+    - Creating space for authentic connection between you, your peers, and myself
+    - Building flex days into our schedule so that you have time to focus on what *you* want to get out of the course
+    - Encouraging you to explore a topic that intrigues you for our course project
+
+- **Support in engaging with challenges:** The assignments and activities that we will use to learn are *meant to be challenging*, and it would be unreasonable for me to expect that you have perfect understanding on the first try. For this reason, the opportunity to **revise without penalty** on assignments is something I believe in strongly. Solid learning does not happen under excessive stress, and I think that a lot of that stress comes from the general culture of perfection in academia.
+
+- **Receiving useful feedback and reflecting regularly:** My aim with feedback is to always provide guidance towards improvement, no matter where you are in your progress. However, good feedback alone is useless---learners need to engage deeply with feedback in order to benefit the most from it. For this reason, my stance on feedback is the following: *I only want to give feedback on work that* **you** *want to read feedback on.* This informs the approach that we'll take for assignments in this course.
+
+## Assignments and assessments
+
+There are no in-class examinations (like quizzes or exams) in this course. A **portfolio** and a **course project** are the two sources of submitted work that will receive feedback.
+
+### Portfolio
+
+**Purpose:** Over the course of the semester, you'll build up a portfolio in which you organize course ideas that are most important to you in a way that is most beneficial to your future self. My hope is that you can easily use this portfolio in the future in case you want a reference that is tailored to you.
+
+**Overview:** 
+
+- Starting the 3rd week of the semester, an assignment will be due every Friday in which you add to this portfolio.
+- These assignments will ask you to reorganize the information from course topics in a way that is more optimal for you to navigate. In completing these assignments, you have the freedom to draw from class activities, but you will need to add explanations, transitions between ideas, and connections that we won't necessarily do together in class activities.
+- Most of the time, you'll submit these assignments as Quarto files (`.qmd`) because you'll be required to include both code and writing. I'll add comments directly to your `.qmd` file and re-upload them as feedback on Moodle.
+
+Details for all assignments can be found on the [Assignments](assignments.qmd) page.
+
+### Project
+
+**Purpose:** Complete a project that you would be proud to talk about in depth during a job interview or present during MSCS Capstone Days in the spring.
+
+**Overview:**
+
+- Two main options for the project are available: (1) a data analysis using causal tools and (2) creating a tutorial on a topic not covered in class. If you feel strongly about pursuing a different type of project, we can meet to discuss.
+- Through weekly milestones at the end of the semester, you will make steady progress on your projects and iterate on feedback.
+
+Full details about the project can be found on the [Project page](project.qmd).
+
+
+
+## Course grading system
+
+Before I decide on a course grading system, I would like your input. Everyone has different sources of motivation and thrives in different types of environments, and I would like to learn more about each of your motivations before making decisions on a system that could have notable impacts on your experience in the course.
+
+[Assignment 1](assignments.qmd) will be a short piece of writing that helps me learn about you in this regard. We will use insights from your writing to inform a discussion on the grading system in the first weeks of class.
+
+<!-- https://support.google.com/jamboard/thread/103700658/is-google-jamboard-anonymous-will-students-be-able-to-see-who-is-posting-what-reply?hl=en -->
+
+
+
+<br><br><br><br>
+
+
+# Other policies
+
+## Late work
+
+Homework assignments will generally be due **weekly on Fridays at 5pm**. If you anticipate needing more time to complete an assignment, please email me ahead of time to discuss. My main constraint is the desire to give you feedback before the next assignment is due, and I'll be working on feedback on the Monday-Thursday after an assignment is due.
+
+## Academic integrity
+
+Academic integrity is the cornerstone of our learning community. Students are expected to be familiar with the [college's standards](http://www.macalester.edu/academicprograms/academicpolicies/academicintegrity/) on academic integrity.
+
+I encourage you to work with your classmates to discuss material and ideas for assignments, but in order for you to receive individualized feedback on your own learning, you must submit your own work. This involves writing your own code and putting explanations into your own words. Always cite any sources you use, including AI (see section below).
+
+## Artificial intelligence (AI) use
+
+AI can both interfere with and enhance our capacity to learn. We must be mindful of when it might hinder us and when it might provide us with new understanding and/or assistance. What is most important to me about our AI usage in this course is the following:
+
+- AI usage must always be cited with the prompt and full output.
+    - Why do I care about this? I want to see and give feedback on *your* thinking.
+    - I will not use AI frequently out of personal preference, but when I do, I will always share the prompt and output.
+
+- AI output can be a *part* of your responses on assignments, but it **always** needs to be accompanied by double-checking, commentary, and interpretation from you.
+    - Why do I care about this? Again, I want to see and give feedback on *your* thinking. But also quite importantly, AI does not always generate complete and/or accurate output. Because of its training data, it will almost certainly hallucinate or give inaccurate information when asked about more modern advances in the field.
+
+Please be aware of the following general limitations of AI:
+
+- AI does not always generate accurate output. If it gives you a number, fact, or code, assume it is wrong unless you either know the answer or can check in with another source. AI works best for topics you already understand to a sufficient extent.
+- If you provide minimum effort prompts, you will get low quality results. You will need to refine your prompts in order to get good outcomes. This will take work.
+- Be thoughtful about when this tool is useful. Don't use it if it isn't appropriate for the case or circumstance.
+- The environmental impact of AI should not be ignored. The building and usage of AI tools consume a lot of energy (see [here](https://www.nature.com/articles/s42256-020-0219-9) and [here](https://www.cfr.org/blog/artificial-intelligences-environmental-costs-and-promise)). For this reason, let's be thoughtful about when we use AI and think about other sustainability behaviors that we can incorporate into our lives to offset this usage.
+
+If you have any questions about your use of AI tools, please contact me to discuss them.
+
+
+<br><br><br><br>
+
+
+# Well-being
+
+I want you to succeed. Both here at Macalester and beyond. To help make this happen, I am committed to the following.
+
+**Respect:** Everyone comes from a different path through life, and it is our moral duty as human beings to listen to each other without judgment and to respect one another. I have no tolerance for discrimination of any kind, in and out of the classroom. If you are seeking campus resources regarding discrimination, the [Department of Multicultural Life](https://www.macalester.edu/multiculturallife/) and the [Center for Religious and Spiritual Life](https://www.macalester.edu/religiouslife/) are wonderful resources. We will also respect the [MSCS Community Guidelines](https://docs.google.com/document/d/e/2PACX-1vSlLLWmyOf8WKGDKJ_qypgA_kQI1dNFGEKH0mtFoqfAUARZN7ypVCgivnmPjccks9jJzW1rgEzt7QMI/pub).
+
+**Sensitive Topics:** Applications in this course span issues in science, policy, and society. As such, we may sometimes address topics that are sensitive for you. I will try to announce in class if an assignment or activity involves a potentially sensitive topic. If you have reservations about a particular topic, please come talk to me to discuss possible options.
+
+**Accommodations:** If you need accommodations for any reason, please contact [Disability Services](https://www.macalester.edu/studentaffairs/disabilityservices/accommodations/) to discuss your needs, and speak with me as soon as possible afterwards so that we can discuss your accommodation plan. If you already have official accommodations, please discuss these with me within the first week of class so that you get off to a great start. Contact me if you have other special circumstances. I will find resources for you.
+
+**Title IX:** You deserve a community free from discrimination, sexual harassment, hostility, sexual assault, domestic violence, dating violence, and stalking. If you or anyone you know has experienced harassment or discrimination, know that you are not alone. Macalester provides staff and resources to help you find support. More information is available on the [Title IX website](https://www.macalester.edu/titleix/).
+
+**General Health and Well-being:** I care that you prioritize your well-being in this semester and beyond. Investing time into taking care of yourself will have profound impacts on all aspects of your life. Remember that beyond being a student, you are a human being carrying your own experiences, thoughts, emotions, and identities. It is important to acknowledge any stressors you may be facing, which can be mental, emotional, physical, cultural, financial, etc., and how they can have an impact on you. I encourage you to remember that you have a body with needs. In the classroom, eat when you are hungry, drink water, use the restroom, and step out if you are upset and need some air. Please do what is necessary so long as it does not impede your or others' ability to be mentally and emotionally present in the course. Outside of the classroom, sleeping well, moving your body, and connecting with others can be strategies can help nourish you. If you are having difficulties maintaining your well-being, please don't hesitate to contact me and/or find support from physical and mental health resources [here](https://docs.google.com/document/d/1lz-ii5yze_OSkQJqz_7pap7fRjG81LJh0_saBniP-zg/edit), [here](https://docs.google.com/document/d/1iC-ykD8QJ-w2BVO1Gb0AobD-00Zq_8mznWR5C2mNiF0/edit?usp=sharing), and [here](https://www.macalester.edu/current-students/).

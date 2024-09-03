@@ -1,0 +1,18 @@
+---
+title: "Welcome to Causal Inference!"
+subtitle: "Introductions, foundational ideas"
+sidebar: false
+---
+
+# Goals
+
+- Meet and get to know your peers
+- Gain an understanding of what this course is about
+- Reflect on intuitions about causation
+- Get acquainted with a framework for thinking about causal effects
+
+<br>
+
+**Activity under construction**
+
+<!-- Slides for today: [HTML](slides/01-introductions.qmd), [PDF](slides/01-introductions.pdf) -->

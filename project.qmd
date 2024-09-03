@@ -1,0 +1,87 @@
+---
+title: "Project"
+sidebar: false
+---
+
+# Project Options
+
+## Option 1: Data analysis
+
+**Overview:** Perform a causal analysis on a dataset of your choice.
+
+**Collaboration:** Groups of up to 3. Individual work is fine.
+
+Resources for finding data:
+
+It's fine with me if you use a dataset associated with an existing project (like an honors project) or a projec for another class (as long as it's ok with the other instructor).
+
+- [Google Dataset Search](https://datasetsearch.research.google.com/)
+- [Harvard Dataverse](https://dataverse.harvard.edu/)
+- [Inter-university Consortium for Political and Social Research (ICPSR)](https://www.icpsr.umich.edu/)
+- [IPUMS](https://ipums.org/)
+- Macalester's librarians can also be a great resource for finding data. Schedule an appointment with them [here](https://www.macalester.edu/library/askus/).
+
+
+<br><br>
+
+
+## Option 2: Learn an advanced topic
+
+**Overview:** Dig deeper into existing course topics or learn a new topic. Examples could include:
+
+- Methods for transportability (generalizability) of effects
+- Interference
+- Specialized considerations for particular study designs
+- Machine learning in causal inference
+- Individual causal effect estimation
+
+**Collaboration:** Groups of up to 3. Individual work is fine.
+
+
+<br><br>
+
+
+## Option 3: Other
+
+If none of these options piques your interest, I'm happy to discuss alternatives with you. Some ideas:
+
+- Design a Shiny app to illustrate causal concepts to students
+- Write (part of) an R package for making it easier to work with causal graphs
+- Critique of applied research
+    - This is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.
+    - Find and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors' data collection and analysis methods.
+    - Discuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research.
+
+
+<br><br><br><br>
+
+
+# Deliverables
+
+Each group will turn in a **final paper** and give a **presentation**.
+
+**Citations:** In-text citations and references should follow the [APA format](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/in_text_citations_author_authors.html).
+
+
+<br><br><br><br>
+
+
+# Timeline
+
+## Milestone 1
+
+**Due date:** Friday, November 8 at 5PM
+
+As part of this milestone, you will pick a project option, pick a specific topic, and form a group (if not working alone).
+
+You will submit a short write-up that varies by project option. (No page length requirements---just convey the information that you need to.)
+
+- Data analysis option: You will write a draft of the Introduction, Data, and Methods sections of your paper.
+    - Introduction: Give background for your topic, including relevant theory, domain knowledge, and prior research. Incorporate findings from at least 3 journal articles.
+    - Data: Describe the data that you have and how it was collected. Include any limitations or cautions that are important to keep in mind about the data. Think about the who, what, when, where, why, and how behind your data to inform your discussion in this section.
+    - Methods: Write a detailed **plan** for the analyses that you will conduct. This part can be written in bullet points.
+    
+- Advanced topic option: Your final paper will be structured as a tutorial, and for this milestone, you'll make progress towards writing this tutorial.
+    - Introduce the big idea behind this topic. Make connections between your topic and the topics we covered in class so that others can have a better sense of how this topic fits into the field of causal inference.
+    - Explain 1 idea that you learned from your research so far. Include a citation to at least 1 journal article.
+    - Write a plan for your remaining research. Describe the ideas are you planning to learn in the remaining time. Describe a simulation study that you will perform to explore some of the theory behind your topic.

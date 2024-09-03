@@ -1,0 +1,245 @@
+---
+title: "Causal identification: building intuition"
+sidebar: false
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+# Goals
+
+- Explain what is meant by the term **causal identification**
+- Think about the data-generating process (DGP) in a given context to understand its impact on causal identification
+- Get a sense for different approaches to causal identification that we will explore in this course
+
+
+
+<br><br><br><br>
+
+
+
+# Review
+
+## Research questions
+
+> Coming up with a question is easy. Just ask any five-year-old and they can provide you with dozens. Coming up with a good research question is much harder.
+> 
+> What's the difference? The difference, at least in the case of quantitative empirical research, is that a research question is a question *that can be answered*, and for which having that answer will *improve your understanding of how the world works*.
+
+Asking "how" (as in "how do we do better?") naturally leads to "Should we..." questions:
+
+- How can we mitigate the effects of climate change?
+- Should we implement a plastic tax?
+
+
+<br><br>
+
+
+## Identification: warm-up
+
+<!-- 1. Think about the last time you sat down in a chair (perhaps right now). When you did that, you probably predicted you would observe that you would end up sitting in the chair, rather than passing through it or the chair breaking. List three assumptions you made about the data generating process when you made that prediction. -->
+
+When we say "this variation has identified the effect we're interested in", which of the following is the best definition of the term **identified**? *Explain why you think your chosen response is the best definition and why the others are not.*
+
+a. We've generated the data by conducting a controlled experiment in which treatment is randomly assigned.
+b. In the data generating process, the only reason why we see variation in the outcome variable is because of the treatment variable.
+c. The relationship we are looking at in the data actually tests a hypothesis.
+d. In the variation we use, there's no reason we'd see any relationship at all except for the effect we're interested in.
+
+
+<br><br>
+
+
+## Isolating variation
+
+Example: A child's shoe size is a great predictor of their reading ability
+
+- We can quantify *co*variation in shoe size and reading ability with measures like the correlation coefficient, slope and confidence interval
+- When we think about the underlying data-generating process, we see that the totality of this covariation also encompasses the covariation in: 
+    - age and shoe size
+    - age and reading ability
+- We can *isolate* a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability
+    - $E[📖 \mid ShoeSize, Age] =\beta_0 + \beta_1 ShoeSize + \beta_2 Age $
+
+There are other ways to isolate variation that we will explore today and throughout the semester.
+
+
+
+<br><br><br><br>
+
+
+
+# Exercises
+
+## Exercise 1
+
+We are interested in the effect of mindful breathing practices on stress levels.
+
+### Part a
+
+Suppose we tried to estimate this effect by surveying people at Macalester. We ask them if they engage regularly in mindful breathing practices and to report their general stress levels on a 1-10 scale (1 = lowest stress, 10 = highest stress).
+
+Would we be identifying the causal effect by comparing the mean stress levels in those who do regularly use mindful breathing with those who don't? What aspects of the data generating process (DGP) are relevant for your response?
+
+### Part b
+
+Now suppose that we were able to find 500 people with a self-reported stress level of 6 who don't already engage in mindful breathing. The Hamre Center has resources to enroll 250 people in a 3-month mindful breathing program. They decide to randomly select the 250 participants from the 500 and measure the stress levels of all 500 people after the 3-month program.
+
+Would we be identifying the causal effect by comparing the mean stress levels after 3 months in those enrolled in the program with those who weren't enrolled? What aspects of the data generating process (DGP) are relevant for your response?
+
+<!--
+A group of 500 adults using a healthcare service is seeking a mental wellness program. The healthcare service only has resources to enroll half of the interested adults in a 3-month mindful breathing program.
+
+The service randomly picks half of the adults to participate in the mindful breathing program (treatment group), and the other half does not participate at this time (control group).
+
+All 500 of the adults report their general stress levels as a score from 1-10 before that mindful breathing program begins and after it ends (1 = lowest stress, 10 = highest stress).
+
+The mean stress levels in the treatment and control groups are shown below:
+
+```
+                     Pre-program          Post-program
+Treatment group           6.0                  4.4
+Control group             5.9                  6.1
+```
+
+The table below will organize information on mean potential outcomes at the post-program time point. Fill in what information is known, and put ?'s where the information is unknown.
+
+```
+                         Y^a=1          Y^a=0
+Treatment group           ___            ___
+Control group             ___            ___
+```
+
+- Do you think that it would be ok to use observed information on mean potential outcomes to fill in missing information? Why or why not? Draw upon your responses in part (a) in your response here.
+- How is this related to identification?
+-->
+
+
+## Exercise 2
+
+We notice that ice cream sales in St. Paul are correlated with the percentage of the population wearing shorts and wonder if there is a causal relationship between the two.
+
+### Part a
+
+In this context, what aspects of the data generating process do you think are most important to keep in mind? What alternative explanations can you come up with?
+
+### Part b
+
+Recall that the main idea with identification is to find variation that we want to use and get rid of variation that we don't want.
+
+For this context, a number of plots and linear regression model output are shown below. Explain how these results show desired variation, undesired variation, and the process of identification by getting rid of undesired variation.
+
+```{r ice_cream_sim}
+set.seed(451)
+ice_cream_data <- tibble(
+    temp = rep(0:90, each = 4),
+    perc_shorts = case_when(
+        temp < 40 ~ 3*sqrt(temp) + 10, 
+        temp >= 40 & temp < 65 ~ 1.5*temp - 30,
+        temp >= 65 ~ temp + 9
+    ),
+    ice_cream_sales = log(temp+1)^2 + 100 + rnorm(364, 0, 10)
+) %>% 
+    mutate(
+        perc_shorts = perc_shorts + rnorm(364, 0, 2),
+        perc_shorts = pmax(perc_shorts, 10),
+        perc_shorts = pmin(perc_shorts, 98)
+    )
+```
+
+```{r ice_cream_output}
+ggplot(ice_cream_data, aes(x = perc_shorts, y = ice_cream_sales)) +
+    geom_point() +
+    geom_smooth(se = FALSE) +
+    labs(x = "% of St. Paul wearing shorts", y = "Ice cream sales ($10's)") +
+    theme_classic()
+
+ggplot(ice_cream_data, aes(x = temp, y = perc_shorts)) +
+    geom_point() +
+    labs(x = "Temperature (F)", y = "% of St. Paul wearing shorts") +
+    theme_classic()
+
+ggplot(ice_cream_data, aes(x = temp, y = ice_cream_sales)) +
+    geom_point() +
+    geom_smooth(se = FALSE) +
+    labs(x = "Temperature (F)", y = "Ice cream sales ($10's)") +
+    theme_classic()
+
+lm(ice_cream_sales ~ perc_shorts, data = ice_cream_data) %>% summary()
+lm(ice_cream_sales ~ perc_shorts + temp, data = ice_cream_data) %>% summary()
+```
+
+
+
+## Exercise 3
+
+We are interested in the effect of a résumé writing workshop (`Treatment`) on adults' ability to secure a new job (`Outcome`). Suppose that we have thought carefully about the data-generating process and determined that age, education level, income, employment status, and marital status are the most important factors in alternative explanations.
+
+### Part a
+
+```{r}
+# Create the example dataset
+data <- tibble::tribble(
+  ~ID, ~Age, ~Education, ~Income, ~Employment, ~MaritalStatus, ~Treatment, ~Outcome,
+  1, 25, "HighSchool", "Low", "Employed", "Single", 1, 0,
+  2, 30, "College", "Medium", "Employed", "Married", 1, 1,
+  3, 28, "HighSchool", "Low", "Unemployed", "Single", 1, 0,
+  4, 35, "College", "High", "Employed", "Married", 1, 1,
+  5, 40, "College", "High", "Unemployed", "Married", 1, 0,
+  6, 22, "HighSchool", "Low", "Employed", "Single", 0, 1,
+  7, 30, "HighSchool", "Medium", "Unemployed", "Married", 0, 0,
+  8, 45, "College", "High", "Employed", "Single", 0, 1,
+  9, 50, "HighSchool", "Low", "Employed", "Single", 0, 0,
+  10, 30, "College", "Medium", "Employed", "Married", 0, 1
+)
+
+# Display the dataset
+data
+```
+
+For case 2, we observe the potential outcome under treatment $Y^{a=1}$. Do you think that we might be able to directly guess this unit's counterfactual outcome $Y^{a=0}$ by using information from another case? Why or why not? 
+<!-- 2 matches 10 exactly -->
+
+What about for case 1? <!-- 1 matches 6 almost, just off by 3 years in age-->
+
+### Part b
+
+Thinking about the process that you went through in part (a), do you think this process gets easier with more variables? Why or why not?
+
+::: {.callout-note collapse="true" title="Exercise 3 context (read after completion)"}
+I used ChatGPT to generate the example dataset in Part a. This is the prompt I used:
+
+> Can you give me an example dataset with 10 cases that has one age variable, 4 categorical socioeconomic variables, and one binary outcome variable? This dataset is intended to provide an example of the matching causal inference method to students. This dataset should have some exact and approximate matches.
+:::
+
+
+
+## Exercise 4
+
+The following 2 figures come from a study of the effect of attending a state flagship university on earnings a few years after college graduation. Flagship state universities tend to be the premier public colleges in the state. They are often the first college to have been established in the state and the most research-intensive with more resources.
+
+In the first figure, the x-axis indicates the number of SAT points away from the admissions cutoff for the state flagship (a recentered SAT score). (The cutoff is a strongly suggested but not a hard cutoff for admission.) Each point shows the enrollment rate at the flagship university for that recentered SAT score. The solid lines show nonlinear trends fitted separately to the left and to the right of x=0. The t=10.57 indicates a test statistic for a hypothesis test on the jump at x=0.
+
+![](https://mixtape.scunning.com/graphics/rdd_hoekstra1.jpg)
+
+In the second figure, the x-axis is the same, and the y-axis represents the natural log earnings after calendar year, years of work experience, and graduation year have been accounted for (which is what the "(Residual)" part of the axis label is indicating). (More details are described in [this section](https://mixtape.scunning.com/06-regression_discontinuity#a-picture-is-worth-a-thousand-words) of our *Mixtape* textbook.) The z=3.01 indicates a test statistic for a hypothesis test on the jump at x=0.
+
+![](https://mixtape.scunning.com/graphics/rdd_hoekstra2.jpg)
+
+- What do you notice and wonder when you look at these two figures?
+- What story do you think the author is trying to tell with theses figures?
+- If the admissions cutoff did not exist, what do you think the relationship between enrollment rate and SAT points would look like?
+
+
+
+## Exercise 5
+
+[This paper](https://academic.oup.com/ije/article/49/6/2010/5917161) looked at the effect of Florida's 2005 "Stand Your Ground" (SYG) law on homicide rates. The law gave citizens the right to use lethal force in self-defense in public places where they felt threatened.
+
+Take a look at panel A from [this figure](https://academic.oup.com/view-large/figure/226574213/dyaa152f4.tif) from the paper.
+
+- What do you notice about the trends in Florida and the comparison states?
+- Draw or describe what you guess might have happened in Florida had it not enacted the Stand Your Ground law. How is this related to identification of the causal effect of the SYG law on homicide rates?
+
+

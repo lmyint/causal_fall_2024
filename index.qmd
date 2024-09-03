@@ -1,0 +1,17 @@
+---
+title: "STAT 451: Causal Inference"
+subtitle: "Fall 2024"
+sidebar: false
+---
+
+<img src="images/stat451_hex.png" width=300 style="float: right; padding-left: 20px; padding-bottom: 20px;">
+
+<br>
+<div style="font-size: 30px;">Become a producer of actionable knowledge by exploring how to quantify the impact of interventions</div>
+
+<br><br><br><br>
+
+**Instructor:** [Leslie Myint](https://www.lesliemyint.org) <br>
+**Class meeting times:** MWF 10:50-11:50am <br>
+**Class location:** THEATR 204 <br>
+**Instructor drop-in hours:** Olin Rice 232; Hours TBD

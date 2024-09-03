@@ -1,0 +1,57 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!activity_templates/"
+    - "!02-identification.qmd"
+    - "!03-causal-graphs-intro.qmd"
+    - "!04-causal-graphs-simulation.qmd"
+    - "!05-causal-graphs-identification.qmd"
+    - "!06-rct.qmd"
+    - "!07-target-trial.qmd"
+    - "!08-matching.qmd"
+    - "!09-rdd.qmd"
+    - "!10-flex-1.qmd"
+  resources:
+    - "data/*.csv"
+
+website:
+  title: "STAT 451"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - file: index.qmd
+        text: "Home"
+      - file: schedule.qmd
+        text: "Schedule"
+      - file: syllabus.qmd
+        text: "Syllabus"
+      - sidebar:activities
+      - file: assignments.qmd
+        text: "Assignments"
+      - file: project.qmd
+        text: "Project"
+
+  sidebar:
+    - id: activities
+      title: "Activities"
+      contents:
+        - 01-introductions.qmd
+  
+  page-footer:
+    left: |
+      &copy; Leslie Myint, 2024<br>
+      All content licensed under ![](https://static.thenounproject.com/png/70967-200.png){height=20px} ([CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/))
+    right: |
+      Site built with [Quarto](https://quarto.org/)
+
+format:
+  html:
+    theme: sandstone
+    css: styles.css
+    toc: true
+    code-overflow: wrap
+
+editor: source
