@@ -1,6 +1,5 @@
 ---
-title: "Welcome to Causal Inference!"
-subtitle: "Introductions, foundational ideas"
+title: "Introductions and foundational ideas"
 sidebar: false
 ---
 
@@ -13,6 +12,4 @@ sidebar: false
 
 <br>
 
-**Activity under construction**
-
-<!-- Slides for today: [HTML](slides/01-introductions.qmd), [PDF](slides/01-introductions.pdf) -->
+Slides for today: [HTML](slides/01-introductions.qmd), [PDF](slides/01-introductions.pdf)

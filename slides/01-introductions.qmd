@@ -11,10 +11,30 @@ format:
     pdf: default
 ---
 
----
+## Welcome to Causal Inference!
 
-> When you pray, move your feet.
-> - African proverb
+To follow along:
+
+- Open Moodle
+- Under Course Resources, click link for our course website
+- Under Activities (top menu), click "Introductions and foundational ideas"
+
+Quote of the day:
+
+> New goals don’t deliver new results. New lifestyles do. And a lifestyle is a process, not an outcome. For this reason, all of your energy should go into building better habits, not chasing better results. 
+>
+> - James Clear
+
+
+## Building community
+
+Before we start talking about causal inference, we will take time to get to know each other.
+
+Take 5 minutes to have a conversation with the people at your table:
+
+- Introduce yourselves however you see fit.
+- What's something that's on your mind this fall?
+
 
 ## My causal journey
 
@@ -68,39 +88,15 @@ Trying to do *good* causal inference brings out the best in us.
 It requires **collaboration** with people of diverse expertise, **humility**, and **slow thinking**.
 :::
 
+::: {.fragment}
 (Speaking of diverse expertise, you all come from a *huge* variety of backgrounds! Statistics, Economics, Data Science, Biology, Environmental Science, Math, Sociology, Political Science, Chemistry)
-
+:::
 
 ## Some inspiration
 
 > These tools and ideas are the kinds of things that, if you use them right, can turn you from a *consumer* of knowledge into a *producer*. You can find the answer to questions nobody else has the answer to. You can figure out how the world really works on your own. I think that's pretty darn cool!
 > 
 > [The Effect](https://www.theeffectbook.net/introduction.html) - Introduction
-
-
-## Introduce yourselves
-
-On your index cards, please write the following:
-
-- Preferred name
-- Personal pronouns
-- Year in school
-- Hobbies, interests, curiosities
-- Notable things going on for you this semester/year
-- What is an area where you tend to think about "Should we?" types of questions? What are some specific "Should we?" questions that you've thought about?
-
-::: {.fragment}
-If you are sitting with multiple people you already know well, move to sit with more people you don't know. Share whatever feels right with the others at your table.
-:::
-
-
-## My index card
-
-- Hey, I'm Leslie! I use she / her pronouns.
-- This is my 7th year at Mac.
-- I love writing (personal website, Substack), board games, video games, climbing and weightlifting. I started dance classes this summer.
-- I love recycling! The individual role that we all play in caring for the earth is a space where I think about "Should we?" often. Should we create some clearly positive incentives for individuals to recycle more and produce less waste?
-    - (I'm training to become a St. Paul recycling ambassador this fall!)
 
 
 ## Plan for remainder of today
@@ -159,12 +155,6 @@ Lucy D'Agostino McGowan at Vanderbilt came up with a great mapping between these
 Maybe we are sure about some causes because we really do feel like we know what would have happened *if things had somehow been different*.
 
 
-<!-- ## Reflection: -->
-
-<!-- - Cause is a word we take for granted. What do you think people mean when they say "A causes B"? -->
-<!-- - Let's examine a context relevant in this space. The decision for a college to go test-optional. What questions about causes are relevant here? -->
-
-
 ## Potential outcomes
 
 The outcomes that would (potentially) result under different scenarios of an **exposure** or **treatment**.
@@ -194,7 +184,7 @@ In *[It's a Wonderful Life](https://en.wikipedia.org/wiki/It%27s_a_Wonderful_Lif
 
 In *[Everything Everywhere All at Once](https://en.wikipedia.org/wiki/Everything_Everywhere_All_at_Once)*, Evelyn Wang is able get a glimpse of the lives of the people around her under different "incarnations" of herself.
 
-<!-- ![](https://upload.wikimedia.org/wikipedia/en/1/1e/Everything_Everywhere_All_at_Once.jpg) -->
+![](https://m.media-amazon.com/images/M/MV5BYTdiOTIyZTQtNmQ1OS00NjZlLWIyMTgtYzk5Y2M3ZDVmMDk1XkEyXkFqcGdeQXVyMTAzMDg4NzU0._V1_FMjpg_UX1000_.jpg)
 
 
 ## Potential outcomes: Example 1
@@ -302,6 +292,7 @@ Despite this fundamental problem, we have ways of making good guesses about the 
 
 ## Recap and reflection
 
+Let's take a few minutes to reflect on the ideas of potential outcomes and how we're defining causal effects. Are these satisfying ways for you to think about causation?
 
 
 ## What level will the course be at?
@@ -321,7 +312,7 @@ Despite this fundamental problem, we have ways of making good guesses about the 
 > [The Effect](https://www.theeffectbook.net/introduction.html) - Introduction
 
 
-## Flex days
+## Flex Days
 
 I want you to get what you want out of this course.
 
@@ -350,4 +341,5 @@ Given the diversity of our class, a one-size-fits-all approach to what we cover 
 
 - Check the [Schedule](../schedule.qmd) for readings from *The Effect*. (Chapters 1, 2, and 5)
     - Readings from *The Effect* always have video alternatives from the textbook author.
+- Update your R and RStudio installations as described [here](https://lmyint.github.io/155_fall_2024/r_resources.html).
 

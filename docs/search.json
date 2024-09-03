@@ -112,22 +112,22 @@
     "text": "Day 2: Causal identification (9/6)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 5: Identification (~50 minutes)\n\nVideo alternatives:\n\nIdentification: Data Generating Processes (~8 minutes)\nIdentification: Alternative Explanations (~9 minutes)\nIdentification: Alcohol and Mortality (~9 minutes)"
   },
   {
-    "objectID": "schedule.html#day-1-causal-graph-fundamentals",
-    "href": "schedule.html#day-1-causal-graph-fundamentals",
+    "objectID": "schedule.html#day3",
+    "href": "schedule.html#day3",
     "title": "Schedule",
     "section": "Day 1: Causal graph fundamentals",
     "text": "Day 1: Causal graph fundamentals\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 6: Causal Diagrams (~40 min)\n\nVideo alternatives:\n\nCausal Diagrams: Causality (~9 minutes)\nCausal Diagrams (~12 minutes)\n\n\nThe Effect Chapter 7: Drawing Causal Diagrams (~30 min)\n\nVideo alternatives:\n\nDrawing Causal Diagrams (~13 minutes)\nSimplifying Causal Diagrams (~12 minutes)\n\n\n\nFormulate a research question that relates to an area that you’re interested in. In class, we will be using the principles in Chapters 6 and 7 to draw a causal diagram that addresses this research question.\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 3: Directed Acyclic Graphs but skip 3.1.3 Backdoor Criterion (~40 minutes)"
   },
   {
-    "objectID": "schedule.html#day-2-simulating-data-using-causal-graphs",
-    "href": "schedule.html#day-2-simulating-data-using-causal-graphs",
+    "objectID": "schedule.html#day4",
+    "href": "schedule.html#day4",
     "title": "Schedule",
     "section": "Day 2: Simulating data using causal graphs",
     "text": "Day 2: Simulating data using causal graphs\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Key structures in causal graphs (~12 min) (slides)\n\nNote 1: In this video, I refer to a concept called “exchangeability”. This is a concept that I included in the last offering of this course. Exchangeability is a causal identification assumption. When the exchangeability assumption is satisfied, we can identify causal effects. When it is not satisfied, I call this “a lack of exchangeability”. In the language we have used, this happens when there are alternate (noncausal) explanations for a relationship between two variables. So in the video, whenever you hear “creates a lack of exchangeability”, replace that with “leads to the presence of alternate (noncausal) explanations for the relationship between two variables”. When you hear “achieve conditional exchangeability”, replace that with “we are able to address this alternate explanation when analyzing the data”.\nNote 2: I use the formal probability ideas of marginal and conditional dependence and independence. You can get the essential ideas from this video by replacing terms in the list below. (If you want to learn or review these probability ideas (not required!), watch my Probability Essentials video.)\n\n“A and B are marginally [independent/dependent]” = “A and B are [unrelated/related] in a general population”\n“A and B are conditionally independent” = “A and B are [unrelated/related] in subgroups (in each group defined by one or more variables)”\n\n\n2 readings from Andrew Heiss’s Program Evaluation course:\n\nGenerating random numbers (~35 min)\nThe ultimate guide to generating synthetic data for causal inference (Stop when you get to the subsection “Visualizing one variable”) (~25 min)"
   },
   {
-    "objectID": "schedule.html#day-3-identifying-causal-effects-with-causal-graphs",
-    "href": "schedule.html#day-3-identifying-causal-effects-with-causal-graphs",
+    "objectID": "schedule.html#day5",
+    "href": "schedule.html#day5",
     "title": "Schedule",
     "section": "Day 3: Identifying causal effects with causal graphs",
     "text": "Day 3: Identifying causal effects with causal graphs\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Causal and Noncausal Paths (~5 min)\nVideo: D-Separation (~8 min)\nReading: The Effect Chapter 8: Causal Paths and Closing Back Doors (~35 minutes)\n\nVideo alternatives:\n\nCausal Pathways (~9 minutes)\nClosing Causal Pathways, and Collider Variables (~11 minutes)\nTesting Causal Diagrams, and Placebo Tests (~8 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Section 3.1.3: Backdoor criterion (~5 minutes)"
@@ -387,11 +387,11 @@
   {
     "objectID": "01-introductions.html",
     "href": "01-introductions.html",
-    "title": "Welcome to Causal Inference!",
+    "title": "Introductions and foundational ideas",
     "section": "",
-    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nActivity under construction",
+    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nSlides for today: HTML, PDF",
     "crumbs": [
-      "Welcome to Causal Inference!"
+      "Introductions and foundational ideas"
     ]
   },
   {
@@ -437,6 +437,20 @@
     "text": "Milestone 1\nDue date: Friday, November 8 at 5PM\nAs part of this milestone, you will pick a project option, pick a specific topic, and form a group (if not working alone).\nYou will submit a short write-up that varies by project option. (No page length requirements—just convey the information that you need to.)\n\nData analysis option: You will write a draft of the Introduction, Data, and Methods sections of your paper.\n\nIntroduction: Give background for your topic, including relevant theory, domain knowledge, and prior research. Incorporate findings from at least 3 journal articles.\nData: Describe the data that you have and how it was collected. Include any limitations or cautions that are important to keep in mind about the data. Think about the who, what, when, where, why, and how behind your data to inform your discussion in this section.\nMethods: Write a detailed plan for the analyses that you will conduct. This part can be written in bullet points.\n\nAdvanced topic option: Your final paper will be structured as a tutorial, and for this milestone, you’ll make progress towards writing this tutorial.\n\nIntroduce the big idea behind this topic. Make connections between your topic and the topics we covered in class so that others can have a better sense of how this topic fits into the field of causal inference.\nExplain 1 idea that you learned from your research so far. Include a citation to at least 1 journal article.\nWrite a plan for your remaining research. Describe the ideas are you planning to learn in the remaining time. Describe a simulation study that you will perform to explore some of the theory behind your topic."
   },
   {
+    "objectID": "slides/01-introductions.html#welcome-to-causal-inference",
+    "href": "slides/01-introductions.html#welcome-to-causal-inference",
+    "title": "Welcome to Causal Inference!",
+    "section": "Welcome to Causal Inference!",
+    "text": "Welcome to Causal Inference!\nTo follow along:\n\nOpen Moodle\nUnder Course Resources, click link for our course website\nUnder Activities (top menu), click “Introductions and foundational ideas”\n\nQuote of the day:\n\nNew goals don’t deliver new results. New lifestyles do. And a lifestyle is a process, not an outcome. For this reason, all of your energy should go into building better habits, not chasing better results.\n\nJames Clear"
+  },
+  {
+    "objectID": "slides/01-introductions.html#building-community",
+    "href": "slides/01-introductions.html#building-community",
+    "title": "Welcome to Causal Inference!",
+    "section": "Building community",
+    "text": "Building community\nBefore we start talking about causal inference, we will take time to get to know each other.\nTake 5 minutes to have a conversation with the people at your table:\n\nIntroduce yourselves however you see fit.\nWhat’s something that’s on your mind this fall?"
+  },
+  {
     "objectID": "slides/01-introductions.html#my-causal-journey",
     "href": "slides/01-introductions.html#my-causal-journey",
     "title": "Welcome to Causal Inference!",
@@ -470,20 +484,6 @@
     "title": "Welcome to Causal Inference!",
     "section": "Some inspiration",
     "text": "Some inspiration\n\nThese tools and ideas are the kinds of things that, if you use them right, can turn you from a consumer of knowledge into a producer. You can find the answer to questions nobody else has the answer to. You can figure out how the world really works on your own. I think that’s pretty darn cool!\nThe Effect - Introduction"
-  },
-  {
-    "objectID": "slides/01-introductions.html#introduce-yourselves",
-    "href": "slides/01-introductions.html#introduce-yourselves",
-    "title": "Welcome to Causal Inference!",
-    "section": "Introduce yourselves",
-    "text": "Introduce yourselves\nOn your index cards, please write the following:\n\nPreferred name\nPersonal pronouns\nYear in school\nHobbies, interests, curiosities\nNotable things going on for you this semester/year\nWhat is an area where you tend to think about “Should we?” types of questions? What are some specific “Should we?” questions that you’ve thought about?\n\n\nIf you are sitting with multiple people you already know well, move to sit with more people you don’t know. Share whatever feels right with the others at your table."
-  },
-  {
-    "objectID": "slides/01-introductions.html#my-index-card",
-    "href": "slides/01-introductions.html#my-index-card",
-    "title": "Welcome to Causal Inference!",
-    "section": "My index card",
-    "text": "My index card\n\nHey, I’m Leslie! I use she / her pronouns.\nThis is my 7th year at Mac.\nI love writing (personal website, Substack), board games, video games, climbing and weightlifting. I started dance classes this summer.\nI love recycling! The individual role that we all play in caring for the earth is a space where I think about “Should we?” often. Should we create some clearly positive incentives for individuals to recycle more and produce less waste?\n\n(I’m training to become a St. Paul recycling ambassador this fall!)"
   },
   {
     "objectID": "slides/01-introductions.html#plan-for-remainder-of-today",
@@ -602,7 +602,7 @@
     "href": "slides/01-introductions.html#recap-and-reflection",
     "title": "Welcome to Causal Inference!",
     "section": "Recap and reflection",
-    "text": "Recap and reflection"
+    "text": "Recap and reflection\nLet’s take a few minutes to reflect on the ideas of potential outcomes and how we’re defining causal effects. Are these satisfying ways for you to think about causation?"
   },
   {
     "objectID": "slides/01-introductions.html#what-level-will-the-course-be-at",
@@ -622,8 +622,8 @@
     "objectID": "slides/01-introductions.html#flex-days",
     "href": "slides/01-introductions.html#flex-days",
     "title": "Welcome to Causal Inference!",
-    "section": "Flex days",
-    "text": "Flex days\nI want you to get what you want out of this course.\nGiven the diversity of our class, a one-size-fits-all approach to what we cover and do in class is not going to work.\nRoughly every 1.5 weeks, one class day will be a Flex Day.\n\nFlex Days are you for to focus on what you need to make the course a success—everyone will be doing something different. (I encourage grouping up to form exploration communities.)\nI’ll provide materials for you to explore that day.\nI’ll do my best to provide a wide variety of materials to explore, but I’ll need you to tell me if what you want to explore is missing.\nGeneral themes for exploration:\n\nApplications + more examples of the week’s content (like more practice exercises with different data, reading applied research papers)\nDigging into theory / technical details\nSimulation exercises in R"
+    "section": "Flex Days",
+    "text": "Flex Days\nI want you to get what you want out of this course.\nGiven the diversity of our class, a one-size-fits-all approach to what we cover and do in class is not going to work.\nRoughly every 1.5 weeks, one class day will be a Flex Day.\n\nFlex Days are you for to focus on what you need to make the course a success—everyone will be doing something different. (I encourage grouping up to form exploration communities.)\nI’ll provide materials for you to explore that day.\nI’ll do my best to provide a wide variety of materials to explore, but I’ll need you to tell me if what you want to explore is missing.\nGeneral themes for exploration:\n\nApplications + more examples of the week’s content (like more practice exercises with different data, reading applied research papers)\nDigging into theory / technical details\nSimulation exercises in R"
   },
   {
     "objectID": "slides/01-introductions.html#grading-system",
@@ -637,27 +637,6 @@
     "href": "slides/01-introductions.html#for-next-time",
     "title": "Welcome to Causal Inference!",
     "section": "For next time",
-    "text": "For next time\n\nCheck the Schedule for readings from The Effect. (Chapters 1, 2, and 5)\n\nReadings from The Effect always have video alternatives from the textbook author."
-  },
-  {
-    "objectID": "schedule.html#day3",
-    "href": "schedule.html#day3",
-    "title": "Schedule",
-    "section": "Day 1: Causal graph fundamentals",
-    "text": "Day 1: Causal graph fundamentals\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 6: Causal Diagrams (~40 min)\n\nVideo alternatives:\n\nCausal Diagrams: Causality (~9 minutes)\nCausal Diagrams (~12 minutes)\n\n\nThe Effect Chapter 7: Drawing Causal Diagrams (~30 min)\n\nVideo alternatives:\n\nDrawing Causal Diagrams (~13 minutes)\nSimplifying Causal Diagrams (~12 minutes)\n\n\n\nFormulate a research question that relates to an area that you’re interested in. In class, we will be using the principles in Chapters 6 and 7 to draw a causal diagram that addresses this research question.\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 3: Directed Acyclic Graphs but skip 3.1.3 Backdoor Criterion (~40 minutes)"
-  },
-  {
-    "objectID": "schedule.html#day4",
-    "href": "schedule.html#day4",
-    "title": "Schedule",
-    "section": "Day 2: Simulating data using causal graphs",
-    "text": "Day 2: Simulating data using causal graphs\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Key structures in causal graphs (~12 min) (slides)\n\nNote 1: In this video, I refer to a concept called “exchangeability”. This is a concept that I included in the last offering of this course. Exchangeability is a causal identification assumption. When the exchangeability assumption is satisfied, we can identify causal effects. When it is not satisfied, I call this “a lack of exchangeability”. In the language we have used, this happens when there are alternate (noncausal) explanations for a relationship between two variables. So in the video, whenever you hear “creates a lack of exchangeability”, replace that with “leads to the presence of alternate (noncausal) explanations for the relationship between two variables”. When you hear “achieve conditional exchangeability”, replace that with “we are able to address this alternate explanation when analyzing the data”.\nNote 2: I use the formal probability ideas of marginal and conditional dependence and independence. You can get the essential ideas from this video by replacing terms in the list below. (If you want to learn or review these probability ideas (not required!), watch my Probability Essentials video.)\n\n“A and B are marginally [independent/dependent]” = “A and B are [unrelated/related] in a general population”\n“A and B are conditionally independent” = “A and B are [unrelated/related] in subgroups (in each group defined by one or more variables)”\n\n\n2 readings from Andrew Heiss’s Program Evaluation course:\n\nGenerating random numbers (~35 min)\nThe ultimate guide to generating synthetic data for causal inference (Stop when you get to the subsection “Visualizing one variable”) (~25 min)"
-  },
-  {
-    "objectID": "schedule.html#day5",
-    "href": "schedule.html#day5",
-    "title": "Schedule",
-    "section": "Day 3: Identifying causal effects with causal graphs",
-    "text": "Day 3: Identifying causal effects with causal graphs\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Causal and Noncausal Paths (~5 min)\nVideo: D-Separation (~8 min)\nReading: The Effect Chapter 8: Causal Paths and Closing Back Doors (~35 minutes)\n\nVideo alternatives:\n\nCausal Pathways (~9 minutes)\nClosing Causal Pathways, and Collider Variables (~11 minutes)\nTesting Causal Diagrams, and Placebo Tests (~8 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Section 3.1.3: Backdoor criterion (~5 minutes)"
+    "text": "For next time\n\nCheck the Schedule for readings from The Effect. (Chapters 1, 2, and 5)\n\nReadings from The Effect always have video alternatives from the textbook author.\n\nUpdate your R and RStudio installations as described here."
   }
 ]
