@@ -115,22 +115,22 @@
     "objectID": "schedule.html#day3",
     "href": "schedule.html#day3",
     "title": "Schedule",
-    "section": "Day 1: Causal graph fundamentals",
-    "text": "Day 1: Causal graph fundamentals\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 6: Causal Diagrams (~40 min)\n\nVideo alternatives:\n\nCausal Diagrams: Causality (~9 minutes)\nCausal Diagrams (~12 minutes)\n\n\nThe Effect Chapter 7: Drawing Causal Diagrams (~30 min)\n\nVideo alternatives:\n\nDrawing Causal Diagrams (~13 minutes)\nSimplifying Causal Diagrams (~12 minutes)\n\n\n\nFormulate a research question that relates to an area that you’re interested in. In class, we will be using the principles in Chapters 6 and 7 to draw a causal diagram that addresses this research question.\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 3: Directed Acyclic Graphs but skip 3.1.3 Backdoor Criterion (~40 minutes)"
+    "section": "Day 1: Causal graph fundamentals (9/9)",
+    "text": "Day 1: Causal graph fundamentals (9/9)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 6: Causal Diagrams (~40 min)\n\nVideo alternatives:\n\nCausal Diagrams: Causality (~9 minutes)\nCausal Diagrams (~12 minutes)\n\n\nThe Effect Chapter 7: Drawing Causal Diagrams (~30 min)\n\nVideo alternatives:\n\nDrawing Causal Diagrams (~13 minutes)\nSimplifying Causal Diagrams (~12 minutes)\n\n\n\nFormulate a research question that relates to an area that you’re interested in. In class, we will be using the principles in Chapters 6 and 7 to draw a causal diagram that addresses this research question.\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 3: Directed Acyclic Graphs but skip 3.1.3 Backdoor Criterion (~40 minutes)"
   },
   {
     "objectID": "schedule.html#day4",
     "href": "schedule.html#day4",
     "title": "Schedule",
-    "section": "Day 2: Simulating data using causal graphs",
-    "text": "Day 2: Simulating data using causal graphs\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Key structures in causal graphs (~12 min) (slides)\n\nNote 1: In this video, I refer to a concept called “exchangeability”. This is a concept that I included in the last offering of this course. Exchangeability is a causal identification assumption. When the exchangeability assumption is satisfied, we can identify causal effects. When it is not satisfied, I call this “a lack of exchangeability”. In the language we have used, this happens when there are alternate (noncausal) explanations for a relationship between two variables. So in the video, whenever you hear “creates a lack of exchangeability”, replace that with “leads to the presence of alternate (noncausal) explanations for the relationship between two variables”. When you hear “achieve conditional exchangeability”, replace that with “we are able to address this alternate explanation when analyzing the data”.\nNote 2: I use the formal probability ideas of marginal and conditional dependence and independence. You can get the essential ideas from this video by replacing terms in the list below. (If you want to learn or review these probability ideas (not required!), watch my Probability Essentials video.)\n\n“A and B are marginally [independent/dependent]” = “A and B are [unrelated/related] in a general population”\n“A and B are conditionally independent” = “A and B are [unrelated/related] in subgroups (in each group defined by one or more variables)”\n\n\n2 readings from Andrew Heiss’s Program Evaluation course:\n\nGenerating random numbers (~35 min)\nThe ultimate guide to generating synthetic data for causal inference (Stop when you get to the subsection “Visualizing one variable”) (~25 min)"
+    "section": "Day 2: Simulating data using causal graphs (9/11)",
+    "text": "Day 2: Simulating data using causal graphs (9/11)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Key structures in causal graphs (~12 min) (slides)\n\nNote 1: In this video, I refer to a concept called “exchangeability”. This is a concept that I included in the last offering of this course. Exchangeability is a causal identification assumption. When the exchangeability assumption is satisfied, we can identify causal effects. When it is not satisfied, I call this “a lack of exchangeability”. In the language we have used, this happens when there are alternate (noncausal) explanations for a relationship between two variables. So in the video, whenever you hear “creates a lack of exchangeability”, replace that with “leads to the presence of alternate (noncausal) explanations for the relationship between two variables”. When you hear “achieve conditional exchangeability”, replace that with “we are able to address this alternate explanation when analyzing the data”.\nNote 2: I use the formal probability ideas of marginal and conditional dependence and independence. You can get the essential ideas from this video by replacing terms in the list below. (If you want to learn or review these probability ideas (not required!), watch my Probability Essentials video.)\n\n“A and B are marginally [independent/dependent]” = “A and B are [unrelated/related] in a general population”\n“A and B are conditionally independent” = “A and B are [unrelated/related] in subgroups (in each group defined by one or more variables)”\n\n\n2 readings from Andrew Heiss’s Program Evaluation course:\n\nGenerating random numbers (~35 min)\nThe ultimate guide to generating synthetic data for causal inference (Stop when you get to the subsection “Visualizing one variable”) (~25 min)"
   },
   {
     "objectID": "schedule.html#day5",
     "href": "schedule.html#day5",
     "title": "Schedule",
-    "section": "Day 3: Identifying causal effects with causal graphs",
-    "text": "Day 3: Identifying causal effects with causal graphs\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Causal and Noncausal Paths (~5 min)\nVideo: D-Separation (~8 min)\nReading: The Effect Chapter 8: Causal Paths and Closing Back Doors (~35 minutes)\n\nVideo alternatives:\n\nCausal Pathways (~9 minutes)\nClosing Causal Pathways, and Collider Variables (~11 minutes)\nTesting Causal Diagrams, and Placebo Tests (~8 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Section 3.1.3: Backdoor criterion (~5 minutes)"
+    "section": "Day 3: Identifying causal effects with causal graphs (9/13)",
+    "text": "Day 3: Identifying causal effects with causal graphs (9/13)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Causal and Noncausal Paths (~5 min)\nVideo: D-Separation (~8 min)\nReading: The Effect Chapter 8: Causal Paths and Closing Back Doors (~35 minutes)\n\nVideo alternatives:\n\nCausal Pathways (~9 minutes)\nClosing Causal Pathways, and Collider Variables (~11 minutes)\nTesting Causal Diagrams, and Placebo Tests (~8 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Section 3.1.3: Backdoor criterion (~5 minutes)"
   },
   {
     "objectID": "schedule.html#day-1-identifying-causal-effects-with-causal-graphs",
@@ -383,6 +383,106 @@
     "title": "STAT 451: Causal Inference",
     "section": "",
     "text": "Become a producer of actionable knowledge by exploring how to quantify the impact of interventions\n\n\nInstructor: Leslie Myint  Class meeting times: MWF 10:50-11:50am  Class location: THEATR 204  Instructor drop-in hours: Olin Rice 232; Hours TBD"
+  },
+  {
+    "objectID": "02-identification.html",
+    "href": "02-identification.html",
+    "title": "Causal identification: building intuition",
+    "section": "",
+    "text": "Explain what is meant by the term causal identification\nThink about the data-generating process (DGP) in a given context to understand its impact on causal identification\nGet a sense for different approaches to causal identification that we will explore in this course",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#average-causal-effects",
+    "href": "02-identification.html#average-causal-effects",
+    "title": "Causal identification: building intuition",
+    "section": "Average causal effects",
+    "text": "Average causal effects\nSuppose we are studying the effect of a mental health program for expecting mothers and fathers. The treatment is participation in the program vs. not. The outcome is a yes/no occurrence of postpartum depression within the first year of the infant’s life. We estimate the average causal effect \\(E[Y^{a=1} - Y^{a=0}]\\) to be -0.1.\nHow can we interpret this effect?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#research-questions",
+    "href": "02-identification.html#research-questions",
+    "title": "Causal identification: building intuition",
+    "section": "Research questions",
+    "text": "Research questions\n\nComing up with a question is easy. Just ask any five-year-old and they can provide you with dozens. Coming up with a good research question is much harder.\nWhat’s the difference? The difference, at least in the case of quantitative empirical research, is that a research question is a question that can be answered, and for which having that answer will improve your understanding of how the world works.\n\nAsking “how” (as in “how do we do better?”) naturally leads to “Should we…” questions:\n\nHow can we mitigate the effects of climate change?\nShould we implement a plastic tax?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#identification-warm-up",
+    "href": "02-identification.html#identification-warm-up",
+    "title": "Causal identification: building intuition",
+    "section": "Identification: warm-up",
+    "text": "Identification: warm-up\n\nWhen we say “this variation has identified the effect we’re interested in”, which of the following is the best definition of the term identified? Explain why you think your chosen response is the best definition and why the others are not.\n\nWe’ve generated the data by conducting a controlled experiment in which treatment is randomly assigned.\nIn the data generating process, the only reason why we see variation in the outcome variable is because of the treatment variable.\nThe relationship we are looking at in the data actually tests a hypothesis.\nIn the variation we use, there’s no reason we’d see any relationship at all except for the effect we’re interested in.",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#isolating-variation",
+    "href": "02-identification.html#isolating-variation",
+    "title": "Causal identification: building intuition",
+    "section": "Isolating variation",
+    "text": "Isolating variation\nExample: A child’s shoe size is a great predictor of their reading ability\n\nWe can quantify covariation in shoe size and reading ability with measures like the correlation coefficient, slope and its confidence interval\nWhen we think about the underlying data-generating process, we see that the totality of this covariation also encompasses the covariation in:\n\nage and shoe size\nage and reading ability\n\nWe can isolate a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability\n\n$E[📖 ShoeSize, Age] =_0 + _1 ShoeSize + _2 Age $\n\n\nThere are other ways to isolate variation that we will explore today and throughout the semester.",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-1",
+    "href": "02-identification.html#exercise-1",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nWe are interested in the effect of mindful breathing practices on stress levels.\n\nPart a\nSuppose we tried to estimate this effect by surveying people at Macalester. We ask them if they engage regularly in mindful breathing practices and to report their general stress levels on a 1-10 scale (1 = lowest stress, 10 = highest stress).\nDo you think we would be identifying the causal effect by comparing the mean stress levels in those who do regularly use mindful breathing with those who don’t? What aspects of the data generating process (DGP) are relevant for your response?\n\n\nPart b\nNow suppose that we were able to find 500 people with a self-reported stress level of 6 who don’t already engage in mindful breathing. The Hamre Center has resources to enroll 250 people in a 3-month mindful breathing program. They decide to randomly select the 250 participants from the 500 and measure the stress levels of all 500 people after the 3-month program.\nDo you think we would we be identifying the causal effect by comparing the mean stress levels after 3 months in those enrolled in the program with those who weren’t enrolled? What aspects of the data generating process (DGP) are relevant for your response?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-2",
+    "href": "02-identification.html#exercise-2",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWe notice that ice cream sales in St. Paul are correlated with the percentage of the population wearing shorts and wonder if there is a causal relationship between the two.\n\nPart a\nIn this context, what aspects of the data generating process do you think are most important to keep in mind? What alternative explanations can you come up with?\n\n\nPart b\nRecall that the main idea with identification is to find variation that we want to use and get rid of variation that we don’t want.\nFor this context, a number of plots and linear regression model output are shown below. Explain how these results show desired variation, undesired variation, and the process of identification by getting rid of undesired variation.\n\n\nCode\nset.seed(451)\nice_cream_data &lt;- tibble(\n    temp = rep(0:90, each = 4),\n    perc_shorts = case_when(\n        temp &lt; 40 ~ 3*sqrt(temp) + 10, \n        temp &gt;= 40 & temp &lt; 65 ~ 1.5*temp - 30,\n        temp &gt;= 65 ~ temp + 9\n    ),\n    ice_cream_sales = log(temp+1)^2 + 100 + rnorm(364, 0, 10)\n) %&gt;% \n    mutate(\n        perc_shorts = perc_shorts + rnorm(364, 0, 2),\n        perc_shorts = pmax(perc_shorts, 10),\n        perc_shorts = pmin(perc_shorts, 98)\n    )\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = perc_shorts, y = ice_cream_sales)) +\n    geom_point() +\n    geom_smooth(se = FALSE) +\n    labs(x = \"% of St. Paul wearing shorts\", y = \"Ice cream sales ($10's)\") +\n    theme_classic()\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = temp, y = perc_shorts)) +\n    geom_point() +\n    labs(x = \"Temperature (F)\", y = \"% of St. Paul wearing shorts\") +\n    theme_classic()\n\n\n\n\n\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = temp, y = ice_cream_sales)) +\n    geom_point() +\n    geom_smooth(se = FALSE) +\n    labs(x = \"Temperature (F)\", y = \"Ice cream sales ($10's)\") +\n    theme_classic()\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nCode\nlm(ice_cream_sales ~ perc_shorts, data = ice_cream_data) %&gt;% summary()\n\n\n\nCall:\nlm(formula = ice_cream_sales ~ perc_shorts, data = ice_cream_data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-32.941  -6.820   0.384   6.448  29.639 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 104.57894    1.04068 100.491   &lt;2e-16 ***\nperc_shorts   0.18668    0.01886   9.896   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.931 on 362 degrees of freedom\nMultiple R-squared:  0.2129,    Adjusted R-squared:  0.2108 \nF-statistic: 97.93 on 1 and 362 DF,  p-value: &lt; 2.2e-16\n\n\nCode\nlm(ice_cream_sales ~ perc_shorts + temp, data = ice_cream_data) %&gt;% summary()\n\n\n\nCall:\nlm(formula = ice_cream_sales ~ perc_shorts + temp, data = ice_cream_data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-30.9542  -6.6926  -0.0641   6.3933  28.0907 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 104.26394    1.02618 101.603  &lt; 2e-16 ***\nperc_shorts  -0.06449    0.07000  -0.921  0.35748    \ntemp          0.27363    0.07354   3.721  0.00023 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.76 on 361 degrees of freedom\nMultiple R-squared:  0.242, Adjusted R-squared:  0.2378 \nF-statistic: 57.63 on 2 and 361 DF,  p-value: &lt; 2.2e-16",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-3",
+    "href": "02-identification.html#exercise-3",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWe are interested in the effect of a résumé writing workshop (Treatment) on adults’ ability to secure a new job (Outcome). Suppose that we have thought carefully about the data-generating process and determined that age, education level, income, employment status, and marital status are the most important factors in alternative explanations.\n\nPart a\nWe have data on 10 adults (5 who took the workshop, and 5 who didn’t):\n\n\nCode\n# Create the example dataset\ndata &lt;- tibble::tribble(\n  ~ID, ~Age, ~Education, ~Income, ~Employment, ~MaritalStatus, ~Treatment, ~Outcome,\n  1, 25, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 1, 0,\n  2, 30, \"College\", \"Medium\", \"Employed\", \"Married\", 1, 1,\n  3, 28, \"HighSchool\", \"Low\", \"Unemployed\", \"Single\", 1, 0,\n  4, 35, \"College\", \"High\", \"Employed\", \"Married\", 1, 1,\n  5, 40, \"College\", \"High\", \"Unemployed\", \"Married\", 1, 0,\n  6, 22, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 0, 1,\n  7, 30, \"HighSchool\", \"Medium\", \"Unemployed\", \"Married\", 0, 0,\n  8, 45, \"College\", \"High\", \"Employed\", \"Single\", 0, 1,\n  9, 50, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 0, 0,\n  10, 30, \"College\", \"Medium\", \"Employed\", \"Married\", 0, 1\n)\n\n# Display the dataset\ndata\n\n\n# A tibble: 10 × 8\n      ID   Age Education  Income Employment MaritalStatus Treatment Outcome\n   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;   &lt;dbl&gt;\n 1     1    25 HighSchool Low    Employed   Single                1       0\n 2     2    30 College    Medium Employed   Married               1       1\n 3     3    28 HighSchool Low    Unemployed Single                1       0\n 4     4    35 College    High   Employed   Married               1       1\n 5     5    40 College    High   Unemployed Married               1       0\n 6     6    22 HighSchool Low    Employed   Single                0       1\n 7     7    30 HighSchool Medium Unemployed Married               0       0\n 8     8    45 College    High   Employed   Single                0       1\n 9     9    50 HighSchool Low    Employed   Single                0       0\n10    10    30 College    Medium Employed   Married               0       1\n\n\nFor case 2, we observe the potential outcome under treatment \\(Y^{a=1}\\). Do you think that we might be able to directly guess this unit’s counterfactual outcome \\(Y^{a=0}\\) by using information from another case? Why or why not? \nWhat about for case 1? \n\n\nPart b\nThinking about the process that you went through in part (a), do you think this process gets easier with more variables? Why or why not?\n\n\n\n\n\n\nExercise 3 context (read after completion)\n\n\n\n\n\nI used ChatGPT to generate the example dataset in Part a. This is the prompt I used:\n\nCan you give me an example dataset with 10 cases that has one age variable, 4 categorical socioeconomic variables, and one binary outcome variable? This dataset is intended to provide an example of the matching causal inference method to students. This dataset should have some exact and approximate matches.",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-4",
+    "href": "02-identification.html#exercise-4",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nThe following 2 figures come from a study of the effect of attending a state flagship university on earnings a few years after college graduation. Flagship state universities tend to be the premier public colleges in the state. They are often the first college to have been established in the state and the most research-intensive with more resources.\nIn the first figure, the x-axis indicates the number of SAT points away from the admissions cutoff for the state flagship (a recentered SAT score). (The cutoff is a strongly suggested but not a hard cutoff for admission.) Each point shows the enrollment rate at the flagship university for that recentered SAT score. The solid lines show nonlinear trends fitted separately to the left and to the right of x=0. The t=10.57 indicates a test statistic for a hypothesis test on the jump at x=0.\n\nIn the second figure, the x-axis is the same, and the y-axis represents the natural log earnings after calendar year, years of work experience, and graduation year have been accounted for (which is what the “(Residual)” part of the axis label is indicating). (More details are described in this section of our Mixtape textbook.) The z=3.01 indicates a test statistic for a hypothesis test on the jump at x=0.\n\n\nWhat story do you think the author is trying to tell with these figures?\nIf the admissions cutoff did not exist, what do you think the relationship between enrollment rate and SAT points would look like? What about the relationship between earnings and SAT points?\nHow different do you think students just below and just above the admission cutoff are? How could this be helpful in isolating only desired variation?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-5",
+    "href": "02-identification.html#exercise-5",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nThis paper looked at the effect of Florida’s 2005 “Stand Your Ground” (SYG) law on homicide rates. The law gave citizens the right to use lethal force in self-defense in public places where they felt threatened.\nTake a look at panel A from this figure from the paper which shows homicide rates in Florida and comparison states over time.\n\nWhat story do you think the author is trying to tell with this figure?\nDo you think that the trends in homicide rates in Florida and the comparison states are similar before the SYG law was enacted in 2005? Why might similarity be desirable?\nDraw or describe what you guess might have happened in Florida had it not enacted the SYG law. How is this related to identification of the causal effect of the SYG law on homicide rates?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
   },
   {
     "objectID": "01-introductions.html",

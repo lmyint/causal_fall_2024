@@ -4,7 +4,6 @@ project:
   render:
     - "*.qmd"
     - "!activity_templates/"
-    - "!02-identification.qmd"
     - "!03-causal-graphs-intro.qmd"
     - "!04-causal-graphs-simulation.qmd"
     - "!05-causal-graphs-identification.qmd"
@@ -39,6 +38,7 @@ website:
       title: "Activities"
       contents:
         - 01-introductions.qmd
+        - 02-identification.qmd
   
   page-footer:
     left: |

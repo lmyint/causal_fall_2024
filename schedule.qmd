@@ -98,7 +98,7 @@ If you would like to have an additional reference throughout the course that lea
 
 # Week 2: Causal graphs
 
-## Day 1: Causal graph fundamentals {#day3}
+## Day 1: Causal graph fundamentals (9/9) {#day3}
 
 **Before class:**
 
@@ -122,7 +122,7 @@ Formulate a research question that relates to an area that you're interested in.
 <!-- **During class:** [Causal graph fundamentals](03-causal-graphs-intro.qmd) -->
 
 
-## Day 2: Simulating data using causal graphs {#day4}
+## Day 2: Simulating data using causal graphs (9/11) {#day4}
 
 **Before class:**
 
@@ -141,7 +141,7 @@ Formulate a research question that relates to an area that you're interested in.
 <!-- **During class:** [Simulating data using causal graphs](04-causal-graphs-simulation.qmd) -->
 
 
-## Day 3: Identifying causal effects with causal graphs {#day5}
+## Day 3: Identifying causal effects with causal graphs (9/13) {#day5}
 
 **Before class:**
 
