@@ -429,7 +429,7 @@
     "href": "02-identification.html#isolating-variation",
     "title": "Causal identification: building intuition",
     "section": "Isolating variation",
-    "text": "Isolating variation\nExample: A child’s shoe size is a great predictor of their reading ability\n\nWe can quantify covariation in shoe size and reading ability with measures like the correlation coefficient, slope and its confidence interval\nWhen we think about the underlying data-generating process, we see that the totality of this covariation also encompasses the covariation in:\n\nage and shoe size\nage and reading ability\n\nWe can isolate a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability\n\n$E[📖 ShoeSize, Age] =_0 + _1 ShoeSize + _2 Age $\n\n\nThere are other ways to isolate variation that we will explore today and throughout the semester.",
+    "text": "Isolating variation\nExample: A child’s shoe size is a great predictor of their reading ability\n\nWe can quantify covariation in shoe size and reading ability with measures like the correlation coefficient, slope and its confidence interval\nWhen we think about the underlying data-generating process, we see that the totality of this covariation also encompasses the covariation in:\n\nage and shoe size\nage and reading ability\n\nWe can isolate a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability\n\n$E[ReadingAbility ShoeSize, Age] =_0 + _1 ShoeSize + _2 Age $\n\n\nThere are other ways to isolate variation that we will explore today and throughout the semester.",
     "crumbs": [
       "Causal identification: building intuition"
     ]

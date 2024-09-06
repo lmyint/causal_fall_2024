@@ -5,47 +5,49 @@ sidebar: false
 
 Check here to see what you should be doing before, during, and after each class day.
 
-# Calendar
+# Overview
 
-**September**
-
-|Sun|Mon|Tue|Wed|Thu|Fri|Sat|
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|1|2|3|[4](schedule.qmd#day1)|5|[6](schedule.qmd#day2)|7|
-|8|[9](schedule.qmd#day3)|10|[11](schedule.qmd#day4)|12|[13](schedule.qmd#day5)|14|
-|15|16|17|18|19|20|21|
-|22|23|24|25|26|27|28|
-|29|30| | | | | |
-
-**October**
-
-|Sun|Mon|Tue|Wed|Thu|Fri|Sat|
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|29|30|1|2|3|4|5|
-|6|7|8|9|10|11|12|
-|13|14|15|16|17|18|19|
-|20|21|22|23|24|25|26|
-|27|28|29|30|31|1|2|
-
-**November**
-
-|Sun|Mon|Tue|Wed|Thu|Fri|Sat|
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|27|28|29|30|31|1|2|
-|3|4|5|6|7|8|9|
-|10|11|12|13|14|15|16|
-|17|18|19|20|21|22|23|
-|24|25|26|27|28|29|30|
-
-**December**
-
-|Sun|Mon|Tue|Wed|Thu|Fri|Sat|
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|1|2|3|4|5|6|7|
-|8|9|10|11|12|13|14|
-|15|16|17|18|19|20|21|
-|22|23|24|25|26|27|28|
-|29|30|31|1|2|3|4|
+```{=html}
+<table class="tabsched"><thead>
+  <tr>
+    <th class="topleft" style="width:13%">Week</th>
+    <th class="topleft" style="width:22%">Monday</th>
+    <th class="topleft" style="width:22%">Wednesday</th>
+    <th class="topleft" style="width:22%">Friday</th>
+    <th class="topleft" style="width:21%">Announcements</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="topleft">1 (9/2 - 9/6)</td>
+    <td class="topleft"></td>
+    <td class="topleft">First day of class! <a href="#day1">Foundational ideas</a></td>
+    <td class="topleft"><a href="#day2">Causal identification</a></td>
+    <td class="topleft">Work on <a href="assignments.html#assignment-1">Assignment 1</a> due Wed 9/11 at 5pm</td>
+  </tr>
+  <tr>
+    <td class="topleft">2 (9/9 - 9/13)</td>
+    <td class="topleft"><a href="#day3">Causal graph fundamentals</a></td>
+    <td class="topleft"><a href="#day4">Simulating data using causal graphs</a><br><br> <b><a href="assignments.html#assignment-1">Assignment 1</a> due today at 5pm</b></td>
+    <td class="topleft"><a href="#day5">Identifying causal effects with causal graphs</a></td>
+    <td class="topleft">Work on <a href="assignments.html#assignment-2">Assignment 2</a> due Fri 9/20 at 5pm</td>
+  </tr>
+  <tr>
+    <td class="topleft">3 (9/16 - 9/20)</td>
+    <td class="topleft"></td>
+    <td class="topleft"></td>
+    <td class="topleft"><b><a href="assignments.html#assignment-2">Assignment 2</a> due today at 5pm</b></td>
+    <td class="topleft"></td>
+  </tr>
+  <tr>
+    <td class="topleft">4 (9/23 - 9/27)</td>
+    <td class="topleft"></td>
+    <td class="topleft"></td>
+    <td class="topleft"></td>
+    <td class="topleft"></td>
+  </tr>
+</tbody>
+</table>
+```
 
 
 # Week 1: Foundations
