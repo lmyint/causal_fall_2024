@@ -14,4 +14,8 @@ sidebar: false
 **Instructor:** [Leslie Myint](https://www.lesliemyint.org) <br>
 **Class meeting times:** MWF 10:50-11:50am <br>
 **Class location:** THEATR 204 <br>
-**Instructor drop-in hours:** Olin Rice 232; Hours TBD
+**Instructor drop-in hours:**
+
+- Olin-Rice 232
+- Mondays and Fridays: 2-3pm
+- Tuesdays and Thursdays: 3:30-4:30pm

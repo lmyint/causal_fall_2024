@@ -71,7 +71,7 @@ Example: A child's shoe size is a great predictor of their reading ability
     - age and shoe size
     - age and reading ability
 - We can *isolate* a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability
-    - $E[ReadingAbility \mid ShoeSize, Age] =\beta_0 + \beta_1 ShoeSize + \beta_2 Age $
+    - $E[ReadingAbility \mid ShoeSize, Age] = \beta_0 + \beta_1 ShoeSize + \beta_2 Age$
 
 There are other ways to isolate variation that we will explore today and throughout the semester.
 

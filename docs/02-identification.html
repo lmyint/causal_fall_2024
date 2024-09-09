@@ -176,6 +176,10 @@ window.Quarto = {
     <a class="dropdown-item" href="./02-identification.html">
  <span class="dropdown-text">Causal identification: building intuition</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./03-causal-graphs-intro.html">
+ <span class="dropdown-text">Causal graph fundamentals</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -309,7 +313,7 @@ window.Quarto = {
 </ul></li>
 <li>We can <em>isolate</em> a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability
 <ul>
-<li>$E[ReadingAbility ShoeSize, Age] =_0 + _1 ShoeSize + _2 Age $</li>
+<li><span class="math inline">\(E[ReadingAbility \mid ShoeSize, Age] = \beta_0 + \beta_1 ShoeSize + \beta_2 Age\)</span></li>
 </ul></li>
 </ul>
 <p>There are other ways to isolate variation that we will explore today and throughout the semester.</p>

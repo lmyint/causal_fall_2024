@@ -382,7 +382,117 @@
     "href": "index.html",
     "title": "STAT 451: Causal Inference",
     "section": "",
-    "text": "Become a producer of actionable knowledge by exploring how to quantify the impact of interventions\n\n\nInstructor: Leslie Myint  Class meeting times: MWF 10:50-11:50am  Class location: THEATR 204  Instructor drop-in hours: Olin Rice 232; Hours TBD"
+    "text": "Become a producer of actionable knowledge by exploring how to quantify the impact of interventions\n\n\nInstructor: Leslie Myint  Class meeting times: MWF 10:50-11:50am  Class location: THEATR 204  Instructor drop-in hours:\n\nOlin-Rice 232\nMondays and Fridays: 2-3pm\nTuesdays and Thursdays: 3:30-4:30pm"
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html",
+    "href": "03-causal-graphs-intro.html",
+    "title": "Causal graph fundamentals",
+    "section": "",
+    "text": "Practice graphically showing our beliefs about data-generating processes using causal graphs\nExpand our worldview by exploring interesting questions in domains that we don’t normally think about\nBuild a trusting intellectual community by being curious about each other’s interests, giving kind and actionable feedback, and receiving feedback with curiosity and gratitude",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#identification",
+    "href": "03-causal-graphs-intro.html#identification",
+    "title": "Causal graph fundamentals",
+    "section": "Identification",
+    "text": "Identification\n\nIdentification is the process of isolating only desired variation (variation corresponding purely to our causal effect of interest) and ruling out alternate explanations\nRuling out alternate explanations requires understanding the data-generating process",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#causal-diagrams",
+    "href": "03-causal-graphs-intro.html#causal-diagrams",
+    "title": "Causal graph fundamentals",
+    "section": "Causal diagrams",
+    "text": "Causal diagrams\nA causal diagram (causal graph) is a visual representation of a data-generating process and are directed acyclic graphs (DAGs).\nNodes represent variables and edges represent direct causal relationships between variables.\nWe will be conceptualizing causality in the following way: A is a cause of Y if changes in the value of A change the probability distribution of Y.\n\nNote 1: In practice, people in the field say that the presence of an arrow indicates that A might cause Y.\nNote 2: If changes in the value of A change the value of Y, we often equate this with a change in mean, but it doesn’t have to. (e.g., the mean might not change, but the variance could)\n\n\n\nCode\ndat &lt;- bind_rows(\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 1),\n        type = \"Control PO\",\n        context = \"Change in means\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 1, 1),\n        type = \"Treated PO\",\n        context = \"Change in means\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 1),\n        type = \"Control PO\",\n        context = \"Change in variance\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 2),\n        type = \"Treated PO\",\n        context = \"Change in variance\"\n    )\n)\n\nggplot(dat, aes(x = x, y = y, color = type)) +\n    geom_line() +\n    facet_grid(~ context) +\n    theme_classic() +\n    scale_color_manual(values = c(\"steelblue\", \"darkorange\"))",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#warm-up-1",
+    "href": "03-causal-graphs-intro.html#warm-up-1",
+    "title": "Causal graph fundamentals",
+    "section": "Warm-up 1",
+    "text": "Warm-up 1\nWe’re interested in the question “Does reading Harry Potter as a child make you read more as an adult?” A causal diagram is shown below.\n\n\nCode\n# Requires the dagitty package to be loaded\ndag1 &lt;- dagitty(\"dag {\n    bb=\\\"0,0,1,1\\\"\n    AgeWhenPotterReleased [pos=\\\"0.200,0.200\\\"]\n    LikesReading [latent,pos=\\\"0.500,0.350\\\"]\n    ReadOtherRowlingBooks [pos=\\\"0.500,0.650\\\"]\n    ReadPotterAsKid [exposure,pos=\\\"0.200,0.500\\\"]\n    ReadingAsAdult [outcome,pos=\\\"0.800,0.500\\\"]\n    AgeWhenPotterReleased -&gt; ReadPotterAsKid\n    LikesReading -&gt; ReadPotterAsKid\n    LikesReading -&gt; ReadingAsAdult\n    ReadOtherRowlingBooks -&gt; ReadingAsAdult\n    ReadPotterAsKid -&gt; ReadOtherRowlingBooks\n    ReadPotterAsKid -&gt; ReadingAsAdult\n}\")\n\nplot(dag1)\n\n\n\n\n\n\n\n\n\n\nWhat direct effects should be included when trying to answer your research question of interest?\nWhat indirect effects should be included when trying to answer your research question of interest?\nWhat is a likely alternative explanation of why we might see a relationship between reading Harry Potter and reading more as an adult?\nLikesReading is included as an unobserved variable. Why do we bother to include variables on our diagrams if we can’t observe them? Why might we think that LikesReading is an unobserved or latent variable?",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#warm-up-2",
+    "href": "03-causal-graphs-intro.html#warm-up-2",
+    "title": "Causal graph fundamentals",
+    "section": "Warm-up 2",
+    "text": "Warm-up 2\nThe diagram below depicts a cyclical relationship between workplace culture and satisfaction. If employees perceive a more positive workplace culture, their satisfaction at work goes up, and if their satisfaction goes up, they contribute more to a positive workplace culture. Change the diagram so that the relationship is no longer cyclic.\n\n\nCode\ndag2 &lt;- dagitty(\"dag {\n    bb=\\\"0,0,1,1\\\"\n    WorkCulture [pos=\\\"0.250,0.500\\\"]\n    WorkSatisfaction [pos=\\\"0.750,0.500\\\"]\n    WorkCulture &lt;-&gt; WorkSatisfaction\n}\")\n\nplot(dag2)",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#warm-up-3",
+    "href": "03-causal-graphs-intro.html#warm-up-3",
+    "title": "Causal graph fundamentals",
+    "section": "Warm-up 3",
+    "text": "Warm-up 3\nDo you think it’s a stronger assumption to include an arrow or exclude an arrow on a causal diagram?",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#simplifying-causal-diagrams",
+    "href": "03-causal-graphs-intro.html#simplifying-causal-diagrams",
+    "title": "Causal graph fundamentals",
+    "section": "Simplifying causal diagrams",
+    "text": "Simplifying causal diagrams\nThe world is very complex, and causal diagrams can get very complex too.\n\nSimplifying causal diagrams is important for identification: focusing on alternate explanations of consequence.\nSimplifying is also important for sharing the diagram with diverse experts to get good feedback.\n\nWe can use a few techniques to simplify causal diagrams:\n\nUnimportance\n\nVariables that have small effects on all other variables in the diagram and edges with small effects can likely be omitted safely.\ne.g., Living near a quiet cafe affects online course taking\n\nRedundancy\n\nVariables that have the same arrows going in and coming out can be grouped together.\ne.g., Demographic variables like age and race and socioeconomic variables like years of school and years of work experience often have arrows pointing to the outcome and to treatment.\n\nCaveat: Having “Demographic Factors” and “Socioeconomic Factors” nodes can simplify the presentation of the causal diagram, but we really do need to know all the individual variables inside these broad categories to accurately estimate causal effects because each variable represents a different alternate explanation.\n\n\nGet rid of mediators\n\nIn situations like A -&gt; B -&gt; C with no other arrows into or out of B, we can likely omit B safely.\nCaveat: In an area called mediation analysis (which aims to estimate the direct and indirect components of an overall causal effect), explicitly including mediators and paying careful attention to how mediators are related to other variables is very important.\n\nIrrelevance\n\nIf a variable isn’t on any path between the treatment and outcome, we can likely safely omit the variable.\nWe’ll talk more about the rationale for this in the next classes.",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#drawing-causal-diagrams-with-dagitty",
+    "href": "03-causal-graphs-intro.html#drawing-causal-diagrams-with-dagitty",
+    "title": "Causal graph fundamentals",
+    "section": "Drawing causal diagrams with DAGitty",
+    "text": "Drawing causal diagrams with DAGitty\nDAGitty is an online tool (with an associated R package) for drawing causal diagrams. Click the “Launch” link to open a web tool.\n\nModel &gt; New Model: clear the screen\nAdd a node: Click on the gray canvas\nAdd an edge: First click on the variable representing the cause, then the variable representing the effect (arrow points to second node clicked)\nDelete a node: Click a node and hit “D”. (Or expand the “Variable” toggle in the top left and check “exposure”.)\nDelete an edge: First click the variable representing the cause, then the variable representing the effect.\nLabel a node as the treatment (exposure): Click a node and hit “E”. (Or expand the “Variable” toggle in the top left and check “exposure”.)\nLabel a node as the outcome: Click a node and hit “O”. (Or expand the “Variable” toggle in the top left and check “outcome”.)",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#exercise-1",
+    "href": "03-causal-graphs-intro.html#exercise-1",
+    "title": "Causal graph fundamentals",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFor your research question, sketch the possible data-generating process using a causal diagram (on paper or with DAGitty):\n\nClearly indicate the cause of interest and the outcome.\nWrite down other variables are at play in this situation. Include these variables as nodes.\nAdd edges depicting direct causal relationships between variables.\nIndicate which variables are latent or unobserved.\nIndicate which variables might be harder to collect (reliable) data on.",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#exercise-2",
+    "href": "03-causal-graphs-intro.html#exercise-2",
+    "title": "Causal graph fundamentals",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nYou and your partner will take turns presenting your research question and causal diagram and working together to simplify the diagram.\nPick one person to go first, and go through the following 2 steps. Switch when you’re done.\nStep 1: Present your research question and causal diagram, making sure to explain any context needed to understand:\n\nThe variables in the diagram\nThe edges in and absent from the diagram\nWhich paths are part of the causal effect of interest\n\nThe listener should ask clarifying questions as necessary.\nStep 2: Together, work through attempting to simplify the presenter’s diagram by going through the following 4 principles:\n\nUnimportance\nRedundancy\nMediators\nIrrelevance\n\nMake note of what was changed and what you’re still unsure about. If you came across a good example of one of these principles, draw it on the board to share with the class during our end-of-class debrief.",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "01-introductions.html",
+    "href": "01-introductions.html",
+    "title": "Introductions and foundational ideas",
+    "section": "",
+    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nSlides for today: HTML, PDF",
+    "crumbs": [
+      "Introductions and foundational ideas"
+    ]
   },
   {
     "objectID": "02-identification.html",
@@ -429,7 +539,7 @@
     "href": "02-identification.html#isolating-variation",
     "title": "Causal identification: building intuition",
     "section": "Isolating variation",
-    "text": "Isolating variation\nExample: A child’s shoe size is a great predictor of their reading ability\n\nWe can quantify covariation in shoe size and reading ability with measures like the correlation coefficient, slope and its confidence interval\nWhen we think about the underlying data-generating process, we see that the totality of this covariation also encompasses the covariation in:\n\nage and shoe size\nage and reading ability\n\nWe can isolate a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability\n\n$E[ReadingAbility ShoeSize, Age] =_0 + _1 ShoeSize + _2 Age $\n\n\nThere are other ways to isolate variation that we will explore today and throughout the semester.",
+    "text": "Isolating variation\nExample: A child’s shoe size is a great predictor of their reading ability\n\nWe can quantify covariation in shoe size and reading ability with measures like the correlation coefficient, slope and its confidence interval\nWhen we think about the underlying data-generating process, we see that the totality of this covariation also encompasses the covariation in:\n\nage and shoe size\nage and reading ability\n\nWe can isolate a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability\n\n\\(E[ReadingAbility \\mid ShoeSize, Age] = \\beta_0 + \\beta_1 ShoeSize + \\beta_2 Age\\)\n\n\nThere are other ways to isolate variation that we will explore today and throughout the semester.",
     "crumbs": [
       "Causal identification: building intuition"
     ]
@@ -482,16 +592,6 @@
     "text": "Exercise 5\nThis paper looked at the effect of Florida’s 2005 “Stand Your Ground” (SYG) law on homicide rates. The law gave citizens the right to use lethal force in self-defense in public places where they felt threatened.\nTake a look at panel A from this figure from the paper which shows homicide rates in Florida and comparison states over time.\n\nWhat story do you think the author is trying to tell with this figure?\nDo you think that the trends in homicide rates in Florida and the comparison states are similar before the SYG law was enacted in 2005? Why might similarity be desirable?\nDraw or describe what you guess might have happened in Florida had it not enacted the SYG law. How is this related to identification of the causal effect of the SYG law on homicide rates?",
     "crumbs": [
       "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "01-introductions.html",
-    "href": "01-introductions.html",
-    "title": "Introductions and foundational ideas",
-    "section": "",
-    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nSlides for today: HTML, PDF",
-    "crumbs": [
-      "Introductions and foundational ideas"
     ]
   },
   {
