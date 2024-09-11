@@ -3,8 +3,7 @@ project:
   output-dir: docs
   render:
     - "*.qmd"
-    - "!activity_templates/"
-    - "!04-causal-graphs-simulation.qmd"
+    - "!templates/"
     - "!05-causal-graphs-identification.qmd"
     - "!06-rct.qmd"
     - "!07-target-trial.qmd"
@@ -39,6 +38,7 @@ website:
         - 01-introductions.qmd
         - 02-identification.qmd
         - 03-causal-graphs-intro.qmd
+        - 04-causal-graphs-simulation.qmd
   
   page-footer:
     left: |
