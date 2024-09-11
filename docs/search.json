@@ -123,14 +123,14 @@
     "href": "schedule.html#day4",
     "title": "Schedule",
     "section": "Day 2: Simulating data using causal graphs (9/11)",
-    "text": "Day 2: Simulating data using causal graphs (9/11)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Key structures in causal graphs (~12 min) (slides)\n\nNote 1: In this video, I refer to a concept called “exchangeability”. This is a concept that I included in the last offering of this course. Exchangeability is a causal identification assumption. When the exchangeability assumption is satisfied, we can identify causal effects. When it is not satisfied, I call this “a lack of exchangeability”. In the language we have used, this happens when there are alternate (noncausal) explanations for a relationship between two variables. So in the video, whenever you hear “creates a lack of exchangeability”, replace that with “leads to the presence of alternate (noncausal) explanations for the relationship between two variables”. When you hear “achieve conditional exchangeability”, replace that with “we are able to address this alternate explanation when analyzing the data”.\nNote 2: I use the formal probability ideas of marginal and conditional dependence and independence. You can get the essential ideas from this video by replacing terms in the list below. (If you want to learn or review these probability ideas (not required!), watch my Probability Essentials video.)\n\n“A and B are marginally [independent/dependent]” = “A and B are [unrelated/related] in a general population”\n“A and B are conditionally independent” = “A and B are [unrelated/related] in subgroups (in each group defined by one or more variables)”\n\n\n2 readings from Andrew Heiss’s Program Evaluation course:\n\nGenerating random numbers (~35 min)\nThe ultimate guide to generating synthetic data for causal inference (Stop when you get to the subsection “Visualizing one variable”) (~25 min)"
+    "text": "Day 2: Simulating data using causal graphs (9/11)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Key structures in causal graphs (~12 min) (slides)\n\nNote 1: In this video, I refer to a concept called “exchangeability”. This is a concept that I included in the last offering of this course. Exchangeability is a causal identification assumption. When the exchangeability assumption is satisfied, we can identify causal effects. When it is not satisfied, I call this “a lack of exchangeability”. In the language we have used, this happens when there are alternate (noncausal) explanations for a relationship between two variables. So in the video, whenever you hear “creates a lack of exchangeability”, replace that with “leads to the presence of alternate (noncausal) explanations for the relationship between two variables”. When you hear “achieve conditional exchangeability”, replace that with “we are able to address this alternate explanation when analyzing the data”.\nNote 2: I use the formal probability ideas of marginal and conditional dependence and independence. You can get the essential ideas from this video by replacing terms in the list below. (If you want to learn or review these probability ideas (not required!), watch my Probability Essentials video.)\n\n“A and B are marginally [independent/dependent]” = “A and B are [unrelated/related] in a general population”\n“A and B are conditionally independent” = “A and B are [unrelated/related] in subgroups (in each group defined by one or more variables)”\n\n\n2 readings from Andrew Heiss’s Program Evaluation course:\n\nGenerating random numbers (~35 min)\nThe ultimate guide to generating synthetic data for causal inference (Stop when you get to the subsection “Visualizing one variable”) (~25 min)\n\n\n\n\nDuring class: Simulating data using causal graphs"
   },
   {
     "objectID": "schedule.html#day5",
     "href": "schedule.html#day5",
     "title": "Schedule",
-    "section": "Day 3: Identifying causal effects with causal graphs (9/13)",
-    "text": "Day 3: Identifying causal effects with causal graphs (9/13)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Causal and Noncausal Paths (~5 min)\nVideo: D-Separation (~8 min)\nReading: The Effect Chapter 8: Causal Paths and Closing Back Doors (~35 minutes)\n\nVideo alternatives:\n\nCausal Pathways (~9 minutes)\nClosing Causal Pathways, and Collider Variables (~11 minutes)\nTesting Causal Diagrams, and Placebo Tests (~8 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Section 3.1.3: Backdoor criterion (~5 minutes)"
+    "section": "Day 3: Simulating data using causal graphs (9/13)",
+    "text": "Day 3: Simulating data using causal graphs (9/13)\n\nContinuation of last class"
   },
   {
     "objectID": "schedule.html#day-1-identifying-causal-effects-with-causal-graphs",
@@ -158,7 +158,7 @@
     "href": "schedule.html#day-1-matching",
     "title": "Schedule",
     "section": "Day 1: Matching",
-    "text": "Day 1: Matching\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 14: Matching (~160 minutes)\n\nVideo alternatives:\n\nMatching (~11 minutes)\nFive Questions About Matching (~13 minutes)\nDistance Matching (~9 minutes)\nPropensity Score Matching (~10 minutes)\nCoarsened Exact Matching and Entropy Balancing (~8 minutes)\nWhen Matching Goes Wrong (~14 minutes)\nTreatment Effect Estimation with Matching (~7 minutes)\n\n\nJournal article: Matching Methods for Causal Inference: A Review and a Look Forward (~60 minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 5: Matching and Subclassification (~140 minutes)"
+    "text": "Day 1: Matching\n\nContinuation of previous class"
   },
   {
     "objectID": "schedule.html#day-2-matching",
@@ -729,7 +729,7 @@
     "href": "assignments.html",
     "title": "Assignments",
     "section": "",
-    "text": "These assignments will build up your Portfolio. Recall from the syllabus that the goal of the Portfolio is create a reference that is tailored to the way that you think about and understand ideas.\nI hope that you feel proud of your Portfolio by the end of the semester. If you want to publish it, the Quarto files (.qmd) that you submit for your assignments can become the basis for a website that looks a lot like this course website or websites in the Quarto gallery. I’m happy to help you get this set up if you’re interested.\n\n\nAssignment 1\nDue Wednesday, 9/11 at 5pm on Moodle\nThis first assignment is a short writing piece for me to get to know you. There are no length requirements—just use as many words as needed to convey what you want, and feel free to respond to my questions in any order.\nFormat: Please submit a link to a Google Doc (preferred) or a Word document. (No PDFs because comments end up being too scrunched in PDFs.) If submitting a Google Doc, make sure that I am added with either Editing or Commenting privileges.\nPrompt:\nI recently read a moving essay called An Education of His Own by writer Latham Turner. I invite you to read this essay as you think about what you might want from this course experience. If you feel so moved, I’d love to hear what parts of the essay resonated with you.\nWhat would make this course of a success for you? What are you hoping to learn and accomplish? I know that there are a variety of reasons for taking the course, and I want to better understand how those reasons inform what you are hoping for.\nReflect on other courses you’ve taken and other learning environments in which you’ve participated. What grading/motivation/incentive structures, classroom dynamics, and personal habits/practices were helpful for your learning? What hindered your learning?\nFor the next questions, I want to be honest with you about where I am coming from. I mentioned in the syllabus that if I didn’t have to give grades, I wouldn’t. The act of grading (putting points and A/B/C-like marks on work) is quite draining for me because I feel immense pressure to be fair, be “accurate” (even though there is no way that something like a grade could accurately measure something as complex as learning), and keep your motivation levels high. I also feel that grading creates a charged power dynamic between the instructor and the student that I don’t like. I became a teacher because I love being a guide and a coach for students in ideas I find fascinating—not because I wanted to bestow judgment.\nIf my aversion to grades seems like an aversion to high expectations for your learning, it’s not. It’s an aversion to what I see as a very problematic system when something more simple and more meaningful encourages learning so well: qualitative feedback. Note that grading is very different from qualitative feedback, which, simply put, is a collection of thoughtful comments on your work. I truly enjoy giving feedback when it is not tied to a grade. There’s so much rich information in qualitative feedback that grades, by virtue of being a single letter or number, can’t capture.\nWith that background from me, I have a few questions for you: How would you feel about a system in which everyone gets an A so that we can ignore grades completely and focus on qualitative feedback? How would you feel about a system in which everyone was graded differently? How do you think we should approach the process of deciding to how to handle grades in this course?\nI know that the background I gave suggests what I would prefer for what we do with grades. I know that this may affect your comfort in being honest, but I truly do want to know your honest thoughts.\nThanks for taking the time to reflect and share with me. I’m looking forward to reading what you write.\n\n\n\nAssignment 2\nDue Friday, 9/20 at 5pm on Moodle\nImagine that you are preparing your capstone talk on your project form this course. The start of that presentation should probably include a section that introduces orients them to what the course is even about: What is causal inference? What are causal graphs, and what role do they play in causal inference?\nTask: Create slides for this presentation section. Add presenter notes beneath each slide to indicate what you would say. If you wish, you can record a video of you giving this presentation segment.\nAudience: Aim for this presentation segment to be accessible to students who have taken STAT 155 but no upper-level courses.\nFormat:\n\nFor submitting slides, Google Slides is preferred—make sure that I am added with either Editing or Commenting privileges. If using another program for slides, submit both the slides and presenter notes beneath in PDF format.\nIf submitting a video, upload the video or share a link where I can access it."
+    "text": "These assignments will build up your Portfolio. Recall from the syllabus that the goal of the Portfolio is create a reference that is tailored to the way that you think about and understand ideas.\nI hope that you feel proud of your Portfolio by the end of the semester. If you want to publish it, the Quarto files (.qmd) that you submit for your assignments can become the basis for a website that looks a lot like this course website or websites in the Quarto gallery. I’m happy to help you get this set up if you’re interested.\n\n\nAssignment 1\nDue Wednesday, 9/11 at 5pm on Moodle\nThis first assignment is a short writing piece for me to get to know you. There are no length requirements—just use as many words as needed to convey what you want, and feel free to respond to my questions in any order.\nFormat: Please submit a link to a Google Doc (preferred) or a Word document. (No PDFs because comments end up being too scrunched in PDFs.) If submitting a Google Doc, make sure that I am added with either Editing or Commenting privileges.\nPrompt:\nI recently read a moving essay called An Education of His Own by writer Latham Turner. I invite you to read this essay as you think about what you might want from this course experience. If you feel so moved, I’d love to hear what parts of the essay resonated with you.\nWhat would make this course of a success for you? What are you hoping to learn and accomplish? I know that there are a variety of reasons for taking the course, and I want to better understand how those reasons inform what you are hoping for.\nReflect on other courses you’ve taken and other learning environments in which you’ve participated. What grading/motivation/incentive structures, classroom dynamics, and personal habits/practices were helpful for your learning? What hindered your learning?\nFor the next questions, I want to be honest with you about where I am coming from. I mentioned in the syllabus that if I didn’t have to give grades, I wouldn’t. The act of grading (putting points and A/B/C-like marks on work) is quite draining for me because I feel immense pressure to be fair, be “accurate” (even though there is no way that something like a grade could accurately measure something as complex as learning), and keep your motivation levels high. I also feel that grading creates a charged power dynamic between the instructor and the student that I don’t like. I became a teacher because I love being a guide and a coach for students in ideas I find fascinating—not because I wanted to bestow judgment.\nIf my aversion to grades seems like an aversion to high expectations for your learning, it’s not. It’s an aversion to what I see as a very problematic system when something more simple and more meaningful encourages learning so well: qualitative feedback. Note that grading is very different from qualitative feedback, which, simply put, is a collection of thoughtful comments on your work. I truly enjoy giving feedback when it is not tied to a grade. There’s so much rich information in qualitative feedback that grades, by virtue of being a single letter or number, can’t capture.\nWith that background from me, I have a few questions for you: How would you feel about a system in which everyone gets an A so that we can ignore grades completely and focus on qualitative feedback? How would you feel about a system in which everyone was graded differently? How do you think we should approach the process of deciding to how to handle grades in this course?\nI know that the background I gave suggests what I would prefer for what we do with grades. I know that this may affect your comfort in being honest, but I truly do want to know your honest thoughts.\nThanks for taking the time to reflect and share with me. I’m looking forward to reading what you write.\n\n\n\nAssignment 2\nDue Friday, 9/27 at 5pm on Moodle\nImagine that you are preparing your capstone talk on your project form this course. The start of that presentation should probably include a section that introduces orients them to what the course is even about: What is causal inference? What are causal graphs, and what role do they play in causal inference?\nTask: Create slides for this presentation section. Add presenter notes beneath each slide to indicate what you would say. If you wish, you can record a video of you giving this presentation segment.\nAudience: Aim for this presentation segment to be accessible to students who have taken STAT 155 but no upper-level courses.\nFormat:\n\nFor submitting slides, Google Slides is preferred—make sure that I am added with either Editing or Commenting privileges. If using another program for slides, submit both the slides and presenter notes beneath in PDF format.\nIf submitting a video, upload the video or share a link where I can access it."
   },
   {
     "objectID": "project.html",
@@ -968,5 +968,152 @@
     "title": "Welcome to Causal Inference!",
     "section": "For next time",
     "text": "For next time\n\nCheck the Schedule for readings from The Effect. (Chapters 1, 2, and 5)\n\nReadings from The Effect always have video alternatives from the textbook author.\n\nUpdate your R and RStudio installations as described here."
+  },
+  {
+    "objectID": "schedule.html#day6",
+    "href": "schedule.html#day6",
+    "title": "Schedule",
+    "section": "Day 1: Identifying causal effects with causal graphs (9/16)",
+    "text": "Day 1: Identifying causal effects with causal graphs (9/16)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Causal and Noncausal Paths (~5 min)\nVideo: D-Separation (~8 min)\nReading: The Effect Chapter 8: Causal Paths and Closing Back Doors (~35 minutes)\n\nVideo alternatives:\n\nCausal Pathways (~9 minutes)\nClosing Causal Pathways, and Collider Variables (~11 minutes)\nTesting Causal Diagrams, and Placebo Tests (~8 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Section 3.1.3: Backdoor criterion (~5 minutes)"
+  },
+  {
+    "objectID": "schedule.html#day7",
+    "href": "schedule.html#day7",
+    "title": "Schedule",
+    "section": "Day 2: Identifying causal effects with causal graphs (9/18)",
+    "text": "Day 2: Identifying causal effects with causal graphs (9/18)\n\nContinuation of previous class"
+  },
+  {
+    "objectID": "schedule.html#day8",
+    "href": "schedule.html#day8",
+    "title": "Schedule",
+    "section": "Day 3: Synthesis day (9/20)",
+    "text": "Day 3: Synthesis day (9/20)\n\nPause day to work on Assignment 2."
+  },
+  {
+    "objectID": "schedule.html#day-1-randomized-experiments",
+    "href": "schedule.html#day-1-randomized-experiments",
+    "title": "Schedule",
+    "section": "Day 1: Randomized experiments",
+    "text": "Day 1: Randomized experiments\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Treatment Allocation and Randomization (~20 minutes) from Penn State’s online notes for the course Design and Analysis of Clinical Trials"
+  },
+  {
+    "objectID": "schedule.html#day-2-target-trial-framework",
+    "href": "schedule.html#day-2-target-trial-framework",
+    "title": "Schedule",
+    "section": "Day 2: Target trial framework",
+    "text": "Day 2: Target trial framework\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses. Journal of Clinical Epidemiology, 79, 70–75. (~35 minutes)"
+  },
+  {
+    "objectID": "schedule.html#day-3-matching",
+    "href": "schedule.html#day-3-matching",
+    "title": "Schedule",
+    "section": "Day 3: Matching",
+    "text": "Day 3: Matching\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 14: Matching (~160 minutes)\n\nVideo alternatives:\n\nMatching (~11 minutes)\nFive Questions About Matching (~13 minutes)\nDistance Matching (~9 minutes)\nPropensity Score Matching (~10 minutes)\nCoarsened Exact Matching and Entropy Balancing (~8 minutes)\nWhen Matching Goes Wrong (~14 minutes)\nTreatment Effect Estimation with Matching (~7 minutes)\n\n\nJournal article: Matching Methods for Causal Inference: A Review and a Look Forward (~60 minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 5: Matching and Subclassification (~140 minutes)"
+  },
+  {
+    "objectID": "schedule.html#day-2-regression-discontinuity",
+    "href": "schedule.html#day-2-regression-discontinuity",
+    "title": "Schedule",
+    "section": "Day 2: Regression discontinuity",
+    "text": "Day 2: Regression discontinuity\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)"
+  },
+  {
+    "objectID": "schedule.html#day-3-flex-day",
+    "href": "schedule.html#day-3-flex-day",
+    "title": "Schedule",
+    "section": "Day 3: Flex Day",
+    "text": "Day 3: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+  },
+  {
+    "objectID": "schedule.html#day-1-event-studies-interrupted-times-series",
+    "href": "schedule.html#day-1-event-studies-interrupted-times-series",
+    "title": "Schedule",
+    "section": "Day 1: Event studies / interrupted times series",
+    "text": "Day 1: Event studies / interrupted times series\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 17: Event Studies (~70 minutes)\n\nVideo alternatives:\n\nEvent Studies (~12 minutes)\nInterrupted Time Series (~8 minutes)\nEvent Studies in Finance (~11 minutes)\n\n\n\n\n\nDuring class:"
+  },
+  {
+    "objectID": "schedule.html#day-2-synthetic-control",
+    "href": "schedule.html#day-2-synthetic-control",
+    "title": "Schedule",
+    "section": "Day 2: Synthetic control",
+    "text": "Day 2: Synthetic control\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class:"
+  },
+  {
+    "objectID": "schedule.html#day-3-flex-day-1",
+    "href": "schedule.html#day-3-flex-day-1",
+    "title": "Schedule",
+    "section": "Day 3: Flex Day",
+    "text": "Day 3: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+  },
+  {
+    "objectID": "schedule.html#day-1-fixed-effects-models",
+    "href": "schedule.html#day-1-fixed-effects-models",
+    "title": "Schedule",
+    "section": "Day 1: Fixed effects models",
+    "text": "Day 1: Fixed effects models\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\nThe Effect Chapter 18: Difference-in-Differences (~80 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\nDuring class:"
+  },
+  {
+    "objectID": "schedule.html#day-2-difference-in-differences-designs",
+    "href": "schedule.html#day-2-difference-in-differences-designs",
+    "title": "Schedule",
+    "section": "Day 2: Difference-in-differences designs",
+    "text": "Day 2: Difference-in-differences designs\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (~80 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)\n\n\n\n\nDuring class:\n🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁\n🍁 No class on Friday, October 18 🍁"
+  },
+  {
+    "objectID": "schedule.html#instrumental-variables",
+    "href": "schedule.html#instrumental-variables",
+    "title": "Schedule",
+    "section": "Instrumental variables",
+    "text": "Instrumental variables\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 19: Instrumental Variables (~85 minutes)\n\nVideo alternatives:\n\nInstrumental Variables (~10 minutes)\nInstrumental Variable Validity (~10 minutes)\nEstimating Instrumental Variables (~12 minutes)\nTesting Instrumental Variables Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 7: Instrumental Variables (~150 minutes)"
+  },
+  {
+    "objectID": "schedule.html#instrumental-variables-1",
+    "href": "schedule.html#instrumental-variables-1",
+    "title": "Schedule",
+    "section": "Instrumental variables",
+    "text": "Instrumental variables\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
+  },
+  {
+    "objectID": "schedule.html#doubly-robust-estimation",
+    "href": "schedule.html#doubly-robust-estimation",
+    "title": "Schedule",
+    "section": "Doubly robust estimation",
+    "text": "Doubly robust estimation\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+  },
+  {
+    "objectID": "schedule.html#flex-day",
+    "href": "schedule.html#flex-day",
+    "title": "Schedule",
+    "section": "Flex Day",
+    "text": "Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
+  },
+  {
+    "objectID": "schedule.html#project-work",
+    "href": "schedule.html#project-work",
+    "title": "Schedule",
+    "section": "Project work",
+    "text": "Project work\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+  },
+  {
+    "objectID": "schedule.html#causal-discovery",
+    "href": "schedule.html#causal-discovery",
+    "title": "Schedule",
+    "section": "Causal discovery",
+    "text": "Causal discovery\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+  },
+  {
+    "objectID": "schedule.html#sensitivity-analyses",
+    "href": "schedule.html#sensitivity-analyses",
+    "title": "Schedule",
+    "section": "Sensitivity analyses",
+    "text": "Sensitivity analyses\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
+  },
+  {
+    "objectID": "schedule.html#sensitivity-analyses-1",
+    "href": "schedule.html#sensitivity-analyses-1",
+    "title": "Schedule",
+    "section": "Sensitivity analyses",
+    "text": "Sensitivity analyses\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:\n🦃 Thanksgiving Break: Wednesday, November 27 - Sunday, December 1 🦃"
   }
 ]

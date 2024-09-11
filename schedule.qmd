@@ -28,21 +28,21 @@ Check here to see what you should be doing before, during, and after each class 
     <td class="topleft">2 (9/9 - 9/13)</td>
     <td class="topleft"><a href="#day3">Causal graph fundamentals</a></td>
     <td class="topleft"><a href="#day4">Simulating data using causal graphs</a><br><br> <b><a href="assignments.html#assignment-1">Assignment 1</a> due today at 5pm</b></td>
-    <td class="topleft"><a href="#day5">Identifying causal effects with causal graphs</a></td>
-    <td class="topleft">Work on <a href="assignments.html#assignment-2">Assignment 2</a> due Fri 9/20 at 5pm</td>
+    <td class="topleft"><a href="#day5">Simulating data using causal graphs (continued)</a>
+    <td class="topleft">Work on <a href="assignments.html#assignment-2">Assignment 2</a> due Fri 9/27 at 5pm</td>
   </tr>
   <tr>
     <td class="topleft">3 (9/16 - 9/20)</td>
-    <td class="topleft"></td>
-    <td class="topleft"></td>
-    <td class="topleft"><b><a href="assignments.html#assignment-2">Assignment 2</a> due today at 5pm</b></td>
-    <td class="topleft"></td>
+    <td class="topleft"><a href="#day6">Identifying causal effects with causal graphs</a></td>
+    <td class="topleft"><a href="#day7">Identifying causal effects with causal graphs (continued)</a></td>
+    <td class="topleft"><a href="#day8">Synthesis day</a>: time to work on Assignment 2</td>
+    <td class="topleft">Work on <a href="assignments.html#assignment-2">Assignment 2</a> due Fri 9/27 at 5pm</td>
   </tr>
   <tr>
     <td class="topleft">4 (9/23 - 9/27)</td>
     <td class="topleft"></td>
     <td class="topleft"></td>
-    <td class="topleft"></td>
+    <td class="topleft"><b><a href="assignments.html#assignment-2">Assignment 2</a> due today at 5pm</b></td>
     <td class="topleft"></td>
   </tr>
 </tbody>
@@ -140,10 +140,22 @@ Formulate a research question that relates to an area that you're interested in.
     - [The ultimate guide to generating synthetic data for causal inference](https://evalsp24.classes.andrewheiss.com/example/synthetic-data.html) (Stop when you get to the subsection "Visualizing one variable") (~25 min)
 :::
 
-<!-- **During class:** [Simulating data using causal graphs](04-causal-graphs-simulation.qmd) -->
+**During class:** [Simulating data using causal graphs](04-causal-graphs-simulation.qmd)
 
 
-## Day 3: Identifying causal effects with causal graphs (9/13) {#day5}
+## Day 3: Simulating data using causal graphs (9/13) {#day5}
+
+- Continuation of last class
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 3: Causal graph wrap-up
+
+## Day 1: Identifying causal effects with causal graphs (9/16) {#day6}
 
 **Before class:**
 
@@ -163,21 +175,23 @@ Formulate a research question that relates to an area that you're interested in.
 
 <!-- **During class:** [Identifying causal effects with causal graphs](05-causal-graphs-identification.qmd) -->
 
+## Day 2: Identifying causal effects with causal graphs (9/18) {#day7}
+
+- Continuation of previous class
+
+## Day 3: Synthesis day (9/20) {#day8}
+
+- Pause day to work on [Assignment 2](assignments.qmd#assignment-2).
+
 
 
 <!-- ============================================================= -->
 
 
 
-# Week 3: Causal graph wrap-up, randomized experiments, and target trials
+# Week 4: Randomized experiments, target trials, matching
 
-## Day 1: Identifying causal effects with causal graphs
-
-- Continuation of last Friday's topic
-
-<!-- **During class:** [Identifying causal effects with causal graphs](05-causal-graphs-identification.qmd) -->
-
-## Day 2: Randomized experiments
+## Day 1: Randomized experiments
 
 **Before class:**
 
@@ -187,7 +201,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 <!-- **During class:** [Randomized experiments](06-rct.qmd) -->
 
-## Day 3: Target trial framework
+## Day 2: Target trial framework
 
 ::: {.callout-note title="Required" icon=false}
 - Reading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). [Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5124536/pdf/nihms-790601.pdf). *Journal of Clinical Epidemiology*, *79*, 70–75. (~35 minutes)
@@ -195,15 +209,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 <!-- **During class:** [Target trial framework](07-target-trial.qmd) -->
 
-
-
-<!-- ============================================================= -->
-
-
-
-# Week 4: Matching and regression discontinuity designs
-
-## Day 1: Matching
+## Day 3: Matching
 
 **Before class:**
 
@@ -226,11 +232,23 @@ Formulate a research question that relates to an area that you're interested in.
 
 <!-- **During class:** [Matching](08-matching.qmd) -->
 
-## Day 2: Matching
+
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 5: Matching and regression discontinuity designs
+
+## Day 1: Matching
+
+- Continuation of previous class
 
 <!-- **During class:** [Matching](08-matching.qmd) -->
 
-## Day 3: Regression discontinuity
+## Day 2: Regression discontinuity
 
 **Before class:**
 
@@ -249,15 +267,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 <!-- **During class:** [Regression discontinuity designs](09-rdd.qmd) -->
 
-
-
-<!-- ============================================================= -->
-
-
-
-# Week 5: Longitudinal/panel data
-
-## Day 1: Flex Day
+## Day 3: Flex Day
 
 **Before class:**
 
@@ -269,7 +279,17 @@ Formulate a research question that relates to an area that you're interested in.
 - (~xx)
 :::
 
-## Day 2: Event studies / interrupted times series
+
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 6: Longitudinal/panel data
+
+## Day 1: Event studies / interrupted times series
 
 **Before class:**
 
@@ -283,7 +303,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 **During class:** 
 
-## Day 3: Synthetic control
+## Day 2: Synthetic control
 
 **Before class:**
 
@@ -299,15 +319,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 **During class:** 
 
-
-
-<!-- ============================================================= -->
-
-
-
-# Week 6: Difference-in-differences
-
-## Day 1: Flex Day
+## Day 3: Flex Day
 
 **Before class:**
 
@@ -319,7 +331,19 @@ Formulate a research question that relates to an area that you're interested in.
 - (~xx)
 :::
 
-## Day 2: Difference-in-differences and fixed effects models
+
+
+
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 7: Fixed effects and difference-in-differences
+
+## Day 1: Fixed effects models
 
 **Before class:**
 
@@ -339,27 +363,32 @@ Formulate a research question that relates to an area that you're interested in.
         - [Staggered Treatment in Difference-in-Differences](https://youtu.be/hu2nDbnpALA) (~9 minutes)
 :::
 
+**During class:** 
+
+## Day 2: Difference-in-differences designs
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- *The Effect* [Chapter 18: Difference-in-Differences](https://www.theeffectbook.net/ch-DifferenceinDifference.html) (~80 minutes)
+    - Video alternatives:
+        - [Difference in Differences](https://youtu.be/ggYnrOGG97o) (~11 minutes)
+        - [Parallel Trends](https://youtu.be/NcHT8pl57HY) (~9 minutes)
+        - [Estimating Difference in Differences](https://youtu.be/95HxUdn-BJg) (~10 minutes)
+        - [Supporting Parallel Trends](https://youtu.be/ihIWuC6ULjo) (~9 minutes)
+        - [Dynamic Difference-in-Differences](https://youtu.be/_nknBbw-HFQ) (~10 minutes)
+        - [Staggered Treatment in Difference-in-Differences](https://youtu.be/hu2nDbnpALA) (~9 minutes)
+:::
+
 ::: {.callout-note title="Optional" appearance="simple" collapse="true"}
 - *Mixtape* [Chapter 9: Difference-in-Differences](https://mixtape.scunning.com/09-difference_in_differences) (~230 minutes)
 :::
 
 **During class:** 
 
-## Day 3: Difference-in-differences and fixed effects models
+🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁
 
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-**During class:** 
-
-
+🍁 No class on Friday, October 18 🍁
 
 
 
@@ -367,9 +396,9 @@ Formulate a research question that relates to an area that you're interested in.
 
 
 
-# Week 7: Instrumental variables
+# Weeks 8-13
 
-## Day 1: Instrumental variables
+## Instrumental variables
 
 **Before class:**
 
@@ -386,7 +415,7 @@ Formulate a research question that relates to an area that you're interested in.
 - *Mixtape* [Chapter 7: Instrumental Variables](https://mixtape.scunning.com/07-instrumental_variables) (~150 minutes)
 :::
 
-## Day 2: Instrumental variables
+## Instrumental variables
 
 **Before class:**
 
@@ -400,19 +429,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 **During class:** 
 
-🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁
-
-🍁 No class on Friday, October 18 🍁
-
-
-
-<!-- ============================================================= -->
-
-
-
-# Week 8: Doubly robust estimation and project work time
-
-## Day 1: Doubly robust estimation
+## Doubly robust estimation
 
 **Before class:**
 
@@ -424,7 +441,7 @@ Formulate a research question that relates to an area that you're interested in.
 - (~xx)
 :::
 
-## Day 2: Flex Day
+## Flex Day
 
 **Before class:**
 
@@ -438,7 +455,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 **During class:** 
 
-## Day 3: Project work
+## Project work
 
 **Before class:**
 
@@ -451,14 +468,7 @@ Formulate a research question that relates to an area that you're interested in.
 :::
 
 
-
-<!-- ============================================================= -->
-
-
-
-# Week 9: Causal discovery and sensitivity analyses
-
-## Day 1: Causal discovery
+## Causal discovery
 
 **Before class:**
 
@@ -470,7 +480,7 @@ Formulate a research question that relates to an area that you're interested in.
 - (~xx)
 :::
 
-## Day 2: Sensitivity analyses
+## Sensitivity analyses
 
 **Before class:**
 
@@ -484,7 +494,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 **During class:** 
 
-## Day 3: Sensitivity analyses
+## Sensitivity analyses
 
 **Before class:**
 
@@ -499,168 +509,6 @@ Formulate a research question that relates to an area that you're interested in.
 **During class:** 
 
 
-
-<!-- ============================================================= -->
-
-
-
-# Week 10: TBD
-
-## Day 1: TBD
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-## Day 2: TBD
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-**During class:** 
-
-## Day 3: TBD
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-**During class:** 
-
-
-
-<!-- ============================================================= -->
-
-
-
-# Week 11: TBD
-
-## Day 1: TBD
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-## Day 2: TBD
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-**During class:** 
-
-## Day 3: TBD
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-**During class:** 
-
-
-
-<!-- ============================================================= -->
-
-
-
-# Week 12: TBD
-
-## Day 1: TBD
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-## Day 2: TBD
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-**During class:** 
-
-## Day 3: TBD
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-**During class:** 
-
-
-
-<!-- ============================================================= -->
-
-
-
-# Week 13: TBD
-
-## Day 1: TBD
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
 
 🦃 Thanksgiving Break: Wednesday, November 27 - Sunday, December 1 🦃
 
