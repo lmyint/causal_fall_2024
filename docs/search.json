@@ -133,25 +133,46 @@
     "text": "Day 3: Simulating data using causal graphs (9/13)\n\nContinuation of last class"
   },
   {
-    "objectID": "schedule.html#day-1-identifying-causal-effects-with-causal-graphs",
-    "href": "schedule.html#day-1-identifying-causal-effects-with-causal-graphs",
+    "objectID": "schedule.html#day6",
+    "href": "schedule.html#day6",
     "title": "Schedule",
-    "section": "Day 1: Identifying causal effects with causal graphs",
-    "text": "Day 1: Identifying causal effects with causal graphs\n\nContinuation of last Friday’s topic"
+    "section": "Day 1: Identifying causal effects with causal graphs (9/16)",
+    "text": "Day 1: Identifying causal effects with causal graphs (9/16)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Causal and Noncausal Paths (~5 min)\nVideo: D-Separation (~8 min)\nReading: The Effect Chapter 8: Causal Paths and Closing Back Doors (~35 minutes)\n\nVideo alternatives:\n\nCausal Pathways (~9 minutes)\nClosing Causal Pathways, and Collider Variables (~11 minutes)\nTesting Causal Diagrams, and Placebo Tests (~8 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Section 3.1.3: Backdoor criterion (~5 minutes)\n\n\n\n\nDuring class: Identifying causal effects with causal graphs"
   },
   {
-    "objectID": "schedule.html#day-2-randomized-experiments",
-    "href": "schedule.html#day-2-randomized-experiments",
+    "objectID": "schedule.html#day7",
+    "href": "schedule.html#day7",
     "title": "Schedule",
-    "section": "Day 2: Randomized experiments",
-    "text": "Day 2: Randomized experiments\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Treatment Allocation and Randomization (~20 minutes) from Penn State’s online notes for the course Design and Analysis of Clinical Trials"
+    "section": "Day 2: Identifying causal effects with causal graphs (9/18)",
+    "text": "Day 2: Identifying causal effects with causal graphs (9/18)\n\nContinuation of previous class\n\nDuring class: Testing causal graphs"
   },
   {
-    "objectID": "schedule.html#day-3-target-trial-framework",
-    "href": "schedule.html#day-3-target-trial-framework",
+    "objectID": "schedule.html#day8",
+    "href": "schedule.html#day8",
     "title": "Schedule",
-    "section": "Day 3: Target trial framework",
-    "text": "Day 3: Target trial framework\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses. Journal of Clinical Epidemiology, 79, 70–75. (~35 minutes)"
+    "section": "Day 3: Synthesis day (9/20)",
+    "text": "Day 3: Synthesis day (9/20)\n\nPause day to work on Assignment 2.\nPlease create a rough outline of your slides before class.\nWe will have a chance to get feedback on the outline, work on the slides, and then get additional feedback on the slide content."
+  },
+  {
+    "objectID": "schedule.html#day-1-randomized-experiments",
+    "href": "schedule.html#day-1-randomized-experiments",
+    "title": "Schedule",
+    "section": "Day 1: Randomized experiments",
+    "text": "Day 1: Randomized experiments\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Treatment Allocation and Randomization (~20 minutes) from Penn State’s online notes for the course Design and Analysis of Clinical Trials"
+  },
+  {
+    "objectID": "schedule.html#day-2-target-trial-framework",
+    "href": "schedule.html#day-2-target-trial-framework",
+    "title": "Schedule",
+    "section": "Day 2: Target trial framework",
+    "text": "Day 2: Target trial framework\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses. Journal of Clinical Epidemiology, 79, 70–75. (~35 minutes)"
+  },
+  {
+    "objectID": "schedule.html#day-3-matching",
+    "href": "schedule.html#day-3-matching",
+    "title": "Schedule",
+    "section": "Day 3: Matching",
+    "text": "Day 3: Matching\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 14: Matching (~160 minutes)\n\nVideo alternatives:\n\nMatching (~11 minutes)\nFive Questions About Matching (~13 minutes)\nDistance Matching (~9 minutes)\nPropensity Score Matching (~10 minutes)\nCoarsened Exact Matching and Entropy Balancing (~8 minutes)\nWhen Matching Goes Wrong (~14 minutes)\nTreatment Effect Estimation with Matching (~7 minutes)\n\n\nJournal article: Matching Methods for Causal Inference: A Review and a Look Forward (~60 minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 5: Matching and Subclassification (~140 minutes)"
   },
   {
     "objectID": "schedule.html#day-1-matching",
@@ -161,186 +182,109 @@
     "text": "Day 1: Matching\n\nContinuation of previous class"
   },
   {
-    "objectID": "schedule.html#day-2-matching",
-    "href": "schedule.html#day-2-matching",
+    "objectID": "schedule.html#day-2-regression-discontinuity",
+    "href": "schedule.html#day-2-regression-discontinuity",
     "title": "Schedule",
-    "section": "Day 2: Matching",
-    "text": "Day 2: Matching"
+    "section": "Day 2: Regression discontinuity",
+    "text": "Day 2: Regression discontinuity\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)"
   },
   {
-    "objectID": "schedule.html#day-3-regression-discontinuity",
-    "href": "schedule.html#day-3-regression-discontinuity",
+    "objectID": "schedule.html#day-3-flex-day",
+    "href": "schedule.html#day-3-flex-day",
     "title": "Schedule",
-    "section": "Day 3: Regression discontinuity",
-    "text": "Day 3: Regression discontinuity\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)"
+    "section": "Day 3: Flex Day",
+    "text": "Day 3: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
   },
   {
-    "objectID": "schedule.html#day-1-flex-day",
-    "href": "schedule.html#day-1-flex-day",
+    "objectID": "schedule.html#day-1-event-studies-interrupted-times-series",
+    "href": "schedule.html#day-1-event-studies-interrupted-times-series",
     "title": "Schedule",
-    "section": "Day 1: Flex Day",
-    "text": "Day 1: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+    "section": "Day 1: Event studies / interrupted times series",
+    "text": "Day 1: Event studies / interrupted times series\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 17: Event Studies (~70 minutes)\n\nVideo alternatives:\n\nEvent Studies (~12 minutes)\nInterrupted Time Series (~8 minutes)\nEvent Studies in Finance (~11 minutes)\n\n\n\n\n\nDuring class:"
   },
   {
-    "objectID": "schedule.html#day-2-event-studies-interrupted-times-series",
-    "href": "schedule.html#day-2-event-studies-interrupted-times-series",
+    "objectID": "schedule.html#day-2-synthetic-control",
+    "href": "schedule.html#day-2-synthetic-control",
     "title": "Schedule",
-    "section": "Day 2: Event studies / interrupted times series",
-    "text": "Day 2: Event studies / interrupted times series\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 17: Event Studies (~70 minutes)\n\nVideo alternatives:\n\nEvent Studies (~12 minutes)\nInterrupted Time Series (~8 minutes)\nEvent Studies in Finance (~11 minutes)\n\n\n\n\n\nDuring class:"
+    "section": "Day 2: Synthetic control",
+    "text": "Day 2: Synthetic control\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class:"
   },
   {
-    "objectID": "schedule.html#day-3-synthetic-control",
-    "href": "schedule.html#day-3-synthetic-control",
+    "objectID": "schedule.html#day-3-flex-day-1",
+    "href": "schedule.html#day-3-flex-day-1",
     "title": "Schedule",
-    "section": "Day 3: Synthetic control",
-    "text": "Day 3: Synthetic control\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class:"
+    "section": "Day 3: Flex Day",
+    "text": "Day 3: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
   },
   {
-    "objectID": "schedule.html#day-1-flex-day-1",
-    "href": "schedule.html#day-1-flex-day-1",
+    "objectID": "schedule.html#day-1-fixed-effects-models",
+    "href": "schedule.html#day-1-fixed-effects-models",
     "title": "Schedule",
-    "section": "Day 1: Flex Day",
-    "text": "Day 1: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+    "section": "Day 1: Fixed effects models",
+    "text": "Day 1: Fixed effects models\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\nThe Effect Chapter 18: Difference-in-Differences (~80 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\nDuring class:"
   },
   {
-    "objectID": "schedule.html#day-2-difference-in-differences-and-fixed-effects-models",
-    "href": "schedule.html#day-2-difference-in-differences-and-fixed-effects-models",
+    "objectID": "schedule.html#day-2-difference-in-differences-designs",
+    "href": "schedule.html#day-2-difference-in-differences-designs",
     "title": "Schedule",
-    "section": "Day 2: Difference-in-differences and fixed effects models",
-    "text": "Day 2: Difference-in-differences and fixed effects models\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\nThe Effect Chapter 18: Difference-in-Differences (~80 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)\n\n\n\n\nDuring class:"
+    "section": "Day 2: Difference-in-differences designs",
+    "text": "Day 2: Difference-in-differences designs\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (~80 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)\n\n\n\n\nDuring class:\n🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁\n🍁 No class on Friday, October 18 🍁"
   },
   {
-    "objectID": "schedule.html#day-3-difference-in-differences-and-fixed-effects-models",
-    "href": "schedule.html#day-3-difference-in-differences-and-fixed-effects-models",
+    "objectID": "schedule.html#instrumental-variables",
+    "href": "schedule.html#instrumental-variables",
     "title": "Schedule",
-    "section": "Day 3: Difference-in-differences and fixed effects models",
-    "text": "Day 3: Difference-in-differences and fixed effects models\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
+    "section": "Instrumental variables",
+    "text": "Instrumental variables\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 19: Instrumental Variables (~85 minutes)\n\nVideo alternatives:\n\nInstrumental Variables (~10 minutes)\nInstrumental Variable Validity (~10 minutes)\nEstimating Instrumental Variables (~12 minutes)\nTesting Instrumental Variables Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 7: Instrumental Variables (~150 minutes)"
   },
   {
-    "objectID": "schedule.html#day-1-instrumental-variables",
-    "href": "schedule.html#day-1-instrumental-variables",
+    "objectID": "schedule.html#instrumental-variables-1",
+    "href": "schedule.html#instrumental-variables-1",
     "title": "Schedule",
-    "section": "Day 1: Instrumental variables",
-    "text": "Day 1: Instrumental variables\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 19: Instrumental Variables (~85 minutes)\n\nVideo alternatives:\n\nInstrumental Variables (~10 minutes)\nInstrumental Variable Validity (~10 minutes)\nEstimating Instrumental Variables (~12 minutes)\nTesting Instrumental Variables Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 7: Instrumental Variables (~150 minutes)"
+    "section": "Instrumental variables",
+    "text": "Instrumental variables\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
   },
   {
-    "objectID": "schedule.html#day-2-instrumental-variables",
-    "href": "schedule.html#day-2-instrumental-variables",
+    "objectID": "schedule.html#doubly-robust-estimation",
+    "href": "schedule.html#doubly-robust-estimation",
     "title": "Schedule",
-    "section": "Day 2: Instrumental variables",
-    "text": "Day 2: Instrumental variables\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:\n🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁\n🍁 No class on Friday, October 18 🍁"
+    "section": "Doubly robust estimation",
+    "text": "Doubly robust estimation\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
   },
   {
-    "objectID": "schedule.html#day-1-doubly-robust-estimation",
-    "href": "schedule.html#day-1-doubly-robust-estimation",
+    "objectID": "schedule.html#flex-day",
+    "href": "schedule.html#flex-day",
     "title": "Schedule",
-    "section": "Day 1: Doubly robust estimation",
-    "text": "Day 1: Doubly robust estimation\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+    "section": "Flex Day",
+    "text": "Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
   },
   {
-    "objectID": "schedule.html#day-2-flex-day",
-    "href": "schedule.html#day-2-flex-day",
+    "objectID": "schedule.html#project-work",
+    "href": "schedule.html#project-work",
     "title": "Schedule",
-    "section": "Day 2: Flex Day",
-    "text": "Day 2: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
+    "section": "Project work",
+    "text": "Project work\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
   },
   {
-    "objectID": "schedule.html#day-3-project-work",
-    "href": "schedule.html#day-3-project-work",
+    "objectID": "schedule.html#causal-discovery",
+    "href": "schedule.html#causal-discovery",
     "title": "Schedule",
-    "section": "Day 3: Project work",
-    "text": "Day 3: Project work\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+    "section": "Causal discovery",
+    "text": "Causal discovery\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
   },
   {
-    "objectID": "schedule.html#day-1-causal-discovery",
-    "href": "schedule.html#day-1-causal-discovery",
+    "objectID": "schedule.html#sensitivity-analyses",
+    "href": "schedule.html#sensitivity-analyses",
     "title": "Schedule",
-    "section": "Day 1: Causal discovery",
-    "text": "Day 1: Causal discovery\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+    "section": "Sensitivity analyses",
+    "text": "Sensitivity analyses\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
   },
   {
-    "objectID": "schedule.html#day-2-sensitivity-analyses",
-    "href": "schedule.html#day-2-sensitivity-analyses",
+    "objectID": "schedule.html#sensitivity-analyses-1",
+    "href": "schedule.html#sensitivity-analyses-1",
     "title": "Schedule",
-    "section": "Day 2: Sensitivity analyses",
-    "text": "Day 2: Sensitivity analyses\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day-3-sensitivity-analyses",
-    "href": "schedule.html#day-3-sensitivity-analyses",
-    "title": "Schedule",
-    "section": "Day 3: Sensitivity analyses",
-    "text": "Day 3: Sensitivity analyses\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day-1-tbd",
-    "href": "schedule.html#day-1-tbd",
-    "title": "Schedule",
-    "section": "Day 1: TBD",
-    "text": "Day 1: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
-  },
-  {
-    "objectID": "schedule.html#day-2-tbd",
-    "href": "schedule.html#day-2-tbd",
-    "title": "Schedule",
-    "section": "Day 2: TBD",
-    "text": "Day 2: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day-3-tbd",
-    "href": "schedule.html#day-3-tbd",
-    "title": "Schedule",
-    "section": "Day 3: TBD",
-    "text": "Day 3: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day-1-tbd-1",
-    "href": "schedule.html#day-1-tbd-1",
-    "title": "Schedule",
-    "section": "Day 1: TBD",
-    "text": "Day 1: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
-  },
-  {
-    "objectID": "schedule.html#day-2-tbd-1",
-    "href": "schedule.html#day-2-tbd-1",
-    "title": "Schedule",
-    "section": "Day 2: TBD",
-    "text": "Day 2: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day-3-tbd-1",
-    "href": "schedule.html#day-3-tbd-1",
-    "title": "Schedule",
-    "section": "Day 3: TBD",
-    "text": "Day 3: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day-1-tbd-2",
-    "href": "schedule.html#day-1-tbd-2",
-    "title": "Schedule",
-    "section": "Day 1: TBD",
-    "text": "Day 1: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
-  },
-  {
-    "objectID": "schedule.html#day-2-tbd-2",
-    "href": "schedule.html#day-2-tbd-2",
-    "title": "Schedule",
-    "section": "Day 2: TBD",
-    "text": "Day 2: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day-3-tbd-2",
-    "href": "schedule.html#day-3-tbd-2",
-    "title": "Schedule",
-    "section": "Day 3: TBD",
-    "text": "Day 3: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day-1-tbd-3",
-    "href": "schedule.html#day-1-tbd-3",
-    "title": "Schedule",
-    "section": "Day 1: TBD",
-    "text": "Day 1: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\n🦃 Thanksgiving Break: Wednesday, November 27 - Sunday, December 1 🦃"
+    "section": "Sensitivity analyses",
+    "text": "Sensitivity analyses\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:\n🦃 Thanksgiving Break: Wednesday, November 27 - Sunday, December 1 🦃"
   },
   {
     "objectID": "schedule.html#day-1-project-work-time",
@@ -364,8 +308,8 @@
     "text": "Day 3: Project work time\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
   },
   {
-    "objectID": "schedule.html#day-1-tbd-4",
-    "href": "schedule.html#day-1-tbd-4",
+    "objectID": "schedule.html#day-1-tbd",
+    "href": "schedule.html#day-1-tbd",
     "title": "Schedule",
     "section": "Day 1: TBD",
     "text": "Day 1: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
@@ -383,6 +327,266 @@
     "title": "STAT 451: Causal Inference",
     "section": "",
     "text": "Become a producer of actionable knowledge by exploring how to quantify the impact of interventions\n\n\nInstructor: Leslie Myint  Class meeting times: MWF 10:50-11:50am  Class location: THEATR 204  Instructor drop-in hours:\n\nOlin-Rice 232\nMondays and Fridays: 2-3pm\nTuesdays and Thursdays: 3:30-4:30pm"
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html",
+    "href": "05-causal-graphs-identification.html",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "",
+    "text": "Explain how d-separation and causal/noncausal paths relate to identification of causal effects.\nApply d-separation to block noncausal paths in causal DAGs with and without unobserved variables.\nApply strategies to deal with identification problems caused by unobserved variables.\nDifferentiate confounding and selection bias in terms of graph structure and how they arise in applied studies.",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html#exercise-1",
+    "href": "05-causal-graphs-identification.html#exercise-1",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFor each of the causal graphs below, identify the set of variables needed to block noncausal paths (if possible). Any \\(U\\) variables displayed in the graphs are unobserved/unmeasured.",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html#exercise-2",
+    "href": "05-causal-graphs-identification.html#exercise-2",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nHistorically, people have tried to create definitions for confounders by listing criteria that purely rely on associations. For example:\n\nA confounder must:\n1. Be associated with treatment and outcome\n2. Not be caused by treatment\n\nUsing the causal graph below, explain why this is not a good definition for a confounder.",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html#exercise-3",
+    "href": "05-causal-graphs-identification.html#exercise-3",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFirst, think through the relationships depicted in the causal graphs below and whether they make sense. These are intended to reflect a range of scenarios for why people drop out of studies.\nThen for each of the graphs, identify the set of variables needed to achieve conditional exchangeability of the treatment \\(A\\) and outcome \\(Y\\). (\\(U\\) and \\(W\\) are unmeasured.) Check your answers to one of the graphs using DAGitty.",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html#exercise-4",
+    "href": "05-causal-graphs-identification.html#exercise-4",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nIn this exercise, we’ll consider how causal graphs can inform study design. (Inspired by a 1970s study on the relationship between estrogen use and endometrial cancer.)\nResearchers have noticed a consistent association between use of a certain drug and disease. Research groups debated two hypotheses:\n\nThe drug does cause disease.\nThe drug doesn’t actually cause disease but leads to a side effect, leading to more frequent doctor visits, leading to increased diagnosis of existing disease.\n\nThe following study plan was proposed: restrict the study only to those with side effects and compare disease rates in drug-users and non-users. In this way, all participants have the same chance of being diagnosed.\nThe following causal graphs correspond to the two hypotheses:\n\n\n\n(The graphs don’t show confounders of the drug-true disease relationship for compactness. We can assume that these have already been adjusted for.)\n\nStudy design 1\nConsider the study proposal above: restrict analysis to those with side effects.\n\nBefore looking at the causal graphs: does the rationale for this study design make sense? Why did researchers want to only look at patients with side effects?\nUnder this study design, the researchers were expecting that if Hypothesis 1 were correct (the drug does cause disease), they would find an association between drug use and diagnosed disease. They expected that if Hypothesis 2 were correct (the drug does NOT cause disease), they would find NO association between drug use and diagnosed disease.\n\nAre these expectations correct? Explain in light of the causal graphs.\n\nBased on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?\n\n\n\nStudy design 2\nConsider another study proposal: ensure that everyone is screened for disease frequently, and we don’t restrict our analysis to only those with side effects.\n\nWhat arrow can be removed as a result of this study design? (It might help to draw an updated version of DAGs 1 and 2 with this arrow removed.)\nUnder this study design, the researchers had the same expectations: if Hypothesis 1 were correct, they would find an association between drug use and diagnosed disease. If Hypothesis 2 were correct, they would find NO association between drug use and diagnosed disease.\n\nAre these expectations correct? Explain in light of the causal graphs.\n\nBased on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html",
+    "href": "03-causal-graphs-intro.html",
+    "title": "Causal graph fundamentals",
+    "section": "",
+    "text": "Practice graphically showing our beliefs about data-generating processes using causal graphs\nExpand our worldview by exploring interesting questions in domains that we don’t normally think about\nBuild a trusting intellectual community by being curious about each other’s interests, giving kind and actionable feedback, and receiving feedback with curiosity and gratitude",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#identification",
+    "href": "03-causal-graphs-intro.html#identification",
+    "title": "Causal graph fundamentals",
+    "section": "Identification",
+    "text": "Identification\n\nIdentification is the process of isolating only desired variation (variation corresponding purely to our causal effect of interest) and ruling out alternate explanations\nRuling out alternate explanations requires understanding the data-generating process",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#causal-diagrams",
+    "href": "03-causal-graphs-intro.html#causal-diagrams",
+    "title": "Causal graph fundamentals",
+    "section": "Causal diagrams",
+    "text": "Causal diagrams\nA causal diagram (causal graph) is a visual representation of a data-generating process and are directed acyclic graphs (DAGs).\nNodes represent variables and edges represent direct causal relationships between variables.\nWe will be conceptualizing causality in the following way: A is a cause of Y if changes in the value of A change the probability distribution of Y.\n\nNote 1: In practice, people in the field say that the presence of an arrow indicates that A might cause Y.\nNote 2: If changes in the value of A change the value of Y, we often equate this with a change in mean, but it doesn’t have to. (e.g., the mean might not change, but the variance could)\n\n\n\nCode\ndat &lt;- bind_rows(\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 1),\n        type = \"Control PO\",\n        context = \"Change in means\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 1, 1),\n        type = \"Treated PO\",\n        context = \"Change in means\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 1),\n        type = \"Control PO\",\n        context = \"Change in variance\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 2),\n        type = \"Treated PO\",\n        context = \"Change in variance\"\n    )\n)\n\nggplot(dat, aes(x = x, y = y, color = type)) +\n    geom_line() +\n    facet_grid(~ context) +\n    theme_classic() +\n    scale_color_manual(values = c(\"steelblue\", \"darkorange\"))",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#warm-up-1",
+    "href": "03-causal-graphs-intro.html#warm-up-1",
+    "title": "Causal graph fundamentals",
+    "section": "Warm-up 1",
+    "text": "Warm-up 1\nWe’re interested in the question “Does reading Harry Potter as a child make you read more as an adult?” A causal diagram is shown below.\n\n\nCode\n# Requires the dagitty package to be loaded\ndag1 &lt;- dagitty(\"dag {\n    bb=\\\"0,0,1,1\\\"\n    AgeWhenPotterReleased [pos=\\\"0.200,0.200\\\"]\n    LikesReading [latent,pos=\\\"0.500,0.350\\\"]\n    ReadOtherRowlingBooks [pos=\\\"0.500,0.650\\\"]\n    ReadPotterAsKid [exposure,pos=\\\"0.200,0.500\\\"]\n    ReadingAsAdult [outcome,pos=\\\"0.800,0.500\\\"]\n    AgeWhenPotterReleased -&gt; ReadPotterAsKid\n    LikesReading -&gt; ReadPotterAsKid\n    LikesReading -&gt; ReadingAsAdult\n    ReadOtherRowlingBooks -&gt; ReadingAsAdult\n    ReadPotterAsKid -&gt; ReadOtherRowlingBooks\n    ReadPotterAsKid -&gt; ReadingAsAdult\n}\")\n\nplot(dag1)\n\n\n\n\n\n\n\n\n\n\nWhat direct effects should be included when trying to answer your research question of interest?\nWhat indirect effects should be included when trying to answer your research question of interest?\nWhat is a likely alternative explanation of why we might see a relationship between reading Harry Potter and reading more as an adult?\nLikesReading is included as an unobserved variable. Why do we bother to include variables on our diagrams if we can’t observe them? Why might we think that LikesReading is an unobserved or latent variable?",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#warm-up-2",
+    "href": "03-causal-graphs-intro.html#warm-up-2",
+    "title": "Causal graph fundamentals",
+    "section": "Warm-up 2",
+    "text": "Warm-up 2\nThe diagram below depicts a cyclical relationship between workplace culture and satisfaction. If employees perceive a more positive workplace culture, their satisfaction at work goes up, and if their satisfaction goes up, they contribute more to a positive workplace culture. Change the diagram so that the relationship is no longer cyclic.\n\n\nCode\ndag2 &lt;- dagitty(\"dag {\n    bb=\\\"0,0,1,1\\\"\n    WorkCulture [pos=\\\"0.250,0.500\\\"]\n    WorkSatisfaction [pos=\\\"0.750,0.500\\\"]\n    WorkCulture &lt;-&gt; WorkSatisfaction\n}\")\n\nplot(dag2)",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#warm-up-3",
+    "href": "03-causal-graphs-intro.html#warm-up-3",
+    "title": "Causal graph fundamentals",
+    "section": "Warm-up 3",
+    "text": "Warm-up 3\nDo you think it’s a stronger assumption to include an arrow or exclude an arrow on a causal diagram?",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#simplifying-causal-diagrams",
+    "href": "03-causal-graphs-intro.html#simplifying-causal-diagrams",
+    "title": "Causal graph fundamentals",
+    "section": "Simplifying causal diagrams",
+    "text": "Simplifying causal diagrams\nThe world is very complex, and causal diagrams can get very complex too.\n\nSimplifying causal diagrams is important for identification: focusing on alternate explanations of consequence.\nSimplifying is also important for sharing the diagram with diverse experts to get good feedback.\n\nWe can use a few techniques to simplify causal diagrams:\n\nUnimportance\n\nVariables that have small effects on all other variables in the diagram and edges with small effects can likely be omitted safely.\ne.g., Living near a quiet cafe affects online course taking\n\nRedundancy\n\nVariables that have the same arrows going in and coming out can be grouped together.\ne.g., Demographic variables like age and race and socioeconomic variables like years of school and years of work experience often have arrows pointing to the outcome and to treatment.\n\nCaveat: Having “Demographic Factors” and “Socioeconomic Factors” nodes can simplify the presentation of the causal diagram, but we really do need to know all the individual variables inside these broad categories to accurately estimate causal effects because each variable represents a different alternate explanation.\n\n\nGet rid of mediators\n\nIn situations like A -&gt; B -&gt; C with no other arrows into or out of B, we can likely omit B safely.\nCaveat: In an area called mediation analysis (which aims to estimate the direct and indirect components of an overall causal effect), explicitly including mediators and paying careful attention to how mediators are related to other variables is very important.\n\nIrrelevance\n\nIf a variable isn’t on any path between the treatment and outcome, we can likely safely omit the variable.\nWe’ll talk more about the rationale for this in the next classes.",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#drawing-causal-diagrams-with-dagitty",
+    "href": "03-causal-graphs-intro.html#drawing-causal-diagrams-with-dagitty",
+    "title": "Causal graph fundamentals",
+    "section": "Drawing causal diagrams with DAGitty",
+    "text": "Drawing causal diagrams with DAGitty\nDAGitty is an online tool (with an associated R package) for drawing causal diagrams. Click the “Launch” link to open a web tool.\n\nModel &gt; New Model: clear the screen\nAdd a node: Click on the gray canvas\nAdd an edge: First click on the variable representing the cause, then the variable representing the effect (arrow points to second node clicked)\nDelete a node: Click a node and hit “D”. (Or expand the “Variable” toggle in the top left and check “exposure”.)\nDelete an edge: First click the variable representing the cause, then the variable representing the effect.\nLabel a node as the treatment (exposure): Click a node and hit “E”. (Or expand the “Variable” toggle in the top left and check “exposure”.)\nLabel a node as the outcome: Click a node and hit “O”. (Or expand the “Variable” toggle in the top left and check “outcome”.)",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#exercise-1",
+    "href": "03-causal-graphs-intro.html#exercise-1",
+    "title": "Causal graph fundamentals",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFor your research question, sketch the possible data-generating process using a causal diagram (on paper or with DAGitty):\n\nClearly indicate the cause of interest and the outcome.\nWrite down other variables are at play in this situation. Include these variables as nodes.\nAdd edges depicting direct causal relationships between variables.\nIndicate which variables are latent or unobserved.\nIndicate which variables might be harder to collect (reliable) data on.",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#exercise-2",
+    "href": "03-causal-graphs-intro.html#exercise-2",
+    "title": "Causal graph fundamentals",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nYou and your partner will take turns presenting your research question and causal diagram and working together to simplify the diagram.\nPick one person to go first, and go through the following 2 steps. Switch when you’re done.\nStep 1: Present your research question and causal diagram, making sure to explain any context needed to understand:\n\nThe variables in the diagram\nThe edges in and absent from the diagram\nWhich paths are part of the causal effect of interest\n\nThe listener should ask clarifying questions as necessary.\nStep 2: Together, work through attempting to simplify the presenter’s diagram by going through the following 4 principles:\n\nUnimportance\nRedundancy\nMediators\nIrrelevance\n\nMake note of what was changed and what you’re still unsure about. If you came across a good example of one of these principles, draw it on the board to share with the class during our end-of-class debrief.",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "01-introductions.html",
+    "href": "01-introductions.html",
+    "title": "Introductions and foundational ideas",
+    "section": "",
+    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nSlides for today: HTML, PDF",
+    "crumbs": [
+      "Introductions and foundational ideas"
+    ]
+  },
+  {
+    "objectID": "02-identification.html",
+    "href": "02-identification.html",
+    "title": "Causal identification: building intuition",
+    "section": "",
+    "text": "Explain what is meant by the term causal identification\nThink about the data-generating process (DGP) in a given context to understand its impact on causal identification\nGet a sense for different approaches to causal identification that we will explore in this course",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#average-causal-effects",
+    "href": "02-identification.html#average-causal-effects",
+    "title": "Causal identification: building intuition",
+    "section": "Average causal effects",
+    "text": "Average causal effects\nSuppose we are studying the effect of a mental health program for expecting mothers and fathers. The treatment is participation in the program vs. not. The outcome is a yes/no occurrence of postpartum depression within the first year of the infant’s life. We estimate the average causal effect \\(E[Y^{a=1} - Y^{a=0}]\\) to be -0.1.\nHow can we interpret this effect?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#research-questions",
+    "href": "02-identification.html#research-questions",
+    "title": "Causal identification: building intuition",
+    "section": "Research questions",
+    "text": "Research questions\n\nComing up with a question is easy. Just ask any five-year-old and they can provide you with dozens. Coming up with a good research question is much harder.\nWhat’s the difference? The difference, at least in the case of quantitative empirical research, is that a research question is a question that can be answered, and for which having that answer will improve your understanding of how the world works.\n\nAsking “how” (as in “how do we do better?”) naturally leads to “Should we…” questions:\n\nHow can we mitigate the effects of climate change?\nShould we implement a plastic tax?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#identification-warm-up",
+    "href": "02-identification.html#identification-warm-up",
+    "title": "Causal identification: building intuition",
+    "section": "Identification: warm-up",
+    "text": "Identification: warm-up\n\nWhen we say “this variation has identified the effect we’re interested in”, which of the following is the best definition of the term identified? Explain why you think your chosen response is the best definition and why the others are not.\n\nWe’ve generated the data by conducting a controlled experiment in which treatment is randomly assigned.\nIn the data generating process, the only reason why we see variation in the outcome variable is because of the treatment variable.\nThe relationship we are looking at in the data actually tests a hypothesis.\nIn the variation we use, there’s no reason we’d see any relationship at all except for the effect we’re interested in.",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#isolating-variation",
+    "href": "02-identification.html#isolating-variation",
+    "title": "Causal identification: building intuition",
+    "section": "Isolating variation",
+    "text": "Isolating variation\nExample: A child’s shoe size is a great predictor of their reading ability\n\nWe can quantify covariation in shoe size and reading ability with measures like the correlation coefficient, slope and its confidence interval\nWhen we think about the underlying data-generating process, we see that the totality of this covariation also encompasses the covariation in:\n\nage and shoe size\nage and reading ability\n\nWe can isolate a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability\n\n\\(E[ReadingAbility \\mid ShoeSize, Age] = \\beta_0 + \\beta_1 ShoeSize + \\beta_2 Age\\)\n\n\nThere are other ways to isolate variation that we will explore today and throughout the semester.",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-1",
+    "href": "02-identification.html#exercise-1",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nWe are interested in the effect of mindful breathing practices on stress levels.\n\nPart a\nSuppose we tried to estimate this effect by surveying people at Macalester. We ask them if they engage regularly in mindful breathing practices and to report their general stress levels on a 1-10 scale (1 = lowest stress, 10 = highest stress).\nDo you think we would be identifying the causal effect by comparing the mean stress levels in those who do regularly use mindful breathing with those who don’t? What aspects of the data generating process (DGP) are relevant for your response?\n\n\nPart b\nNow suppose that we were able to find 500 people with a self-reported stress level of 6 who don’t already engage in mindful breathing. The Hamre Center has resources to enroll 250 people in a 3-month mindful breathing program. They decide to randomly select the 250 participants from the 500 and measure the stress levels of all 500 people after the 3-month program.\nDo you think we would we be identifying the causal effect by comparing the mean stress levels after 3 months in those enrolled in the program with those who weren’t enrolled? What aspects of the data generating process (DGP) are relevant for your response?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-2",
+    "href": "02-identification.html#exercise-2",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWe notice that ice cream sales in St. Paul are correlated with the percentage of the population wearing shorts and wonder if there is a causal relationship between the two.\n\nPart a\nIn this context, what aspects of the data generating process do you think are most important to keep in mind? What alternative explanations can you come up with?\n\n\nPart b\nRecall that the main idea with identification is to find variation that we want to use and get rid of variation that we don’t want.\nFor this context, a number of plots and linear regression model output are shown below. Explain how these results show desired variation, undesired variation, and the process of identification by getting rid of undesired variation.\n\n\nCode\nset.seed(451)\nice_cream_data &lt;- tibble(\n    temp = rep(0:90, each = 4),\n    perc_shorts = case_when(\n        temp &lt; 40 ~ 3*sqrt(temp) + 10, \n        temp &gt;= 40 & temp &lt; 65 ~ 1.5*temp - 30,\n        temp &gt;= 65 ~ temp + 9\n    ),\n    ice_cream_sales = log(temp+1)^2 + 100 + rnorm(364, 0, 10)\n) %&gt;% \n    mutate(\n        perc_shorts = perc_shorts + rnorm(364, 0, 2),\n        perc_shorts = pmax(perc_shorts, 10),\n        perc_shorts = pmin(perc_shorts, 98)\n    )\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = perc_shorts, y = ice_cream_sales)) +\n    geom_point() +\n    geom_smooth(se = FALSE) +\n    labs(x = \"% of St. Paul wearing shorts\", y = \"Ice cream sales ($10's)\") +\n    theme_classic()\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = temp, y = perc_shorts)) +\n    geom_point() +\n    labs(x = \"Temperature (F)\", y = \"% of St. Paul wearing shorts\") +\n    theme_classic()\n\n\n\n\n\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = temp, y = ice_cream_sales)) +\n    geom_point() +\n    geom_smooth(se = FALSE) +\n    labs(x = \"Temperature (F)\", y = \"Ice cream sales ($10's)\") +\n    theme_classic()\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nCode\nlm(ice_cream_sales ~ perc_shorts, data = ice_cream_data) %&gt;% summary()\n\n\n\nCall:\nlm(formula = ice_cream_sales ~ perc_shorts, data = ice_cream_data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-32.941  -6.820   0.384   6.448  29.639 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 104.57894    1.04068 100.491   &lt;2e-16 ***\nperc_shorts   0.18668    0.01886   9.896   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.931 on 362 degrees of freedom\nMultiple R-squared:  0.2129,    Adjusted R-squared:  0.2108 \nF-statistic: 97.93 on 1 and 362 DF,  p-value: &lt; 2.2e-16\n\n\nCode\nlm(ice_cream_sales ~ perc_shorts + temp, data = ice_cream_data) %&gt;% summary()\n\n\n\nCall:\nlm(formula = ice_cream_sales ~ perc_shorts + temp, data = ice_cream_data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-30.9542  -6.6926  -0.0641   6.3933  28.0907 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 104.26394    1.02618 101.603  &lt; 2e-16 ***\nperc_shorts  -0.06449    0.07000  -0.921  0.35748    \ntemp          0.27363    0.07354   3.721  0.00023 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.76 on 361 degrees of freedom\nMultiple R-squared:  0.242, Adjusted R-squared:  0.2378 \nF-statistic: 57.63 on 2 and 361 DF,  p-value: &lt; 2.2e-16",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-3",
+    "href": "02-identification.html#exercise-3",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWe are interested in the effect of a résumé writing workshop (Treatment) on adults’ ability to secure a new job (Outcome). Suppose that we have thought carefully about the data-generating process and determined that age, education level, income, employment status, and marital status are the most important factors in alternative explanations.\n\nPart a\nWe have data on 10 adults (5 who took the workshop, and 5 who didn’t):\n\n\nCode\n# Create the example dataset\ndata &lt;- tibble::tribble(\n  ~ID, ~Age, ~Education, ~Income, ~Employment, ~MaritalStatus, ~Treatment, ~Outcome,\n  1, 25, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 1, 0,\n  2, 30, \"College\", \"Medium\", \"Employed\", \"Married\", 1, 1,\n  3, 28, \"HighSchool\", \"Low\", \"Unemployed\", \"Single\", 1, 0,\n  4, 35, \"College\", \"High\", \"Employed\", \"Married\", 1, 1,\n  5, 40, \"College\", \"High\", \"Unemployed\", \"Married\", 1, 0,\n  6, 22, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 0, 1,\n  7, 30, \"HighSchool\", \"Medium\", \"Unemployed\", \"Married\", 0, 0,\n  8, 45, \"College\", \"High\", \"Employed\", \"Single\", 0, 1,\n  9, 50, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 0, 0,\n  10, 30, \"College\", \"Medium\", \"Employed\", \"Married\", 0, 1\n)\n\n# Display the dataset\ndata\n\n\n# A tibble: 10 × 8\n      ID   Age Education  Income Employment MaritalStatus Treatment Outcome\n   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;   &lt;dbl&gt;\n 1     1    25 HighSchool Low    Employed   Single                1       0\n 2     2    30 College    Medium Employed   Married               1       1\n 3     3    28 HighSchool Low    Unemployed Single                1       0\n 4     4    35 College    High   Employed   Married               1       1\n 5     5    40 College    High   Unemployed Married               1       0\n 6     6    22 HighSchool Low    Employed   Single                0       1\n 7     7    30 HighSchool Medium Unemployed Married               0       0\n 8     8    45 College    High   Employed   Single                0       1\n 9     9    50 HighSchool Low    Employed   Single                0       0\n10    10    30 College    Medium Employed   Married               0       1\n\n\nFor case 2, we observe the potential outcome under treatment \\(Y^{a=1}\\). Do you think that we might be able to directly guess this unit’s counterfactual outcome \\(Y^{a=0}\\) by using information from another case? Why or why not? \nWhat about for case 1? \n\n\nPart b\nThinking about the process that you went through in part (a), do you think this process gets easier with more variables? Why or why not?\n\n\n\n\n\n\nExercise 3 context (read after completion)\n\n\n\n\n\nI used ChatGPT to generate the example dataset in Part a. This is the prompt I used:\n\nCan you give me an example dataset with 10 cases that has one age variable, 4 categorical socioeconomic variables, and one binary outcome variable? This dataset is intended to provide an example of the matching causal inference method to students. This dataset should have some exact and approximate matches.",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-4",
+    "href": "02-identification.html#exercise-4",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nThe following 2 figures come from a study of the effect of attending a state flagship university on earnings a few years after college graduation. Flagship state universities tend to be the premier public colleges in the state. They are often the first college to have been established in the state and the most research-intensive with more resources.\nIn the first figure, the x-axis indicates the number of SAT points away from the admissions cutoff for the state flagship (a recentered SAT score). (The cutoff is a strongly suggested but not a hard cutoff for admission.) Each point shows the enrollment rate at the flagship university for that recentered SAT score. The solid lines show nonlinear trends fitted separately to the left and to the right of x=0. The t=10.57 indicates a test statistic for a hypothesis test on the jump at x=0.\n\nIn the second figure, the x-axis is the same, and the y-axis represents the natural log earnings after calendar year, years of work experience, and graduation year have been accounted for (which is what the “(Residual)” part of the axis label is indicating). (More details are described in this section of our Mixtape textbook.) The z=3.01 indicates a test statistic for a hypothesis test on the jump at x=0.\n\n\nWhat story do you think the author is trying to tell with these figures?\nIf the admissions cutoff did not exist, what do you think the relationship between enrollment rate and SAT points would look like? What about the relationship between earnings and SAT points?\nHow different do you think students just below and just above the admission cutoff are? How could this be helpful in isolating only desired variation?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-5",
+    "href": "02-identification.html#exercise-5",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nThis paper looked at the effect of Florida’s 2005 “Stand Your Ground” (SYG) law on homicide rates. The law gave citizens the right to use lethal force in self-defense in public places where they felt threatened.\nTake a look at panel A from this figure from the paper which shows homicide rates in Florida and comparison states over time.\n\nWhat story do you think the author is trying to tell with this figure?\nDo you think that the trends in homicide rates in Florida and the comparison states are similar before the SYG law was enacted in 2005? Why might similarity be desirable?\nDraw or describe what you guess might have happened in Florida had it not enacted the SYG law. How is this related to identification of the causal effect of the SYG law on homicide rates?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
   },
   {
     "objectID": "04-causal-graphs-simulation.html",
@@ -512,216 +716,6 @@
     "text": "Exercise 4: beyond building blocks\nCan we extend building block thinking to longer, more complex structures? Let’s investigate here (conceptually, no simulation).\n\nConsider the longer structure A &lt;- B &lt;- C -&gt; D. What do you expect about marginal/conditional (in)dependence of A and D? Explain.\nConsider the longer structure A -&gt; B &lt;- C &lt;- D -&gt; E. What do you expect about marginal/conditional (in)dependence of A and E? Explain.",
     "crumbs": [
       "Simulating data using causal graphs"
-    ]
-  },
-  {
-    "objectID": "02-identification.html",
-    "href": "02-identification.html",
-    "title": "Causal identification: building intuition",
-    "section": "",
-    "text": "Explain what is meant by the term causal identification\nThink about the data-generating process (DGP) in a given context to understand its impact on causal identification\nGet a sense for different approaches to causal identification that we will explore in this course",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#average-causal-effects",
-    "href": "02-identification.html#average-causal-effects",
-    "title": "Causal identification: building intuition",
-    "section": "Average causal effects",
-    "text": "Average causal effects\nSuppose we are studying the effect of a mental health program for expecting mothers and fathers. The treatment is participation in the program vs. not. The outcome is a yes/no occurrence of postpartum depression within the first year of the infant’s life. We estimate the average causal effect \\(E[Y^{a=1} - Y^{a=0}]\\) to be -0.1.\nHow can we interpret this effect?",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#research-questions",
-    "href": "02-identification.html#research-questions",
-    "title": "Causal identification: building intuition",
-    "section": "Research questions",
-    "text": "Research questions\n\nComing up with a question is easy. Just ask any five-year-old and they can provide you with dozens. Coming up with a good research question is much harder.\nWhat’s the difference? The difference, at least in the case of quantitative empirical research, is that a research question is a question that can be answered, and for which having that answer will improve your understanding of how the world works.\n\nAsking “how” (as in “how do we do better?”) naturally leads to “Should we…” questions:\n\nHow can we mitigate the effects of climate change?\nShould we implement a plastic tax?",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#identification-warm-up",
-    "href": "02-identification.html#identification-warm-up",
-    "title": "Causal identification: building intuition",
-    "section": "Identification: warm-up",
-    "text": "Identification: warm-up\n\nWhen we say “this variation has identified the effect we’re interested in”, which of the following is the best definition of the term identified? Explain why you think your chosen response is the best definition and why the others are not.\n\nWe’ve generated the data by conducting a controlled experiment in which treatment is randomly assigned.\nIn the data generating process, the only reason why we see variation in the outcome variable is because of the treatment variable.\nThe relationship we are looking at in the data actually tests a hypothesis.\nIn the variation we use, there’s no reason we’d see any relationship at all except for the effect we’re interested in.",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#isolating-variation",
-    "href": "02-identification.html#isolating-variation",
-    "title": "Causal identification: building intuition",
-    "section": "Isolating variation",
-    "text": "Isolating variation\nExample: A child’s shoe size is a great predictor of their reading ability\n\nWe can quantify covariation in shoe size and reading ability with measures like the correlation coefficient, slope and its confidence interval\nWhen we think about the underlying data-generating process, we see that the totality of this covariation also encompasses the covariation in:\n\nage and shoe size\nage and reading ability\n\nWe can isolate a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability\n\n\\(E[ReadingAbility \\mid ShoeSize, Age] = \\beta_0 + \\beta_1 ShoeSize + \\beta_2 Age\\)\n\n\nThere are other ways to isolate variation that we will explore today and throughout the semester.",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#exercise-1",
-    "href": "02-identification.html#exercise-1",
-    "title": "Causal identification: building intuition",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nWe are interested in the effect of mindful breathing practices on stress levels.\n\nPart a\nSuppose we tried to estimate this effect by surveying people at Macalester. We ask them if they engage regularly in mindful breathing practices and to report their general stress levels on a 1-10 scale (1 = lowest stress, 10 = highest stress).\nDo you think we would be identifying the causal effect by comparing the mean stress levels in those who do regularly use mindful breathing with those who don’t? What aspects of the data generating process (DGP) are relevant for your response?\n\n\nPart b\nNow suppose that we were able to find 500 people with a self-reported stress level of 6 who don’t already engage in mindful breathing. The Hamre Center has resources to enroll 250 people in a 3-month mindful breathing program. They decide to randomly select the 250 participants from the 500 and measure the stress levels of all 500 people after the 3-month program.\nDo you think we would we be identifying the causal effect by comparing the mean stress levels after 3 months in those enrolled in the program with those who weren’t enrolled? What aspects of the data generating process (DGP) are relevant for your response?",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#exercise-2",
-    "href": "02-identification.html#exercise-2",
-    "title": "Causal identification: building intuition",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nWe notice that ice cream sales in St. Paul are correlated with the percentage of the population wearing shorts and wonder if there is a causal relationship between the two.\n\nPart a\nIn this context, what aspects of the data generating process do you think are most important to keep in mind? What alternative explanations can you come up with?\n\n\nPart b\nRecall that the main idea with identification is to find variation that we want to use and get rid of variation that we don’t want.\nFor this context, a number of plots and linear regression model output are shown below. Explain how these results show desired variation, undesired variation, and the process of identification by getting rid of undesired variation.\n\n\nCode\nset.seed(451)\nice_cream_data &lt;- tibble(\n    temp = rep(0:90, each = 4),\n    perc_shorts = case_when(\n        temp &lt; 40 ~ 3*sqrt(temp) + 10, \n        temp &gt;= 40 & temp &lt; 65 ~ 1.5*temp - 30,\n        temp &gt;= 65 ~ temp + 9\n    ),\n    ice_cream_sales = log(temp+1)^2 + 100 + rnorm(364, 0, 10)\n) %&gt;% \n    mutate(\n        perc_shorts = perc_shorts + rnorm(364, 0, 2),\n        perc_shorts = pmax(perc_shorts, 10),\n        perc_shorts = pmin(perc_shorts, 98)\n    )\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = perc_shorts, y = ice_cream_sales)) +\n    geom_point() +\n    geom_smooth(se = FALSE) +\n    labs(x = \"% of St. Paul wearing shorts\", y = \"Ice cream sales ($10's)\") +\n    theme_classic()\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = temp, y = perc_shorts)) +\n    geom_point() +\n    labs(x = \"Temperature (F)\", y = \"% of St. Paul wearing shorts\") +\n    theme_classic()\n\n\n\n\n\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = temp, y = ice_cream_sales)) +\n    geom_point() +\n    geom_smooth(se = FALSE) +\n    labs(x = \"Temperature (F)\", y = \"Ice cream sales ($10's)\") +\n    theme_classic()\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nCode\nlm(ice_cream_sales ~ perc_shorts, data = ice_cream_data) %&gt;% summary()\n\n\n\nCall:\nlm(formula = ice_cream_sales ~ perc_shorts, data = ice_cream_data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-32.941  -6.820   0.384   6.448  29.639 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 104.57894    1.04068 100.491   &lt;2e-16 ***\nperc_shorts   0.18668    0.01886   9.896   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.931 on 362 degrees of freedom\nMultiple R-squared:  0.2129,    Adjusted R-squared:  0.2108 \nF-statistic: 97.93 on 1 and 362 DF,  p-value: &lt; 2.2e-16\n\n\nCode\nlm(ice_cream_sales ~ perc_shorts + temp, data = ice_cream_data) %&gt;% summary()\n\n\n\nCall:\nlm(formula = ice_cream_sales ~ perc_shorts + temp, data = ice_cream_data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-30.9542  -6.6926  -0.0641   6.3933  28.0907 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 104.26394    1.02618 101.603  &lt; 2e-16 ***\nperc_shorts  -0.06449    0.07000  -0.921  0.35748    \ntemp          0.27363    0.07354   3.721  0.00023 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.76 on 361 degrees of freedom\nMultiple R-squared:  0.242, Adjusted R-squared:  0.2378 \nF-statistic: 57.63 on 2 and 361 DF,  p-value: &lt; 2.2e-16",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#exercise-3",
-    "href": "02-identification.html#exercise-3",
-    "title": "Causal identification: building intuition",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nWe are interested in the effect of a résumé writing workshop (Treatment) on adults’ ability to secure a new job (Outcome). Suppose that we have thought carefully about the data-generating process and determined that age, education level, income, employment status, and marital status are the most important factors in alternative explanations.\n\nPart a\nWe have data on 10 adults (5 who took the workshop, and 5 who didn’t):\n\n\nCode\n# Create the example dataset\ndata &lt;- tibble::tribble(\n  ~ID, ~Age, ~Education, ~Income, ~Employment, ~MaritalStatus, ~Treatment, ~Outcome,\n  1, 25, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 1, 0,\n  2, 30, \"College\", \"Medium\", \"Employed\", \"Married\", 1, 1,\n  3, 28, \"HighSchool\", \"Low\", \"Unemployed\", \"Single\", 1, 0,\n  4, 35, \"College\", \"High\", \"Employed\", \"Married\", 1, 1,\n  5, 40, \"College\", \"High\", \"Unemployed\", \"Married\", 1, 0,\n  6, 22, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 0, 1,\n  7, 30, \"HighSchool\", \"Medium\", \"Unemployed\", \"Married\", 0, 0,\n  8, 45, \"College\", \"High\", \"Employed\", \"Single\", 0, 1,\n  9, 50, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 0, 0,\n  10, 30, \"College\", \"Medium\", \"Employed\", \"Married\", 0, 1\n)\n\n# Display the dataset\ndata\n\n\n# A tibble: 10 × 8\n      ID   Age Education  Income Employment MaritalStatus Treatment Outcome\n   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;   &lt;dbl&gt;\n 1     1    25 HighSchool Low    Employed   Single                1       0\n 2     2    30 College    Medium Employed   Married               1       1\n 3     3    28 HighSchool Low    Unemployed Single                1       0\n 4     4    35 College    High   Employed   Married               1       1\n 5     5    40 College    High   Unemployed Married               1       0\n 6     6    22 HighSchool Low    Employed   Single                0       1\n 7     7    30 HighSchool Medium Unemployed Married               0       0\n 8     8    45 College    High   Employed   Single                0       1\n 9     9    50 HighSchool Low    Employed   Single                0       0\n10    10    30 College    Medium Employed   Married               0       1\n\n\nFor case 2, we observe the potential outcome under treatment \\(Y^{a=1}\\). Do you think that we might be able to directly guess this unit’s counterfactual outcome \\(Y^{a=0}\\) by using information from another case? Why or why not? \nWhat about for case 1? \n\n\nPart b\nThinking about the process that you went through in part (a), do you think this process gets easier with more variables? Why or why not?\n\n\n\n\n\n\nExercise 3 context (read after completion)\n\n\n\n\n\nI used ChatGPT to generate the example dataset in Part a. This is the prompt I used:\n\nCan you give me an example dataset with 10 cases that has one age variable, 4 categorical socioeconomic variables, and one binary outcome variable? This dataset is intended to provide an example of the matching causal inference method to students. This dataset should have some exact and approximate matches.",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#exercise-4",
-    "href": "02-identification.html#exercise-4",
-    "title": "Causal identification: building intuition",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nThe following 2 figures come from a study of the effect of attending a state flagship university on earnings a few years after college graduation. Flagship state universities tend to be the premier public colleges in the state. They are often the first college to have been established in the state and the most research-intensive with more resources.\nIn the first figure, the x-axis indicates the number of SAT points away from the admissions cutoff for the state flagship (a recentered SAT score). (The cutoff is a strongly suggested but not a hard cutoff for admission.) Each point shows the enrollment rate at the flagship university for that recentered SAT score. The solid lines show nonlinear trends fitted separately to the left and to the right of x=0. The t=10.57 indicates a test statistic for a hypothesis test on the jump at x=0.\n\nIn the second figure, the x-axis is the same, and the y-axis represents the natural log earnings after calendar year, years of work experience, and graduation year have been accounted for (which is what the “(Residual)” part of the axis label is indicating). (More details are described in this section of our Mixtape textbook.) The z=3.01 indicates a test statistic for a hypothesis test on the jump at x=0.\n\n\nWhat story do you think the author is trying to tell with these figures?\nIf the admissions cutoff did not exist, what do you think the relationship between enrollment rate and SAT points would look like? What about the relationship between earnings and SAT points?\nHow different do you think students just below and just above the admission cutoff are? How could this be helpful in isolating only desired variation?",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#exercise-5",
-    "href": "02-identification.html#exercise-5",
-    "title": "Causal identification: building intuition",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nThis paper looked at the effect of Florida’s 2005 “Stand Your Ground” (SYG) law on homicide rates. The law gave citizens the right to use lethal force in self-defense in public places where they felt threatened.\nTake a look at panel A from this figure from the paper which shows homicide rates in Florida and comparison states over time.\n\nWhat story do you think the author is trying to tell with this figure?\nDo you think that the trends in homicide rates in Florida and the comparison states are similar before the SYG law was enacted in 2005? Why might similarity be desirable?\nDraw or describe what you guess might have happened in Florida had it not enacted the SYG law. How is this related to identification of the causal effect of the SYG law on homicide rates?",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "01-introductions.html",
-    "href": "01-introductions.html",
-    "title": "Introductions and foundational ideas",
-    "section": "",
-    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nSlides for today: HTML, PDF",
-    "crumbs": [
-      "Introductions and foundational ideas"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html",
-    "href": "03-causal-graphs-intro.html",
-    "title": "Causal graph fundamentals",
-    "section": "",
-    "text": "Practice graphically showing our beliefs about data-generating processes using causal graphs\nExpand our worldview by exploring interesting questions in domains that we don’t normally think about\nBuild a trusting intellectual community by being curious about each other’s interests, giving kind and actionable feedback, and receiving feedback with curiosity and gratitude",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#identification",
-    "href": "03-causal-graphs-intro.html#identification",
-    "title": "Causal graph fundamentals",
-    "section": "Identification",
-    "text": "Identification\n\nIdentification is the process of isolating only desired variation (variation corresponding purely to our causal effect of interest) and ruling out alternate explanations\nRuling out alternate explanations requires understanding the data-generating process",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#causal-diagrams",
-    "href": "03-causal-graphs-intro.html#causal-diagrams",
-    "title": "Causal graph fundamentals",
-    "section": "Causal diagrams",
-    "text": "Causal diagrams\nA causal diagram (causal graph) is a visual representation of a data-generating process and are directed acyclic graphs (DAGs).\nNodes represent variables and edges represent direct causal relationships between variables.\nWe will be conceptualizing causality in the following way: A is a cause of Y if changes in the value of A change the probability distribution of Y.\n\nNote 1: In practice, people in the field say that the presence of an arrow indicates that A might cause Y.\nNote 2: If changes in the value of A change the value of Y, we often equate this with a change in mean, but it doesn’t have to. (e.g., the mean might not change, but the variance could)\n\n\n\nCode\ndat &lt;- bind_rows(\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 1),\n        type = \"Control PO\",\n        context = \"Change in means\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 1, 1),\n        type = \"Treated PO\",\n        context = \"Change in means\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 1),\n        type = \"Control PO\",\n        context = \"Change in variance\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 2),\n        type = \"Treated PO\",\n        context = \"Change in variance\"\n    )\n)\n\nggplot(dat, aes(x = x, y = y, color = type)) +\n    geom_line() +\n    facet_grid(~ context) +\n    theme_classic() +\n    scale_color_manual(values = c(\"steelblue\", \"darkorange\"))",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#warm-up-1",
-    "href": "03-causal-graphs-intro.html#warm-up-1",
-    "title": "Causal graph fundamentals",
-    "section": "Warm-up 1",
-    "text": "Warm-up 1\nWe’re interested in the question “Does reading Harry Potter as a child make you read more as an adult?” A causal diagram is shown below.\n\n\nCode\n# Requires the dagitty package to be loaded\ndag1 &lt;- dagitty(\"dag {\n    bb=\\\"0,0,1,1\\\"\n    AgeWhenPotterReleased [pos=\\\"0.200,0.200\\\"]\n    LikesReading [latent,pos=\\\"0.500,0.350\\\"]\n    ReadOtherRowlingBooks [pos=\\\"0.500,0.650\\\"]\n    ReadPotterAsKid [exposure,pos=\\\"0.200,0.500\\\"]\n    ReadingAsAdult [outcome,pos=\\\"0.800,0.500\\\"]\n    AgeWhenPotterReleased -&gt; ReadPotterAsKid\n    LikesReading -&gt; ReadPotterAsKid\n    LikesReading -&gt; ReadingAsAdult\n    ReadOtherRowlingBooks -&gt; ReadingAsAdult\n    ReadPotterAsKid -&gt; ReadOtherRowlingBooks\n    ReadPotterAsKid -&gt; ReadingAsAdult\n}\")\n\nplot(dag1)\n\n\n\n\n\n\n\n\n\n\nWhat direct effects should be included when trying to answer your research question of interest?\nWhat indirect effects should be included when trying to answer your research question of interest?\nWhat is a likely alternative explanation of why we might see a relationship between reading Harry Potter and reading more as an adult?\nLikesReading is included as an unobserved variable. Why do we bother to include variables on our diagrams if we can’t observe them? Why might we think that LikesReading is an unobserved or latent variable?",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#warm-up-2",
-    "href": "03-causal-graphs-intro.html#warm-up-2",
-    "title": "Causal graph fundamentals",
-    "section": "Warm-up 2",
-    "text": "Warm-up 2\nThe diagram below depicts a cyclical relationship between workplace culture and satisfaction. If employees perceive a more positive workplace culture, their satisfaction at work goes up, and if their satisfaction goes up, they contribute more to a positive workplace culture. Change the diagram so that the relationship is no longer cyclic.\n\n\nCode\ndag2 &lt;- dagitty(\"dag {\n    bb=\\\"0,0,1,1\\\"\n    WorkCulture [pos=\\\"0.250,0.500\\\"]\n    WorkSatisfaction [pos=\\\"0.750,0.500\\\"]\n    WorkCulture &lt;-&gt; WorkSatisfaction\n}\")\n\nplot(dag2)",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#warm-up-3",
-    "href": "03-causal-graphs-intro.html#warm-up-3",
-    "title": "Causal graph fundamentals",
-    "section": "Warm-up 3",
-    "text": "Warm-up 3\nDo you think it’s a stronger assumption to include an arrow or exclude an arrow on a causal diagram?",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#simplifying-causal-diagrams",
-    "href": "03-causal-graphs-intro.html#simplifying-causal-diagrams",
-    "title": "Causal graph fundamentals",
-    "section": "Simplifying causal diagrams",
-    "text": "Simplifying causal diagrams\nThe world is very complex, and causal diagrams can get very complex too.\n\nSimplifying causal diagrams is important for identification: focusing on alternate explanations of consequence.\nSimplifying is also important for sharing the diagram with diverse experts to get good feedback.\n\nWe can use a few techniques to simplify causal diagrams:\n\nUnimportance\n\nVariables that have small effects on all other variables in the diagram and edges with small effects can likely be omitted safely.\ne.g., Living near a quiet cafe affects online course taking\n\nRedundancy\n\nVariables that have the same arrows going in and coming out can be grouped together.\ne.g., Demographic variables like age and race and socioeconomic variables like years of school and years of work experience often have arrows pointing to the outcome and to treatment.\n\nCaveat: Having “Demographic Factors” and “Socioeconomic Factors” nodes can simplify the presentation of the causal diagram, but we really do need to know all the individual variables inside these broad categories to accurately estimate causal effects because each variable represents a different alternate explanation.\n\n\nGet rid of mediators\n\nIn situations like A -&gt; B -&gt; C with no other arrows into or out of B, we can likely omit B safely.\nCaveat: In an area called mediation analysis (which aims to estimate the direct and indirect components of an overall causal effect), explicitly including mediators and paying careful attention to how mediators are related to other variables is very important.\n\nIrrelevance\n\nIf a variable isn’t on any path between the treatment and outcome, we can likely safely omit the variable.\nWe’ll talk more about the rationale for this in the next classes.",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#drawing-causal-diagrams-with-dagitty",
-    "href": "03-causal-graphs-intro.html#drawing-causal-diagrams-with-dagitty",
-    "title": "Causal graph fundamentals",
-    "section": "Drawing causal diagrams with DAGitty",
-    "text": "Drawing causal diagrams with DAGitty\nDAGitty is an online tool (with an associated R package) for drawing causal diagrams. Click the “Launch” link to open a web tool.\n\nModel &gt; New Model: clear the screen\nAdd a node: Click on the gray canvas\nAdd an edge: First click on the variable representing the cause, then the variable representing the effect (arrow points to second node clicked)\nDelete a node: Click a node and hit “D”. (Or expand the “Variable” toggle in the top left and check “exposure”.)\nDelete an edge: First click the variable representing the cause, then the variable representing the effect.\nLabel a node as the treatment (exposure): Click a node and hit “E”. (Or expand the “Variable” toggle in the top left and check “exposure”.)\nLabel a node as the outcome: Click a node and hit “O”. (Or expand the “Variable” toggle in the top left and check “outcome”.)",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#exercise-1",
-    "href": "03-causal-graphs-intro.html#exercise-1",
-    "title": "Causal graph fundamentals",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nFor your research question, sketch the possible data-generating process using a causal diagram (on paper or with DAGitty):\n\nClearly indicate the cause of interest and the outcome.\nWrite down other variables are at play in this situation. Include these variables as nodes.\nAdd edges depicting direct causal relationships between variables.\nIndicate which variables are latent or unobserved.\nIndicate which variables might be harder to collect (reliable) data on.",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#exercise-2",
-    "href": "03-causal-graphs-intro.html#exercise-2",
-    "title": "Causal graph fundamentals",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nYou and your partner will take turns presenting your research question and causal diagram and working together to simplify the diagram.\nPick one person to go first, and go through the following 2 steps. Switch when you’re done.\nStep 1: Present your research question and causal diagram, making sure to explain any context needed to understand:\n\nThe variables in the diagram\nThe edges in and absent from the diagram\nWhich paths are part of the causal effect of interest\n\nThe listener should ask clarifying questions as necessary.\nStep 2: Together, work through attempting to simplify the presenter’s diagram by going through the following 4 principles:\n\nUnimportance\nRedundancy\nMediators\nIrrelevance\n\nMake note of what was changed and what you’re still unsure about. If you came across a good example of one of these principles, draw it on the board to share with the class during our end-of-class debrief.",
-    "crumbs": [
-      "Causal graph fundamentals"
     ]
   },
   {
@@ -968,152 +962,5 @@
     "title": "Welcome to Causal Inference!",
     "section": "For next time",
     "text": "For next time\n\nCheck the Schedule for readings from The Effect. (Chapters 1, 2, and 5)\n\nReadings from The Effect always have video alternatives from the textbook author.\n\nUpdate your R and RStudio installations as described here."
-  },
-  {
-    "objectID": "schedule.html#day6",
-    "href": "schedule.html#day6",
-    "title": "Schedule",
-    "section": "Day 1: Identifying causal effects with causal graphs (9/16)",
-    "text": "Day 1: Identifying causal effects with causal graphs (9/16)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Causal and Noncausal Paths (~5 min)\nVideo: D-Separation (~8 min)\nReading: The Effect Chapter 8: Causal Paths and Closing Back Doors (~35 minutes)\n\nVideo alternatives:\n\nCausal Pathways (~9 minutes)\nClosing Causal Pathways, and Collider Variables (~11 minutes)\nTesting Causal Diagrams, and Placebo Tests (~8 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Section 3.1.3: Backdoor criterion (~5 minutes)"
-  },
-  {
-    "objectID": "schedule.html#day7",
-    "href": "schedule.html#day7",
-    "title": "Schedule",
-    "section": "Day 2: Identifying causal effects with causal graphs (9/18)",
-    "text": "Day 2: Identifying causal effects with causal graphs (9/18)\n\nContinuation of previous class"
-  },
-  {
-    "objectID": "schedule.html#day8",
-    "href": "schedule.html#day8",
-    "title": "Schedule",
-    "section": "Day 3: Synthesis day (9/20)",
-    "text": "Day 3: Synthesis day (9/20)\n\nPause day to work on Assignment 2."
-  },
-  {
-    "objectID": "schedule.html#day-1-randomized-experiments",
-    "href": "schedule.html#day-1-randomized-experiments",
-    "title": "Schedule",
-    "section": "Day 1: Randomized experiments",
-    "text": "Day 1: Randomized experiments\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Treatment Allocation and Randomization (~20 minutes) from Penn State’s online notes for the course Design and Analysis of Clinical Trials"
-  },
-  {
-    "objectID": "schedule.html#day-2-target-trial-framework",
-    "href": "schedule.html#day-2-target-trial-framework",
-    "title": "Schedule",
-    "section": "Day 2: Target trial framework",
-    "text": "Day 2: Target trial framework\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses. Journal of Clinical Epidemiology, 79, 70–75. (~35 minutes)"
-  },
-  {
-    "objectID": "schedule.html#day-3-matching",
-    "href": "schedule.html#day-3-matching",
-    "title": "Schedule",
-    "section": "Day 3: Matching",
-    "text": "Day 3: Matching\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 14: Matching (~160 minutes)\n\nVideo alternatives:\n\nMatching (~11 minutes)\nFive Questions About Matching (~13 minutes)\nDistance Matching (~9 minutes)\nPropensity Score Matching (~10 minutes)\nCoarsened Exact Matching and Entropy Balancing (~8 minutes)\nWhen Matching Goes Wrong (~14 minutes)\nTreatment Effect Estimation with Matching (~7 minutes)\n\n\nJournal article: Matching Methods for Causal Inference: A Review and a Look Forward (~60 minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 5: Matching and Subclassification (~140 minutes)"
-  },
-  {
-    "objectID": "schedule.html#day-2-regression-discontinuity",
-    "href": "schedule.html#day-2-regression-discontinuity",
-    "title": "Schedule",
-    "section": "Day 2: Regression discontinuity",
-    "text": "Day 2: Regression discontinuity\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)"
-  },
-  {
-    "objectID": "schedule.html#day-3-flex-day",
-    "href": "schedule.html#day-3-flex-day",
-    "title": "Schedule",
-    "section": "Day 3: Flex Day",
-    "text": "Day 3: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
-  },
-  {
-    "objectID": "schedule.html#day-1-event-studies-interrupted-times-series",
-    "href": "schedule.html#day-1-event-studies-interrupted-times-series",
-    "title": "Schedule",
-    "section": "Day 1: Event studies / interrupted times series",
-    "text": "Day 1: Event studies / interrupted times series\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 17: Event Studies (~70 minutes)\n\nVideo alternatives:\n\nEvent Studies (~12 minutes)\nInterrupted Time Series (~8 minutes)\nEvent Studies in Finance (~11 minutes)\n\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day-2-synthetic-control",
-    "href": "schedule.html#day-2-synthetic-control",
-    "title": "Schedule",
-    "section": "Day 2: Synthetic control",
-    "text": "Day 2: Synthetic control\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day-3-flex-day-1",
-    "href": "schedule.html#day-3-flex-day-1",
-    "title": "Schedule",
-    "section": "Day 3: Flex Day",
-    "text": "Day 3: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
-  },
-  {
-    "objectID": "schedule.html#day-1-fixed-effects-models",
-    "href": "schedule.html#day-1-fixed-effects-models",
-    "title": "Schedule",
-    "section": "Day 1: Fixed effects models",
-    "text": "Day 1: Fixed effects models\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\nThe Effect Chapter 18: Difference-in-Differences (~80 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day-2-difference-in-differences-designs",
-    "href": "schedule.html#day-2-difference-in-differences-designs",
-    "title": "Schedule",
-    "section": "Day 2: Difference-in-differences designs",
-    "text": "Day 2: Difference-in-differences designs\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (~80 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)\n\n\n\n\nDuring class:\n🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁\n🍁 No class on Friday, October 18 🍁"
-  },
-  {
-    "objectID": "schedule.html#instrumental-variables",
-    "href": "schedule.html#instrumental-variables",
-    "title": "Schedule",
-    "section": "Instrumental variables",
-    "text": "Instrumental variables\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 19: Instrumental Variables (~85 minutes)\n\nVideo alternatives:\n\nInstrumental Variables (~10 minutes)\nInstrumental Variable Validity (~10 minutes)\nEstimating Instrumental Variables (~12 minutes)\nTesting Instrumental Variables Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 7: Instrumental Variables (~150 minutes)"
-  },
-  {
-    "objectID": "schedule.html#instrumental-variables-1",
-    "href": "schedule.html#instrumental-variables-1",
-    "title": "Schedule",
-    "section": "Instrumental variables",
-    "text": "Instrumental variables\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#doubly-robust-estimation",
-    "href": "schedule.html#doubly-robust-estimation",
-    "title": "Schedule",
-    "section": "Doubly robust estimation",
-    "text": "Doubly robust estimation\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
-  },
-  {
-    "objectID": "schedule.html#flex-day",
-    "href": "schedule.html#flex-day",
-    "title": "Schedule",
-    "section": "Flex Day",
-    "text": "Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#project-work",
-    "href": "schedule.html#project-work",
-    "title": "Schedule",
-    "section": "Project work",
-    "text": "Project work\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
-  },
-  {
-    "objectID": "schedule.html#causal-discovery",
-    "href": "schedule.html#causal-discovery",
-    "title": "Schedule",
-    "section": "Causal discovery",
-    "text": "Causal discovery\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
-  },
-  {
-    "objectID": "schedule.html#sensitivity-analyses",
-    "href": "schedule.html#sensitivity-analyses",
-    "title": "Schedule",
-    "section": "Sensitivity analyses",
-    "text": "Sensitivity analyses\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#sensitivity-analyses-1",
-    "href": "schedule.html#sensitivity-analyses-1",
-    "title": "Schedule",
-    "section": "Sensitivity analyses",
-    "text": "Sensitivity analyses\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:\n🦃 Thanksgiving Break: Wednesday, November 27 - Sunday, December 1 🦃"
   }
 ]

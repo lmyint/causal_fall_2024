@@ -1,0 +1,178 @@
+---
+title: "Identifying causal effects with causal graphs"
+sidebar: false
+---
+
+# Goals
+
+- Explain how d-separation and causal/noncausal paths relate to identification of causal effects.
+- Apply d-separation to block noncausal paths in causal DAGs with and without unobserved variables.
+- Apply strategies to deal with identification problems caused by unobserved variables.
+- Differentiate confounding and selection bias in terms of graph structure and how they arise in applied studies.
+
+
+
+<br><br><br><br>
+
+
+
+# Review
+
+We'll review pre-class material via the slides [here](https://docs.google.com/presentation/d/1_PhhNIeN_LkAD0gkCIPXhxIw2NPMqmw__trWxj1claY/edit?usp=sharing).
+
+
+<br><br><br><br>
+
+
+# Exercises
+
+## Exercise 1
+
+For each of the causal graphs below, identify the set of variables needed to block noncausal paths (if possible). Any $U$ variables displayed in the graphs are unobserved/unmeasured.
+
+```{r 05_ex1, echo=FALSE, eval=TRUE, fig.width=11, fig.height=4, fig.align="center"}
+library(dagitty)
+dag1 <- dagitty("dag {
+bb=\"0,0,1,1\"
+A [exposure,pos=\"0.252,0.350\"]
+L [pos=\"0.185,0.268\"]
+U [latent,pos=\"0.124,0.176\"]
+Y [outcome,pos=\"0.498,0.350\"]
+A -> Y
+L -> A
+U -> L
+U -> Y
+}
+")
+dag2 <- dagitty("dag {
+bb=\"0,0,1,1\"
+A [exposure,pos=\"0.252,0.350\"]
+L [pos=\"0.299,0.254\"]
+M [pos=\"0.373,0.350\"]
+U [latent,pos=\"0.124,0.176\"]
+Y [outcome,pos=\"0.498,0.350\"]
+A -> M
+L -> Y
+M -> Y
+U -> A
+U -> L
+}
+")
+dag3 <- dagitty("dag {
+bb=\"0,0,1,1\"
+A [exposure,pos=\"0.252,0.350\"]
+L [pos=\"0.373,0.245\"]
+M1 [pos=\"0.373,0.350\"]
+M2 [pos=\"0.373,0.445\"]
+U1 [latent,pos=\"0.252,0.141\"]
+U2 [latent,pos=\"0.495,0.146\"]
+Y [outcome,pos=\"0.495,0.350\"]
+A -> M1
+A -> M2
+M1 -> Y
+M2 -> Y
+U1 -> A
+U1 -> L
+U2 -> L
+U2 -> Y
+}
+")
+dag4 <- dagitty("dag {
+bb=\"0,0,1,1\"
+A [exposure,pos=\"0.400,0.350\"]
+L [pos=\"0.200,0.350\"]
+U1 [latent,pos=\"0.100,0.200\"]
+U2 [latent,pos=\"0.100,0.500\"]
+Y [outcome,pos=\"0.600,0.350\"]
+A -> Y
+L -> A
+U1 -> L
+U1 -> Y
+U2 -> A
+U2 -> L
+}
+")
+
+par(mfrow = c(1,2))
+plot(dag1)
+plot(dag2)
+plot(dag3)
+plot(dag4)
+```
+
+
+<br><br>
+
+
+## Exercise 2
+
+Historically, people have tried to create definitions for confounders by listing criteria that purely rely on associations. For example:
+
+> A confounder must:    
+> 1. Be associated with treatment and outcome    
+> 2. Not be caused by treatment
+
+Using the causal graph below, explain why this is not a good definition for a confounder.
+
+```{r 06_ex2, echo=FALSE, eval=TRUE, fig.width=6, fig.height=4, fig.align="center"}
+plot(dag3)
+```
+
+
+
+## Exercise 3
+
+First, think through the relationships depicted in the causal graphs below and whether they make sense. These are intended to reflect a range of scenarios for why people drop out of studies.
+
+Then for each of the graphs, identify the set of variables needed to achieve conditional exchangeability of the treatment $A$ and outcome $Y$. ($U$ and $W$ are unmeasured.) Check your answers to one of the graphs using [DAGitty](http://www.dagitty.net/dags.html).
+
+<center>
+    ![](images/selection_bias1.png)
+    ![](images/selection_bias2.png)
+    ![](images/selection_bias3.png)
+</center>
+
+
+<br><br>
+
+
+## Exercise 4
+
+In this exercise, we'll consider how causal graphs can inform study design. (Inspired by a 1970s study on the relationship between estrogen use and endometrial cancer.)
+
+Researchers have noticed a consistent association between use of a certain drug and disease. Research groups debated two hypotheses:
+
+1. The drug does cause disease.
+2. The drug doesn't actually cause disease but leads to a side effect, leading to more frequent doctor visits, leading to increased diagnosis of existing disease.
+
+The following study plan was proposed: restrict the study only to those with side effects and compare disease rates in drug-users and non-users. In this way, all participants have the same chance of being diagnosed.
+
+The following causal graphs correspond to the two hypotheses:
+
+<center>
+![](images/estrogens_endometrial_generalized.png)
+</center>
+
+(The graphs don't show confounders of the drug-true disease relationship for compactness. We can assume that these have already been adjusted for.)
+
+### Study design 1
+
+Consider the study proposal above: restrict analysis to those with side effects.
+
+- Before looking at the causal graphs: does the rationale for this study design make sense? Why did researchers want to only look at patients with side effects?
+
+- Under this study design, the researchers were expecting that if Hypothesis 1 were correct (the drug does cause disease), they would find an association between drug use and diagnosed disease. They expected that if Hypothesis 2 were correct (the drug does NOT cause disease), they would find NO association between drug use and diagnosed disease.
+    - Are these expectations correct? Explain in light of the causal graphs.
+
+- Based on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?
+
+### Study design 2
+
+Consider another study proposal: ensure that *everyone* is screened for disease frequently, and we don't restrict our analysis to only those with side effects.
+
+- What arrow can be removed as a result of this study design? (It might help to draw an updated version of DAGs 1 and 2 with this arrow removed.)
+
+- Under this study design, the researchers had the same expectations: if Hypothesis 1 were correct, they would find an association between drug use and diagnosed disease. If Hypothesis 2 were correct, they would find NO association between drug use and diagnosed disease.
+    - Are these expectations correct? Explain in light of the causal graphs.
+
+- Based on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?
