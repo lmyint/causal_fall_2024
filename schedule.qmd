@@ -197,9 +197,9 @@ Formulate a research question that relates to an area that you're interested in.
 
 ## Day 1: Randomized experiments
 
-**Before class:**
+**Before class:** No required reading or videos for today.
 
-::: {.callout-note title="Required" icon=false}
+::: {.callout-note title="Optional" appearance="simple" collapse="true"}
 - Reading: [Treatment Allocation and Randomization](https://online.stat.psu.edu/stat509/lesson/8) (~20 minutes) from Penn State's online notes for the course Design and Analysis of Clinical Trials
 :::
 
