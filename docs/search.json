@@ -1090,5 +1090,26 @@
     "title": "Regression Discontinuity Designs",
     "section": "Placebo tests",
     "text": "Placebo tests\nsame RDD model but replace y with pre-treatment covariates Use same bw as for main RDD model?"
+  },
+  {
+    "objectID": "schedule.html#day9",
+    "href": "schedule.html#day9",
+    "title": "Schedule",
+    "section": "Day 1: Randomized experiments",
+    "text": "Day 1: Randomized experiments\nBefore class: No required reading or videos for today.\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nReading: Treatment Allocation and Randomization (~20 minutes) from Penn State’s online notes for the course Design and Analysis of Clinical Trials"
+  },
+  {
+    "objectID": "schedule.html#day10",
+    "href": "schedule.html#day10",
+    "title": "Schedule",
+    "section": "Day 2: Target trial framework",
+    "text": "Day 2: Target trial framework\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses. Journal of Clinical Epidemiology, 79, 70–75. (~35 minutes)"
+  },
+  {
+    "objectID": "schedule.html#day11",
+    "href": "schedule.html#day11",
+    "title": "Schedule",
+    "section": "Day 3: Matching",
+    "text": "Day 3: Matching\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 14: Matching (~160 minutes)\n\nVideo alternatives:\n\nMatching (~11 minutes)\nFive Questions About Matching (~13 minutes)\nDistance Matching (~9 minutes)\nPropensity Score Matching (~10 minutes)\nCoarsened Exact Matching and Entropy Balancing (~8 minutes)\nWhen Matching Goes Wrong (~14 minutes)\nTreatment Effect Estimation with Matching (~7 minutes)\n\n\nJournal article: Matching Methods for Causal Inference: A Review and a Look Forward (~60 minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 5: Matching and Subclassification (~140 minutes)"
   }
 ]

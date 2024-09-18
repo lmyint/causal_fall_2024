@@ -27,7 +27,10 @@ Check here to see what you should be doing before, during, and after each class 
   <tr>
     <td class="topleft">2 (9/9 - 9/13)</td>
     <td class="topleft"><a href="#day3">Causal graph fundamentals</a></td>
-    <td class="topleft"><a href="#day4">Simulating data using causal graphs</a><br><br> <b><a href="assignments.html#assignment-1">Assignment 1</a> due today at 5pm</b></td>
+    <td class="topleft">
+        <a href="#day4">Simulating data using causal graphs</a><br><br>
+        <b><a href="assignments.html#assignment-1">Assignment 1</a> due today at 5pm</b>
+    </td>
     <td class="topleft"><a href="#day5">Simulating data using causal graphs (continued)</a>
     <td class="topleft">Work on <a href="assignments.html#assignment-2">Assignment 2</a> due Fri 9/27 at 5pm</td>
   </tr>
@@ -40,9 +43,12 @@ Check here to see what you should be doing before, during, and after each class 
   </tr>
   <tr>
     <td class="topleft">4 (9/23 - 9/27)</td>
-    <td class="topleft"></td>
-    <td class="topleft"></td>
-    <td class="topleft"><b><a href="assignments.html#assignment-2">Assignment 2</a> due today at 5pm</b></td>
+    <td class="topleft"><a href="#day9">Randomized experiments</a></td>
+    <td class="topleft"><a href="#day10">Target trial framework</a></td>
+    <td class="topleft">
+        <a href="#day11">Matching (Part 1)</a><br><br>
+        <b><a href="assignments.html#assignment-2">Assignment 2</a> due today at 5pm</b>
+    </td>
     <td class="topleft"></td>
   </tr>
 </tbody>
@@ -195,7 +201,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 # Week 4: Randomized experiments, target trials, matching
 
-## Day 1: Randomized experiments
+## Day 1: Randomized experiments {#day9}
 
 **Before class:** No required reading or videos for today.
 
@@ -205,7 +211,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 <!-- **During class:** [Randomized experiments](06-rct.qmd) -->
 
-## Day 2: Target trial framework
+## Day 2: Target trial framework {#day10}
 
 ::: {.callout-note title="Required" icon=false}
 - Reading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). [Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5124536/pdf/nihms-790601.pdf). *Journal of Clinical Epidemiology*, *79*, 70–75. (~35 minutes)
@@ -213,7 +219,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 <!-- **During class:** [Target trial framework](07-target-trial.qmd) -->
 
-## Day 3: Matching
+## Day 3: Matching {#day11}
 
 **Before class:**
 
