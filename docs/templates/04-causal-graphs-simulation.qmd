@@ -4,6 +4,7 @@ author: "YOUR NAME"
 format: 
   html:
     embed-resources: true
+    toc: true
 ---
 
 ```{r setup, include=FALSE, message=FALSE}

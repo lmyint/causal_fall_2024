@@ -4,12 +4,11 @@ project:
   render:
     - "*.qmd"
     - "!templates/"
-    - "!06-causal-graphs-testing.qmd"
-    - "!06-rct.qmd"
-    - "!07-target-trial.qmd"
-    - "!08-matching.qmd"
-    - "!09-rdd.qmd"
-    - "!10-flex-1.qmd"
+    - "!07-rct.qmd"
+    - "!08-target-trial.qmd"
+    - "!09-matching.qmd"
+    - "!10-rdd.qmd"
+    - "!11-flex-1.qmd"
   resources:
     - "data/*.csv"
 
@@ -40,6 +39,7 @@ website:
         - 03-causal-graphs-intro.qmd
         - 04-causal-graphs-simulation.qmd
         - 05-causal-graphs-identification.qmd
+        - 06-causal-graphs-testing.qmd
   
   page-footer:
     left: |

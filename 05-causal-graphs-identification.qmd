@@ -28,7 +28,7 @@ We'll review pre-class material via the slides [here](https://docs.google.com/pr
 
 ## Exercise 1
 
-For each of the causal graphs below, identify the set of variables needed to block noncausal paths (if possible). Any $U$ variables displayed in the graphs are unobserved/unmeasured.
+For each of the causal graphs below, identify the set of variables needed to block noncausal paths (if possible) between treatment $A$ and outcome $Y$. Any $U$ variables displayed in the graphs are unobserved/unmeasured.
 
 ```{r 05_ex1, echo=FALSE, eval=TRUE, fig.width=11, fig.height=4, fig.align="center"}
 library(dagitty)
