@@ -49,7 +49,7 @@ Thanks for taking the time to reflect and share with me. I'm looking forward to 
 
 **Due Friday, 9/27 at 5pm on [Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=129329)**
 
-Imagine that you are preparing your capstone talk on your project form this course. The start of that presentation should probably include a section that introduces orients them to what the course is even about: What *is* causal inference? What are causal graphs, and what role do they play in causal inference?
+Imagine that you are preparing your capstone talk on your project from this course. The start of that presentation should probably include a section that introduces orients them to what the course is even about: What *is* causal inference? What are causal graphs, and what role do they play in causal inference?
 
 **Task:** Create slides for this presentation section. Add presenter notes beneath each slide to indicate what you would say. If you wish, you can record a video of you giving this presentation segment.
 
