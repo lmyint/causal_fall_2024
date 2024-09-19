@@ -370,7 +370,7 @@
     "href": "05-causal-graphs-identification.html#exercise-3",
     "title": "Identifying causal effects with causal graphs",
     "section": "Exercise 3",
-    "text": "Exercise 3\nFirst, think through the relationships depicted in the causal graphs below and whether they make sense. These are intended to reflect a range of scenarios for why people drop out of studies.\nThen for each of the graphs, identify the set of variables needed to achieve conditional exchangeability of the treatment \\(A\\) and outcome \\(Y\\). (\\(U\\) and \\(W\\) are unmeasured.) Check your answers to one of the graphs using DAGitty.",
+    "text": "Exercise 3\nFirst, think through the relationships depicted in the causal graphs below and whether they make sense. These are intended to reflect a range of scenarios for why people drop out of studies.\nThen for each of the graphs, identify the set of variables that would block noncausal paths between the treatment \\(A\\) and outcome \\(Y\\). (\\(U\\) and \\(W\\) are unmeasured.) Check your answers to one of the graphs using DAGitty.",
     "crumbs": [
       "Identifying causal effects with causal graphs"
     ]
@@ -816,7 +816,7 @@
     "href": "schedule.html#day7",
     "title": "Schedule",
     "section": "Day 2: Identifying causal effects with causal graphs (9/18)",
-    "text": "Day 2: Identifying causal effects with causal graphs (9/18)\n\nContinuation of previous class\n\nDuring class: Testing causal graphs"
+    "text": "Day 2: Identifying causal effects with causal graphs (9/18)\n\nContinuation of previous class\n\nDuring class: Identifying causal effects with causal graphs and Testing causal graphs"
   },
   {
     "objectID": "schedule.html#day8",
@@ -826,46 +826,46 @@
     "text": "Day 3: Synthesis day (9/20)\n\nPause day to work on Assignment 2.\nPlease create a rough outline of your slides before class.\nWe will have a chance to get feedback on the outline, work on the slides, and then get additional feedback on the slide content."
   },
   {
-    "objectID": "schedule.html#day-1-randomized-experiments",
-    "href": "schedule.html#day-1-randomized-experiments",
+    "objectID": "schedule.html#day9",
+    "href": "schedule.html#day9",
     "title": "Schedule",
-    "section": "Day 1: Randomized experiments",
-    "text": "Day 1: Randomized experiments\nBefore class: No required reading or videos for today.\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nReading: Treatment Allocation and Randomization (~20 minutes) from Penn State’s online notes for the course Design and Analysis of Clinical Trials"
+    "section": "Day 1: Randomized experiments (9/23)",
+    "text": "Day 1: Randomized experiments (9/23)\nBefore class: No required reading or videos for today.\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nReading: Treatment Allocation and Randomization (~20 minutes) from Penn State’s online notes for the course Design and Analysis of Clinical Trials"
   },
   {
-    "objectID": "schedule.html#day-2-target-trial-framework",
-    "href": "schedule.html#day-2-target-trial-framework",
+    "objectID": "schedule.html#day10",
+    "href": "schedule.html#day10",
     "title": "Schedule",
-    "section": "Day 2: Target trial framework",
-    "text": "Day 2: Target trial framework\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses. Journal of Clinical Epidemiology, 79, 70–75. (~35 minutes)"
+    "section": "Day 2: Target trial framework (9/25)",
+    "text": "Day 2: Target trial framework (9/25)\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses. Journal of Clinical Epidemiology, 79, 70–75. (~35 minutes)"
   },
   {
-    "objectID": "schedule.html#day-3-matching",
-    "href": "schedule.html#day-3-matching",
+    "objectID": "schedule.html#day11",
+    "href": "schedule.html#day11",
     "title": "Schedule",
-    "section": "Day 3: Matching",
-    "text": "Day 3: Matching\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 14: Matching (~160 minutes)\n\nVideo alternatives:\n\nMatching (~11 minutes)\nFive Questions About Matching (~13 minutes)\nDistance Matching (~9 minutes)\nPropensity Score Matching (~10 minutes)\nCoarsened Exact Matching and Entropy Balancing (~8 minutes)\nWhen Matching Goes Wrong (~14 minutes)\nTreatment Effect Estimation with Matching (~7 minutes)\n\n\nJournal article: Matching Methods for Causal Inference: A Review and a Look Forward (~60 minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 5: Matching and Subclassification (~140 minutes)"
+    "section": "Day 3: Matching (9/27)",
+    "text": "Day 3: Matching (9/27)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 14: Matching (~160 minutes)\n\nVideo alternatives:\n\nMatching (~11 minutes)\nFive Questions About Matching (~13 minutes)\nDistance Matching (~9 minutes)\nPropensity Score Matching (~10 minutes)\nCoarsened Exact Matching and Entropy Balancing (~8 minutes)\nWhen Matching Goes Wrong (~14 minutes)\nTreatment Effect Estimation with Matching (~7 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 5: Matching and Subclassification (~140 minutes)\nJournal article: Matching Methods for Causal Inference: A Review and a Look Forward (~60 minutes)"
   },
   {
-    "objectID": "schedule.html#day-1-matching",
-    "href": "schedule.html#day-1-matching",
+    "objectID": "schedule.html#day12",
+    "href": "schedule.html#day12",
     "title": "Schedule",
-    "section": "Day 1: Matching",
-    "text": "Day 1: Matching\n\nContinuation of previous class"
+    "section": "Day 1: Matching (9/30)",
+    "text": "Day 1: Matching (9/30)\n\nContinuation of previous class"
   },
   {
-    "objectID": "schedule.html#day-2-regression-discontinuity",
-    "href": "schedule.html#day-2-regression-discontinuity",
+    "objectID": "schedule.html#day13",
+    "href": "schedule.html#day13",
     "title": "Schedule",
-    "section": "Day 2: Regression discontinuity",
-    "text": "Day 2: Regression discontinuity\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)"
+    "section": "Day 2: Regression discontinuity (10/2)",
+    "text": "Day 2: Regression discontinuity (10/2)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)"
   },
   {
-    "objectID": "schedule.html#day-3-flex-day",
-    "href": "schedule.html#day-3-flex-day",
+    "objectID": "schedule.html#day14",
+    "href": "schedule.html#day14",
     "title": "Schedule",
-    "section": "Day 3: Flex Day",
-    "text": "Day 3: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+    "section": "Day 3: Flex Day (10/4)",
+    "text": "Day 3: Flex Day (10/4)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
   },
   {
     "objectID": "schedule.html#day-1-event-studies-interrupted-times-series",
@@ -882,8 +882,8 @@
     "text": "Day 2: Synthetic control\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class:"
   },
   {
-    "objectID": "schedule.html#day-3-flex-day-1",
-    "href": "schedule.html#day-3-flex-day-1",
+    "objectID": "schedule.html#day-3-flex-day",
+    "href": "schedule.html#day-3-flex-day",
     "title": "Schedule",
     "section": "Day 3: Flex Day",
     "text": "Day 3: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
@@ -893,7 +893,7 @@
     "href": "schedule.html#day-1-fixed-effects-models",
     "title": "Schedule",
     "section": "Day 1: Fixed effects models",
-    "text": "Day 1: Fixed effects models\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\nThe Effect Chapter 18: Difference-in-Differences (~80 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\nDuring class:"
+    "text": "Day 1: Fixed effects models\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\n\n\n\nDuring class:"
   },
   {
     "objectID": "schedule.html#day-2-difference-in-differences-designs",
@@ -1090,26 +1090,5 @@
     "title": "Regression Discontinuity Designs",
     "section": "Placebo tests",
     "text": "Placebo tests\nsame RDD model but replace y with pre-treatment covariates Use same bw as for main RDD model?"
-  },
-  {
-    "objectID": "schedule.html#day9",
-    "href": "schedule.html#day9",
-    "title": "Schedule",
-    "section": "Day 1: Randomized experiments",
-    "text": "Day 1: Randomized experiments\nBefore class: No required reading or videos for today.\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nReading: Treatment Allocation and Randomization (~20 minutes) from Penn State’s online notes for the course Design and Analysis of Clinical Trials"
-  },
-  {
-    "objectID": "schedule.html#day10",
-    "href": "schedule.html#day10",
-    "title": "Schedule",
-    "section": "Day 2: Target trial framework",
-    "text": "Day 2: Target trial framework\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses. Journal of Clinical Epidemiology, 79, 70–75. (~35 minutes)"
-  },
-  {
-    "objectID": "schedule.html#day11",
-    "href": "schedule.html#day11",
-    "title": "Schedule",
-    "section": "Day 3: Matching",
-    "text": "Day 3: Matching\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 14: Matching (~160 minutes)\n\nVideo alternatives:\n\nMatching (~11 minutes)\nFive Questions About Matching (~13 minutes)\nDistance Matching (~9 minutes)\nPropensity Score Matching (~10 minutes)\nCoarsened Exact Matching and Entropy Balancing (~8 minutes)\nWhen Matching Goes Wrong (~14 minutes)\nTreatment Effect Estimation with Matching (~7 minutes)\n\n\nJournal article: Matching Methods for Causal Inference: A Review and a Look Forward (~60 minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 5: Matching and Subclassification (~140 minutes)"
   }
 ]

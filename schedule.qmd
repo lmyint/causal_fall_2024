@@ -51,6 +51,15 @@ Check here to see what you should be doing before, during, and after each class 
     </td>
     <td class="topleft"></td>
   </tr>
+  <tr>
+    <td class="topleft">5 (9/30 - 10/4)</td>
+    <td class="topleft"><a href="#day12">Matching (Part 2)</a></td>
+    <td class="topleft"><a href="#day13">Regression discontinuity designs</a></td>
+    <td class="topleft">
+        <a href="#day14">Flex day</a>
+    </td>
+    <td class="topleft"></td>
+  </tr>
 </tbody>
 </table>
 ```
@@ -185,7 +194,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 - Continuation of previous class
 
-**During class:** Testing causal graphs
+**During class:** [Identifying causal effects with causal graphs](05-causal-graphs-identification.qmd) and [Testing causal graphs](06-causal-graphs-testing.qmd)
 
 ## Day 3: Synthesis day (9/20) {#day8}
 
@@ -201,7 +210,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 # Week 4: Randomized experiments, target trials, matching
 
-## Day 1: Randomized experiments {#day9}
+## Day 1: Randomized experiments (9/23) {#day9}
 
 **Before class:** No required reading or videos for today.
 
@@ -211,7 +220,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 <!-- **During class:** [Randomized experiments](06-rct.qmd) -->
 
-## Day 2: Target trial framework {#day10}
+## Day 2: Target trial framework (9/25) {#day10}
 
 ::: {.callout-note title="Required" icon=false}
 - Reading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). [Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5124536/pdf/nihms-790601.pdf). *Journal of Clinical Epidemiology*, *79*, 70–75. (~35 minutes)
@@ -219,7 +228,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 <!-- **During class:** [Target trial framework](07-target-trial.qmd) -->
 
-## Day 3: Matching {#day11}
+## Day 3: Matching (9/27) {#day11}
 
 **Before class:**
 
@@ -233,11 +242,11 @@ Formulate a research question that relates to an area that you're interested in.
         - [Coarsened Exact Matching and Entropy Balancing](https://youtu.be/Pp-qs-mNEjI) (~8 minutes)
         - [When Matching Goes Wrong](https://youtu.be/M6AsS4zaWQk) (~14 minutes)
         - [Treatment Effect Estimation with Matching](https://youtu.be/OE_KzNJl75k) (~7 minutes)
-- Journal article: [Matching Methods for Causal Inference: A Review and a Look Forward](http://dx.doi.org/10.1214/09-STS313) (~60 minutes)
 :::
 
 ::: {.callout-note title="Optional" appearance="simple" collapse="true"}
 - *Mixtape* [Chapter 5: Matching and Subclassification](https://mixtape.scunning.com/05-matching_and_subclassification) (~140 minutes)
+- Journal article: [Matching Methods for Causal Inference: A Review and a Look Forward](http://dx.doi.org/10.1214/09-STS313) (~60 minutes)
 :::
 
 <!-- **During class:** [Matching](08-matching.qmd) -->
@@ -252,13 +261,13 @@ Formulate a research question that relates to an area that you're interested in.
 
 # Week 5: Matching and regression discontinuity designs
 
-## Day 1: Matching
+## Day 1: Matching (9/30) {#day12}
 
 - Continuation of previous class
 
 <!-- **During class:** [Matching](08-matching.qmd) -->
 
-## Day 2: Regression discontinuity
+## Day 2: Regression discontinuity (10/2) {#day13}
 
 **Before class:**
 
@@ -277,7 +286,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 <!-- **During class:** [Regression discontinuity designs](09-rdd.qmd) -->
 
-## Day 3: Flex Day
+## Day 3: Flex Day (10/4) {#day14}
 
 **Before class:**
 
@@ -363,14 +372,6 @@ Formulate a research question that relates to an area that you're interested in.
         - [Fixed Effects](https://youtu.be/Z1QmFuPV9JA) (~12 minutes)
         - [Estimating Fixed Effects](https://youtu.be/2Kz1g0RoTtI) (~8 minutes)
         - [Random Effects](https://youtu.be/Esp0LWTBuk4) (~6 minutes)
-- *The Effect* [Chapter 18: Difference-in-Differences](https://www.theeffectbook.net/ch-DifferenceinDifference.html) (~80 minutes)
-    - Video alternatives:
-        - [Difference in Differences](https://youtu.be/ggYnrOGG97o) (~11 minutes)
-        - [Parallel Trends](https://youtu.be/NcHT8pl57HY) (~9 minutes)
-        - [Estimating Difference in Differences](https://youtu.be/95HxUdn-BJg) (~10 minutes)
-        - [Supporting Parallel Trends](https://youtu.be/ihIWuC6ULjo) (~9 minutes)
-        - [Dynamic Difference-in-Differences](https://youtu.be/_nknBbw-HFQ) (~10 minutes)
-        - [Staggered Treatment in Difference-in-Differences](https://youtu.be/hu2nDbnpALA) (~9 minutes)
 :::
 
 **During class:** 

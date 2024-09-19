@@ -124,7 +124,7 @@ plot(dag3)
 
 First, think through the relationships depicted in the causal graphs below and whether they make sense. These are intended to reflect a range of scenarios for why people drop out of studies.
 
-Then for each of the graphs, identify the set of variables needed to achieve conditional exchangeability of the treatment $A$ and outcome $Y$. ($U$ and $W$ are unmeasured.) Check your answers to one of the graphs using [DAGitty](http://www.dagitty.net/dags.html).
+Then for each of the graphs, identify the set of variables that would block noncausal paths between the treatment $A$ and outcome $Y$. ($U$ and $W$ are unmeasured.) Check your answers to one of the graphs using [DAGitty](http://www.dagitty.net/dags.html).
 
 <center>
     ![](images/selection_bias1.png)
