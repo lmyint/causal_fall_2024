@@ -336,263 +336,33 @@
     "text": "These assignments will build up your Portfolio. Recall from the syllabus that the goal of the Portfolio is create a reference that is tailored to the way that you think about and understand ideas.\nI hope that you feel proud of your Portfolio by the end of the semester. If you want to publish it, the Quarto files (.qmd) that you submit for your assignments can become the basis for a website that looks a lot like this course website or websites in the Quarto gallery. I’m happy to help you get this set up if you’re interested.\n\n\nAssignment 1\nDue Wednesday, 9/11 at 5pm on Moodle\nThis first assignment is a short writing piece for me to get to know you. There are no length requirements—just use as many words as needed to convey what you want, and feel free to respond to my questions in any order.\nFormat: Please submit a link to a Google Doc (preferred) or a Word document. (No PDFs because comments end up being too scrunched in PDFs.) If submitting a Google Doc, make sure that I am added with either Editing or Commenting privileges.\nPrompt:\nI recently read a moving essay called An Education of His Own by writer Latham Turner. I invite you to read this essay as you think about what you might want from this course experience. If you feel so moved, I’d love to hear what parts of the essay resonated with you.\nWhat would make this course of a success for you? What are you hoping to learn and accomplish? I know that there are a variety of reasons for taking the course, and I want to better understand how those reasons inform what you are hoping for.\nReflect on other courses you’ve taken and other learning environments in which you’ve participated. What grading/motivation/incentive structures, classroom dynamics, and personal habits/practices were helpful for your learning? What hindered your learning?\nFor the next questions, I want to be honest with you about where I am coming from. I mentioned in the syllabus that if I didn’t have to give grades, I wouldn’t. The act of grading (putting points and A/B/C-like marks on work) is quite draining for me because I feel immense pressure to be fair, be “accurate” (even though there is no way that something like a grade could accurately measure something as complex as learning), and keep your motivation levels high. I also feel that grading creates a charged power dynamic between the instructor and the student that I don’t like. I became a teacher because I love being a guide and a coach for students in ideas I find fascinating—not because I wanted to bestow judgment.\nIf my aversion to grades seems like an aversion to high expectations for your learning, it’s not. It’s an aversion to what I see as a very problematic system when something more simple and more meaningful encourages learning so well: qualitative feedback. Note that grading is very different from qualitative feedback, which, simply put, is a collection of thoughtful comments on your work. I truly enjoy giving feedback when it is not tied to a grade. There’s so much rich information in qualitative feedback that grades, by virtue of being a single letter or number, can’t capture.\nWith that background from me, I have a few questions for you: How would you feel about a system in which everyone gets an A so that we can ignore grades completely and focus on qualitative feedback? How would you feel about a system in which everyone was graded differently? How do you think we should approach the process of deciding to how to handle grades in this course?\nI know that the background I gave suggests what I would prefer for what we do with grades. I know that this may affect your comfort in being honest, but I truly do want to know your honest thoughts.\nThanks for taking the time to reflect and share with me. I’m looking forward to reading what you write.\n\n\n\nAssignment 2\nDue Friday, 9/27 at 5pm on Moodle\nImagine that you are preparing your capstone talk on your project from this course. The start of that presentation should probably include a section that introduces orients them to what the course is even about: What is causal inference? What are causal graphs, and what role do they play in causal inference?\nTask: Create slides for this presentation section. Add presenter notes beneath each slide to indicate what you would say. If you wish, you can record a video of you giving this presentation segment.\nAudience: Aim for this presentation segment to be accessible to students who have taken STAT 155 but no upper-level courses.\nFormat:\n\nFor submitting slides, Google Slides is preferred—make sure that I am added with either Editing or Commenting privileges. If using another program for slides, submit both the slides and presenter notes beneath in PDF format.\nIf submitting a video, upload the video or share a link where I can access it."
   },
   {
-    "objectID": "05-causal-graphs-identification.html",
-    "href": "05-causal-graphs-identification.html",
-    "title": "Identifying causal effects with causal graphs",
+    "objectID": "06-causal-graphs-testing.html",
+    "href": "06-causal-graphs-testing.html",
+    "title": "Testing causal graphs",
     "section": "",
-    "text": "Explain how d-separation and causal/noncausal paths relate to identification of causal effects.\nApply d-separation to block noncausal paths in causal DAGs with and without unobserved variables.\nApply strategies to deal with identification problems caused by unobserved variables.\nDifferentiate confounding and selection bias in terms of graph structure and how they arise in applied studies.",
+    "text": "Evaluate the accuracy of a causal graph by testing the conditional independencies implied by the graph structure.\n\n\nYou can download a template file for this activity here.",
     "crumbs": [
-      "Identifying causal effects with causal graphs"
+      "Testing causal graphs"
     ]
   },
   {
-    "objectID": "05-causal-graphs-identification.html#exercise-1",
-    "href": "05-causal-graphs-identification.html#exercise-1",
-    "title": "Identifying causal effects with causal graphs",
+    "objectID": "06-causal-graphs-testing.html#exercise-1",
+    "href": "06-causal-graphs-testing.html#exercise-1",
+    "title": "Testing causal graphs",
     "section": "Exercise 1",
-    "text": "Exercise 1\nFor each of the causal graphs below, identify the set of variables needed to block noncausal paths (if possible) between treatment \\(A\\) and outcome \\(Y\\). Any \\(U\\) variables displayed in the graphs are unobserved/unmeasured.",
+    "text": "Exercise 1\nHere we’ll look at biological data from a protein interaction network. Take a peek at the data below:\n\nprotein_data &lt;- read_csv(\"https://raw.githubusercontent.com/ankurankan/2020-dagitty-manual/master/protocol3/protein_signal.csv\")\n\n# Randomly subset protein_data to 1000 cases \n# to speed up subsequent computations\nset.seed(451)\nprotein_data_subs &lt;- slice_sample(protein_data, n = 1000)\n\nhead(protein_data_subs)\n\nThe hypothesized causal graph is below.\n\nNote: If the graph looks cut off in RStudio, you can also paste the dag { ... } portion into DAGitty web interface in the “Model code” pane on the right.\n\n\nprotein_dag &lt;- dagitty('dag {\nbb=\"-0.5,-0.5,0.5,0.5\"\nAkt [pos=\"-0.115,0.052\"]\nErk [pos=\"-0.061,-0.001\"]\nJnk [pos=\"-0.208,-0.149\"]\nMek [pos=\"-0.063,-0.096\"]\nP38 [pos=\"-0.155,-0.141\"]\nPIP2 [pos=\"-0.337,0.063\"]\nPIP3 [pos=\"-0.278,-0.068\"]\nPKA [pos=\"-0.127,-0.200\"]\nPKC [pos=\"-0.111,-0.287\"]\nPlcg [pos=\"-0.337,-0.177\"]\nRaf [pos=\"-0.066,-0.204\"]\nMek -&gt; Erk\nPIP2 -&gt; PKC [pos=\"-0.489,-0.417\"]\nPIP3 -&gt; Akt\nPIP3 -&gt; PIP2\nPIP3 -&gt; Plcg\nPKA -&gt; Akt\nPKA -&gt; Erk\nPKA -&gt; Jnk\nPKA -&gt; Mek\nPKA -&gt; P38\nPKA -&gt; Raf\nPKC -&gt; Jnk [pos=\"-0.188,-0.258\"]\nPKC -&gt; Mek [pos=\"-0.021,-0.245\"]\nPKC -&gt; P38 [pos=\"-0.166,-0.227\"]\nPKC -&gt; Raf\nPlcg -&gt; PIP2\nPlcg -&gt; PKC [pos=\"-0.248,-0.271\"]\nRaf -&gt; Mek\n}')\nplot(protein_dag)\n\nThe code below creates a scatterplot matrix that shows the relationship between each pair of variables using a scatterplot. For example, the plot in row 1, column 2 plots the Raf protein abundance vs. Mek protein abundance. The numbers in the lower triangle give the correlation coefficient between the two variables.\nBased on this plot, what should the type argument be when you run conditional independence tests with localTests()?\n\npanel.cor &lt;- function(x, y) {\n    par(usr = c(0, 1, 0, 1))\n    r &lt;- cor(x, y)\n    txt &lt;- format(r, digits = 2)\n    txt &lt;- str_c(\"Cor: \", txt)\n    text(0.5, 0.5, txt)\n}\n\npairs(protein_data_subs, upper.panel = panel.smooth, lower.panel = panel.cor)\n\nBelow we use impliedConditionalIndependencies() to get a list of testable implications. This time we use type = \"missing.edge\" instead of type = \"all.pairs\".\n\nBecause this graph is so much more complex, checking for conditional independence between all pairs of variables results in a ton of conditional independence statements. (In fact, there are 7182 of them.)\nWhen using “missing.edge” we focus on conditional independencies that arise from a missing edge between two variables. This results in a much more manageable set of conditional independence statements to test.\n\n\nprotein_dag_cis &lt;- impliedConditionalIndependencies(protein_dag, type = \"missing.edge\")\n\nIn the code chunk below, use the appropriate type argument in localTests() to perform the CI tests.\n\nNote: The R = 100 argument is needed for this type to set the number of bootstrapping iterations for obtaining the confidence interval.\n\n\n# Obtain and display a data frame of CI test results\n# We use a subset of the protein data for computational time reasons\n# The system.time() function measures how long a command takes to run\nsystem.time({\nprotein_dag_ci_test_res &lt;- localTests(protein_dag, data = protein_data_subs, tests = protein_dag_cis, type = ___, R = 100)\n})\n\nprotein_dag_ci_test_res\n\nWe can plot the results of these tests with the plotLocalTestResults() function from dagitty. Based on these results, what modifications to the graph should we investigate first?\n\n# Sort the data frame by the magnitude of the estimate\n# and plot the test statistics (points) and\n# 95% confidence intervals (horizontal bars)\n# Just below this code chunk on the right, click the\n# leftmost white button to open a zoomed window of the plot\nprotein_dag_ci_test_res %&gt;%\n    arrange(abs(estimate)) %&gt;% \n    plotLocalTestResults()",
     "crumbs": [
-      "Identifying causal effects with causal graphs"
+      "Testing causal graphs"
     ]
   },
   {
-    "objectID": "05-causal-graphs-identification.html#exercise-2",
-    "href": "05-causal-graphs-identification.html#exercise-2",
-    "title": "Identifying causal effects with causal graphs",
+    "objectID": "06-causal-graphs-testing.html#exercise-2",
+    "href": "06-causal-graphs-testing.html#exercise-2",
+    "title": "Testing causal graphs",
     "section": "Exercise 2",
-    "text": "Exercise 2\nHistorically, people have tried to create definitions for confounders by listing criteria that purely rely on associations. For example:\n\nA confounder must:\n1. Be associated with treatment and outcome\n2. Not be caused by treatment\n\nUsing the causal graph below, explain why this is not a good definition for a confounder.",
+    "text": "Exercise 2\nHere you’ll draw a causal graph for a particular context and test/update your graph based on conditional independence testing.\nFirst navigate to this page, and choose one of the following datasets by exploring the associated codebook:\n\nElection Data - County\nFEV (Lung Function) and Smoking\nHome Sales in NY\n\nRead in the chosen dataset, and take a look at the data by entering View(dataset_name) in the Console.\n\nelection &lt;- read_csv(\"https://mac-stat.github.io/data/election_2020_county.csv\")\n\n# Read in and process FEV data\nlungs &lt;- read_csv(\"https://mac-stat.github.io/data/fev.csv\")\nlungs &lt;- lungs %&gt;% \n    # Recode sex and smoke as 0/1 variables\n    mutate(\n        sexFemale = ifelse(sex==\"female\", 1, 0),\n        smoke = ifelse(smoke==\"smoker\", 1, 0)\n    ) %&gt;% \n    select(-sex)\n\n# Read in and process the homes data\nhomes &lt;- read_csv(\"https://mac-stat.github.io/data/homes.csv\")\nhomes &lt;- homes %&gt;% \n    select(-c(Fuel.Type, Heat.Type, Sewer.Type))\n\nDraw a causal graph using DAGitty. If you include variables in your graphs that are not in the data, mark them as unmeasured by clicking the variable and then hitting “u” or checking the “unobserved” checkbox in the top left.\nPaste all the code from the “Model code” pane below.\n\ndag &lt;- dagitty('\nPaste your dag { ... } here\n')\nplot(dag)\n\nUse impliedConditionalIndependencies() to generate a list of testable implications:\n\nIf you have unmeasured variables in your graph, use type = \"missing.edge\" to ensure that no conditional independencies involving those unmeasured variables are returned. (While these CIs are real implications about your graph, they’re not testable.)\nOtherwise use type = \"all.pairs\".\n\n\ndag_cis &lt;- impliedConditionalIndependencies(dag, type = ___)\ndag_cis\n\nUse localTests() to test your graph. Inspect the resulting table of test results and, if desired, the plot form with plotLocalTestResults(). Is your graph consistent with the data? What updates might you make?\n\nsystem.time({\ndag_ci_test_res &lt;- localTests(___)\n})\ndag_ci_test_res",
     "crumbs": [
-      "Identifying causal effects with causal graphs"
-    ]
-  },
-  {
-    "objectID": "05-causal-graphs-identification.html#exercise-3",
-    "href": "05-causal-graphs-identification.html#exercise-3",
-    "title": "Identifying causal effects with causal graphs",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nFirst, think through the relationships depicted in the causal graphs below and whether they make sense. These are intended to reflect a range of scenarios for why people drop out of studies.\nThen for each of the graphs, identify the set of variables that would block noncausal paths between the treatment \\(A\\) and outcome \\(Y\\). (\\(U\\) and \\(W\\) are unmeasured.) Check your answers to one of the graphs using DAGitty.",
-    "crumbs": [
-      "Identifying causal effects with causal graphs"
-    ]
-  },
-  {
-    "objectID": "05-causal-graphs-identification.html#exercise-4",
-    "href": "05-causal-graphs-identification.html#exercise-4",
-    "title": "Identifying causal effects with causal graphs",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nIn this exercise, we’ll consider how causal graphs can inform study design. (Inspired by a 1970s study on the relationship between estrogen use and endometrial cancer.)\nResearchers have noticed a consistent association between use of a certain drug and disease. Research groups debated two hypotheses:\n\nThe drug does cause disease.\nThe drug doesn’t actually cause disease but leads to a side effect, leading to more frequent doctor visits, leading to increased diagnosis of existing disease.\n\nThe following study plan was proposed: restrict the study only to those with side effects and compare disease rates in drug-users and non-users. In this way, all participants have the same chance of being diagnosed.\nThe following causal graphs correspond to the two hypotheses:\n\n\n\n(The graphs don’t show confounders of the drug-true disease relationship for compactness. We can assume that these have already been adjusted for.)\n\nStudy design 1\nConsider the study proposal above: restrict analysis to those with side effects.\n\nBefore looking at the causal graphs: does the rationale for this study design make sense? Why did researchers want to only look at patients with side effects?\nUnder this study design, the researchers were expecting that if Hypothesis 1 were correct (the drug does cause disease), they would find an association between drug use and diagnosed disease. They expected that if Hypothesis 2 were correct (the drug does NOT cause disease), they would find NO association between drug use and diagnosed disease.\n\nAre these expectations correct? Explain in light of the causal graphs.\n\nBased on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?\n\n\n\nStudy design 2\nConsider another study proposal: ensure that everyone is screened for disease frequently, and we don’t restrict our analysis to only those with side effects.\n\nWhat arrow can be removed as a result of this study design? (It might help to draw an updated version of DAGs 1 and 2 with this arrow removed.)\nUnder this study design, the researchers had the same expectations: if Hypothesis 1 were correct, they would find an association between drug use and diagnosed disease. If Hypothesis 2 were correct, they would find NO association between drug use and diagnosed disease.\n\nAre these expectations correct? Explain in light of the causal graphs.\n\nBased on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?",
-    "crumbs": [
-      "Identifying causal effects with causal graphs"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html",
-    "href": "03-causal-graphs-intro.html",
-    "title": "Causal graph fundamentals",
-    "section": "",
-    "text": "Practice graphically showing our beliefs about data-generating processes using causal graphs\nExpand our worldview by exploring interesting questions in domains that we don’t normally think about\nBuild a trusting intellectual community by being curious about each other’s interests, giving kind and actionable feedback, and receiving feedback with curiosity and gratitude",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#identification",
-    "href": "03-causal-graphs-intro.html#identification",
-    "title": "Causal graph fundamentals",
-    "section": "Identification",
-    "text": "Identification\n\nIdentification is the process of isolating only desired variation (variation corresponding purely to our causal effect of interest) and ruling out alternate explanations\nRuling out alternate explanations requires understanding the data-generating process",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#causal-diagrams",
-    "href": "03-causal-graphs-intro.html#causal-diagrams",
-    "title": "Causal graph fundamentals",
-    "section": "Causal diagrams",
-    "text": "Causal diagrams\nA causal diagram (causal graph) is a visual representation of a data-generating process and are directed acyclic graphs (DAGs).\nNodes represent variables and edges represent direct causal relationships between variables.\nWe will be conceptualizing causality in the following way: A is a cause of Y if changes in the value of A change the probability distribution of Y.\n\nNote 1: In practice, people in the field say that the presence of an arrow indicates that A might cause Y.\nNote 2: If changes in the value of A change the value of Y, we often equate this with a change in mean, but it doesn’t have to. (e.g., the mean might not change, but the variance could)\n\n\n\nCode\ndat &lt;- bind_rows(\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 1),\n        type = \"Control PO\",\n        context = \"Change in means\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 1, 1),\n        type = \"Treated PO\",\n        context = \"Change in means\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 1),\n        type = \"Control PO\",\n        context = \"Change in variance\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 2),\n        type = \"Treated PO\",\n        context = \"Change in variance\"\n    )\n)\n\nggplot(dat, aes(x = x, y = y, color = type)) +\n    geom_line() +\n    facet_grid(~ context) +\n    theme_classic() +\n    scale_color_manual(values = c(\"steelblue\", \"darkorange\"))",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#warm-up-1",
-    "href": "03-causal-graphs-intro.html#warm-up-1",
-    "title": "Causal graph fundamentals",
-    "section": "Warm-up 1",
-    "text": "Warm-up 1\nWe’re interested in the question “Does reading Harry Potter as a child make you read more as an adult?” A causal diagram is shown below.\n\n\nCode\n# Requires the dagitty package to be loaded\ndag1 &lt;- dagitty(\"dag {\n    bb=\\\"0,0,1,1\\\"\n    AgeWhenPotterReleased [pos=\\\"0.200,0.200\\\"]\n    LikesReading [latent,pos=\\\"0.500,0.350\\\"]\n    ReadOtherRowlingBooks [pos=\\\"0.500,0.650\\\"]\n    ReadPotterAsKid [exposure,pos=\\\"0.200,0.500\\\"]\n    ReadingAsAdult [outcome,pos=\\\"0.800,0.500\\\"]\n    AgeWhenPotterReleased -&gt; ReadPotterAsKid\n    LikesReading -&gt; ReadPotterAsKid\n    LikesReading -&gt; ReadingAsAdult\n    ReadOtherRowlingBooks -&gt; ReadingAsAdult\n    ReadPotterAsKid -&gt; ReadOtherRowlingBooks\n    ReadPotterAsKid -&gt; ReadingAsAdult\n}\")\n\nplot(dag1)\n\n\n\n\n\n\n\n\n\n\nWhat direct effects should be included when trying to answer your research question of interest?\nWhat indirect effects should be included when trying to answer your research question of interest?\nWhat is a likely alternative explanation of why we might see a relationship between reading Harry Potter and reading more as an adult?\nLikesReading is included as an unobserved variable. Why do we bother to include variables on our diagrams if we can’t observe them? Why might we think that LikesReading is an unobserved or latent variable?",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#warm-up-2",
-    "href": "03-causal-graphs-intro.html#warm-up-2",
-    "title": "Causal graph fundamentals",
-    "section": "Warm-up 2",
-    "text": "Warm-up 2\nThe diagram below depicts a cyclical relationship between workplace culture and satisfaction. If employees perceive a more positive workplace culture, their satisfaction at work goes up, and if their satisfaction goes up, they contribute more to a positive workplace culture. Change the diagram so that the relationship is no longer cyclic.\n\n\nCode\ndag2 &lt;- dagitty(\"dag {\n    bb=\\\"0,0,1,1\\\"\n    WorkCulture [pos=\\\"0.250,0.500\\\"]\n    WorkSatisfaction [pos=\\\"0.750,0.500\\\"]\n    WorkCulture &lt;-&gt; WorkSatisfaction\n}\")\n\nplot(dag2)",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#warm-up-3",
-    "href": "03-causal-graphs-intro.html#warm-up-3",
-    "title": "Causal graph fundamentals",
-    "section": "Warm-up 3",
-    "text": "Warm-up 3\nDo you think it’s a stronger assumption to include an arrow or exclude an arrow on a causal diagram?",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#simplifying-causal-diagrams",
-    "href": "03-causal-graphs-intro.html#simplifying-causal-diagrams",
-    "title": "Causal graph fundamentals",
-    "section": "Simplifying causal diagrams",
-    "text": "Simplifying causal diagrams\nThe world is very complex, and causal diagrams can get very complex too.\n\nSimplifying causal diagrams is important for identification: focusing on alternate explanations of consequence.\nSimplifying is also important for sharing the diagram with diverse experts to get good feedback.\n\nWe can use a few techniques to simplify causal diagrams:\n\nUnimportance\n\nVariables that have small effects on all other variables in the diagram and edges with small effects can likely be omitted safely.\ne.g., Living near a quiet cafe affects online course taking\n\nRedundancy\n\nVariables that have the same arrows going in and coming out can be grouped together.\ne.g., Demographic variables like age and race and socioeconomic variables like years of school and years of work experience often have arrows pointing to the outcome and to treatment.\n\nCaveat: Having “Demographic Factors” and “Socioeconomic Factors” nodes can simplify the presentation of the causal diagram, but we really do need to know all the individual variables inside these broad categories to accurately estimate causal effects because each variable represents a different alternate explanation.\n\n\nGet rid of mediators\n\nIn situations like A -&gt; B -&gt; C with no other arrows into or out of B, we can likely omit B safely.\nCaveat: In an area called mediation analysis (which aims to estimate the direct and indirect components of an overall causal effect), explicitly including mediators and paying careful attention to how mediators are related to other variables is very important.\n\nIrrelevance\n\nIf a variable isn’t on any path between the treatment and outcome, we can likely safely omit the variable.\nWe’ll talk more about the rationale for this in the next classes.",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#drawing-causal-diagrams-with-dagitty",
-    "href": "03-causal-graphs-intro.html#drawing-causal-diagrams-with-dagitty",
-    "title": "Causal graph fundamentals",
-    "section": "Drawing causal diagrams with DAGitty",
-    "text": "Drawing causal diagrams with DAGitty\nDAGitty is an online tool (with an associated R package) for drawing causal diagrams. Click the “Launch” link to open a web tool.\n\nModel &gt; New Model: clear the screen\nAdd a node: Click on the gray canvas\nAdd an edge: First click on the variable representing the cause, then the variable representing the effect (arrow points to second node clicked)\nDelete a node: Click a node and hit “D”. (Or expand the “Variable” toggle in the top left and check “exposure”.)\nDelete an edge: First click the variable representing the cause, then the variable representing the effect.\nLabel a node as the treatment (exposure): Click a node and hit “E”. (Or expand the “Variable” toggle in the top left and check “exposure”.)\nLabel a node as the outcome: Click a node and hit “O”. (Or expand the “Variable” toggle in the top left and check “outcome”.)",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#exercise-1",
-    "href": "03-causal-graphs-intro.html#exercise-1",
-    "title": "Causal graph fundamentals",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nFor your research question, sketch the possible data-generating process using a causal diagram (on paper or with DAGitty):\n\nClearly indicate the cause of interest and the outcome.\nWrite down other variables are at play in this situation. Include these variables as nodes.\nAdd edges depicting direct causal relationships between variables.\nIndicate which variables are latent or unobserved.\nIndicate which variables might be harder to collect (reliable) data on.",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "03-causal-graphs-intro.html#exercise-2",
-    "href": "03-causal-graphs-intro.html#exercise-2",
-    "title": "Causal graph fundamentals",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nYou and your partner will take turns presenting your research question and causal diagram and working together to simplify the diagram.\nPick one person to go first, and go through the following 2 steps. Switch when you’re done.\nStep 1: Present your research question and causal diagram, making sure to explain any context needed to understand:\n\nThe variables in the diagram\nThe edges in and absent from the diagram\nWhich paths are part of the causal effect of interest\n\nThe listener should ask clarifying questions as necessary.\nStep 2: Together, work through attempting to simplify the presenter’s diagram by going through the following 4 principles:\n\nUnimportance\nRedundancy\nMediators\nIrrelevance\n\nMake note of what was changed and what you’re still unsure about. If you came across a good example of one of these principles, draw it on the board to share with the class during our end-of-class debrief.",
-    "crumbs": [
-      "Causal graph fundamentals"
-    ]
-  },
-  {
-    "objectID": "01-introductions.html",
-    "href": "01-introductions.html",
-    "title": "Introductions and foundational ideas",
-    "section": "",
-    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nSlides for today: HTML, PDF",
-    "crumbs": [
-      "Introductions and foundational ideas"
-    ]
-  },
-  {
-    "objectID": "02-identification.html",
-    "href": "02-identification.html",
-    "title": "Causal identification: building intuition",
-    "section": "",
-    "text": "Explain what is meant by the term causal identification\nThink about the data-generating process (DGP) in a given context to understand its impact on causal identification\nGet a sense for different approaches to causal identification that we will explore in this course",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#average-causal-effects",
-    "href": "02-identification.html#average-causal-effects",
-    "title": "Causal identification: building intuition",
-    "section": "Average causal effects",
-    "text": "Average causal effects\nSuppose we are studying the effect of a mental health program for expecting mothers and fathers. The treatment is participation in the program vs. not. The outcome is a yes/no occurrence of postpartum depression within the first year of the infant’s life. We estimate the average causal effect \\(E[Y^{a=1} - Y^{a=0}]\\) to be -0.1.\nHow can we interpret this effect?",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#research-questions",
-    "href": "02-identification.html#research-questions",
-    "title": "Causal identification: building intuition",
-    "section": "Research questions",
-    "text": "Research questions\n\nComing up with a question is easy. Just ask any five-year-old and they can provide you with dozens. Coming up with a good research question is much harder.\nWhat’s the difference? The difference, at least in the case of quantitative empirical research, is that a research question is a question that can be answered, and for which having that answer will improve your understanding of how the world works.\n\nAsking “how” (as in “how do we do better?”) naturally leads to “Should we…” questions:\n\nHow can we mitigate the effects of climate change?\nShould we implement a plastic tax?",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#identification-warm-up",
-    "href": "02-identification.html#identification-warm-up",
-    "title": "Causal identification: building intuition",
-    "section": "Identification: warm-up",
-    "text": "Identification: warm-up\n\nWhen we say “this variation has identified the effect we’re interested in”, which of the following is the best definition of the term identified? Explain why you think your chosen response is the best definition and why the others are not.\n\nWe’ve generated the data by conducting a controlled experiment in which treatment is randomly assigned.\nIn the data generating process, the only reason why we see variation in the outcome variable is because of the treatment variable.\nThe relationship we are looking at in the data actually tests a hypothesis.\nIn the variation we use, there’s no reason we’d see any relationship at all except for the effect we’re interested in.",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#isolating-variation",
-    "href": "02-identification.html#isolating-variation",
-    "title": "Causal identification: building intuition",
-    "section": "Isolating variation",
-    "text": "Isolating variation\nExample: A child’s shoe size is a great predictor of their reading ability\n\nWe can quantify covariation in shoe size and reading ability with measures like the correlation coefficient, slope and its confidence interval\nWhen we think about the underlying data-generating process, we see that the totality of this covariation also encompasses the covariation in:\n\nage and shoe size\nage and reading ability\n\nWe can isolate a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability\n\n\\(E[ReadingAbility \\mid ShoeSize, Age] = \\beta_0 + \\beta_1 ShoeSize + \\beta_2 Age\\)\n\n\nThere are other ways to isolate variation that we will explore today and throughout the semester.",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#exercise-1",
-    "href": "02-identification.html#exercise-1",
-    "title": "Causal identification: building intuition",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nWe are interested in the effect of mindful breathing practices on stress levels.\n\nPart a\nSuppose we tried to estimate this effect by surveying people at Macalester. We ask them if they engage regularly in mindful breathing practices and to report their general stress levels on a 1-10 scale (1 = lowest stress, 10 = highest stress).\nDo you think we would be identifying the causal effect by comparing the mean stress levels in those who do regularly use mindful breathing with those who don’t? What aspects of the data generating process (DGP) are relevant for your response?\n\n\nPart b\nNow suppose that we were able to find 500 people with a self-reported stress level of 6 who don’t already engage in mindful breathing. The Hamre Center has resources to enroll 250 people in a 3-month mindful breathing program. They decide to randomly select the 250 participants from the 500 and measure the stress levels of all 500 people after the 3-month program.\nDo you think we would we be identifying the causal effect by comparing the mean stress levels after 3 months in those enrolled in the program with those who weren’t enrolled? What aspects of the data generating process (DGP) are relevant for your response?",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#exercise-2",
-    "href": "02-identification.html#exercise-2",
-    "title": "Causal identification: building intuition",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nWe notice that ice cream sales in St. Paul are correlated with the percentage of the population wearing shorts and wonder if there is a causal relationship between the two.\n\nPart a\nIn this context, what aspects of the data generating process do you think are most important to keep in mind? What alternative explanations can you come up with?\n\n\nPart b\nRecall that the main idea with identification is to find variation that we want to use and get rid of variation that we don’t want.\nFor this context, a number of plots and linear regression model output are shown below. Explain how these results show desired variation, undesired variation, and the process of identification by getting rid of undesired variation.\n\n\nCode\nset.seed(451)\nice_cream_data &lt;- tibble(\n    temp = rep(0:90, each = 4),\n    perc_shorts = case_when(\n        temp &lt; 40 ~ 3*sqrt(temp) + 10, \n        temp &gt;= 40 & temp &lt; 65 ~ 1.5*temp - 30,\n        temp &gt;= 65 ~ temp + 9\n    ),\n    ice_cream_sales = log(temp+1)^2 + 100 + rnorm(364, 0, 10)\n) %&gt;% \n    mutate(\n        perc_shorts = perc_shorts + rnorm(364, 0, 2),\n        perc_shorts = pmax(perc_shorts, 10),\n        perc_shorts = pmin(perc_shorts, 98)\n    )\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = perc_shorts, y = ice_cream_sales)) +\n    geom_point() +\n    geom_smooth(se = FALSE) +\n    labs(x = \"% of St. Paul wearing shorts\", y = \"Ice cream sales ($10's)\") +\n    theme_classic()\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = temp, y = perc_shorts)) +\n    geom_point() +\n    labs(x = \"Temperature (F)\", y = \"% of St. Paul wearing shorts\") +\n    theme_classic()\n\n\n\n\n\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = temp, y = ice_cream_sales)) +\n    geom_point() +\n    geom_smooth(se = FALSE) +\n    labs(x = \"Temperature (F)\", y = \"Ice cream sales ($10's)\") +\n    theme_classic()\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nCode\nlm(ice_cream_sales ~ perc_shorts, data = ice_cream_data) %&gt;% summary()\n\n\n\nCall:\nlm(formula = ice_cream_sales ~ perc_shorts, data = ice_cream_data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-32.941  -6.820   0.384   6.448  29.639 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 104.57894    1.04068 100.491   &lt;2e-16 ***\nperc_shorts   0.18668    0.01886   9.896   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.931 on 362 degrees of freedom\nMultiple R-squared:  0.2129,    Adjusted R-squared:  0.2108 \nF-statistic: 97.93 on 1 and 362 DF,  p-value: &lt; 2.2e-16\n\n\nCode\nlm(ice_cream_sales ~ perc_shorts + temp, data = ice_cream_data) %&gt;% summary()\n\n\n\nCall:\nlm(formula = ice_cream_sales ~ perc_shorts + temp, data = ice_cream_data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-30.9542  -6.6926  -0.0641   6.3933  28.0907 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 104.26394    1.02618 101.603  &lt; 2e-16 ***\nperc_shorts  -0.06449    0.07000  -0.921  0.35748    \ntemp          0.27363    0.07354   3.721  0.00023 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.76 on 361 degrees of freedom\nMultiple R-squared:  0.242, Adjusted R-squared:  0.2378 \nF-statistic: 57.63 on 2 and 361 DF,  p-value: &lt; 2.2e-16",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#exercise-3",
-    "href": "02-identification.html#exercise-3",
-    "title": "Causal identification: building intuition",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nWe are interested in the effect of a résumé writing workshop (Treatment) on adults’ ability to secure a new job (Outcome). Suppose that we have thought carefully about the data-generating process and determined that age, education level, income, employment status, and marital status are the most important factors in alternative explanations.\n\nPart a\nWe have data on 10 adults (5 who took the workshop, and 5 who didn’t):\n\n\nCode\n# Create the example dataset\ndata &lt;- tibble::tribble(\n  ~ID, ~Age, ~Education, ~Income, ~Employment, ~MaritalStatus, ~Treatment, ~Outcome,\n  1, 25, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 1, 0,\n  2, 30, \"College\", \"Medium\", \"Employed\", \"Married\", 1, 1,\n  3, 28, \"HighSchool\", \"Low\", \"Unemployed\", \"Single\", 1, 0,\n  4, 35, \"College\", \"High\", \"Employed\", \"Married\", 1, 1,\n  5, 40, \"College\", \"High\", \"Unemployed\", \"Married\", 1, 0,\n  6, 22, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 0, 1,\n  7, 30, \"HighSchool\", \"Medium\", \"Unemployed\", \"Married\", 0, 0,\n  8, 45, \"College\", \"High\", \"Employed\", \"Single\", 0, 1,\n  9, 50, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 0, 0,\n  10, 30, \"College\", \"Medium\", \"Employed\", \"Married\", 0, 1\n)\n\n# Display the dataset\ndata\n\n\n# A tibble: 10 × 8\n      ID   Age Education  Income Employment MaritalStatus Treatment Outcome\n   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;   &lt;dbl&gt;\n 1     1    25 HighSchool Low    Employed   Single                1       0\n 2     2    30 College    Medium Employed   Married               1       1\n 3     3    28 HighSchool Low    Unemployed Single                1       0\n 4     4    35 College    High   Employed   Married               1       1\n 5     5    40 College    High   Unemployed Married               1       0\n 6     6    22 HighSchool Low    Employed   Single                0       1\n 7     7    30 HighSchool Medium Unemployed Married               0       0\n 8     8    45 College    High   Employed   Single                0       1\n 9     9    50 HighSchool Low    Employed   Single                0       0\n10    10    30 College    Medium Employed   Married               0       1\n\n\nFor case 2, we observe the potential outcome under treatment \\(Y^{a=1}\\). Do you think that we might be able to directly guess this unit’s counterfactual outcome \\(Y^{a=0}\\) by using information from another case? Why or why not? \nWhat about for case 1? \n\n\nPart b\nThinking about the process that you went through in part (a), do you think this process gets easier with more variables? Why or why not?\n\n\n\n\n\n\nExercise 3 context (read after completion)\n\n\n\n\n\nI used ChatGPT to generate the example dataset in Part a. This is the prompt I used:\n\nCan you give me an example dataset with 10 cases that has one age variable, 4 categorical socioeconomic variables, and one binary outcome variable? This dataset is intended to provide an example of the matching causal inference method to students. This dataset should have some exact and approximate matches.",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#exercise-4",
-    "href": "02-identification.html#exercise-4",
-    "title": "Causal identification: building intuition",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nThe following 2 figures come from a study of the effect of attending a state flagship university on earnings a few years after college graduation. Flagship state universities tend to be the premier public colleges in the state. They are often the first college to have been established in the state and the most research-intensive with more resources.\nIn the first figure, the x-axis indicates the number of SAT points away from the admissions cutoff for the state flagship (a recentered SAT score). (The cutoff is a strongly suggested but not a hard cutoff for admission.) Each point shows the enrollment rate at the flagship university for that recentered SAT score. The solid lines show nonlinear trends fitted separately to the left and to the right of x=0. The t=10.57 indicates a test statistic for a hypothesis test on the jump at x=0.\n\nIn the second figure, the x-axis is the same, and the y-axis represents the natural log earnings after calendar year, years of work experience, and graduation year have been accounted for (which is what the “(Residual)” part of the axis label is indicating). (More details are described in this section of our Mixtape textbook.) The z=3.01 indicates a test statistic for a hypothesis test on the jump at x=0.\n\n\nWhat story do you think the author is trying to tell with these figures?\nIf the admissions cutoff did not exist, what do you think the relationship between enrollment rate and SAT points would look like? What about the relationship between earnings and SAT points?\nHow different do you think students just below and just above the admission cutoff are? How could this be helpful in isolating only desired variation?",
-    "crumbs": [
-      "Causal identification: building intuition"
-    ]
-  },
-  {
-    "objectID": "02-identification.html#exercise-5",
-    "href": "02-identification.html#exercise-5",
-    "title": "Causal identification: building intuition",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nThis paper looked at the effect of Florida’s 2005 “Stand Your Ground” (SYG) law on homicide rates. The law gave citizens the right to use lethal force in self-defense in public places where they felt threatened.\nTake a look at panel A from this figure from the paper which shows homicide rates in Florida and comparison states over time.\n\nWhat story do you think the author is trying to tell with this figure?\nDo you think that the trends in homicide rates in Florida and the comparison states are similar before the SYG law was enacted in 2005? Why might similarity be desirable?\nDraw or describe what you guess might have happened in Florida had it not enacted the SYG law. How is this related to identification of the causal effect of the SYG law on homicide rates?",
-    "crumbs": [
-      "Causal identification: building intuition"
+      "Testing causal graphs"
     ]
   },
   {
@@ -726,33 +496,273 @@
     ]
   },
   {
-    "objectID": "06-causal-graphs-testing.html",
-    "href": "06-causal-graphs-testing.html",
-    "title": "Testing causal graphs",
+    "objectID": "02-identification.html",
+    "href": "02-identification.html",
+    "title": "Causal identification: building intuition",
     "section": "",
-    "text": "Evaluate the accuracy of a causal graph by testing the conditional independencies implied by the graph structure.\n\n\nYou can download a template file for this activity here.",
+    "text": "Explain what is meant by the term causal identification\nThink about the data-generating process (DGP) in a given context to understand its impact on causal identification\nGet a sense for different approaches to causal identification that we will explore in this course",
     "crumbs": [
-      "Testing causal graphs"
+      "Causal identification: building intuition"
     ]
   },
   {
-    "objectID": "06-causal-graphs-testing.html#exercise-1",
-    "href": "06-causal-graphs-testing.html#exercise-1",
-    "title": "Testing causal graphs",
+    "objectID": "02-identification.html#average-causal-effects",
+    "href": "02-identification.html#average-causal-effects",
+    "title": "Causal identification: building intuition",
+    "section": "Average causal effects",
+    "text": "Average causal effects\nSuppose we are studying the effect of a mental health program for expecting mothers and fathers. The treatment is participation in the program vs. not. The outcome is a yes/no occurrence of postpartum depression within the first year of the infant’s life. We estimate the average causal effect \\(E[Y^{a=1} - Y^{a=0}]\\) to be -0.1.\nHow can we interpret this effect?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#research-questions",
+    "href": "02-identification.html#research-questions",
+    "title": "Causal identification: building intuition",
+    "section": "Research questions",
+    "text": "Research questions\n\nComing up with a question is easy. Just ask any five-year-old and they can provide you with dozens. Coming up with a good research question is much harder.\nWhat’s the difference? The difference, at least in the case of quantitative empirical research, is that a research question is a question that can be answered, and for which having that answer will improve your understanding of how the world works.\n\nAsking “how” (as in “how do we do better?”) naturally leads to “Should we…” questions:\n\nHow can we mitigate the effects of climate change?\nShould we implement a plastic tax?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#identification-warm-up",
+    "href": "02-identification.html#identification-warm-up",
+    "title": "Causal identification: building intuition",
+    "section": "Identification: warm-up",
+    "text": "Identification: warm-up\n\nWhen we say “this variation has identified the effect we’re interested in”, which of the following is the best definition of the term identified? Explain why you think your chosen response is the best definition and why the others are not.\n\nWe’ve generated the data by conducting a controlled experiment in which treatment is randomly assigned.\nIn the data generating process, the only reason why we see variation in the outcome variable is because of the treatment variable.\nThe relationship we are looking at in the data actually tests a hypothesis.\nIn the variation we use, there’s no reason we’d see any relationship at all except for the effect we’re interested in.",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#isolating-variation",
+    "href": "02-identification.html#isolating-variation",
+    "title": "Causal identification: building intuition",
+    "section": "Isolating variation",
+    "text": "Isolating variation\nExample: A child’s shoe size is a great predictor of their reading ability\n\nWe can quantify covariation in shoe size and reading ability with measures like the correlation coefficient, slope and its confidence interval\nWhen we think about the underlying data-generating process, we see that the totality of this covariation also encompasses the covariation in:\n\nage and shoe size\nage and reading ability\n\nWe can isolate a part of this covariation by holding age constant and then looking at the relationship between shoe size and reading ability\n\n\\(E[ReadingAbility \\mid ShoeSize, Age] = \\beta_0 + \\beta_1 ShoeSize + \\beta_2 Age\\)\n\n\nThere are other ways to isolate variation that we will explore today and throughout the semester.",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-1",
+    "href": "02-identification.html#exercise-1",
+    "title": "Causal identification: building intuition",
     "section": "Exercise 1",
-    "text": "Exercise 1\nHere we’ll look at biological data from a protein interaction network. Take a peek at the data below:\n\nprotein_data &lt;- read_csv(\"https://raw.githubusercontent.com/ankurankan/2020-dagitty-manual/master/protocol3/protein_signal.csv\")\n\n# Randomly subset protein_data to 1000 cases \n# to speed up subsequent computations\nset.seed(451)\nprotein_data_subs &lt;- slice_sample(protein_data, n = 1000)\n\nhead(protein_data_subs)\n\nThe hypothesized causal graph is below.\n\nNote: If the graph looks cut off in RStudio, you can also paste the dag { ... } portion into DAGitty web interface in the “Model code” pane on the right.\n\n\nprotein_dag &lt;- dagitty('dag {\nbb=\"-0.5,-0.5,0.5,0.5\"\nAkt [pos=\"-0.115,0.052\"]\nErk [pos=\"-0.061,-0.001\"]\nJnk [pos=\"-0.208,-0.149\"]\nMek [pos=\"-0.063,-0.096\"]\nP38 [pos=\"-0.155,-0.141\"]\nPIP2 [pos=\"-0.337,0.063\"]\nPIP3 [pos=\"-0.278,-0.068\"]\nPKA [pos=\"-0.127,-0.200\"]\nPKC [pos=\"-0.111,-0.287\"]\nPlcg [pos=\"-0.337,-0.177\"]\nRaf [pos=\"-0.066,-0.204\"]\nMek -&gt; Erk\nPIP2 -&gt; PKC [pos=\"-0.489,-0.417\"]\nPIP3 -&gt; Akt\nPIP3 -&gt; PIP2\nPIP3 -&gt; Plcg\nPKA -&gt; Akt\nPKA -&gt; Erk\nPKA -&gt; Jnk\nPKA -&gt; Mek\nPKA -&gt; P38\nPKA -&gt; Raf\nPKC -&gt; Jnk [pos=\"-0.188,-0.258\"]\nPKC -&gt; Mek [pos=\"-0.021,-0.245\"]\nPKC -&gt; P38 [pos=\"-0.166,-0.227\"]\nPKC -&gt; Raf\nPlcg -&gt; PIP2\nPlcg -&gt; PKC [pos=\"-0.248,-0.271\"]\nRaf -&gt; Mek\n}')\nplot(protein_dag)\n\nThe code below creates a scatterplot matrix that shows the relationship between each pair of variables using a scatterplot. For example, the plot in row 1, column 2 plots the Raf protein abundance vs. Mek protein abundance. The numbers in the lower triangle give the correlation coefficient between the two variables.\nBased on this plot, what should the type argument be when you run conditional independence tests with localTests()?\n\npanel.cor &lt;- function(x, y) {\n    par(usr = c(0, 1, 0, 1))\n    r &lt;- cor(x, y)\n    txt &lt;- format(r, digits = 2)\n    txt &lt;- str_c(\"Cor: \", txt)\n    text(0.5, 0.5, txt)\n}\n\npairs(protein_data_subs, upper.panel = panel.smooth, lower.panel = panel.cor)\n\nBelow we use impliedConditionalIndependencies() to get a list of testable implications. This time we use type = \"missing.edge\" instead of type = \"all.pairs\".\n\nBecause this graph is so much more complex, checking for conditional independence between all pairs of variables results in a ton of conditional independence statements. (In fact, there are 7182 of them.)\nWhen using “missing.edge” we focus on conditional independencies that arise from a missing edge between two variables. This results in a much more manageable set of conditional independence statements to test.\n\n\nprotein_dag_cis &lt;- impliedConditionalIndependencies(protein_dag, type = \"missing.edge\")\n\nIn the code chunk below, use the appropriate type argument in localTests() to perform the CI tests.\n\nNote: The R = 100 argument is needed for this type to set the number of bootstrapping iterations for obtaining the confidence interval.\n\n\n# Obtain and display a data frame of CI test results\n# We use a subset of the protein data for computational time reasons\n# The system.time() function measures how long a command takes to run\nsystem.time({\nprotein_dag_ci_test_res &lt;- localTests(protein_dag, data = protein_data_subs, tests = protein_dag_cis, type = ___, R = 100)\n})\n\nprotein_dag_ci_test_res\n\nWe can plot the results of these tests with the plotLocalTestResults() function from dagitty. Based on these results, what modifications to the graph should we investigate first?\n\n# Sort the data frame by the magnitude of the estimate\n# and plot the test statistics (points) and\n# 95% confidence intervals (horizontal bars)\n# Just below this code chunk on the right, click the\n# leftmost white button to open a zoomed window of the plot\nprotein_dag_ci_test_res %&gt;%\n    arrange(abs(estimate)) %&gt;% \n    plotLocalTestResults()",
+    "text": "Exercise 1\nWe are interested in the effect of mindful breathing practices on stress levels.\n\nPart a\nSuppose we tried to estimate this effect by surveying people at Macalester. We ask them if they engage regularly in mindful breathing practices and to report their general stress levels on a 1-10 scale (1 = lowest stress, 10 = highest stress).\nDo you think we would be identifying the causal effect by comparing the mean stress levels in those who do regularly use mindful breathing with those who don’t? What aspects of the data generating process (DGP) are relevant for your response?\n\n\nPart b\nNow suppose that we were able to find 500 people with a self-reported stress level of 6 who don’t already engage in mindful breathing. The Hamre Center has resources to enroll 250 people in a 3-month mindful breathing program. They decide to randomly select the 250 participants from the 500 and measure the stress levels of all 500 people after the 3-month program.\nDo you think we would we be identifying the causal effect by comparing the mean stress levels after 3 months in those enrolled in the program with those who weren’t enrolled? What aspects of the data generating process (DGP) are relevant for your response?",
     "crumbs": [
-      "Testing causal graphs"
+      "Causal identification: building intuition"
     ]
   },
   {
-    "objectID": "06-causal-graphs-testing.html#exercise-2",
-    "href": "06-causal-graphs-testing.html#exercise-2",
-    "title": "Testing causal graphs",
+    "objectID": "02-identification.html#exercise-2",
+    "href": "02-identification.html#exercise-2",
+    "title": "Causal identification: building intuition",
     "section": "Exercise 2",
-    "text": "Exercise 2\nHere you’ll draw a causal graph for a particular context and test/update your graph based on conditional independence testing.\nFirst navigate to this page, and choose one of the following datasets by exploring the associated codebook:\n\nElection Data - County\nFEV (Lung Function) and Smoking\nHome Sales in NY\n\nRead in the chosen dataset, and take a look at the data by entering View(dataset_name) in the Console.\n\nelection &lt;- read_csv(\"https://mac-stat.github.io/data/election_2020_county.csv\")\n\n# Read in and process FEV data\nlungs &lt;- read_csv(\"https://mac-stat.github.io/data/fev.csv\")\nlungs &lt;- lungs %&gt;% \n    # Recode sex and smoke as 0/1 variables\n    mutate(\n        sexFemale = ifelse(sex==\"female\", 1, 0),\n        smoke = ifelse(smoke==\"smoker\", 1, 0)\n    ) %&gt;% \n    select(-sex)\n\n# Read in and process the homes data\nhomes &lt;- read_csv(\"https://mac-stat.github.io/data/homes.csv\")\nhomes &lt;- homes %&gt;% \n    select(-c(Fuel.Type, Heat.Type, Sewer.Type))\n\nDraw a causal graph using DAGitty. If you include variables in your graphs that are not in the data, mark them as unmeasured by clicking the variable and then hitting “u” or checking the “unobserved” checkbox in the top left.\nPaste all the code from the “Model code” pane below.\n\ndag &lt;- dagitty('\nPaste your dag { ... } here\n')\nplot(dag)\n\nUse impliedConditionalIndependencies() to generate a list of testable implications:\n\nIf you have unmeasured variables in your graph, use type = \"missing.edge\" to ensure that no conditional independencies involving those unmeasured variables are returned. (While these CIs are real implications about your graph, they’re not testable.)\nOtherwise use type = \"all.pairs\".\n\n\ndag_cis &lt;- impliedConditionalIndependencies(dag, type = ___)\ndag_cis\n\nUse localTests() to test your graph. Inspect the resulting table of test results and, if desired, the plot form with plotLocalTestResults(). Is your graph consistent with the data? What updates might you make?\n\nsystem.time({\ndag_ci_test_res &lt;- localTests(___)\n})\ndag_ci_test_res",
+    "text": "Exercise 2\nWe notice that ice cream sales in St. Paul are correlated with the percentage of the population wearing shorts and wonder if there is a causal relationship between the two.\n\nPart a\nIn this context, what aspects of the data generating process do you think are most important to keep in mind? What alternative explanations can you come up with?\n\n\nPart b\nRecall that the main idea with identification is to find variation that we want to use and get rid of variation that we don’t want.\nFor this context, a number of plots and linear regression model output are shown below. Explain how these results show desired variation, undesired variation, and the process of identification by getting rid of undesired variation.\n\n\nCode\nset.seed(451)\nice_cream_data &lt;- tibble(\n    temp = rep(0:90, each = 4),\n    perc_shorts = case_when(\n        temp &lt; 40 ~ 3*sqrt(temp) + 10, \n        temp &gt;= 40 & temp &lt; 65 ~ 1.5*temp - 30,\n        temp &gt;= 65 ~ temp + 9\n    ),\n    ice_cream_sales = log(temp+1)^2 + 100 + rnorm(364, 0, 10)\n) %&gt;% \n    mutate(\n        perc_shorts = perc_shorts + rnorm(364, 0, 2),\n        perc_shorts = pmax(perc_shorts, 10),\n        perc_shorts = pmin(perc_shorts, 98)\n    )\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = perc_shorts, y = ice_cream_sales)) +\n    geom_point() +\n    geom_smooth(se = FALSE) +\n    labs(x = \"% of St. Paul wearing shorts\", y = \"Ice cream sales ($10's)\") +\n    theme_classic()\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = temp, y = perc_shorts)) +\n    geom_point() +\n    labs(x = \"Temperature (F)\", y = \"% of St. Paul wearing shorts\") +\n    theme_classic()\n\n\n\n\n\n\n\n\n\nCode\nggplot(ice_cream_data, aes(x = temp, y = ice_cream_sales)) +\n    geom_point() +\n    geom_smooth(se = FALSE) +\n    labs(x = \"Temperature (F)\", y = \"Ice cream sales ($10's)\") +\n    theme_classic()\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nCode\nlm(ice_cream_sales ~ perc_shorts, data = ice_cream_data) %&gt;% summary()\n\n\n\nCall:\nlm(formula = ice_cream_sales ~ perc_shorts, data = ice_cream_data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-32.941  -6.820   0.384   6.448  29.639 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 104.57894    1.04068 100.491   &lt;2e-16 ***\nperc_shorts   0.18668    0.01886   9.896   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.931 on 362 degrees of freedom\nMultiple R-squared:  0.2129,    Adjusted R-squared:  0.2108 \nF-statistic: 97.93 on 1 and 362 DF,  p-value: &lt; 2.2e-16\n\n\nCode\nlm(ice_cream_sales ~ perc_shorts + temp, data = ice_cream_data) %&gt;% summary()\n\n\n\nCall:\nlm(formula = ice_cream_sales ~ perc_shorts + temp, data = ice_cream_data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-30.9542  -6.6926  -0.0641   6.3933  28.0907 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 104.26394    1.02618 101.603  &lt; 2e-16 ***\nperc_shorts  -0.06449    0.07000  -0.921  0.35748    \ntemp          0.27363    0.07354   3.721  0.00023 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.76 on 361 degrees of freedom\nMultiple R-squared:  0.242, Adjusted R-squared:  0.2378 \nF-statistic: 57.63 on 2 and 361 DF,  p-value: &lt; 2.2e-16",
     "crumbs": [
-      "Testing causal graphs"
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-3",
+    "href": "02-identification.html#exercise-3",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWe are interested in the effect of a résumé writing workshop (Treatment) on adults’ ability to secure a new job (Outcome). Suppose that we have thought carefully about the data-generating process and determined that age, education level, income, employment status, and marital status are the most important factors in alternative explanations.\n\nPart a\nWe have data on 10 adults (5 who took the workshop, and 5 who didn’t):\n\n\nCode\n# Create the example dataset\ndata &lt;- tibble::tribble(\n  ~ID, ~Age, ~Education, ~Income, ~Employment, ~MaritalStatus, ~Treatment, ~Outcome,\n  1, 25, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 1, 0,\n  2, 30, \"College\", \"Medium\", \"Employed\", \"Married\", 1, 1,\n  3, 28, \"HighSchool\", \"Low\", \"Unemployed\", \"Single\", 1, 0,\n  4, 35, \"College\", \"High\", \"Employed\", \"Married\", 1, 1,\n  5, 40, \"College\", \"High\", \"Unemployed\", \"Married\", 1, 0,\n  6, 22, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 0, 1,\n  7, 30, \"HighSchool\", \"Medium\", \"Unemployed\", \"Married\", 0, 0,\n  8, 45, \"College\", \"High\", \"Employed\", \"Single\", 0, 1,\n  9, 50, \"HighSchool\", \"Low\", \"Employed\", \"Single\", 0, 0,\n  10, 30, \"College\", \"Medium\", \"Employed\", \"Married\", 0, 1\n)\n\n# Display the dataset\ndata\n\n\n# A tibble: 10 × 8\n      ID   Age Education  Income Employment MaritalStatus Treatment Outcome\n   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;   &lt;dbl&gt;\n 1     1    25 HighSchool Low    Employed   Single                1       0\n 2     2    30 College    Medium Employed   Married               1       1\n 3     3    28 HighSchool Low    Unemployed Single                1       0\n 4     4    35 College    High   Employed   Married               1       1\n 5     5    40 College    High   Unemployed Married               1       0\n 6     6    22 HighSchool Low    Employed   Single                0       1\n 7     7    30 HighSchool Medium Unemployed Married               0       0\n 8     8    45 College    High   Employed   Single                0       1\n 9     9    50 HighSchool Low    Employed   Single                0       0\n10    10    30 College    Medium Employed   Married               0       1\n\n\nFor case 2, we observe the potential outcome under treatment \\(Y^{a=1}\\). Do you think that we might be able to directly guess this unit’s counterfactual outcome \\(Y^{a=0}\\) by using information from another case? Why or why not? \nWhat about for case 1? \n\n\nPart b\nThinking about the process that you went through in part (a), do you think this process gets easier with more variables? Why or why not?\n\n\n\n\n\n\nExercise 3 context (read after completion)\n\n\n\n\n\nI used ChatGPT to generate the example dataset in Part a. This is the prompt I used:\n\nCan you give me an example dataset with 10 cases that has one age variable, 4 categorical socioeconomic variables, and one binary outcome variable? This dataset is intended to provide an example of the matching causal inference method to students. This dataset should have some exact and approximate matches.",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-4",
+    "href": "02-identification.html#exercise-4",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nThe following 2 figures come from a study of the effect of attending a state flagship university on earnings a few years after college graduation. Flagship state universities tend to be the premier public colleges in the state. They are often the first college to have been established in the state and the most research-intensive with more resources.\nIn the first figure, the x-axis indicates the number of SAT points away from the admissions cutoff for the state flagship (a recentered SAT score). (The cutoff is a strongly suggested but not a hard cutoff for admission.) Each point shows the enrollment rate at the flagship university for that recentered SAT score. The solid lines show nonlinear trends fitted separately to the left and to the right of x=0. The t=10.57 indicates a test statistic for a hypothesis test on the jump at x=0.\n\nIn the second figure, the x-axis is the same, and the y-axis represents the natural log earnings after calendar year, years of work experience, and graduation year have been accounted for (which is what the “(Residual)” part of the axis label is indicating). (More details are described in this section of our Mixtape textbook.) The z=3.01 indicates a test statistic for a hypothesis test on the jump at x=0.\n\n\nWhat story do you think the author is trying to tell with these figures?\nIf the admissions cutoff did not exist, what do you think the relationship between enrollment rate and SAT points would look like? What about the relationship between earnings and SAT points?\nHow different do you think students just below and just above the admission cutoff are? How could this be helpful in isolating only desired variation?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "02-identification.html#exercise-5",
+    "href": "02-identification.html#exercise-5",
+    "title": "Causal identification: building intuition",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nThis paper looked at the effect of Florida’s 2005 “Stand Your Ground” (SYG) law on homicide rates. The law gave citizens the right to use lethal force in self-defense in public places where they felt threatened.\nTake a look at panel A from this figure from the paper which shows homicide rates in Florida and comparison states over time.\n\nWhat story do you think the author is trying to tell with this figure?\nDo you think that the trends in homicide rates in Florida and the comparison states are similar before the SYG law was enacted in 2005? Why might similarity be desirable?\nDraw or describe what you guess might have happened in Florida had it not enacted the SYG law. How is this related to identification of the causal effect of the SYG law on homicide rates?",
+    "crumbs": [
+      "Causal identification: building intuition"
+    ]
+  },
+  {
+    "objectID": "01-introductions.html",
+    "href": "01-introductions.html",
+    "title": "Introductions and foundational ideas",
+    "section": "",
+    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nSlides for today: HTML, PDF",
+    "crumbs": [
+      "Introductions and foundational ideas"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html",
+    "href": "03-causal-graphs-intro.html",
+    "title": "Causal graph fundamentals",
+    "section": "",
+    "text": "Practice graphically showing our beliefs about data-generating processes using causal graphs\nExpand our worldview by exploring interesting questions in domains that we don’t normally think about\nBuild a trusting intellectual community by being curious about each other’s interests, giving kind and actionable feedback, and receiving feedback with curiosity and gratitude",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#identification",
+    "href": "03-causal-graphs-intro.html#identification",
+    "title": "Causal graph fundamentals",
+    "section": "Identification",
+    "text": "Identification\n\nIdentification is the process of isolating only desired variation (variation corresponding purely to our causal effect of interest) and ruling out alternate explanations\nRuling out alternate explanations requires understanding the data-generating process",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#causal-diagrams",
+    "href": "03-causal-graphs-intro.html#causal-diagrams",
+    "title": "Causal graph fundamentals",
+    "section": "Causal diagrams",
+    "text": "Causal diagrams\nA causal diagram (causal graph) is a visual representation of a data-generating process and are directed acyclic graphs (DAGs).\nNodes represent variables and edges represent direct causal relationships between variables.\nWe will be conceptualizing causality in the following way: A is a cause of Y if changes in the value of A change the probability distribution of Y.\n\nNote 1: In practice, people in the field say that the presence of an arrow indicates that A might cause Y.\nNote 2: If changes in the value of A change the value of Y, we often equate this with a change in mean, but it doesn’t have to. (e.g., the mean might not change, but the variance could)\n\n\n\nCode\ndat &lt;- bind_rows(\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 1),\n        type = \"Control PO\",\n        context = \"Change in means\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 1, 1),\n        type = \"Treated PO\",\n        context = \"Change in means\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 1),\n        type = \"Control PO\",\n        context = \"Change in variance\"\n    ),\n    tibble(\n        x = seq(-4, 4, by = 0.1),\n        y = dnorm(x, 0, 2),\n        type = \"Treated PO\",\n        context = \"Change in variance\"\n    )\n)\n\nggplot(dat, aes(x = x, y = y, color = type)) +\n    geom_line() +\n    facet_grid(~ context) +\n    theme_classic() +\n    scale_color_manual(values = c(\"steelblue\", \"darkorange\"))",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#warm-up-1",
+    "href": "03-causal-graphs-intro.html#warm-up-1",
+    "title": "Causal graph fundamentals",
+    "section": "Warm-up 1",
+    "text": "Warm-up 1\nWe’re interested in the question “Does reading Harry Potter as a child make you read more as an adult?” A causal diagram is shown below.\n\n\nCode\n# Requires the dagitty package to be loaded\ndag1 &lt;- dagitty(\"dag {\n    bb=\\\"0,0,1,1\\\"\n    AgeWhenPotterReleased [pos=\\\"0.200,0.200\\\"]\n    LikesReading [latent,pos=\\\"0.500,0.350\\\"]\n    ReadOtherRowlingBooks [pos=\\\"0.500,0.650\\\"]\n    ReadPotterAsKid [exposure,pos=\\\"0.200,0.500\\\"]\n    ReadingAsAdult [outcome,pos=\\\"0.800,0.500\\\"]\n    AgeWhenPotterReleased -&gt; ReadPotterAsKid\n    LikesReading -&gt; ReadPotterAsKid\n    LikesReading -&gt; ReadingAsAdult\n    ReadOtherRowlingBooks -&gt; ReadingAsAdult\n    ReadPotterAsKid -&gt; ReadOtherRowlingBooks\n    ReadPotterAsKid -&gt; ReadingAsAdult\n}\")\n\nplot(dag1)\n\n\n\n\n\n\n\n\n\n\nWhat direct effects should be included when trying to answer your research question of interest?\nWhat indirect effects should be included when trying to answer your research question of interest?\nWhat is a likely alternative explanation of why we might see a relationship between reading Harry Potter and reading more as an adult?\nLikesReading is included as an unobserved variable. Why do we bother to include variables on our diagrams if we can’t observe them? Why might we think that LikesReading is an unobserved or latent variable?",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#warm-up-2",
+    "href": "03-causal-graphs-intro.html#warm-up-2",
+    "title": "Causal graph fundamentals",
+    "section": "Warm-up 2",
+    "text": "Warm-up 2\nThe diagram below depicts a cyclical relationship between workplace culture and satisfaction. If employees perceive a more positive workplace culture, their satisfaction at work goes up, and if their satisfaction goes up, they contribute more to a positive workplace culture. Change the diagram so that the relationship is no longer cyclic.\n\n\nCode\ndag2 &lt;- dagitty(\"dag {\n    bb=\\\"0,0,1,1\\\"\n    WorkCulture [pos=\\\"0.250,0.500\\\"]\n    WorkSatisfaction [pos=\\\"0.750,0.500\\\"]\n    WorkCulture &lt;-&gt; WorkSatisfaction\n}\")\n\nplot(dag2)",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#warm-up-3",
+    "href": "03-causal-graphs-intro.html#warm-up-3",
+    "title": "Causal graph fundamentals",
+    "section": "Warm-up 3",
+    "text": "Warm-up 3\nDo you think it’s a stronger assumption to include an arrow or exclude an arrow on a causal diagram?",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#simplifying-causal-diagrams",
+    "href": "03-causal-graphs-intro.html#simplifying-causal-diagrams",
+    "title": "Causal graph fundamentals",
+    "section": "Simplifying causal diagrams",
+    "text": "Simplifying causal diagrams\nThe world is very complex, and causal diagrams can get very complex too.\n\nSimplifying causal diagrams is important for identification: focusing on alternate explanations of consequence.\nSimplifying is also important for sharing the diagram with diverse experts to get good feedback.\n\nWe can use a few techniques to simplify causal diagrams:\n\nUnimportance\n\nVariables that have small effects on all other variables in the diagram and edges with small effects can likely be omitted safely.\ne.g., Living near a quiet cafe affects online course taking\n\nRedundancy\n\nVariables that have the same arrows going in and coming out can be grouped together.\ne.g., Demographic variables like age and race and socioeconomic variables like years of school and years of work experience often have arrows pointing to the outcome and to treatment.\n\nCaveat: Having “Demographic Factors” and “Socioeconomic Factors” nodes can simplify the presentation of the causal diagram, but we really do need to know all the individual variables inside these broad categories to accurately estimate causal effects because each variable represents a different alternate explanation.\n\n\nGet rid of mediators\n\nIn situations like A -&gt; B -&gt; C with no other arrows into or out of B, we can likely omit B safely.\nCaveat: In an area called mediation analysis (which aims to estimate the direct and indirect components of an overall causal effect), explicitly including mediators and paying careful attention to how mediators are related to other variables is very important.\n\nIrrelevance\n\nIf a variable isn’t on any path between the treatment and outcome, we can likely safely omit the variable.\nWe’ll talk more about the rationale for this in the next classes.",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#drawing-causal-diagrams-with-dagitty",
+    "href": "03-causal-graphs-intro.html#drawing-causal-diagrams-with-dagitty",
+    "title": "Causal graph fundamentals",
+    "section": "Drawing causal diagrams with DAGitty",
+    "text": "Drawing causal diagrams with DAGitty\nDAGitty is an online tool (with an associated R package) for drawing causal diagrams. Click the “Launch” link to open a web tool.\n\nModel &gt; New Model: clear the screen\nAdd a node: Click on the gray canvas\nAdd an edge: First click on the variable representing the cause, then the variable representing the effect (arrow points to second node clicked)\nDelete a node: Click a node and hit “D”. (Or expand the “Variable” toggle in the top left and check “exposure”.)\nDelete an edge: First click the variable representing the cause, then the variable representing the effect.\nLabel a node as the treatment (exposure): Click a node and hit “E”. (Or expand the “Variable” toggle in the top left and check “exposure”.)\nLabel a node as the outcome: Click a node and hit “O”. (Or expand the “Variable” toggle in the top left and check “outcome”.)",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#exercise-1",
+    "href": "03-causal-graphs-intro.html#exercise-1",
+    "title": "Causal graph fundamentals",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFor your research question, sketch the possible data-generating process using a causal diagram (on paper or with DAGitty):\n\nClearly indicate the cause of interest and the outcome.\nWrite down other variables are at play in this situation. Include these variables as nodes.\nAdd edges depicting direct causal relationships between variables.\nIndicate which variables are latent or unobserved.\nIndicate which variables might be harder to collect (reliable) data on.",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "03-causal-graphs-intro.html#exercise-2",
+    "href": "03-causal-graphs-intro.html#exercise-2",
+    "title": "Causal graph fundamentals",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nYou and your partner will take turns presenting your research question and causal diagram and working together to simplify the diagram.\nPick one person to go first, and go through the following 2 steps. Switch when you’re done.\nStep 1: Present your research question and causal diagram, making sure to explain any context needed to understand:\n\nThe variables in the diagram\nThe edges in and absent from the diagram\nWhich paths are part of the causal effect of interest\n\nThe listener should ask clarifying questions as necessary.\nStep 2: Together, work through attempting to simplify the presenter’s diagram by going through the following 4 principles:\n\nUnimportance\nRedundancy\nMediators\nIrrelevance\n\nMake note of what was changed and what you’re still unsure about. If you came across a good example of one of these principles, draw it on the board to share with the class during our end-of-class debrief.",
+    "crumbs": [
+      "Causal graph fundamentals"
+    ]
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html",
+    "href": "05-causal-graphs-identification.html",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "",
+    "text": "Explain how d-separation and causal/noncausal paths relate to identification of causal effects.\nApply d-separation to block noncausal paths in causal DAGs with and without unobserved variables.\nApply strategies to deal with identification problems caused by unobserved variables.\nDifferentiate confounding and selection bias in terms of graph structure and how they arise in applied studies.",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html#exercise-1",
+    "href": "05-causal-graphs-identification.html#exercise-1",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFor each of the causal graphs below, identify the set of variables needed to block noncausal paths (if possible) between treatment \\(A\\) and outcome \\(Y\\). Any \\(U\\) variables displayed in the graphs are unobserved/unmeasured.",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html#exercise-2",
+    "href": "05-causal-graphs-identification.html#exercise-2",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nHistorically, people have tried to create definitions for confounders by listing criteria that purely rely on associations. For example:\n\nA confounder must:\n1. Be associated with treatment and outcome\n2. Not be caused by treatment\n\nUsing the causal graph below, explain why this is not a good definition for a confounder.",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html#exercise-3",
+    "href": "05-causal-graphs-identification.html#exercise-3",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFirst, think through the relationships depicted in the causal graphs below and whether they make sense. These are intended to reflect a range of scenarios for why people drop out of studies.\nThen for each of the graphs, identify the set of variables that would block noncausal paths between the treatment \\(A\\) and outcome \\(Y\\). (\\(U\\) and \\(W\\) are unmeasured.) Check your answers to one of the graphs using DAGitty.",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html#exercise-4",
+    "href": "05-causal-graphs-identification.html#exercise-4",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nIn this exercise, we’ll consider how causal graphs can inform study design. (Inspired by a 1970s study on the relationship between estrogen use and endometrial cancer.)\nResearchers have noticed a consistent association between use of a certain drug and disease. Research groups debated two hypotheses:\n\nThe drug does cause disease.\nThe drug doesn’t actually cause disease but leads to a side effect, leading to more frequent doctor visits, leading to increased diagnosis of existing disease.\n\nThe following study plan was proposed: restrict the study only to those with side effects and compare disease rates in drug-users and non-users. In this way, all participants have the same chance of being diagnosed.\nThe following causal graphs correspond to the two hypotheses:\n\n\n\n(The graphs don’t show confounders of the drug-true disease relationship for compactness. We can assume that these have already been adjusted for.)\n\nStudy design 1\nConsider the study proposal above: restrict analysis to those with side effects.\n\nBefore looking at the causal graphs: does the rationale for this study design make sense? Why did researchers want to only look at patients with side effects?\nUnder this study design, the researchers were expecting that if Hypothesis 1 were correct (the drug does cause disease), they would find an association between drug use and diagnosed disease. They expected that if Hypothesis 2 were correct (the drug does NOT cause disease), they would find NO association between drug use and diagnosed disease.\n\nAre these expectations correct? Explain in light of the causal graphs.\n\nBased on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?\n\n\n\nStudy design 2\nConsider another study proposal: ensure that everyone is screened for disease frequently, and we don’t restrict our analysis to only those with side effects.\n\nWhat arrow can be removed as a result of this study design? (It might help to draw an updated version of DAGs 1 and 2 with this arrow removed.)\nUnder this study design, the researchers had the same expectations: if Hypothesis 1 were correct, they would find an association between drug use and diagnosed disease. If Hypothesis 2 were correct, they would find NO association between drug use and diagnosed disease.\n\nAre these expectations correct? Explain in light of the causal graphs.\n\nBased on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "07-rct.html",
+    "href": "07-rct.html",
+    "title": "Randomized experiments",
+    "section": "",
+    "text": "Goals\n\nExplain why randomized controlled trials (RCTs) are the gold standard for causal inference\n\nMake connections to the structure of a causal diagram for an RCT\n\nExplain the importance of blinding study subjects and investigators\nEvaluate the pros and cons of different randomization strategies\nExplain the role of precision variables in the analysis of RCT results\nConduct balance checks to assess the quality of a particular randomization\n\n\nYou can download a template file for this activity here.\n\nlibrary(dagitty)\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(broom)\nlibrary(cobalt)\n\n cobalt (Version 4.5.5, Build Date: 2024-04-02)\n\n\n\n\nTerminology\n\nAlso called randomized controlled trials (RCTs)\nIn industry, called A/B testing\n\n\n\n\nWhat is a randomized experiment?\n\nA study design in which units are randomly assigned to treatment conditions, which is a form of intervention.\n\nNote: I’m intentionally using the term “treatment condition” rather than “treatment group” here.\nTreatment groups are the groups with different values of the treatment variable: 1 = receives treatment, 0 = control group that doesn’t receive treatment.\nA treatment condition is a particular treatment group in a particular environment. A hugely important part of the environment ends up being time. We’ll explore this more shortly.\n\nNonexperimental studies are generally called observational studies because investigators only get to observe the experiences of study units without intervening.\n\n\n\n\nWhy are RCTs regarded as the gold standard for causal inference?\nThe causal graph below shows a hypothesized data-generating process relevant to a treatment \\(A\\) and outcome \\(Y\\). This is what we would have to work with in an observational study.\n\nobs_dag &lt;- dagitty('\ndag {\nA [exposure,pos=\"0.295,1.003\"]\nC1 [pos=\"0.123,0.736\"]\nC2 [pos=\"0.031,0.371\"]\nC3 [pos=\"0.262,0.477\"]\nC4 [pos=\"0.438,0.506\"]\nC5 [pos=\"0.376,0.147\"]\nC6 [pos=\"0.628,0.332\"]\nC7 [pos=\"0.920,0.382\"]\nC8 [pos=\"0.920,0.561\"]\nM [pos=\"0.604,0.954\"]\nY [outcome,pos=\"0.916,1.016\"]\nA -&gt; M\nA -&gt; Y\nC1 -&gt; A\nC1 -&gt; C3\nC1 -&gt; Y\nC2 -&gt; C1\nC2 -&gt; C3\nC2 -&gt; C4\nC2 -&gt; C5\nC2 -&gt; C6\nC3 -&gt; A\nC3 -&gt; C4\nC3 -&gt; C5\nC3 -&gt; C6\nC4 -&gt; A\nC4 -&gt; C5\nC4 -&gt; C7\nC4 -&gt; C8\nC4 -&gt; M\nC6 -&gt; A\nC6 -&gt; C8\nC7 -&gt; C8\nM -&gt; C8\nM -&gt; Y\n}\n')\nplot(obs_dag)\n\n\n\n\n\n\n\n\nThe data-generating process for a randomized experiment looks different because all direct causes of treatment cease to be direct causes. The only thing that determines treatment condition is a random number generator (RNG):\n\nrct_dag &lt;- dagitty('\ndag {\nA [exposure,pos=\"0.295,1.003\"]\nC1 [pos=\"0.123,0.736\"]\nC2 [pos=\"0.031,0.371\"]\nC3 [pos=\"0.262,0.477\"]\nC4 [pos=\"0.438,0.506\"]\nC5 [pos=\"0.376,0.147\"]\nC6 [pos=\"0.628,0.332\"]\nC7 [pos=\"0.920,0.382\"]\nC8 [pos=\"0.920,0.561\"]\nM [pos=\"0.604,0.954\"]\nRNG [pos=\"0.066,0.890\"]\nY [outcome,pos=\"0.916,1.016\"]\nA -&gt; M\nA -&gt; Y\nC1 -&gt; C3\nC1 -&gt; Y\nC2 -&gt; C1\nC2 -&gt; C3\nC2 -&gt; C4\nC2 -&gt; C5\nC2 -&gt; C6\nC3 -&gt; C4\nC3 -&gt; C5\nC3 -&gt; C6\nC4 -&gt; C5\nC4 -&gt; C7\nC4 -&gt; C8\nC4 -&gt; M\nC6 -&gt; C8\nC7 -&gt; C8\nM -&gt; C8\nM -&gt; Y\nRNG -&gt; A\n}\n')\nplot(rct_dag)\n\n\n\n\n\n\n\n\nQuestion: In terms of causal and noncausal paths, what is the key difference between these two causal graphs?\n\n\n\nBackdoor vs. other noncausal paths\n\nKey idea: randomization cuts off (removes) ALL backdoor paths (noncausal paths that start by pointing to treatment).\n\nThis includes backdoor paths that could only be blocked with unmeasured variables!\n\nBut randomization doesn’t do anything to other noncausal paths leading from treatment.\n\n\n\n\n\nNoncompliance and blinding\nSuppose that a randomized experiment is evaluating the effect of a new medication versus an existing medication for cholesterol levels.\nQuestion: For the following 3 considerations, discuss with your group: what would happen to the generic RCT causal diagram if each of the following were a concern? Draw an updated diagram for each consideration. (Handle each consideration separately.)\n\nWhat if subjects don’t comply with the treatment they were randomly assigned?\nWhat if subjects know what treatment they were assigned?\nWhat if study investigators know what treatment group a subject was assigned to?\n\n\nrct_dag &lt;- dagitty('\ndag {\nbb=\"0,0,1,1\"\n\"A: treatment\" [exposure,pos=\"0.250,0.500\"]\n\"Y: outcome\" [outcome,pos=\"0.750,0.500\"]\nConfounders [pos=\"0.500,0.250\"]\nRNG [pos=\"0.073,0.377\"]\n\"A: treatment\" -&gt; \"Y: outcome\"\nConfounders -&gt; \"Y: outcome\"\nRNG -&gt; \"A: treatment\"\n}\n')\nplot(rct_dag)\n\n\n\n\n\n\n\n\n\n\n\nRandomization schemes: exploration\nWe mentioned earlier that a randomized experiment randomizes units to treatment conditions. How exactly this randomization is done can vary and can have important consequences.\nExercise: Take a look at this figure from the paper The “completely randomised” and the “randomised block” are the only experimental designs suitable for widespread use in pre-clinical research.\n\nFrom the figure and the text in the figure legend, what seems to be the difference between these randomization methods?\nWhat does the figure do well to communicate differences between randomization methods? What could be improved?\nAfter reading the “Details about randomization methods” section below, how would you recommend updating the figure to be more clear?\n\nDetails about randomization methods\n\nComplete randomization:\n\nA method in which assignment to treatment group as well as treatment order is randomized. The number of units assigned to each treatment group can be controlled.\nExample: If we want to have 100 treated units and 200 control units, we create a random sequence of 100 1’s and 200 0’s to perform this randomization.\n\nBlock randomization (related to stratified randomization)\n\nForm “blocks” (groups) of units that are identical (or as close as possible)\nWithin each block randomize each unit to a treatment group and randomize the order of the units\nExample: We want to ensure that age (young, old) and prior experience (low, high) are balanced between the treatment and control groups. These two variables define 4 blocks or strata:\n\nAge = young, prior exp = low: 6 units\nRandomization: 0 0 1 1 0 1\nAge = young, prior exp = high: 8 units\nRandomization: 1 1 0 1 0 0 0 1\nAge = old, prior exp = low: 4 units\nRandomization: 1 0 0 1\nAge = old, prior exp = high: 6 units\nRandomization: 1 1 0 0 1 0\n\n\n\n\n\n\nChecking the balance of a randomization\nAfter obtaining a random assignment, it is important to check that the treatment groups are balanced in terms of variables that affect the outcome.\nThe cobalt package provides a convenient way to do this with the bal.tab() function:\n\nset.seed(451)\nn &lt;- 1000\nsim_data &lt;- tibble(\n    A = sample(c(rep(0, n/2), rep(1, n/2))),\n    C1 = rnorm(n, mean = 2, sd = 1),\n    C2 = rnorm(n, mean = 2, sd = 1),\n    mean_Y = A + C1 + C2,\n    noise_Y = rnorm(n, mean = 0, sd = 5),\n    Y = mean_Y + noise_Y\n)\n\n# The bal.tab() function from the cobalt package\n# automatically computes balance statistics\n# Continuous variables: standardized mean differences (difference in means divided by a pooled estimate of the std dev from both groups)\n# Binary variables: raw differences in proportion\nbal.tab(A ~ C1 + C2, data = sim_data, s.d.denom = \"pooled\")\n\nBalance Measures\n      Type Diff.Un\nC1 Contin.  0.0341\nC2 Contin.  0.0464\n\nSample sizes\n    Control Treated\nAll     500     500\n\n\n\n\n\nPrecision variables\nQuestion: Based on the simulation code below, what causal graph represents the data-generating process? What can you infer is the causal effect of A on Y?\n\nset.seed(451)\nn &lt;- 1000\nsim_data &lt;- tibble(\n    A = sample(c(rep(0, n/2), rep(1, n/2))),\n    C1 = rnorm(n, mean = 2, sd = 1),\n    C2 = rnorm(n, mean = 2, sd = 1),\n    C3 = rnorm(n, mean = 2, sd = 1),\n    C4 = rnorm(n, mean = 2, sd = 1),\n    mean_Y = 5*A + C1 + C2 + C3 + C4,\n    noise_Y = rnorm(n, mean = 0, sd = 5),\n    Y = mean_Y + noise_Y\n)\n\nThe simulation below uses the same RCT data-generating process as above. It conducts 1000 of these RCTs and fits two different models. Read through this code to understand what is being done. Then work on the exercises beneath the code chunk.\n\n# Helper function to organize linear regression model output\ntidy_model_output &lt;- function(mod, type) {\n    tidy(mod, conf.int = TRUE, conf.level = 0.95) %&gt;% \n        mutate(model_type = type) %&gt;% \n        filter(term==\"A\")\n}\n\nset.seed(451)\nsim_results &lt;- replicate(1000, {\n    n &lt;- 1000\n    sim_data &lt;- tibble(\n        A = sample(c(rep(0, n/2), rep(1, n/2))),\n        C1 = rnorm(n, mean = 2, sd = 1),\n        C2 = rnorm(n, mean = 2, sd = 1),\n        C3 = rnorm(n, mean = 2, sd = 1),\n        C4 = rnorm(n, mean = 2, sd = 1),\n        mean_Y = 5*A + C1 + C2 + C3 + C4,\n        noise_Y = rnorm(n, mean = 0, sd = 5),\n        Y = mean_Y + noise_Y\n    )\n    \n    # Fit a linear regression model with only A as a predictor\n    mod_unadj &lt;- lm(Y ~ A, data = sim_data)\n    # Fit a model with C1 to C4 as covariates\n    mod_adj &lt;- lm(Y ~ A + C1 + C2 + C3 + C4, data = sim_data)\n    \n    # Store results for the coefficient on A in a data frame\n    bind_rows(\n        tidy_model_output(mod_unadj, type = \"unadjusted\"),\n        tidy_model_output(mod_adj, type = \"adjusted\")\n    )\n}, simplify = FALSE)\n\nsim_results &lt;- bind_rows(sim_results)\n\n# Peek at the simulation results data frame\nhead(sim_results)\n\n# A tibble: 6 × 8\n  term  estimate std.error statistic  p.value conf.low conf.high model_type\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;     \n1 A         5.09     0.335      15.2 3.77e-47     4.43      5.75 unadjusted\n2 A         5.13     0.315      16.3 4.69e-53     4.51      5.75 adjusted  \n3 A         5.13     0.336      15.2 2.73e-47     4.47      5.79 unadjusted\n4 A         5.26     0.307      17.1 6.20e-58     4.65      5.86 adjusted  \n5 A         5.28     0.342      15.4 2.98e-48     4.61      5.95 unadjusted\n6 A         5.12     0.312      16.4 1.09e-53     4.51      5.74 adjusted  \n\n\nExercise: Create visualizations that compare the estimated causal effect and the uncertainty in that estimate between model types. What do you learn from these plots?\n(It may help to use the ggplot2 cheatsheet: HTML version, PDF version.)\nExercise: In the simulation above, we explored adjusting for the direct causes of outcome Y. Suppose that we weren’t able to measure the direct causes (C1 to C4), but that we only had measures of proxies. (For example, “willingness to volunteer” might be a direct cause of an outcome, but we can only measure number of volunteer hours in the past month.) How might we adapt the simulation setup above to investigate how adjusting for proxies changes the comparison between the unadjusted and adjusted models?",
+    "crumbs": [
+      "Randomized experiments"
     ]
   },
   {
