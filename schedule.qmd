@@ -218,7 +218,7 @@ Formulate a research question that relates to an area that you're interested in.
 - Reading: [Treatment Allocation and Randomization](https://online.stat.psu.edu/stat509/lesson/8) (~20 minutes) from Penn State's online notes for the course Design and Analysis of Clinical Trials
 :::
 
-<!-- **During class:** [Randomized experiments](06-rct.qmd) -->
+**During class:** [Randomized experiments](07-rct.qmd)
 
 ## Day 2: Target trial framework (9/25) {#day10}
 
@@ -226,7 +226,7 @@ Formulate a research question that relates to an area that you're interested in.
 - Reading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). [Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5124536/pdf/nihms-790601.pdf). *Journal of Clinical Epidemiology*, *79*, 70–75. (~35 minutes)
 :::
 
-<!-- **During class:** [Target trial framework](07-target-trial.qmd) -->
+**During class:** [Target trial framework](08-target-trial.qmd)
 
 ## Day 3: Matching (9/27) {#day11}
 
@@ -249,7 +249,7 @@ Formulate a research question that relates to an area that you're interested in.
 - Journal article: [Matching Methods for Causal Inference: A Review and a Look Forward](http://dx.doi.org/10.1214/09-STS313) (~60 minutes)
 :::
 
-<!-- **During class:** [Matching](08-matching.qmd) -->
+<!-- **During class:** [Matching](09-matching.qmd) -->
 
 
 
@@ -265,7 +265,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 - Continuation of previous class
 
-<!-- **During class:** [Matching](08-matching.qmd) -->
+<!-- **During class:** [Matching](09-matching.qmd) -->
 
 ## Day 2: Regression discontinuity (10/2) {#day13}
 
@@ -284,7 +284,7 @@ Formulate a research question that relates to an area that you're interested in.
 - *Mixtape* [Chapter 6: Regression Discontinuity](https://mixtape.scunning.com/06-regression_discontinuity) (~170 minutes)
 :::
 
-<!-- **During class:** [Regression discontinuity designs](09-rdd.qmd) -->
+<!-- **During class:** [Regression discontinuity designs](10-rdd.qmd) -->
 
 ## Day 3: Flex Day (10/4) {#day14}
 
