@@ -4,7 +4,6 @@ project:
   render:
     - "*.qmd"
     - "!templates/"
-    - "!09-matching.qmd"
     - "!10-rdd.qmd"
     - "!11-flex-1.qmd"
   resources:
@@ -40,6 +39,7 @@ website:
         - 06-causal-graphs-testing.qmd
         - 07-rct.qmd
         - 08-target-trial.qmd
+        - 09-matching-part1.qmd
   
   page-footer:
     left: |

@@ -1,0 +1,418 @@
+---
+title: "Matching"
+author: "YOUR NAME"
+format: 
+  html:
+    embed-resources: true
+    toc: true
+---
+
+**You can download a template file for this activity [here](templates/).**
+
+# Discussion
+
+## Where were we?
+
+In our discussion of causal graphs, we connected the presence of alternate explanations to the presence of open, noncausal paths.
+
+Open noncausal paths create association between treatment A and outcome Y that are NOT due to the causal effect (create bias).
+
+
+<br><br><br><br>
+
+
+But what exactly does it mean to "block" noncausal paths with a set of variables **Z**?
+
+- We have focused on **conditioning**:
+    - Stratification: holding the variables in **Z** constant at a fixed value (e.g., study dropout = no, age = 40)
+    - Regression modeling: including a variable in a regression model, we can look at the relationship between other variables and the outcome holding that variable fixed
+
+
+<br><br><br><br>
+
+
+More generally, "blocking" means to stop association flow by *restricting variation*.
+
+> We define "matching" broadly to be any method that aims to equate (or "balance") the  distribution of covariates in the treated and control groups. This may involve 1 : 1 matching, weighting or subclassification.
+> 
+> Stuart, E. A. (2010). Matching Methods for Causal Inference: A Review and a Look Forward. Statistical Science, 25(1), 1–21. https://doi.org/10.1214/09-STS313
+
+By making equal (**balancing**) the covariate distribution in the treatment groups we are restricting variation from transmitting from A to Y.
+
+
+
+
+
+## Overview of matching implementation
+
+Design phase: Steps 1 - 3
+Analysis phase: Step 4
+
+1. Define "closeness": choose the distance measure used to determine whether a case is a good match for another.
+    - The variables that are involved in our distance measure are the ones that block noncausal paths.
+    - We'll look at exact matching and coarsened exact matching today which have a binary way of assigning distance: 0 if exact match, and infinity otherwise.
+    - Next time we'll look at matching with other distance measures.
+
+2. Implement that matching method for that closeness (distance) measure.
+    - Are we selecting matches or constructing a matched weighted sample?
+    - If we're selecting matches, how many?
+    - If we're weighting, how will weights decay with distance?
+    - What is the worst match? Possible to specify a **caliper** parameter: a distance such that units can only matched if they are less than or equal to this distance
+
+3. **Balance checking:** Assessing the quality of the resulting matched samples, and perhaps iterating with steps 1 and 2 until well-matched samples result.
+
+4. Analysis of the outcome and estimation of the treatment effect, given the matching done in step 3.
+
+
+## Causal estimands
+
+An **estimand** is a quantity of interest.
+
+So far we have only talked about the **average causal effect (ACE)**, which is also called the **average treatment effect (ATE)**:
+
+$$
+ATE = ACE = E[Y^{a=1} - Y^{a=0}]
+$$
+
+- The ATE represents an effect across an entire population.
+- Example: ACE = 30,000. On average, receiving treatment (like a job training program) increases wages by $30,000.
+
+Also of interest are:
+
+- **Average treatment effect on the treated (ATT)**: $E[Y^{a=1} - Y^{a=0} \mid A = 1]$
+- **Average treatment effect on the controls (ATC)**: $E[Y^{a=1} - Y^{a=0} \mid A = 0]$
+    - Also referred to as the **average treatment effect in the untreated (ATU)**
+
+We can illustrate the difference between these estimands with a potential outcome table:
+
+ $A$   $Y^{a=1}$    $Y^{a=0}$    $Y^{a=1}-Y^{a=0}$
+----- -----------  -----------  --------------------
+  1     70,000       10,000           60,000
+  1     80,000       20,000           60,000
+  1     90,000       30,000           60,000
+  0     10,000       10,000              0
+  0     20,000       20,000              0
+  0     30,000       30,000              0
+
+- ATT = 60,000
+- ATC = 0
+- ATE = 30,000
+
+
+When would we choose to use these different effects? See [Greifer and Stuart, 2023](https://arxiv.org/abs/2106.10577) for more details.
+
+- ATT: What would have happened specifically to those who received treatment had they not received treatment? Should we withhold treatment from those receiving it? Was it a good thing that those receiving treatment received it?
+
+- ATC (ATU): What would have happened to the untreated had they received it? Should we expand the treatment program to those who did not receive it yet?
+
+- ATE: Should a treatment / policy be made available to the whole population?
+
+
+
+# Exploration
+
+## Data context: job training program
+
+Did a job training program increase incomes?
+
+> The National Supported Work Demonstration project [was] a transitional, subsidized work experience program for four target groups of people with longstanding employment problems: ex-offenders, former drug addicts, women who were long-term recipients of welfare benefits, and school dropouts, many with criminal records. The program provided up to 12-18 months of employment to about 10,000 individuals at 15 locations across the country for four years. In ten of these sites -- Atlanta, Chicago, Hartford, Jersey City, Newark, New York, Philadelphia, Oakland, San Francisco, and Wisconsin, 6,600 eligible applicants were randomly assigned either to experimental groups (offered a job in supported work) or to control groups, and an evaluation was conducted on the effects of the Supported Work Program. (See [here](https://www.icpsr.umich.edu/web/ICPSR/studies/7865) for more details.)
+
+These data were analyzed in [LaLonde, 1986](https://www.jstor.org/stable/1806062) and in [Dehejia and Wahba, 1999](https://www.jstor.org/stable/2669919). We'll be using the Dehejia and Wahba data to estimate the causal effect of the job training program on income immediately following the program.
+
+```{r setup, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(broom)
+library(ggdag)
+library(MatchIt)
+library(marginaleffects)
+library(dagitty)
+
+data(lalonde)
+```
+
+**Variables of interest**:
+
+- Treatment/exposure: `treat` (Individual was assigned to the job training program, 1 = yes, 0 = no)
+- Outcome: `re78` (Individual's income in 1978, in US dollars)
+
+**Possible confounders**:
+
+- `age`: age in years
+- `educ`: education in number of years of schooling
+- `race`: the individual's race/ethnicity, (Black, Hispanic, or White)
+- `married`: an indicator for marital status (1 = married, 0 = not married)
+- `nodegree`: an indicator for whether the individual has a high school degree (1 = no degree, 0 = degree)
+- `re74`: income in 1974, in US dollars
+- `re75`: income in 1975, in US dollars
+
+## Causal graph
+
+Consider the following causal graph for this context:
+
+```{r}
+dag <- dagitty('
+dag {
+bb="0,0,1,1"
+age [pos="0.129,0.176"]
+educ [pos="0.247,0.140"]
+married [pos="0.487,0.064"]
+nodegree [pos="0.637,0.126"]
+race [pos="0.363,0.062"]
+re74 [pos="0.621,0.217"]
+re75 [pos="0.706,0.238"]
+re78 [outcome,pos="0.850,0.500"]
+treat [exposure,pos="0.150,0.500"]
+age -> re78
+age -> treat
+educ -> nodegree
+educ -> re78
+educ -> treat
+married -> re78
+married -> treat
+nodegree -> re78
+nodegree -> treat
+race -> educ
+race -> re74
+race -> re75
+race -> re78
+race -> treat
+re74 -> re75
+re74 -> re78
+re74 -> treat
+re75 -> re78
+re75 -> treat
+treat -> re78
+}
+')
+plot(dag)
+```
+Note: while subjects were randomized to placement in the job training program, this randomization happened over time such that the characteristics of the subjects changed over time---this resulted in systematic differences in characteristics between treatment groups.
+
+**Exercise:** Describe the process of how you would select the variables needed to identify the causal effect of the job training program (`treat`) on 1978 incomes (`re78`). You don't need to carry out the process by hand (unless you want to!) because this is a somewhat large graph. 
+
+You can use software to help by inputting this graph in [DAGitty](https://dagitty.net/dags.html): copy the `dag { ... }` text in the `dagitty()` function above, and paste this text into the "Model code" pane on the right of the DAGitty interface.
+
+In the top right, you will see a "Causal effect identification" box and a sufficient set of adjustment variables under "Minimal sufficient adjustment sets for estimating the total effect of treat on re78".
+
+
+---
+
+**Exercise:** Identify one variable that is missing from this graph. How is it connected to other variables? How does its inclusion affect what variables are needed to block noncausal paths?
+
+You can think about this one conceptually, but if it helps to actually update the graph, you can use DAGitty to make edits:
+
+- To add a node: Click on the gray canvas and type the variable name.
+- To add an arrow: Click one node and click a second node to add an arrow from the first to the second.
+- To delete an arrow: First click the node where the arrow originates. Then click where the arrow points.
+
+
+
+
+
+## Naive comparison: unadjusted difference in outcome across treatment groups
+
+To get a feel for the data, let's look at a naive comparison: an unadjusted difference in outcome across the treatment groups:
+
+```{r}
+# Because treat is encoded numerically as a 0/1 variable, factor(treat) is 
+# necessary within ggplot() to represent it as a categorical variable
+ggplot(lalonde, aes(x = factor(treat), y = re78)) +
+    geom_boxplot()
+
+lalonde %>% 
+    group_by(treat) %>% 
+    summarize(avg_income = mean(re78))
+
+mod_naive <- lm(re78 ~ treat, data = lalonde)
+tidy(mod_naive, conf.int = TRUE)
+```
+
+At the other end of the spectrum, let's examine a multiple linear regression model that adjusts for all of the variables needed to identify the causal effect:
+
+```{r}
+mod_adjusted <- lm(re78 ~ treat + age + educ + race + married + nodegree + re74 + re75, data = lalonde)
+tidy(mod_adjusted, conf.int = TRUE)
+```
+
+**Exercise:** In a sentence summarize what you learn from these models. Do you think that matching will produce an estimate closer to the coefficient estimate from `mod_naive` or from `mod_adjusted`?
+
+
+
+
+
+## Checking covariate balance before matching
+
+It's useful to get a sense of covariate balance before matching to understand how much matching improves that balance. Look at the visualizations below to see what variables are most balanced and imbalanced and by how much. (Code is complete for expediency of this activity.)
+
+```{r}
+ggplot(lalonde, aes(x = factor(treat), y = age)) +
+    geom_boxplot()
+ggplot(lalonde, aes(x = factor(treat), y = educ)) +
+    geom_boxplot()
+ggplot(lalonde, aes(x = factor(treat), y = re74)) +
+    geom_boxplot()
+ggplot(lalonde, aes(x = factor(treat), y = re75)) +
+    geom_boxplot()
+
+ggplot(lalonde, aes(x = factor(treat), fill = race)) +
+    geom_bar(position = "fill")
+ggplot(lalonde, aes(x = factor(treat), fill = factor(married))) +
+    geom_bar(position = "fill")
+ggplot(lalonde, aes(x = factor(treat), fill = factor(nodegree))) +
+    geom_bar(position = "fill")
+```
+
+We can also compute numerical balance measures using the `matchit()` function from the `MatchIt` package.
+
+1. Use `?matchit` in the Console to pull up the documentation for this function.
+
+2. Read through Description section, **quickly skim** the Usage section (there's a lot here!), and read the following 5 entries in the Arguments section: `formula`, `data`, `method`, `distance`, and `estimand`. After reading, inspect the code below to make sure that the code makes sense.
+
+```{r}
+# No matching; constructing a pre-matching matchit object
+match_out_none <- matchit(
+    treat ~ age + educ + race + married + nodegree + re74 + re75,
+    data = lalonde,
+    method = NULL,
+    distance = NULL,
+    estimand = "ATT"
+)
+```
+
+
+3. `match_out_none` results from performing no matching (`method = NULL`) but computes balance statistics, which can be summarized with the `summary()` function. Pull up the documentation by entering `?summary.matchit` in the Console.
+    - In the Arguments section, read about the `interactions` argument.
+    - In the Details section, read the first 4 paragraphs. (Stop after reading about the eCDF statistics.) This will help you interpret the information in `match_out_none_summ`.
+
+**Exercise:** Interpret the balance statistics for 3 rows: `age`, `married`, and `married * nodegree`. (The interaction term is close to the bottom of the table). Are these variables/interaction terms balanced across the treatment groups?
+
+```{r}
+match_out_none_summ <- summary(match_out_none, interactions = TRUE)
+match_out_none_summ
+```
+
+We can also look at a visual representation of the standardized mean difference column in the output above by using `plot()` on the output of `matchit() %>% summary()`. (There is a "Show in New Window" button beneath the code chunk---click to zoom in.)
+
+```{r}
+plot(match_out_none_summ)
+```
+
+
+## Exact matching
+
+Let's explore **exact matching**. With exact matching, units $i$ and $j$ have a distance of 0 if all covariates match exactly. Otherwise the distance is infinity.
+
+**Exercise:** Update the code below to perform exact matching on the `lalonde` dataset to estimate the average treatment effect on the treated.
+
+```{r}
+match_out_exact <- matchit(
+    # Fill in
+)
+
+# We use un = FALSE to suppress the display of the 
+# balance statistics before matching (which we looked at above)
+match_out_exact_summ <- summary(match_out_exact, interactions = TRUE, un = FALSE)
+match_out_exact_summ
+```
+
+We can also view this information in plot form:
+
+```{r}
+plot(match_out_exact_summ)
+```
+
+When evaluating the quality of a matching procedure, we consider two factors:
+
+1. Balance statistics: standardized mean differences of less than 0.1 are considered good for quantitative variables. For binary variables, differences in proportions less than 0.05 are considered good.
+    - **Question:** Why are these thresholds irrelevant for exact matching?
+
+2. Sample size: Beneath the balance statistics is a sample size table. (Reproduced directly below to avoid scrolling.) The rows are as follows:
+    - "All": original sample sizes
+    - "Matched": number of units in each group that could be matched
+    - "Unmatched": number of units in each group that could not be matched
+    - "Matched (ESS)": The standard errors resulting from an unweighted sample of this size will roughly be the same as the weighted sample resulting from matching.
+    - "Discarded": The number of cases discarded due to common support restriction. (We'll explore this in the next lesson.)
+
+**Questions:** 
+
+- What do you notice about the matched sample size relative to the original sample size?
+- What do you think would happen to the matched sample sizes when matching on just `age + educ + race + married + nodegree`? Run the matching again to check. (Create a new object) What are the pros/cons of exact matching on more vs. fewer variables?
+
+---
+
+Let's follow up our sample size explorations to understand who was matched. We can extract the matched data with `matchit() %>% match.data()`: 
+
+```{r}
+# First extract the matched data and take a look
+match_data_exact <- match.data(match_out_exact)
+head(match_data_exact)
+```
+
+Also take a look at the full set of matched data by entering `View(match_data_exact)` in the Console.
+
+**Exercise:** Summarize what you learn about the characteristics of the units who could be matched and how this impacts analysis.
+
+
+---
+
+While the matched data from exact matching left far too many units unmatched, let's see how we would use the matched data to estimate a treatment effect.
+
+In general we would want to fit a model of the outcome Y as a function of treatment, covariates, and treatment-covariate interactions. This is demonstrated by the model below with 5 covariates X1-X5. The * creates the interaction terms, and the fact that `X1 + X2 + X3 + X4 + X5` is in parentheses creates interactions between A and each of X1-X5.
+
+```r
+# Linear model with covariates and treatment-covariate interactions
+mod <- lm(Y ~ A * (X1 + X2 + X3 + X4 + X5), data = our_matched_data, weights = weights)
+```
+
+However in this case, the matched data is too small and has cut out too many categories to fit this model. We will fit an unadjusted model to show the process.
+
+- The weights = weights part is supplying weights to the model fit (weighted least squares instead of ordinary least squares).
+- There is a `weights` column in `match_data_exact` containing weights resulting from matching.
+
+```{r}
+mod <- lm(re78 ~ treat, data = match_data_exact, weights = weights)
+```
+
+Then we use `avg_comparisons()` from the `marginaleffects` package to use information from this model to estimate the ATT. While we can pull up the documentation page with `?avg_comparisons`, it is dense to navigate. Here is the essential information for the arguments we use (more information in [this MatchIt vignette](https://kosukeimai.github.io/MatchIt/articles/estimating-effects.html)):
+
+- `model`: The model we fit above
+- `variables`: We want to make comparisons of the outcome across these variables. Here, the treatment variable
+- `vcov`: Specify an R model formula to estimate **cluster-robust standard errors**. This is a way of estimating standard errors that takes into account clustering/grouping in the data. In `match_data_exact` there is a `subclass` column that indicates the matched group each unit belongs to. `~subclass` means "estimate cluster-robust standard errors using the subclass variable for the clusters".
+- `newdata`: The function uses the data here to predict the values of the outcome for the supplied units under treatment and control. Comparing the average values of these predictions estimates the treatment effect. Here, we filter to just the treated individuals so that the comparison estimates the ATT specifically.
+    - If we performed our matching to estimate the ATE, we would not filter our data.
+    - If we performed our matching to estimate the ATC (ATU), we would filter to control (untreated) units.
+
+```{r}
+avg_comparisons(
+    model = mod,
+    variables = "treat",
+    vcov = ~subclass,
+    newdata = filter(match_data_exact, treat == 1),
+    wts = "weights"
+)
+```
+
+The single row of output contains the Estimate of the ATT and uncertainty estimates. The columns of output are the same as `summary(lm(...))` with the addition of 95% confidence interval endpoints and the `S` column, which gives the Shannon information transformation of the p-value. It is tht answer to the question: How many consecutive "heads" tosses would provide the same amount of evidence (or "surprise") against the null hypothesis that the coin is fair?
+
+**Exercise:** Summarize what you learn about the ATT from this output.
+
+
+
+
+## Coarsened exact matching
+
+A downside of exact matching is the difficulty in finding exact matches when there are too many covariates and too few cases. Further, matching *exactly* on quantitative covariates (like income) is likely quite challenging.
+
+The **coarsened exact matching** (CEM) method coarsens covariates by making broader categories (e.g., pooling categories, cutting a quantiative variable into categories) and performing exact matching on the coarsened versions of the covariates.
+
+**Exercise:**
+
+- Use `matchit()` to perform CEM to estimate the ATT.
+- Evaluate the quality of the matching using balance statistics and matched sample sizes.
+- Explore the matched data to see who was matched.
+- Try to refine to see if the quality of the matching can be improved.
+    - In the `matchit()` function documentation, scroll down to the `method` argument, and click the link to the CEM page.
+    - Look at the Examples section at the very bottom to see how you might adjust how CEM does the coarsening.
+- When you feel satisfied with an updated matching, estimate the ATT on your matched data and interpret the results.
+
+

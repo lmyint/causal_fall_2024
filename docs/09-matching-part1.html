@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>STAT 451 - Matching (Part 1)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">STAT 451</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-activities" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Activities</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-activities">    
+        <li>
+    <a class="dropdown-item" href="./01-introductions.html">
+ <span class="dropdown-text">Introductions and foundational ideas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./02-identification.html">
+ <span class="dropdown-text">Causal identification: building intuition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./03-causal-graphs-intro.html">
+ <span class="dropdown-text">Causal graph fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./04-causal-graphs-simulation.html">
+ <span class="dropdown-text">Simulating data using causal graphs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./05-causal-graphs-identification.html">
+ <span class="dropdown-text">Identifying causal effects with causal graphs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./06-causal-graphs-testing.html">
+ <span class="dropdown-text">Testing causal graphs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./07-rct.html">
+ <span class="dropdown-text">Randomized experiments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./08-target-trial.html">
+ <span class="dropdown-text">Target trial framework</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./09-matching-part1.html">
+ <span class="dropdown-text">Matching (Part 1)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./assignments.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./project.html"> 
+<span class="menu-text">Project</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link active" data-scroll-target="#discussion">Discussion</a>
+  <ul class="collapse">
+  <li><a href="#where-were-we" id="toc-where-were-we" class="nav-link" data-scroll-target="#where-were-we">Where were we?</a></li>
+  <li><a href="#overview-of-matching-implementation" id="toc-overview-of-matching-implementation" class="nav-link" data-scroll-target="#overview-of-matching-implementation">Overview of matching implementation</a></li>
+  <li><a href="#causal-estimands" id="toc-causal-estimands" class="nav-link" data-scroll-target="#causal-estimands">Causal estimands</a></li>
+  </ul></li>
+  <li><a href="#exploration" id="toc-exploration" class="nav-link" data-scroll-target="#exploration">Exploration</a>
+  <ul class="collapse">
+  <li><a href="#data-context-job-training-program" id="toc-data-context-job-training-program" class="nav-link" data-scroll-target="#data-context-job-training-program">Data context: job training program</a></li>
+  <li><a href="#causal-graph" id="toc-causal-graph" class="nav-link" data-scroll-target="#causal-graph">Causal graph</a></li>
+  <li><a href="#naive-comparison-unadjusted-difference-in-outcome-across-treatment-groups" id="toc-naive-comparison-unadjusted-difference-in-outcome-across-treatment-groups" class="nav-link" data-scroll-target="#naive-comparison-unadjusted-difference-in-outcome-across-treatment-groups">Naive comparison: unadjusted difference in outcome across treatment groups</a></li>
+  <li><a href="#checking-covariate-balance-before-matching" id="toc-checking-covariate-balance-before-matching" class="nav-link" data-scroll-target="#checking-covariate-balance-before-matching">Checking covariate balance before matching</a></li>
+  <li><a href="#exact-matching" id="toc-exact-matching" class="nav-link" data-scroll-target="#exact-matching">Exact matching</a></li>
+  <li><a href="#coarsened-exact-matching" id="toc-coarsened-exact-matching" class="nav-link" data-scroll-target="#coarsened-exact-matching">Coarsened exact matching</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Matching (Part 1)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>You can download a template file for this activity <a href="templates/09-matching-part1.qmd">here</a>.</strong></p>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<section id="where-were-we" class="level2">
+<h2 class="anchored" data-anchor-id="where-were-we">Where were we?</h2>
+<p>In our discussion of causal graphs, we connected the presence of alternate explanations to the presence of open, noncausal paths.</p>
+<p>Open noncausal paths create association between treatment A and outcome Y that are NOT due to the causal effect (create bias).</p>
+<p><br><br><br><br></p>
+<p>But what exactly does it mean to “block” noncausal paths with a set of variables <strong>Z</strong>?</p>
+<ul>
+<li>We have focused on <strong>conditioning</strong>:
+<ul>
+<li>Stratification: holding the variables in <strong>Z</strong> constant at a fixed value (e.g., study dropout = no, age = 40)</li>
+<li>Regression modeling: including a variable in a regression model, we can look at the relationship between other variables and the outcome holding that variable fixed</li>
+</ul></li>
+</ul>
+<p><br><br><br><br></p>
+<p>More generally, “blocking” means to stop association flow by <em>restricting variation</em>.</p>
+<blockquote class="blockquote">
+<p>We define “matching” broadly to be any method that aims to equate (or “balance”) the distribution of covariates in the treated and control groups. This may involve 1 : 1 matching, weighting or subclassification.</p>
+<p>Stuart, E. A. (2010). Matching Methods for Causal Inference: A Review and a Look Forward. Statistical Science, 25(1), 1–21. https://doi.org/10.1214/09-STS313</p>
+</blockquote>
+<p>By making equal (<strong>balancing</strong>) the covariate distribution in the treatment groups we are restricting variation from transmitting from A to Y.</p>
+</section>
+<section id="overview-of-matching-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-matching-implementation">Overview of matching implementation</h2>
+<p>Design phase: Steps 1 - 3 Analysis phase: Step 4</p>
+<ol type="1">
+<li><p>Define “closeness”: choose the distance measure used to determine whether a case is a good match for another.</p>
+<ul>
+<li>The variables that are involved in our distance measure are the ones that block noncausal paths.</li>
+<li>We’ll look at exact matching and coarsened exact matching today which have a binary way of assigning distance: 0 if exact match, and infinity otherwise.</li>
+<li>Next time we’ll look at matching with other distance measures.</li>
+</ul></li>
+<li><p>Implement that matching method for that closeness (distance) measure.</p>
+<ul>
+<li>Are we selecting matches or constructing a matched weighted sample?</li>
+<li>If we’re selecting matches, how many?</li>
+<li>If we’re weighting, how will weights decay with distance?</li>
+<li>What is the worst match? Possible to specify a <strong>caliper</strong> parameter: a distance such that units can only matched if they are less than or equal to this distance</li>
+</ul></li>
+<li><p><strong>Balance checking:</strong> Assessing the quality of the resulting matched samples, and perhaps iterating with steps 1 and 2 until well-matched samples result.</p></li>
+<li><p>Analysis of the outcome and estimation of the treatment effect, given the matching done in step 3.</p></li>
+</ol>
+</section>
+<section id="causal-estimands" class="level2">
+<h2 class="anchored" data-anchor-id="causal-estimands">Causal estimands</h2>
+<p>An <strong>estimand</strong> is a quantity of interest.</p>
+<p>So far we have only talked about the <strong>average causal effect (ACE)</strong>, which is also called the <strong>average treatment effect (ATE)</strong>:</p>
+<p><span class="math display">\[
+ATE = ACE = E[Y^{a=1} - Y^{a=0}]
+\]</span></p>
+<ul>
+<li>The ATE represents an effect across an entire population.</li>
+<li>Example: ACE = 30,000. On average, receiving treatment (like a job training program) increases wages by $30,000.</li>
+</ul>
+<p>Also of interest are:</p>
+<ul>
+<li><strong>Average treatment effect on the treated (ATT)</strong>: <span class="math inline">\(E[Y^{a=1} - Y^{a=0} \mid A = 1]\)</span></li>
+<li><strong>Average treatment effect on the controls (ATC)</strong>: <span class="math inline">\(E[Y^{a=1} - Y^{a=0} \mid A = 0]\)</span>
+<ul>
+<li>Also referred to as the <strong>average treatment effect in the untreated (ATU)</strong></li>
+</ul></li>
+</ul>
+<p>We can illustrate the difference between these estimands with a potential outcome table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(A\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Y^{a=1}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Y^{a=0}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Y^{a=1}-Y^{a=0}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">70,000</td>
+<td style="text-align: center;">10,000</td>
+<td style="text-align: center;">60,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">80,000</td>
+<td style="text-align: center;">20,000</td>
+<td style="text-align: center;">60,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">90,000</td>
+<td style="text-align: center;">30,000</td>
+<td style="text-align: center;">60,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">10,000</td>
+<td style="text-align: center;">10,000</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">20,000</td>
+<td style="text-align: center;">20,000</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">30,000</td>
+<td style="text-align: center;">30,000</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>ATT = 60,000</li>
+<li>ATC = 0</li>
+<li>ATE = 30,000</li>
+</ul>
+<p>When would we choose to use these different effects? See <a href="https://arxiv.org/abs/2106.10577">Greifer and Stuart, 2023</a> for more details.</p>
+<ul>
+<li><p>ATT: What would have happened specifically to those who received treatment had they not received treatment? Should we withhold treatment from those receiving it? Was it a good thing that those receiving treatment received it?</p></li>
+<li><p>ATC (ATU): What would have happened to the untreated had they received it? Should we expand the treatment program to those who did not receive it yet?</p></li>
+<li><p>ATE: Should a treatment / policy be made available to the whole population?</p></li>
+</ul>
+</section>
+</section>
+<section id="exploration" class="level1">
+<h1>Exploration</h1>
+<section id="data-context-job-training-program" class="level2">
+<h2 class="anchored" data-anchor-id="data-context-job-training-program">Data context: job training program</h2>
+<p>Did a job training program increase incomes?</p>
+<blockquote class="blockquote">
+<p>The National Supported Work Demonstration project [was] a transitional, subsidized work experience program for four target groups of people with longstanding employment problems: ex-offenders, former drug addicts, women who were long-term recipients of welfare benefits, and school dropouts, many with criminal records. The program provided up to 12-18 months of employment to about 10,000 individuals at 15 locations across the country for four years. In ten of these sites – Atlanta, Chicago, Hartford, Jersey City, Newark, New York, Philadelphia, Oakland, San Francisco, and Wisconsin, 6,600 eligible applicants were randomly assigned either to experimental groups (offered a job in supported work) or to control groups, and an evaluation was conducted on the effects of the Supported Work Program. (See <a href="https://www.icpsr.umich.edu/web/ICPSR/studies/7865">here</a> for more details.)</p>
+</blockquote>
+<p>These data were analyzed in <a href="https://www.jstor.org/stable/1806062">LaLonde, 1986</a> and in <a href="https://www.jstor.org/stable/2669919">Dehejia and Wahba, 1999</a>. We’ll be using the Dehejia and Wahba data to estimate the causal effect of the job training program on income immediately following the program.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdag)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MatchIt)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(lalonde)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Variables of interest</strong>:</p>
+<ul>
+<li>Treatment/exposure: <code>treat</code> (Individual was assigned to the job training program, 1 = yes, 0 = no)</li>
+<li>Outcome: <code>re78</code> (Individual’s income in 1978, in US dollars)</li>
+</ul>
+<p><strong>Possible confounders</strong>:</p>
+<ul>
+<li><code>age</code>: age in years</li>
+<li><code>educ</code>: education in number of years of schooling</li>
+<li><code>race</code>: the individual’s race/ethnicity, (Black, Hispanic, or White)</li>
+<li><code>married</code>: an indicator for marital status (1 = married, 0 = not married)</li>
+<li><code>nodegree</code>: an indicator for whether the individual has a high school degree (1 = no degree, 0 = degree)</li>
+<li><code>re74</code>: income in 1974, in US dollars</li>
+<li><code>re75</code>: income in 1975, in US dollars</li>
+</ul>
+</section>
+<section id="causal-graph" class="level2">
+<h2 class="anchored" data-anchor-id="causal-graph">Causal graph</h2>
+<p>Consider the following causal graph for this context:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">dag {</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">bb="0,0,1,1"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">age [pos="0.129,0.176"]</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">educ [pos="0.247,0.140"]</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">married [pos="0.487,0.064"]</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">nodegree [pos="0.637,0.126"]</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">race [pos="0.363,0.062"]</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">re74 [pos="0.621,0.217"]</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">re75 [pos="0.706,0.238"]</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">re78 [outcome,pos="0.850,0.500"]</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">treat [exposure,pos="0.150,0.500"]</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">age -&gt; re78</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">age -&gt; treat</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="st">educ -&gt; nodegree</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="st">educ -&gt; re78</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">educ -&gt; treat</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="st">married -&gt; re78</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="st">married -&gt; treat</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">nodegree -&gt; re78</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="st">nodegree -&gt; treat</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">race -&gt; educ</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="st">race -&gt; re74</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="st">race -&gt; re75</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">race -&gt; re78</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">race -&gt; treat</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="st">re74 -&gt; re75</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">re74 -&gt; re78</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="st">re74 -&gt; treat</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="st">re75 -&gt; re78</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="st">re75 -&gt; treat</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="st">treat -&gt; re78</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="st">'</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dag)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-matching-part1_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Note: while subjects were randomized to placement in the job training program, this randomization happened over time such that the characteristics of the subjects changed over time—this resulted in systematic differences in characteristics between treatment groups.</p>
+<p><strong>Exercise:</strong> Describe the process of how you would select the variables needed to identify the causal effect of the job training program (<code>treat</code>) on 1978 incomes (<code>re78</code>). You don’t need to carry out the process by hand (unless you want to!) because this is a somewhat large graph.</p>
+<p>You can use software to help by inputting this graph in <a href="https://dagitty.net/dags.html">DAGitty</a>: copy the <code>dag { ... }</code> text in the <code>dagitty()</code> function above, and paste this text into the “Model code” pane on the right of the DAGitty interface.</p>
+<p>In the top right, you will see a “Causal effect identification” box and a sufficient set of adjustment variables under “Minimal sufficient adjustment sets for estimating the total effect of treat on re78”.</p>
+<hr>
+<p><strong>Exercise:</strong> Identify one variable that is missing from this graph. How is it connected to other variables? How does its inclusion affect what variables are needed to block noncausal paths?</p>
+<p>You can think about this one conceptually, but if it helps to actually update the graph, you can use DAGitty to make edits:</p>
+<ul>
+<li>To add a node: Click on the gray canvas and type the variable name.</li>
+<li>To add an arrow: Click one node and click a second node to add an arrow from the first to the second.</li>
+<li>To delete an arrow: First click the node where the arrow originates. Then click where the arrow points.</li>
+</ul>
+</section>
+<section id="naive-comparison-unadjusted-difference-in-outcome-across-treatment-groups" class="level2">
+<h2 class="anchored" data-anchor-id="naive-comparison-unadjusted-difference-in-outcome-across-treatment-groups">Naive comparison: unadjusted difference in outcome across treatment groups</h2>
+<p>To get a feel for the data, let’s look at a naive comparison: an unadjusted difference in outcome across the treatment groups:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Because treat is encoded numerically as a 0/1 variable, factor(treat) is </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># necessary within ggplot() to represent it as a categorical variable</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lalonde, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(treat), <span class="at">y =</span> re78)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-matching-part1_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lalonde <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(treat) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">avg_income =</span> <span class="fu">mean</span>(re78))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  treat avg_income
+  &lt;int&gt;      &lt;dbl&gt;
+1     0      6984.
+2     1      6349.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mod_naive <span class="ot">&lt;-</span> <span class="fu">lm</span>(re78 <span class="sc">~</span> treat, <span class="at">data =</span> lalonde)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(mod_naive, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  term        estimate std.error statistic  p.value conf.low conf.high
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)    6984.      361.    19.4   1.64e-65    6276.     7693.
+2 treat          -635.      657.    -0.966 3.34e- 1   -1926.      655.</code></pre>
+</div>
+</div>
+<p>At the other end of the spectrum, let’s examine a multiple linear regression model that adjusts for all of the variables needed to identify the causal effect:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mod_adjusted <span class="ot">&lt;-</span> <span class="fu">lm</span>(re78 <span class="sc">~</span> treat <span class="sc">+</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75, <span class="at">data =</span> lalonde)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(mod_adjusted, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 7
+   term         estimate std.error statistic     p.value   conf.low conf.high
+   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+ 1 (Intercept) -1174.    2456.        -0.478 0.633       -5998.      3650.   
+ 2 treat        1548.     781.         1.98  0.0480         13.9     3083.   
+ 3 age            13.0     32.5        0.399 0.690         -50.8       76.8  
+ 4 educ          404.     159.         2.54  0.0113         91.9      716.   
+ 5 racehispan   1740.    1019.         1.71  0.0882       -261.      3740.   
+ 6 racewhite    1241.     769.         1.61  0.107        -269.      2750.   
+ 7 married       407.     695.         0.585 0.559        -959.      1772.   
+ 8 nodegree      260.     847.         0.307 0.759       -1404.      1924.   
+ 9 re74            0.296    0.0583     5.09  0.000000489     0.182      0.411
+10 re75            0.232    0.105      2.21  0.0273          0.0261     0.437</code></pre>
+</div>
+</div>
+<p><strong>Exercise:</strong> In a sentence summarize what you learn from these models. Do you think that matching will produce an estimate closer to the coefficient estimate from <code>mod_naive</code> or from <code>mod_adjusted</code>?</p>
+</section>
+<section id="checking-covariate-balance-before-matching" class="level2">
+<h2 class="anchored" data-anchor-id="checking-covariate-balance-before-matching">Checking covariate balance before matching</h2>
+<p>It’s useful to get a sense of covariate balance before matching to understand how much matching improves that balance. Look at the visualizations below to see what variables are most balanced and imbalanced and by how much. (Code is complete for expediency of this activity.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lalonde, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(treat), <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-matching-part1_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lalonde, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(treat), <span class="at">y =</span> educ)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-matching-part1_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lalonde, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(treat), <span class="at">y =</span> re74)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-matching-part1_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lalonde, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(treat), <span class="at">y =</span> re75)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-matching-part1_files/figure-html/unnamed-chunk-4-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lalonde, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(treat), <span class="at">fill =</span> race)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-matching-part1_files/figure-html/unnamed-chunk-4-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lalonde, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(treat), <span class="at">fill =</span> <span class="fu">factor</span>(married))) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-matching-part1_files/figure-html/unnamed-chunk-4-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lalonde, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(treat), <span class="at">fill =</span> <span class="fu">factor</span>(nodegree))) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-matching-part1_files/figure-html/unnamed-chunk-4-7.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can also compute numerical balance measures using the <code>matchit()</code> function from the <code>MatchIt</code> package.</p>
+<ol type="1">
+<li><p>Use <code>?matchit</code> in the Console to pull up the documentation for this function.</p></li>
+<li><p>Read through Description section, <strong>quickly skim</strong> the Usage section (there’s a lot here!), and read the following 5 entries in the Arguments section: <code>formula</code>, <code>data</code>, <code>method</code>, <code>distance</code>, and <code>estimand</code>. After reading, inspect the code below to make sure that the code makes sense.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># No matching; constructing a pre-matching matchit object</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>match_out_none <span class="ot">&lt;-</span> <span class="fu">matchit</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> lalonde,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="cn">NULL</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance =</span> <span class="cn">NULL</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimand =</span> <span class="st">"ATT"</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li><code>match_out_none</code> results from performing no matching (<code>method = NULL</code>) but computes balance statistics, which can be summarized with the <code>summary()</code> function. Pull up the documentation by entering <code>?summary.matchit</code> in the Console.
+<ul>
+<li>In the Arguments section, read about the <code>interactions</code> argument.</li>
+<li>In the Details section, read the first 4 paragraphs. (Stop after reading about the eCDF statistics.) This will help you interpret the information in <code>match_out_none_summ</code>.</li>
+</ul></li>
+</ol>
+<p><strong>Exercise:</strong> Interpret the balance statistics for 3 rows: <code>age</code>, <code>married</code>, and <code>married * nodegree</code>. (The interaction term is close to the bottom of the table). Are these variables/interaction terms balanced across the treatment groups?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>match_out_none_summ <span class="ot">&lt;-</span> <span class="fu">summary</span>(match_out_none, <span class="at">interactions =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>match_out_none_summ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+matchit(formula = treat ~ age + educ + race + married + nodegree + 
+    re74 + re75, data = lalonde, method = NULL, distance = NULL, 
+    estimand = "ATT")
+
+Summary of Balance for All Data:
+                      Means Treated Means Control Std. Mean Diff. Var. Ratio
+age                         25.8162       28.0303         -0.3094     0.4400
+educ                        10.3459       10.2354          0.0550     0.4959
+raceblack                    0.8432        0.2028          1.7615          .
+racehispan                   0.0595        0.1422         -0.3498          .
+racewhite                    0.0973        0.6550         -1.8819          .
+married                      0.1892        0.5128         -0.8263          .
+nodegree                     0.7081        0.5967          0.2450          .
+re74                      2095.5737     5619.2365         -0.7211     0.5181
+re75                      1532.0553     2466.4844         -0.2903     0.9563
+age²                       717.3946      901.7786         -0.4276     0.3627
+age * educ                 266.9784      282.3636         -0.1663     0.4912
+age * raceblack             21.9081        5.2867          1.4327     1.0055
+age * racehispan             1.3568        3.7646         -0.4368     0.3127
+age * racewhite              2.5514       18.9790         -2.0322     0.2424
+age * married                5.5568       16.4872         -0.9147     0.4615
+age * nodegree              17.9676       16.4639          0.1147     0.6549
+age * re74               54074.0365   185650.1507         -0.9974     0.2539
+age * re75               41167.2760    74331.9153         -0.3332     0.8436
+educ²                      111.0595      112.8974         -0.0468     0.5173
+educ * raceblack             8.6973        2.0466          1.5803     0.9801
+educ * racehispan            0.5784        1.2634         -0.2940     0.4869
+educ * racewhite             1.0703        6.9254         -1.7671     0.3652
+educ * married               1.9622        5.0816         -0.7475     0.5927
+educ * nodegree              6.7081        5.0979          0.3547     0.9909
+educ * re74              22898.7264    60430.2774         -0.6539     0.5188
+educ * re75              15880.5704    25490.2249         -0.2828     0.8635
+raceblack * married          0.1568        0.0583          0.2709          .
+raceblack * nodegree         0.6108        0.1305          0.9850          .
+raceblack * re74          1817.2003      632.1307          0.2490     3.1701
+raceblack * re75          1257.0413      372.0157          0.2879     3.6451
+racehispan * married         0.0162        0.0676         -0.4068          .
+racehispan * nodegree        0.0486        0.1072         -0.2723          .
+racehispan * re74          151.3968      678.4817         -0.4400     0.1844
+racehispan * re75          153.7298      393.8000         -0.2366     0.4177
+racewhite * married          0.0162        0.3869         -2.9352          .
+racewhite * nodegree         0.0486        0.3590         -1.4425          .
+racewhite * re74           126.9766     4308.6240         -4.5164     0.0198
+racewhite * re75           121.2842     1700.6688         -2.0108     0.0710
+married * nodegree           0.1405        0.3030         -0.4675          .
+married * re74             760.6329     4324.5356         -0.9734     0.2918
+married * re75             654.3354     1838.3149         -0.4135     0.7434
+nodegree * re74           1094.1482     2705.9941         -0.4756     0.4149
+nodegree * re75           1134.9556     1321.4000         -0.0630     1.2574
+re74²                 28141411.5686 77555527.0664         -0.4331     0.6548
+re74 * re75           13118578.3183 25434413.2753         -0.2425     0.8738
+re75²                 12654750.3174 16895522.7500         -0.0757     2.0700
+                      eCDF Mean eCDF Max
+age                      0.0813   0.1577
+educ                     0.0347   0.1114
+raceblack                0.6404   0.6404
+racehispan               0.0827   0.0827
+racewhite                0.5577   0.5577
+married                  0.3236   0.3236
+nodegree                 0.1114   0.1114
+re74                     0.2248   0.4470
+re75                     0.1342   0.2876
+age²                     0.0813   0.1577
+age * educ               0.0570   0.1187
+age * raceblack          0.1831   0.6521
+age * racehispan         0.0396   0.0827
+age * racewhite          0.1966   0.5577
+age * married            0.1517   0.3236
+age * nodegree           0.0720   0.1790
+age * re74               0.2338   0.4470
+age * re75               0.1480   0.2876
+educ²                    0.0347   0.1114
+educ * raceblack         0.3537   0.6451
+educ * racehispan        0.0457   0.0781
+educ * racewhite         0.2791   0.5554
+educ * married           0.1732   0.3166
+educ * nodegree          0.1342   0.2071
+educ * re74              0.2185   0.4400
+educ * re75              0.1295   0.2807
+raceblack * married      0.0985   0.0985
+raceblack * nodegree     0.4803   0.4803
+raceblack * re74         0.0861   0.1523
+raceblack * re75         0.1175   0.2249
+racehispan * married     0.0514   0.0514
+racehispan * nodegree    0.0586   0.0586
+racehispan * re74        0.0405   0.0794
+racehispan * re75        0.0313   0.0755
+racewhite * married      0.3707   0.3707
+racewhite * nodegree     0.3103   0.3103
+racewhite * re74         0.2539   0.4959
+racewhite * re75         0.2179   0.4323
+married * nodegree       0.1625   0.1625
+married * re74           0.1889   0.3626
+married * re75           0.1370   0.2819
+nodegree * re74          0.1126   0.2311
+nodegree * re75          0.0391   0.1322
+re74²                    0.2248   0.4470
+re74 * re75              0.1571   0.3017
+re75²                    0.1342   0.2876
+
+Sample Sizes:
+          Control Treated
+All           429     185
+Matched       429     185
+Unmatched       0       0
+Discarded       0       0</code></pre>
+</div>
+</div>
+<p>We can also look at a visual representation of the standardized mean difference column in the output above by using <code>plot()</code> on the output of <code>matchit() %&gt;% summary()</code>. (There is a “Show in New Window” button beneath the code chunk—click to zoom in.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(match_out_none_summ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-matching-part1_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exact-matching" class="level2">
+<h2 class="anchored" data-anchor-id="exact-matching">Exact matching</h2>
+<p>Let’s explore <strong>exact matching</strong>. With exact matching, units <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> have a distance of 0 if all covariates match exactly. Otherwise the distance is infinity.</p>
+<p><strong>Exercise:</strong> Update the code below to perform exact matching on the <code>lalonde</code> dataset to estimate the average treatment effect on the treated.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>match_out_exact <span class="ot">&lt;-</span> <span class="fu">matchit</span>(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fill in</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># We use un = FALSE to suppress the display of the </span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># balance statistics before matching (which we looked at above)</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>match_out_exact_summ <span class="ot">&lt;-</span> <span class="fu">summary</span>(match_out_exact, <span class="at">interactions =</span> <span class="cn">TRUE</span>, <span class="at">un =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>match_out_exact_summ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can also view this information in plot form:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(match_out_exact_summ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When evaluating the quality of a matching procedure, we consider two factors:</p>
+<ol type="1">
+<li>Balance statistics: standardized mean differences of less than 0.1 are considered good for quantitative variables. For binary variables, differences in proportions less than 0.05 are considered good.
+<ul>
+<li><strong>Question:</strong> Why are these thresholds irrelevant for exact matching?</li>
+</ul></li>
+<li>Sample size: Beneath the balance statistics is a sample size table. (Reproduced directly below to avoid scrolling.) The rows are as follows:
+<ul>
+<li>“All”: original sample sizes</li>
+<li>“Matched”: number of units in each group that could be matched</li>
+<li>“Unmatched”: number of units in each group that could not be matched</li>
+<li>“Matched (ESS)”: The standard errors resulting from an unweighted sample of this size will roughly be the same as the weighted sample resulting from matching.</li>
+<li>“Discarded”: The number of cases discarded due to common support restriction. (We’ll explore this in the next lesson.)</li>
+</ul></li>
+</ol>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>What do you notice about the matched sample size relative to the original sample size?</li>
+<li>What do you think would happen to the matched sample sizes when matching on just <code>age + educ + race + married + nodegree</code>? Run the matching again to check. (Create a new object) What are the pros/cons of exact matching on more vs.&nbsp;fewer variables?</li>
+</ul>
+<hr>
+<p>Let’s follow up our sample size explorations to understand who was matched. We can extract the matched data with <code>matchit() %&gt;% match.data()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First extract the matched data and take a look</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>match_data_exact <span class="ot">&lt;-</span> <span class="fu">match.data</span>(match_out_exact)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(match_data_exact)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Also take a look at the full set of matched data by entering <code>View(match_data_exact)</code> in the Console.</p>
+<p><strong>Exercise:</strong> Summarize what you learn about the characteristics of the units who could be matched and how this impacts analysis.</p>
+<hr>
+<p>While the matched data from exact matching left far too many units unmatched, let’s see how we would use the matched data to estimate a treatment effect.</p>
+<p>In general we would want to fit a model of the outcome Y as a function of treatment, covariates, and treatment-covariate interactions. This is demonstrated by the model below with 5 covariates X1-X5. The * creates the interaction terms, and the fact that <code>X1 + X2 + X3 + X4 + X5</code> is in parentheses creates interactions between A and each of X1-X5.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear model with covariates and treatment-covariate interactions</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> A <span class="sc">*</span> (X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3 <span class="sc">+</span> X4 <span class="sc">+</span> X5), <span class="at">data =</span> our_matched_data, <span class="at">weights =</span> weights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>However in this case, the matched data is too small and has cut out too many categories to fit this model. We will fit an unadjusted model to show the process.</p>
+<ul>
+<li>The weights = weights part is supplying weights to the model fit (weighted least squares instead of ordinary least squares).</li>
+<li>There is a <code>weights</code> column in <code>match_data_exact</code> containing weights resulting from matching.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(re78 <span class="sc">~</span> treat, <span class="at">data =</span> match_data_exact, <span class="at">weights =</span> weights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then we use <code>avg_comparisons()</code> from the <code>marginaleffects</code> package to use information from this model to estimate the ATT. While we can pull up the documentation page with <code>?avg_comparisons</code>, it is dense to navigate. Here is the essential information for the arguments we use (more information in <a href="https://kosukeimai.github.io/MatchIt/articles/estimating-effects.html">this MatchIt vignette</a>):</p>
+<ul>
+<li><code>model</code>: The model we fit above</li>
+<li><code>variables</code>: We want to make comparisons of the outcome across these variables. Here, the treatment variable</li>
+<li><code>vcov</code>: Specify an R model formula to estimate <strong>cluster-robust standard errors</strong>. This is a way of estimating standard errors that takes into account clustering/grouping in the data. In <code>match_data_exact</code> there is a <code>subclass</code> column that indicates the matched group each unit belongs to. <code>~subclass</code> means “estimate cluster-robust standard errors using the subclass variable for the clusters”.</li>
+<li><code>newdata</code>: The function uses the data here to predict the values of the outcome for the supplied units under treatment and control. Comparing the average values of these predictions estimates the treatment effect. Here, we filter to just the treated individuals so that the comparison estimates the ATT specifically.
+<ul>
+<li>If we performed our matching to estimate the ATE, we would not filter our data.</li>
+<li>If we performed our matching to estimate the ATC (ATU), we would filter to control (untreated) units.</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">avg_comparisons</span>(</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">model =</span> mod,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">"treat"</span>,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">vcov =</span> <span class="sc">~</span>subclass,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">newdata =</span> <span class="fu">filter</span>(match_data_exact, treat <span class="sc">==</span> <span class="dv">1</span>),</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">wts =</span> <span class="st">"weights"</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The single row of output contains the Estimate of the ATT and uncertainty estimates. The columns of output are the same as <code>summary(lm(...))</code> with the addition of 95% confidence interval endpoints and the <code>S</code> column, which gives the Shannon information transformation of the p-value. It is tht answer to the question: How many consecutive “heads” tosses would provide the same amount of evidence (or “surprise”) against the null hypothesis that the coin is fair?</p>
+<p><strong>Exercise:</strong> Summarize what you learn about the ATT from this output.</p>
+</section>
+<section id="coarsened-exact-matching" class="level2">
+<h2 class="anchored" data-anchor-id="coarsened-exact-matching">Coarsened exact matching</h2>
+<p>A downside of exact matching is the difficulty in finding exact matches when there are too many covariates and too few cases. Further, matching <em>exactly</em> on quantitative covariates (like income) is likely quite challenging.</p>
+<p>The <strong>coarsened exact matching</strong> (CEM) method coarsens covariates by making broader categories (e.g., pooling categories, cutting a quantiative variable into categories) and performing exact matching on the coarsened versions of the covariates.</p>
+<p><strong>Exercise:</strong></p>
+<ul>
+<li>Use <code>matchit()</code> to perform CEM to estimate the ATT.</li>
+<li>Evaluate the quality of the matching using balance statistics and matched sample sizes.</li>
+<li>Explore the matched data to see who was matched.</li>
+<li>Try to refine to see if the quality of the matching can be improved.
+<ul>
+<li>In the <code>matchit()</code> function documentation, scroll down to the <code>method</code> argument, and click the link to the CEM page.</li>
+<li>Look at the Examples section at the very bottom to see how you might adjust how CEM does the coarsening.</li>
+</ul></li>
+<li>When you feel satisfied with an updated matching, estimate the ATT on your matched data and interpret the results.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Leslie Myint, 2024<br> All content licensed under <img src="https://static.thenounproject.com/png/70967-200.png" height="20"> (<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>)</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
