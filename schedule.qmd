@@ -54,10 +54,8 @@ Check here to see what you should be doing before, during, and after each class 
   <tr>
     <td class="topleft">5 (9/30 - 10/4)</td>
     <td class="topleft"><a href="#day12">Matching (Part 2)</a></td>
-    <td class="topleft"><a href="#day13">Regression discontinuity designs</a></td>
-    <td class="topleft">
-        <a href="#day14">Flex day</a>
-    </td>
+    <td class="topleft"><a href="#day13">Weighting</a></td>
+    <td class="topleft"><a href="#day14">Regression discontinuity designs</a></td>
     <td class="topleft"></td>
   </tr>
 </tbody>
@@ -249,7 +247,7 @@ Formulate a research question that relates to an area that you're interested in.
 - Journal article: [Matching Methods for Causal Inference: A Review and a Look Forward](http://dx.doi.org/10.1214/09-STS313) (~60 minutes)
 :::
 
-<!-- **During class:** [Matching](09-matching.qmd) -->
+**During class:** [Matching (Part 1)](09-matching-part1.qmd)
 
 
 
@@ -265,9 +263,17 @@ Formulate a research question that relates to an area that you're interested in.
 
 - Continuation of previous class
 
-<!-- **During class:** [Matching](09-matching.qmd) -->
+**During class:** [Matching (Part 2)](09-matching-part2.qmd)
 
-## Day 2: Regression discontinuity (10/2) {#day13}
+## Day 2: Weighting (10/2) {#day13}
+
+**Before class:**
+
+::: {.callout-note title="Required" icon=false}
+- Video: [Inverse Probability Weighting](https://youtu.be/PfLYPt9ur4g) (Time: 10:24) ([Slides](https://drive.google.com/file/d/1c99hoAOspc0S-SmB3DJjD2UO_-1YRtRX/view?usp=sharing))
+:::
+
+## Day 3: Regression discontinuity (10/4) {#day14}
 
 **Before class:**
 
@@ -285,18 +291,6 @@ Formulate a research question that relates to an area that you're interested in.
 :::
 
 <!-- **During class:** [Regression discontinuity designs](10-rdd.qmd) -->
-
-## Day 3: Flex Day (10/4) {#day14}
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- 
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
 
 
 

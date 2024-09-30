@@ -40,6 +40,7 @@ website:
         - 07-rct.qmd
         - 08-target-trial.qmd
         - 09-matching-part1.qmd
+        - 09-matching-part2.qmd
   
   page-footer:
     left: |

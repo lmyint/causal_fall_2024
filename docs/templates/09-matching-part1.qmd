@@ -7,8 +7,6 @@ format:
     toc: true
 ---
 
-**You can download a template file for this activity [here](templates/).**
-
 # Discussion
 
 ## Where were we?
