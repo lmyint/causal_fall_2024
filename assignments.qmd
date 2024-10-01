@@ -60,6 +60,33 @@ Imagine that you are preparing your capstone talk on your project from this cour
 - For submitting slides, Google Slides is preferred---make sure that I am added with either Editing or Commenting privileges. If using another program for slides, submit both the slides and presenter notes beneath in PDF format.
 - If submitting a video, upload the video or share a link where I can access it.
 
+## Addressing feedback
+
+**Due Wednesday, October 9 on [Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=139487)**
+
+Address feedback on your slides by doing the following:
+
+1. Write a paragraph summarizing the changes that you made and/or intend to make and why
+2. Implement changes to your slides and/or presenter notes in light of feedback.
+    - You don't need to agree with everything I recommend!
+    - And you may not have time to implement everything that I recommend even if you agree.
+    - Make the changes that you are able to, being mindful of your time and other commitments.
+    - Whatever you want to address but cannot finish by the due date, tell me about in your paragraph.
+
+
+
+<br><br>
+
+
+
+# Assignment 3
+
+**Due Wednesday, October 9 on [Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=139488)**
+
+Download [this template](templates/assignment3.qmd). All instructions and exercises are contained in that file.
+
+
+<!-- # Assignment 4 -->
 
 <!--
 General questions applicable to all study designs/methods
@@ -68,11 +95,3 @@ General questions applicable to all study designs/methods
 - How do we analyze data from this design/method?
 - What are some limitations/drawbacks of this design?
 -->
-
-<!-- # Assignment 3 -->
-
-
-<!-- # Assignment 4 -->
-
-<!-- Submit revisions based on feedback on Assignments 1 - 3 -->
-<!-- Prepare for portfolio conference -->

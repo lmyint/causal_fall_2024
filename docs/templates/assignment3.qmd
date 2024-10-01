@@ -1,0 +1,232 @@
+---
+title: "Causal Inference - Assignment 3"
+author: "YOUR NAME"
+format: 
+  html:
+    embed-resources: true
+    toc: true
+---
+
+# Directions
+
+When you are finished with these exercises, you will render this file to HTML:
+
+- Click the "Render" button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.
+- Scroll through and inspect the document to check that your work translated to the HTML format correctly.
+- Close the browser tab.
+- Go to the "Background Jobs" pane in RStudio and click the Stop button to end the rendering process.
+- Locate the rendered HTML file in the folder where this file is saved. Open the HTML to ensure that your work looks as it should (code appears, output displays, interpretations appear). Upload this HTML file and the `.qmd` to Moodle.
+
+```{r setup}
+library(tidyverse)
+library(broom)
+library(MatchIt)
+library(marginaleffects)
+library(dagitty)
+```
+
+# Exercise 1
+
+Suppose that we want to estimate the causal effect of a new drug (A) on a health outcome (Y). Study dropout is already conditioned on (dropout = no).
+
+Consider the following causal graph:
+
+```{r}
+dag <- dagitty('
+dag {
+bb="0,0,1,1"
+"Prior History" [pos="0.357,0.236"]
+"Study dropout" [adjusted,pos="0.309,0.564"]
+"Underlying Health" [latent,pos="0.244,0.799"]
+A [exposure,pos="0.144,0.507"]
+Age [pos="0.247,0.238"]
+Biomarker [pos="0.513,0.661"]
+Y [outcome,pos="0.796,0.502"]
+"Prior History" -> A
+"Prior History" -> Y
+"Underlying Health" -> "Study dropout"
+"Underlying Health" -> Biomarker
+A -> "Study dropout"
+A -> Y
+Age -> "Prior History"
+Age -> A
+Age -> Y
+Biomarker -> Y
+}
+')
+```
+
+## Part a
+
+By hand, show what variables are needed to block noncausal paths and thus identify the causal effect of A on Y. (Explain the d-separation process.)
+
+
+## Part b
+
+Perform a simulation study to show that the set of variables you identified in Part a is indeed an appropriate set. Make your variables take *somewhat* reasonable values (i.e., no negative values for age), but don't worry too much about making the data very realistic.
+
+Note: to use the approach we explored in class, you will have to think carefully about the A->Y arrow when simulating your data.
+
+
+
+
+
+# Exercise 2
+
+In class we explored data from the National Supported Work Demonstration project: a job training program. As a reminder:
+
+> The National Supported Work Demonstration project [was] a transitional, subsidized work experience program for four target groups of people with longstanding employment problems: ex-offenders, former drug addicts, women who were long-term recipients of welfare benefits, and school dropouts, many with criminal records. The program provided up to 12-18 months of employment to about 10,000 individuals at 15 locations across the country for four years. In ten of these sites -- Atlanta, Chicago, Hartford, Jersey City, Newark, New York, Philadelphia, Oakland, San Francisco, and Wisconsin, 6,600 eligible applicants were randomly assigned either to experimental groups (offered a job in supported work) or to control groups, and an evaluation was conducted on the effects of the Supported Work Program. (See [here](https://www.icpsr.umich.edu/web/ICPSR/studies/7865) for more details.)
+
+These data were analyzed in [LaLonde, 1986](https://www.jstor.org/stable/1806062) and in [Dehejia and Wahba, 1999](https://www.jstor.org/stable/2669919). 
+
+We'll be using the Dehejia and Wahba data to estimate the causal effect of the job training program on income immediately following the program.
+
+```{r message=FALSE}
+data(lalonde)
+```
+
+**Variables of interest**:
+
+- Treatment/exposure: `treat` (Individual was assigned to the job training program, 1 = yes, 0 = no)
+- Outcome: `re78` (Individual's income in 1978, in US dollars)
+
+**Possible confounders**:
+
+- `age`: age in years
+- `educ`: education in number of years of schooling
+- `race`: the individual's race/ethnicity, (Black, Hispanic, or White)
+- `married`: an indicator for marital status (1 = married, 0 = not married)
+- `nodegree`: an indicator for whether the individual has a high school degree (1 = no degree, 0 = degree)
+- `re74`: income in 1974, in US dollars
+- `re75`: income in 1975, in US dollars
+
+## Part a
+
+In class we focused on using matching to estimate the average treatment effect on the treated (ATT). Let's also explore the average treatment effect (ATE) and the average treatment effect on the controls (or untreated) (ATC or ATU).
+
+How is the ATT interpreted in this context? Why might this estimand be of policy interest?
+
+> Type your response here.
+
+How is the ATC (ATU) interpreted in this context? Why might this estimand be of policy interest?
+
+> Type your response here.
+
+How is the ATE interpreted in this context? Why might this estimand be of policy interest?
+
+> Type your response here.
+
+
+## Part b
+
+Nearest neighbor can be fine-tuned by specifying a combination of exact matching on some variables and nearest neighbor matching on others. The same is true of full matching. Use the documentation to investigate how to implement this for estimating the ATT.
+
+- Try two matching implementations for both nearest neighbor (use k = 2) and full matching (use logistic regression to estimate the propensity score).
+- Compare the balance statistics and matched sample sizes between implementations.
+- Create common support plots for each of your full matching implementations.
+- From these investigations, report which matching implementation you would pick to move forward with an analysis.
+    - If you move forward with a full matching implementation and conclude that some cases need to be discarded due to common support violations, update your call to `matchit()` to use the `discard` argument.
+
+
+## Part c
+
+Use your chosen matching implementation from Part b to estimate the ATT. Interpret your findings.
+
+## Part d
+
+Use the same matching implementation from Part b with an update to estimate the ATC (ATU). Because a change of estimand affects the matching procedure, check a plot of balance statistics to check the quality of this matching. Interpret your findings from ATC estimation.
+
+## Part e
+
+Use the same matching implementation from Part b with an update to estimate the ATE. Check a plot of balance statistics to check the quality of this matching. Interpret your findings from ATE estimation.
+
+
+
+
+# Exercise 3
+
+In this exercise, we will explore the impact of correct model specification on the performance of inverse probability weighting.
+
+## Part a
+
+Simulate 1000 cases from the causal graph below where Z, W, and A are binary, and Y is quantitative. Use the information below to generate A and Y, and store your simulated data as `sim_data`.
+
+- $\log(\mathrm{odds}(A = 1)) = -1 + 0.4 Z + 0.4 W + 0.9 Z*W$
+- Y follows a normal distribution with mean $10 + 5A + 6Z + 7W$ and standard deviation 2.
+
+```{r}
+dag <- dagitty('
+dag {
+bb="0,0,1,1"
+A [exposure,pos="0.200,0.500"]
+Z [pos="0.400,0.100"]
+W [pos="0.600,0.100"]
+Y [outcome,pos="0.800,0.500"]
+A -> Y
+Z -> A
+Z -> Y
+W -> A
+W -> Y
+}
+')
+plot(dag)
+```
+
+## Part b
+
+Complete the code below to perform a simulation study that examines the performance of two different propensity score models for estimating the ATE.
+
+```{r}
+set.seed(451)
+system.time({ # This times the following code (takes about 15 seconds)
+sim_results <- replicate(1000, {
+    # Put your code from Part a for generating sim_data here
+    
+    # The code below ensures that Z, W, and A are encoded as categorical
+    sim_data <- tibble(Z = factor(Z), W = factor(W), A = factor(A), Y = Y)
+    
+    # Based on the way we generated A in sim_data, what is the correct logistic regression model that should be fit? Fit this model as ps_mod_complex.
+    ps_mod_complex <- ???
+        
+    # Fit a wrong model called ps_mod_simple that uses the formula A ~ Z + W
+    ps_mod_simple <- ???
+    
+    # Update the code below to obtain the propensity scores and
+    # the IP weights for the ATE for the simple and complex models
+    sim_data <- sim_data %>%
+        mutate(
+            ps_simple = predict(???),
+            ipw_simple = case_when(
+                ???
+            )
+        ) %>%
+        mutate(
+            ps_complex = predict(???),
+            ipw_complex = case_when(
+                ???
+            )
+        )
+    # Obtain 
+    mod_simple <- lm(Y ~ A, data = sim_data, weights = ipw_simple)
+    mod_complex <- lm(Y ~ A, data = sim_data, weights = ipw_complex)
+    
+    # Pull out the treatment effect estimates
+    estimate_simple <- tidy(mod_simple) %>% filter(term=="A1") %>% pull(estimate)
+    estimate_complex <- tidy(mod_complex) %>% filter(term=="A1") %>% pull(estimate)
+    
+    # Store results
+    tibble(
+        method = c("simple", "complex"),
+        estimate = c(estimate_simple, estimate_complex)
+    )
+}, simplify = FALSE)
+})
+
+sim_results <- bind_rows(sim_results)
+```
+
+## Part c
+
+Use `sim_results` to make a plot to compare the accuracy of the simple and complex models for the propensity score in estimating the true ATE. Summarize the findings of this simulation study.
+
+
