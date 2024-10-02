@@ -4,8 +4,8 @@ project:
   render:
     - "*.qmd"
     - "!templates/"
-    - "!10-rdd.qmd"
-    - "!11-flex-1.qmd"
+    - "!11-rdd.qmd"
+    - "!slides/09-rdd.qmd"
   resources:
     - "data/*.csv"
 
@@ -41,6 +41,7 @@ website:
         - 08-target-trial.qmd
         - 09-matching-part1.qmd
         - 09-matching-part2.qmd
+        - 10-weighting.qmd
   
   page-footer:
     left: |

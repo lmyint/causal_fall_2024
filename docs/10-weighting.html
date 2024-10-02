@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STAT 451 - Causal graph fundamentals</title>
+<title>STAT 451 - Weighting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -209,17 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals</a></li>
-  <li><a href="#review" id="toc-review" class="nav-link" data-scroll-target="#review">Review</a>
-  <ul class="collapse">
-  <li><a href="#identification" id="toc-identification" class="nav-link" data-scroll-target="#identification">Identification</a></li>
-  <li><a href="#causal-diagrams" id="toc-causal-diagrams" class="nav-link" data-scroll-target="#causal-diagrams">Causal diagrams</a></li>
-  <li><a href="#warm-up-1" id="toc-warm-up-1" class="nav-link" data-scroll-target="#warm-up-1">Warm-up 1</a></li>
-  <li><a href="#warm-up-2" id="toc-warm-up-2" class="nav-link" data-scroll-target="#warm-up-2">Warm-up 2</a></li>
-  <li><a href="#warm-up-3" id="toc-warm-up-3" class="nav-link" data-scroll-target="#warm-up-3">Warm-up 3</a></li>
-  <li><a href="#simplifying-causal-diagrams" id="toc-simplifying-causal-diagrams" class="nav-link" data-scroll-target="#simplifying-causal-diagrams">Simplifying causal diagrams</a></li>
-  <li><a href="#drawing-causal-diagrams-with-dagitty" id="toc-drawing-causal-diagrams-with-dagitty" class="nav-link" data-scroll-target="#drawing-causal-diagrams-with-dagitty">Drawing causal diagrams with DAGitty</a></li>
-  </ul></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link active" data-scroll-target="#discussion">Discussion</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -233,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Causal graph fundamentals</h1>
+<h1 class="title">Weighting</h1>
 </div>
 
 
@@ -250,235 +240,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="goals" class="level1">
-<h1>Goals</h1>
-<ul>
-<li>Practice graphically showing our beliefs about data-generating processes using causal graphs</li>
-<li>Expand our worldview by exploring interesting questions in domains that we don’t normally think about</li>
-<li>Build a trusting intellectual community by being curious about each other’s interests, giving kind and actionable feedback, and receiving feedback with curiosity and gratitude</li>
-</ul>
-<p><br><br><br><br></p>
-</section>
-<section id="review" class="level1">
-<h1>Review</h1>
-<section id="identification" class="level2">
-<h2 class="anchored" data-anchor-id="identification">Identification</h2>
-<ul>
-<li><p>Identification is the process of isolating only desired variation (variation corresponding purely to our causal effect of interest) and ruling out alternate explanations</p></li>
-<li><p>Ruling out alternate explanations requires understanding the data-generating process</p></li>
-</ul>
-<p><br><br><br><br></p>
-</section>
-<section id="causal-diagrams" class="level2">
-<h2 class="anchored" data-anchor-id="causal-diagrams">Causal diagrams</h2>
-<p>A causal diagram (causal graph) is a visual representation of a data-generating process and are <strong>directed acyclic graphs (DAGs)</strong>.</p>
-<p><strong>Nodes</strong> represent variables and <strong>edges</strong> represent direct causal relationships between variables.</p>
-<p>We will be conceptualizing causality in the following way: A is a cause of Y if changes in the value of A change the probability distribution of Y.</p>
-<ul>
-<li>Note 1: In practice, people in the field say that the presence of an arrow indicates that A <em>might</em> cause Y.</li>
-<li>Note 2: If changes in the value of A change the value of Y, we often equate this with a change in mean, but it doesn’t have to. (e.g., the mean might not change, but the variance could)</li>
-</ul>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">by =</span> <span class="fl">0.1</span>),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">dnorm</span>(x, <span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"Control PO"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">context =</span> <span class="st">"Change in means"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">by =</span> <span class="fl">0.1</span>),</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">dnorm</span>(x, <span class="dv">1</span>, <span class="dv">1</span>),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"Treated PO"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">context =</span> <span class="st">"Change in means"</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">by =</span> <span class="fl">0.1</span>),</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">dnorm</span>(x, <span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"Control PO"</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">context =</span> <span class="st">"Change in variance"</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">by =</span> <span class="fl">0.1</span>),</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">dnorm</span>(x, <span class="dv">0</span>, <span class="dv">2</span>),</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"Treated PO"</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">context =</span> <span class="st">"Change in variance"</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> type)) <span class="sc">+</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(<span class="sc">~</span> context) <span class="sc">+</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"darkorange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03-causal-graphs-intro_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><br><br><br><br></p>
-</section>
-<section id="warm-up-1" class="level2">
-<h2 class="anchored" data-anchor-id="warm-up-1">Warm-up 1</h2>
-<p>We’re interested in the question “Does reading Harry Potter as a child make you read more as an adult?” A causal diagram is shown below.</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Requires the dagitty package to be loaded</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dag1 <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">"dag {</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">    bb=</span><span class="sc">\"</span><span class="st">0,0,1,1</span><span class="sc">\"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">    AgeWhenPotterReleased [pos=</span><span class="sc">\"</span><span class="st">0.200,0.200</span><span class="sc">\"</span><span class="st">]</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">    LikesReading [latent,pos=</span><span class="sc">\"</span><span class="st">0.500,0.350</span><span class="sc">\"</span><span class="st">]</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">    ReadOtherRowlingBooks [pos=</span><span class="sc">\"</span><span class="st">0.500,0.650</span><span class="sc">\"</span><span class="st">]</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">    ReadPotterAsKid [exposure,pos=</span><span class="sc">\"</span><span class="st">0.200,0.500</span><span class="sc">\"</span><span class="st">]</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">    ReadingAsAdult [outcome,pos=</span><span class="sc">\"</span><span class="st">0.800,0.500</span><span class="sc">\"</span><span class="st">]</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">    AgeWhenPotterReleased -&gt; ReadPotterAsKid</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">    LikesReading -&gt; ReadPotterAsKid</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">    LikesReading -&gt; ReadingAsAdult</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">    ReadOtherRowlingBooks -&gt; ReadingAsAdult</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">    ReadPotterAsKid -&gt; ReadOtherRowlingBooks</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">    ReadPotterAsKid -&gt; ReadingAsAdult</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="st">}"</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dag1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03-causal-graphs-intro_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol type="a">
-<li>What direct effects should be included when trying to answer your research question of interest?</li>
-<li>What indirect effects should be included when trying to answer your research question of interest?</li>
-<li>What is a likely alternative explanation of why we might see a relationship between reading Harry Potter and reading more as an adult?</li>
-<li><code>LikesReading</code> is included as an unobserved variable. Why do we bother to include variables on our diagrams if we can’t observe them? Why might we think that <code>LikesReading</code> is an unobserved or latent variable?</li>
-</ol>
-<p><br><br><br><br></p>
-</section>
-<section id="warm-up-2" class="level2">
-<h2 class="anchored" data-anchor-id="warm-up-2">Warm-up 2</h2>
-<p>The diagram below depicts a cyclical relationship between workplace culture and satisfaction. If employees perceive a more positive workplace culture, their satisfaction at work goes up, and if their satisfaction goes up, they contribute more to a positive workplace culture. Change the diagram so that the relationship is no longer cyclic.</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dag2 <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">"dag {</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">    bb=</span><span class="sc">\"</span><span class="st">0,0,1,1</span><span class="sc">\"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">    WorkCulture [pos=</span><span class="sc">\"</span><span class="st">0.250,0.500</span><span class="sc">\"</span><span class="st">]</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">    WorkSatisfaction [pos=</span><span class="sc">\"</span><span class="st">0.750,0.500</span><span class="sc">\"</span><span class="st">]</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">    WorkCulture &lt;-&gt; WorkSatisfaction</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">}"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dag2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03-causal-graphs-intro_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><br><br><br><br></p>
-</section>
-<section id="warm-up-3" class="level2">
-<h2 class="anchored" data-anchor-id="warm-up-3">Warm-up 3</h2>
-<p>Do you think it’s a stronger assumption to include an arrow or exclude an arrow on a causal diagram?</p>
-<p><br><br><br><br></p>
-</section>
-<section id="simplifying-causal-diagrams" class="level2">
-<h2 class="anchored" data-anchor-id="simplifying-causal-diagrams">Simplifying causal diagrams</h2>
-<p>The world is very complex, and causal diagrams can get very complex too.</p>
-<ul>
-<li>Simplifying causal diagrams is important for identification: focusing on alternate explanations of consequence.</li>
-<li>Simplifying is also important for sharing the diagram with diverse experts to get good feedback.</li>
-</ul>
-<p>We can use a few techniques to simplify causal diagrams:</p>
-<ol type="1">
-<li>Unimportance
-<ul>
-<li>Variables that have small effects on all other variables in the diagram and edges with small effects can likely be omitted safely.</li>
-<li>e.g., Living near a quiet cafe affects online course taking</li>
-</ul></li>
-<li>Redundancy
-<ul>
-<li>Variables that have the same arrows going in and coming out can be grouped together.</li>
-<li>e.g., Demographic variables like age and race and socioeconomic variables like years of school and years of work experience often have arrows pointing to the outcome and to treatment.
-<ul>
-<li><strong>Caveat:</strong> Having “Demographic Factors” and “Socioeconomic Factors” nodes can simplify the presentation of the causal diagram, but we really do need to know all the individual variables inside these broad categories to accurately estimate causal effects because each variable represents a different alternate explanation.</li>
-</ul></li>
-</ul></li>
-<li>Get rid of mediators
-<ul>
-<li>In situations like <code>A -&gt; B -&gt; C</code> with no other arrows into or out of <code>B</code>, we can likely omit <code>B</code> safely.</li>
-<li><strong>Caveat:</strong> In an area called <strong>mediation analysis</strong> (which aims to estimate the direct and indirect components of an overall causal effect), explicitly including mediators and paying careful attention to how mediators are related to other variables is very important.</li>
-</ul></li>
-<li>Irrelevance
-<ul>
-<li>If a variable isn’t on any path between the treatment and outcome, we can likely safely omit the variable.</li>
-<li>We’ll talk more about the rationale for this in the next classes.</li>
-</ul></li>
-</ol>
-<p><br><br></p>
-</section>
-<section id="drawing-causal-diagrams-with-dagitty" class="level2">
-<h2 class="anchored" data-anchor-id="drawing-causal-diagrams-with-dagitty">Drawing causal diagrams with DAGitty</h2>
-<p><a href="https://dagitty.net/">DAGitty</a> is an online tool (with an associated R package) for drawing causal diagrams. Click the “Launch” link to open a web tool.</p>
-<ul>
-<li>Model &gt; New Model: clear the screen</li>
-<li>Add a node: Click on the gray canvas</li>
-<li>Add an edge: First click on the variable representing the cause, then the variable representing the effect (arrow points to second node clicked)</li>
-<li>Delete a node: Click a node and hit “D”. (Or expand the “Variable” toggle in the top left and check “exposure”.)</li>
-<li>Delete an edge: First click the variable representing the cause, then the variable representing the effect.</li>
-<li>Label a node as the treatment (exposure): Click a node and hit “E”. (Or expand the “Variable” toggle in the top left and check “exposure”.)</li>
-<li>Label a node as the outcome: Click a node and hit “O”. (Or expand the “Variable” toggle in the top left and check “outcome”.)</li>
-</ul>
-<!-- In the [Causal Diagrams](https://youtu.be/aMNGfodzKO8) video, the first example causal graph actually has a cycle! -->
-<!-- In the Drawing Causal Diagrams video, Nick says that in addition to variables that cause both the treatment and the outcome, we really care about variables that affect treatment--I don't know if I would agree with this characterization. Variables that affect the outcome--even if they don't affect treatment, they can be used as precision variables. And adjusting for instruments is bad. -->
-<p><br><br><br><br></p>
-</section>
+<p><strong>You can download a template file for this activity <a href="templates/10-weighting.qmd">here</a>.</strong></p>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<p>We’ll be going through ideas in the slides <a href="https://docs.google.com/presentation/d/152IQNBg8E2e6nPGKHrT9Z9rIRlNOJ_LIsjRU1JIWEt0/edit?usp=sharing">here</a>.</p>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p>Record your research question in this <a href="https://docs.google.com/spreadsheets/d/1BkHMMw8hVaCRO1a7TGRdKmXq4lPPqw0QUXbbVpUTvx8/edit?usp=sharing">sheet</a> so that we can form pairs for the second exercise.</p>
+<p>We will continue looking at the data from the National Supported Work Demonstration project. What was the effect of this job training program on income following the program?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MatchIt)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(lalonde)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Variables of interest</strong>:</p>
+<ul>
+<li>Treatment/exposure: <code>treat</code> (Individual was assigned to the job training program, 1 = yes, 0 = no)</li>
+<li>Outcome: <code>re78</code> (Individual’s income in 1978, in US dollars)</li>
+</ul>
+<p><strong>Confounders</strong>:</p>
+<ul>
+<li><code>age</code>: age in years</li>
+<li><code>educ</code>: education in number of years of schooling</li>
+<li><code>race</code>: the individual’s race/ethnicity, (Black, Hispanic, or White)</li>
+<li><code>married</code>: an indicator for marital status (1 = married, 0 = not married)</li>
+<li><code>nodegree</code>: an indicator for whether the individual has a high school degree (1 = no degree, 0 = degree)</li>
+<li><code>re74</code>: income in 1974, in US dollars</li>
+<li><code>re75</code>: income in 1975, in US dollars</li>
+</ul>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>For your research question, sketch the possible data-generating process using a causal diagram (on paper or with <a href="https://dagitty.net/dags.html">DAGitty</a>):</p>
-<ul>
-<li>Clearly indicate the cause of interest and the outcome.</li>
-<li>Write down other variables are at play in this situation. Include these variables as nodes.</li>
-<li>Add edges depicting direct causal relationships between variables.</li>
-<li>Indicate which variables are latent or unobserved.</li>
-<li>Indicate which variables might be harder to collect (reliable) data on.</li>
-</ul>
+<p>First, let’s see how we would compute weights by hand.</p>
+<p>The code below fits a logistic regression model to estimate the propensity score for the <code>lalonde</code> data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>logistic_mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75, <span class="at">data =</span> lalonde, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Food for thought:</em> Is the above model a <em>good</em> model for the propensity score? We can check by assessing balance statistics after weighting. We won’t do that here, but we’ll explore how this can be done with R packages in Exercise 2.</p>
+<p>Next we use our model to obtain the propensity scores themselves and subsequently our weights. Look through the code below to see how ATE weights are computed. Make sure you understand the process, and clarify anything if needed.</p>
+<p>Add to this code to also compute ATT and ATC (ATU) weights.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lalonde_with_wts <span class="ot">&lt;-</span> lalonde <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Obtain propensity scores from logistic regression model (log odds-&gt;odds-&gt;p)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ps =</span> <span class="fu">predict</span>(logistic_mod, <span class="at">newdata =</span> data, <span class="at">type =</span> <span class="st">"response"</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">w_ate =</span> <span class="fu">case_when</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            A<span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span><span class="sc">/</span>ps, <span class="co"># When A=1, ATE weight is 1/P(A=1|Z)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            A<span class="sc">==</span><span class="dv">0</span> <span class="sc">~</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>ps) <span class="co"># When A=0, ATE weight is 1/P(A=0|Z) = 1/(1-P(A=1|Z))</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>You and your partner will take turns presenting your research question and causal diagram and working together to simplify the diagram.</p>
-<p>Pick one person to go first, and go through the following 2 steps. Switch when you’re done.</p>
-<p><strong>Step 1:</strong> Present your research question and causal diagram, making sure to explain any context needed to understand:</p>
-<ul>
-<li>The variables in the diagram</li>
-<li>The edges in and absent from the diagram</li>
-<li>Which paths are part of the causal effect of interest</li>
-</ul>
-<p>The listener should ask clarifying questions as necessary.</p>
-<p><strong>Step 2:</strong> Together, work through attempting to simplify the presenter’s diagram by going through the following 4 principles:</p>
-<ol type="1">
-<li>Unimportance</li>
-<li>Redundancy</li>
-<li>Mediators</li>
-<li>Irrelevance</li>
-</ol>
-<p>Make note of what was changed and what you’re still unsure about. If you came across a good example of one of these principles, draw it on the board to share with the class during our end-of-class debrief.</p>
+<p>The <code>WeightIt</code> package implements numerous weighting methods for causal inference. It is a parallel to the <code>MatchIt</code> package and maintained by some of the same authors, so the structure of code is similar.</p>
+<p>Open up <a href="https://ngreifer.github.io/WeightIt/articles/WeightIt.html">this WeightIt vignette</a> and read the Introduction and Balancing Weights for a Point Treatment sections.</p>
+<p>Take notes on the explanations here. We’ll go through this as a class after you’ve had a chance to look through.</p>
 
 
 </section>

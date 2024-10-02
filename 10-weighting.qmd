@@ -1,0 +1,79 @@
+---
+title: "Weighting"
+sidebar: false
+eval: false
+---
+
+**You can download a template file for this activity [here](templates/10-weighting.qmd).**
+
+# Discussion
+
+We'll be going through ideas in the slides [here](https://docs.google.com/presentation/d/152IQNBg8E2e6nPGKHrT9Z9rIRlNOJ_LIsjRU1JIWEt0/edit?usp=sharing).
+
+
+# Exercises
+
+We will continue looking at the data from the National Supported Work Demonstration project. What was the effect of this job training program on income following the program?
+
+```{r setup, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(MatchIt)
+library(marginaleffects)
+
+data(lalonde)
+```
+
+**Variables of interest**:
+
+- Treatment/exposure: `treat` (Individual was assigned to the job training program, 1 = yes, 0 = no)
+- Outcome: `re78` (Individual's income in 1978, in US dollars)
+
+**Confounders**:
+
+- `age`: age in years
+- `educ`: education in number of years of schooling
+- `race`: the individual's race/ethnicity, (Black, Hispanic, or White)
+- `married`: an indicator for marital status (1 = married, 0 = not married)
+- `nodegree`: an indicator for whether the individual has a high school degree (1 = no degree, 0 = degree)
+- `re74`: income in 1974, in US dollars
+- `re75`: income in 1975, in US dollars
+
+## Exercise 1
+
+First, let's see how we would compute weights by hand.
+
+The code below fits a logistic regression model to estimate the propensity score for the `lalonde` data:
+
+```{r}
+logistic_mod <- glm(treat ~ age + educ + race + married + nodegree + re74 + re75, data = lalonde, family = "binomial")
+```
+
+*Food for thought:* Is the above model a *good* model for the propensity score? We can check by assessing balance statistics after weighting. We won't do that here, but we'll explore how this can be done with R packages in Exercise 2.
+
+
+
+Next we use our model to obtain the propensity scores themselves and subsequently our weights. Look through the code below to see how ATE weights are computed. Make sure you understand the process, and clarify anything if needed.
+
+Add to this code to also compute ATT and ATC (ATU) weights.
+
+```{r}
+lalonde_with_wts <- lalonde %>% 
+    mutate(
+        # Obtain propensity scores from logistic regression model (log odds->odds->p)
+        ps = predict(logistic_mod, newdata = data, type = "response"),
+        w_ate = case_when(
+            A==1 ~ 1/ps, # When A=1, ATE weight is 1/P(A=1|Z)
+            A==0 ~ 1/(1-ps) # When A=0, ATE weight is 1/P(A=0|Z) = 1/(1-P(A=1|Z))
+        )
+    )
+```
+
+
+## Exercise 2
+
+The `WeightIt` package implements numerous weighting methods for causal inference. It is a parallel to the `MatchIt` package and maintained by some of the same authors, so the structure of code is similar.
+
+Open up [this WeightIt vignette](https://ngreifer.github.io/WeightIt/articles/WeightIt.html) and read the Introduction and Balancing Weights for a Point Treatment sections.
+
+Take notes on the explanations here. We'll go through this as a class after you've had a chance to look through.
+

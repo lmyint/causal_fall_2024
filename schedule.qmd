@@ -273,6 +273,8 @@ Formulate a research question that relates to an area that you're interested in.
 - Video: [Inverse Probability Weighting](https://youtu.be/PfLYPt9ur4g) (Time: 10:24) ([Slides](https://drive.google.com/file/d/1c99hoAOspc0S-SmB3DJjD2UO_-1YRtRX/view?usp=sharing))
 :::
 
+**During class:** [Weighting](10-weighting.qmd)
+
 ## Day 3: Regression discontinuity (10/4) {#day14}
 
 **Before class:**
