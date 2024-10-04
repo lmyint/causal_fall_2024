@@ -55,7 +55,14 @@ Check here to see what you should be doing before, during, and after each class 
     <td class="topleft">5 (9/30 - 10/4)</td>
     <td class="topleft"><a href="#day12">Matching (Part 2)</a></td>
     <td class="topleft"><a href="#day13">Weighting</a></td>
-    <td class="topleft"><a href="#day14">Regression discontinuity designs</a></td>
+    <td class="topleft"><a href="#day14">Weighting (continued)</a></td>
+    <td class="topleft">Work on <a href="assignments.html#assignment-3">Assignment 3</a> and addressing feedback on Assignment 2. Both due Wed, 10/9.</td>
+  </tr>
+  <tr>
+    <td class="topleft">6 (10/7 - 10/4)</td>
+    <td class="topleft"><a href="#day15">Regression discontinuity designs</a></td>
+    <td class="topleft"><a href="#day16">Event studies / interrupted time series</a></td>
+    <td class="topleft">Leslie won't be in class today but start thinking about project topics and finding data if pursuing the data analysis option</td>
     <td class="topleft">Work on <a href="assignments.html#assignment-3">Assignment 3</a> and addressing feedback on Assignment 2. Both due Wed, 10/9.</td>
   </tr>
 </tbody>
@@ -275,7 +282,21 @@ Formulate a research question that relates to an area that you're interested in.
 
 **During class:** [Weighting](10-weighting.qmd)
 
-## Day 3: Regression discontinuity (10/4) {#day14}
+## Day 3: Weighting (10/4) {#day14}
+
+- Continuation of previous class
+
+**During class:** [Weighting](10-weighting.qmd)
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 6: Longitudinal/panel data
+
+## Day 1: Regression discontinuity (10/7) {#day15}
 
 **Before class:**
 
@@ -294,17 +315,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 <!-- **During class:** [Regression discontinuity designs](10-rdd.qmd) -->
 
-
-
-
-
-<!-- ============================================================= -->
-
-
-
-# Week 6: Longitudinal/panel data
-
-## Day 1: Event studies / interrupted times series
+## Day 2: Event studies / interrupted times series (10/9) {#day16}
 
 **Before class:**
 
@@ -318,7 +329,23 @@ Formulate a research question that relates to an area that you're interested in.
 
 **During class:** 
 
-## Day 2: Synthetic control
+
+## Day 3: Flex Day (10/1) {#day17}
+
+No class today because I will be attending a workshop.
+
+**On your own:** Start exploring options for the course project.
+
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Week 7: Synthetic control, fixed effects models
+
+## Day 1: Synthetic control
 
 **Before class:**
 
@@ -334,31 +361,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 **During class:** 
 
-## Day 3: Flex Day
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- 
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-
-
-
-
-
-
-<!-- ============================================================= -->
-
-
-
-# Week 7: Fixed effects and difference-in-differences
-
-## Day 1: Fixed effects models
+## Day 2: Fixed effects models
 
 **Before class:**
 
@@ -372,7 +375,21 @@ Formulate a research question that relates to an area that you're interested in.
 
 **During class:** 
 
-## Day 2: Difference-in-differences designs
+---
+
+🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁
+
+🍁 No class on Friday, October 18 🍁
+
+
+
+<!-- ============================================================= -->
+
+
+
+# Weeks 8-13
+
+## Difference-in-differences designs
 
 **Before class:**
 
@@ -392,18 +409,6 @@ Formulate a research question that relates to an area that you're interested in.
 :::
 
 **During class:** 
-
-🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁
-
-🍁 No class on Friday, October 18 🍁
-
-
-
-<!-- ============================================================= -->
-
-
-
-# Weeks 8-13
 
 ## Instrumental variables
 

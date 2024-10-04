@@ -192,43 +192,50 @@
     "objectID": "schedule.html#day14",
     "href": "schedule.html#day14",
     "title": "Schedule",
-    "section": "Day 3: Regression discontinuity (10/4)",
-    "text": "Day 3: Regression discontinuity (10/4)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)"
+    "section": "Day 3: Weighting (10/4)",
+    "text": "Day 3: Weighting (10/4)\n\nContinuation of previous class\n\nDuring class: Weighting"
   },
   {
-    "objectID": "schedule.html#day-1-event-studies-interrupted-times-series",
-    "href": "schedule.html#day-1-event-studies-interrupted-times-series",
+    "objectID": "schedule.html#day15",
+    "href": "schedule.html#day15",
     "title": "Schedule",
-    "section": "Day 1: Event studies / interrupted times series",
-    "text": "Day 1: Event studies / interrupted times series\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 17: Event Studies (~70 minutes)\n\nVideo alternatives:\n\nEvent Studies (~12 minutes)\nInterrupted Time Series (~8 minutes)\nEvent Studies in Finance (~11 minutes)\n\n\n\n\n\nDuring class:"
+    "section": "Day 1: Regression discontinuity (10/7)",
+    "text": "Day 1: Regression discontinuity (10/7)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)"
   },
   {
-    "objectID": "schedule.html#day-2-synthetic-control",
-    "href": "schedule.html#day-2-synthetic-control",
+    "objectID": "schedule.html#day16",
+    "href": "schedule.html#day16",
     "title": "Schedule",
-    "section": "Day 2: Synthetic control",
-    "text": "Day 2: Synthetic control\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class:"
+    "section": "Day 2: Event studies / interrupted times series (10/9)",
+    "text": "Day 2: Event studies / interrupted times series (10/9)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 17: Event Studies (~70 minutes)\n\nVideo alternatives:\n\nEvent Studies (~12 minutes)\nInterrupted Time Series (~8 minutes)\nEvent Studies in Finance (~11 minutes)\n\n\n\n\n\nDuring class:"
   },
   {
-    "objectID": "schedule.html#day-3-flex-day",
-    "href": "schedule.html#day-3-flex-day",
+    "objectID": "schedule.html#day17",
+    "href": "schedule.html#day17",
     "title": "Schedule",
-    "section": "Day 3: Flex Day",
-    "text": "Day 3: Flex Day\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+    "section": "Day 3: Flex Day (10/1)",
+    "text": "Day 3: Flex Day (10/1)\nNo class today because I will be attending a workshop.\nOn your own: Start exploring options for the course project."
   },
   {
-    "objectID": "schedule.html#day-1-fixed-effects-models",
-    "href": "schedule.html#day-1-fixed-effects-models",
+    "objectID": "schedule.html#day-1-synthetic-control",
+    "href": "schedule.html#day-1-synthetic-control",
     "title": "Schedule",
-    "section": "Day 1: Fixed effects models",
-    "text": "Day 1: Fixed effects models\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\n\n\n\nDuring class:"
+    "section": "Day 1: Synthetic control",
+    "text": "Day 1: Synthetic control\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class:"
   },
   {
-    "objectID": "schedule.html#day-2-difference-in-differences-designs",
-    "href": "schedule.html#day-2-difference-in-differences-designs",
+    "objectID": "schedule.html#day-2-fixed-effects-models",
+    "href": "schedule.html#day-2-fixed-effects-models",
     "title": "Schedule",
-    "section": "Day 2: Difference-in-differences designs",
-    "text": "Day 2: Difference-in-differences designs\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (~80 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)\n\n\n\n\nDuring class:\n🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁\n🍁 No class on Friday, October 18 🍁"
+    "section": "Day 2: Fixed effects models",
+    "text": "Day 2: Fixed effects models\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\n\n\n\nDuring class:\n\n🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁\n🍁 No class on Friday, October 18 🍁"
+  },
+  {
+    "objectID": "schedule.html#difference-in-differences-designs",
+    "href": "schedule.html#difference-in-differences-designs",
+    "title": "Schedule",
+    "section": "Difference-in-differences designs",
+    "text": "Difference-in-differences designs\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (~80 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)\n\n\n\n\nDuring class:"
   },
   {
     "objectID": "schedule.html#instrumental-variables",
@@ -343,7 +350,7 @@
     "href": "10-weighting.html#exercise-1",
     "title": "Weighting",
     "section": "Exercise 1",
-    "text": "Exercise 1\nFirst, let’s see how we would compute weights by hand.\nThe code below fits a logistic regression model to estimate the propensity score for the lalonde data:\n\nlogistic_mod &lt;- glm(treat ~ age + educ + race + married + nodegree + re74 + re75, data = lalonde, family = \"binomial\")\n\nFood for thought: Is the above model a good model for the propensity score? We can check by assessing balance statistics after weighting. We won’t do that here, but we’ll explore how this can be done with R packages in Exercise 2.\nNext we use our model to obtain the propensity scores themselves and subsequently our weights. Look through the code below to see how ATE weights are computed. Make sure you understand the process, and clarify anything if needed.\nAdd to this code to also compute ATT and ATC (ATU) weights.\n\nlalonde_with_wts &lt;- lalonde %&gt;% \n    mutate(\n        # Obtain propensity scores from logistic regression model (log odds-&gt;odds-&gt;p)\n        ps = predict(logistic_mod, newdata = data, type = \"response\"),\n        w_ate = case_when(\n            A==1 ~ 1/ps, # When A=1, ATE weight is 1/P(A=1|Z)\n            A==0 ~ 1/(1-ps) # When A=0, ATE weight is 1/P(A=0|Z) = 1/(1-P(A=1|Z))\n        )\n    )",
+    "text": "Exercise 1\nFirst, let’s see how we would compute weights by hand.\nThe code below fits a logistic regression model to estimate the propensity score for the lalonde data:\n\nlogistic_mod &lt;- glm(treat ~ age + educ + race + married + nodegree + re74 + re75, data = lalonde, family = \"binomial\")\n\nFood for thought: Is the above model a good model for the propensity score? We can check by assessing balance statistics after weighting. We won’t do that here, but we’ll explore how this can be done with R packages in Exercise 2.\nNext we use our model to obtain the propensity scores themselves and subsequently our weights. Look through the code below to see how ATE weights are computed. Make sure you understand the process, and clarify anything if needed.\nAdd to this code to also compute ATT and ATC (ATU) weights.\n\nlalonde_with_wts &lt;- lalonde %&gt;% \n    mutate(\n        # Obtain propensity scores from logistic regression model (log odds-&gt;odds-&gt;p)\n        ps = predict(logistic_mod, newdata = lalonde, type = \"response\"),\n        w_ate = case_when(\n            treat==1 ~ 1/ps, # When A=1, ATE weight is 1/P(A=1|Z)\n            treat==0 ~ 1/(1-ps) # When A=0, ATE weight is 1/P(A=0|Z) = 1/(1-P(A=1|Z))\n        )\n    )",
     "crumbs": [
       "Weighting"
     ]
@@ -353,7 +360,37 @@
     "href": "10-weighting.html#exercise-2",
     "title": "Weighting",
     "section": "Exercise 2",
-    "text": "Exercise 2\nThe WeightIt package implements numerous weighting methods for causal inference. It is a parallel to the MatchIt package and maintained by some of the same authors, so the structure of code is similar.\nOpen up this WeightIt vignette and read the Introduction and Balancing Weights for a Point Treatment sections.\nTake notes on the explanations here. We’ll go through this as a class after you’ve had a chance to look through.",
+    "text": "Exercise 2\nThe WeightIt package implements numerous weighting methods for causal inference. It is a parallel to the MatchIt package and maintained by some of the same authors, so the structure of code is similar.\nOpen up this WeightIt vignette and read the Introduction and Balancing Weights for a Point Treatment sections.\nAs you read, try to answer the following for a generic treatment A and covariates X1, X2, and X3 that block noncausal paths (result in conditional exchangeability)?\n\nWhat code would we use to estimate ATT weights using logistic regression to estimate the propensity score?\n\nBased on this code, what is our guess about how to estimate the ATE and the ATU?\nWhat if we wanted to estimate the propensity score with something other than a logistic regression model? What argument would need to change?\nHow would we find specific answers to the above 2 questions?\n\nWhat code would we use to inspect the quality of the weights?\n\nWhat metrics are used to quantify quality of the weights? What values do we want these metrics to take if weights are of good quality?\n\nbal.tab() from the cobalt package computes balance statistics. We can see from the vignette that we supply:\n\nThe result from weightit()\nA stats argument. Look up the ?bal.tab documentation to understand how to set this argument.\nA thresholds argument. Look up the ?bal.tab documentation to understand how to set this argument.\n\nHow do we use lm_weightit() and avg_comparisons() to estimate the treatment effect?",
+    "crumbs": [
+      "Weighting"
+    ]
+  },
+  {
+    "objectID": "10-weighting.html#exercise-3",
+    "href": "10-weighting.html#exercise-3",
+    "title": "Weighting",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWe will continue looking at the data from the National Supported Work Demonstration project. What was the effect of this job training program on income following the program?\n\nlibrary(WeightIt)\nlibrary(cobalt)\nlibrary(marginaleffects)\n\ndata(lalonde) # Load the job training data\n\nImplement inverse probability weighting to estimate the ATE, ATT, and ATC using logistic regression to estimate the propensity score. We will continue using all covariates (age + educ + race + married + nodegree + re74 + re75) to block noncausal paths.\n\nweight_out_ate &lt;- weightit(\n    ???\n)\n\nweight_out_att &lt;- weightit(\n    ???\n)\n\nweight_out_atc &lt;- weightit(\n    ???\n)\n\nCheck that the weights that you computed by hand are identical to the ones from weightit():\n\n# all.equal() checks if 2 vectors are basically identical (give or take some \n# differences in floating point precision)\n# We use unname to get rid of the unit IDs that show up as names for the\n# vector elements in our manual calculation\nall.equal(weight_out_ate$weights, unname(lalonde_with_wts$w_ate))\nall.equal(weight_out_att$weights, unname(lalonde_with_wts$w_att))\nall.equal(weight_out_atc$weights, unname(lalonde_with_wts$w_atc))",
+    "crumbs": [
+      "Weighting"
+    ]
+  },
+  {
+    "objectID": "10-weighting.html#exercise-4",
+    "href": "10-weighting.html#exercise-4",
+    "title": "Weighting",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nWhen estimating the ATE, one adjustment we can consider for our weights is weight stabilization. By multiplying all the weights for the treated units by the same factor \\(k_1\\) and all the weights for the control units by the same factor \\(k_2\\) we can reduce the spread (range) of the weights, which can help in increasing the precision of our effect estimates (but isn’t guaranteed).\n(If you want to explore this more: Section 12.3 of our supplemental reference Causal Inference: What If discusses stabilized IP weighting.)\nThe stabilize argument can be set to TRUE to compute stabilized weights. Compare the range of weights with and without stabilization.\n\nweight_out_ate_stabilized &lt;- weightit(\n    treat ~ age + educ + race + married + nodegree + re74 + re75,\n    data = lalonde,\n    estimand = \"ATE\",\n    method = \"glm\",\n    stabilize = TRUE\n)\n\nsummary(weight_out_ate)\nsummary(weight_out_ate_stabilized)\n\nWe can compare the standard errors of our treatment effect estimates with and without stabilization. In this case, stabilized weights didn’t reduce the variance of the treatment effect estimate, but it generally is a good idea to explore:\n\n# Using unstabilized weights\nfit_unstabilized &lt;- lm_weightit(\n    re78 ~ treat * (age + educ + race + married + nodegree + re74 + re75),\n    data = lalonde,\n    weightit = weight_out_ate\n)\n\navg_comparisons(\n    fit_unstabilized,\n    variables = \"treat\",\n    newdata = lalonde\n)\n\n# Using unstabilized weights\nfit_stabilized &lt;- lm_weightit(\n    re78 ~ treat * (age + educ + race + married + nodegree + re74 + re75),\n    data = lalonde,\n    weightit = weight_out_ate_stabilized\n)\n\navg_comparisons(\n    fit_stabilized,\n    variables = \"treat\",\n    newdata = lalonde\n)",
+    "crumbs": [
+      "Weighting"
+    ]
+  },
+  {
+    "objectID": "10-weighting.html#exercise-5",
+    "href": "10-weighting.html#exercise-5",
+    "title": "Weighting",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nEntropy balancing is another weighting technique that solves a constrained optimization problem to find weights that exactly match moments of the covariates and minimize the variance of the weights (variance as quantified by a measure called entropy):\n\nThe p-th moment of a probability distribution for a random variable \\(X\\) is \\(E[X^p]\\).\n\nThe 1st moment is the mean (expected value): \\(E[X]\\)\nThe 2nd moment \\(E[X^2]\\) is used in computing the variance (\\(\\text{Var}(X) = E[X^2] - (E[X])^2\\))\n\n\nBelow we run entropy balancing to balance twice:\n\nFirst time: We balance the first moment (the mean) of each covariate across the treatment groups\nSecond time: We balance the first 2 moments (which balances the mean and variance) of each covariate across the treatment groups\n\n\nweight_out_ebal_mom1 &lt;- weightit(\n    treat ~ age + educ + race + married + nodegree + re74 + re75,\n    data = lalonde,\n    estimand = \"ATT\",\n    moments = 1,\n    method = \"ebal\"\n)\n\nweight_out_ebal_mom2 &lt;- weightit(\n    treat ~ age + educ + race + married + nodegree + re74 + re75,\n    data = lalonde,\n    estimand = \"ATT\",\n    moments = 2,\n    method = \"ebal\"\n)\n\nCompare the quality of the weights and the balance statistics across these two implementations:\n\nIn the balance table, how does Diff.Adj compare? Does this make sense?\nIn the balance table, how does V.Ratio.Adj compare? Does this make sense?\nHow does the variance of the weights compare between the two approaches?\n\n\nsummary(weight_out_ebal_mom1)\nbal.tab(weight_out_ebal_mom1, stats = c(\"m\", \"v\"), thresholds = c(m = .05))\nsummary(weight_out_ebal_mom2)\nbal.tab(weight_out_ebal_mom2, stats = c(\"m\", \"v\"), thresholds = c(m = .05))",
     "crumbs": [
       "Weighting"
     ]

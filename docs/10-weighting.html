@@ -101,6 +101,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -214,6 +243,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -284,10 +316,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lalonde_with_wts <span class="ot">&lt;-</span> lalonde <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Obtain propensity scores from logistic regression model (log odds-&gt;odds-&gt;p)</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ps =</span> <span class="fu">predict</span>(logistic_mod, <span class="at">newdata =</span> data, <span class="at">type =</span> <span class="st">"response"</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ps =</span> <span class="fu">predict</span>(logistic_mod, <span class="at">newdata =</span> lalonde, <span class="at">type =</span> <span class="st">"response"</span>),</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">w_ate =</span> <span class="fu">case_when</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            A<span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span><span class="sc">/</span>ps, <span class="co"># When A=1, ATE weight is 1/P(A=1|Z)</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            A<span class="sc">==</span><span class="dv">0</span> <span class="sc">~</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>ps) <span class="co"># When A=0, ATE weight is 1/P(A=0|Z) = 1/(1-P(A=1|Z))</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            treat<span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span><span class="sc">/</span>ps, <span class="co"># When A=1, ATE weight is 1/P(A=1|Z)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            treat<span class="sc">==</span><span class="dv">0</span> <span class="sc">~</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>ps) <span class="co"># When A=0, ATE weight is 1/P(A=0|Z) = 1/(1-P(A=1|Z))</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        )</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -296,7 +328,152 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <p>The <code>WeightIt</code> package implements numerous weighting methods for causal inference. It is a parallel to the <code>MatchIt</code> package and maintained by some of the same authors, so the structure of code is similar.</p>
 <p>Open up <a href="https://ngreifer.github.io/WeightIt/articles/WeightIt.html">this WeightIt vignette</a> and read the Introduction and Balancing Weights for a Point Treatment sections.</p>
-<p>Take notes on the explanations here. We’ll go through this as a class after you’ve had a chance to look through.</p>
+<p>As you read, try to answer the following for a generic treatment <code>A</code> and covariates <code>X1</code>, <code>X2</code>, and <code>X3</code> that block noncausal paths (result in conditional exchangeability)?</p>
+<ul>
+<li>What code would we use to estimate ATT weights using logistic regression to estimate the propensity score?
+<ul>
+<li>Based on this code, what is our guess about how to estimate the ATE and the ATU?</li>
+<li>What if we wanted to estimate the propensity score with something other than a logistic regression model? What argument would need to change?</li>
+<li>How would we find specific answers to the above 2 questions?</li>
+</ul></li>
+<li>What code would we use to inspect the quality of the weights?
+<ul>
+<li>What metrics are used to quantify quality of the weights? What values do we want these metrics to take if weights are of good quality?</li>
+</ul></li>
+<li><code>bal.tab()</code> from the <code>cobalt</code> package computes balance statistics. We can see from the vignette that we supply:
+<ul>
+<li>The result from <code>weightit()</code></li>
+<li>A <code>stats</code> argument. Look up the <code>?bal.tab</code> documentation to understand how to set this argument.</li>
+<li>A <code>thresholds</code> argument. Look up the <code>?bal.tab</code> documentation to understand how to set this argument.</li>
+</ul></li>
+<li>How do we use <code>lm_weightit()</code> and <code>avg_comparisons()</code> to estimate the treatment effect?</li>
+</ul>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>We will continue looking at the data from the National Supported Work Demonstration project. What was the effect of this job training program on income following the program?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WeightIt)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cobalt)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(lalonde) <span class="co"># Load the job training data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Implement inverse probability weighting to estimate the ATE, ATT, and ATC using logistic regression to estimate the propensity score. We will continue using all covariates (<code>age + educ + race + married + nodegree + re74 + re75</code>) to block noncausal paths.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>weight_out_ate <span class="ot">&lt;-</span> <span class="fu">weightit</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    ???</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>weight_out_att <span class="ot">&lt;-</span> <span class="fu">weightit</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ???</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>weight_out_atc <span class="ot">&lt;-</span> <span class="fu">weightit</span>(</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    ???</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Check that the weights that you computed by hand are identical to the ones from <code>weightit()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all.equal() checks if 2 vectors are basically identical (give or take some </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># differences in floating point precision)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We use unname to get rid of the unit IDs that show up as names for the</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># vector elements in our manual calculation</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(weight_out_ate<span class="sc">$</span>weights, <span class="fu">unname</span>(lalonde_with_wts<span class="sc">$</span>w_ate))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(weight_out_att<span class="sc">$</span>weights, <span class="fu">unname</span>(lalonde_with_wts<span class="sc">$</span>w_att))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(weight_out_atc<span class="sc">$</span>weights, <span class="fu">unname</span>(lalonde_with_wts<span class="sc">$</span>w_atc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>When estimating the ATE, one adjustment we can consider for our weights is <strong>weight stabilization</strong>. By multiplying all the weights for the treated units by the same factor <span class="math inline">\(k_1\)</span> and all the weights for the control units by the same factor <span class="math inline">\(k_2\)</span> we can reduce the spread (range) of the weights, which can help in increasing the precision of our effect estimates (but isn’t guaranteed).</p>
+<p>(If you want to explore this more: Section 12.3 of our supplemental reference <a href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">Causal Inference: What If</a> discusses stabilized IP weighting.)</p>
+<p>The <code>stabilize</code> argument can be set to <code>TRUE</code> to compute stabilized weights. Compare the range of weights with and without stabilization.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>weight_out_ate_stabilized <span class="ot">&lt;-</span> <span class="fu">weightit</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> lalonde,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimand =</span> <span class="st">"ATE"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"glm"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">stabilize =</span> <span class="cn">TRUE</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(weight_out_ate)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(weight_out_ate_stabilized)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can compare the standard errors of our treatment effect estimates with and without stabilization. In this case, stabilized weights didn’t reduce the variance of the treatment effect estimate, but it generally is a good idea to explore:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using unstabilized weights</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fit_unstabilized <span class="ot">&lt;-</span> <span class="fu">lm_weightit</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    re78 <span class="sc">~</span> treat <span class="sc">*</span> (age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> lalonde,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">weightit =</span> weight_out_ate</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">avg_comparisons</span>(</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    fit_unstabilized,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">"treat"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">newdata =</span> lalonde</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Using unstabilized weights</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>fit_stabilized <span class="ot">&lt;-</span> <span class="fu">lm_weightit</span>(</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    re78 <span class="sc">~</span> treat <span class="sc">*</span> (age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75),</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> lalonde,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">weightit =</span> weight_out_ate_stabilized</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu">avg_comparisons</span>(</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    fit_stabilized,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">"treat"</span>,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">newdata =</span> lalonde</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Entropy balancing is another weighting technique that solves a constrained optimization problem to find weights that <em>exactly</em> match <strong>moments</strong> of the covariates and minimize the variance of the weights (variance as quantified by a measure called <strong>entropy</strong>):</p>
+<ul>
+<li>The p-th moment of a probability distribution for a random variable <span class="math inline">\(X\)</span> is <span class="math inline">\(E[X^p]\)</span>.
+<ul>
+<li>The 1st moment is the mean (expected value): <span class="math inline">\(E[X]\)</span></li>
+<li>The 2nd moment <span class="math inline">\(E[X^2]\)</span> is used in computing the variance (<span class="math inline">\(\text{Var}(X) = E[X^2] - (E[X])^2\)</span>)</li>
+</ul></li>
+</ul>
+<p>Below we run entropy balancing to balance twice:</p>
+<ul>
+<li>First time: We balance the first moment (the mean) of each covariate across the treatment groups</li>
+<li>Second time: We balance the first 2 moments (which balances the mean and variance) of each covariate across the treatment groups</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>weight_out_ebal_mom1 <span class="ot">&lt;-</span> <span class="fu">weightit</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> lalonde,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimand =</span> <span class="st">"ATT"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">moments =</span> <span class="dv">1</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"ebal"</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>weight_out_ebal_mom2 <span class="ot">&lt;-</span> <span class="fu">weightit</span>(</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> lalonde,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimand =</span> <span class="st">"ATT"</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">moments =</span> <span class="dv">2</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"ebal"</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Compare the quality of the weights and the balance statistics across these two implementations:</p>
+<ul>
+<li>In the balance table, how does <code>Diff.Adj</code> compare? Does this make sense?</li>
+<li>In the balance table, how does <code>V.Ratio.Adj</code> compare? Does this make sense?</li>
+<li>How does the variance of the weights compare between the two approaches?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(weight_out_ebal_mom1)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bal.tab</span>(weight_out_ebal_mom1, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"m"</span>, <span class="st">"v"</span>), <span class="at">thresholds =</span> <span class="fu">c</span>(<span class="at">m =</span> .<span class="dv">05</span>))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(weight_out_ebal_mom2)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">bal.tab</span>(weight_out_ebal_mom2, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"m"</span>, <span class="st">"v"</span>), <span class="at">thresholds =</span> <span class="fu">c</span>(<span class="at">m =</span> .<span class="dv">05</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>

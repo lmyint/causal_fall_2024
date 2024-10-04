@@ -206,7 +206,10 @@ sim_results <- replicate(1000, {
                 ???
             )
         )
-    # Obtain 
+    # Obtain treatment effect estimates
+    # Note: we're using lm() here instead of functions from the WeightIt package
+    # because we just want the estimates for this simulation (and not 
+    # metrics for inference like standard errors)
     mod_simple <- lm(Y ~ A, data = sim_data, weights = ipw_simple)
     mod_complex <- lm(Y ~ A, data = sim_data, weights = ipw_complex)
     

@@ -60,10 +60,10 @@ Add to this code to also compute ATT and ATC (ATU) weights.
 lalonde_with_wts <- lalonde %>% 
     mutate(
         # Obtain propensity scores from logistic regression model (log odds->odds->p)
-        ps = predict(logistic_mod, newdata = data, type = "response"),
+        ps = predict(logistic_mod, newdata = lalonde, type = "response"),
         w_ate = case_when(
-            A==1 ~ 1/ps, # When A=1, ATE weight is 1/P(A=1|Z)
-            A==0 ~ 1/(1-ps) # When A=0, ATE weight is 1/P(A=0|Z) = 1/(1-P(A=1|Z))
+            treat==1 ~ 1/ps, # When A=1, ATE weight is 1/P(A=1|Z)
+            treat==0 ~ 1/(1-ps) # When A=0, ATE weight is 1/P(A=0|Z) = 1/(1-P(A=1|Z))
         )
     )
 ```
@@ -75,5 +75,166 @@ The `WeightIt` package implements numerous weighting methods for causal inferenc
 
 Open up [this WeightIt vignette](https://ngreifer.github.io/WeightIt/articles/WeightIt.html) and read the Introduction and Balancing Weights for a Point Treatment sections.
 
-Take notes on the explanations here. We'll go through this as a class after you've had a chance to look through.
+As you read, try to answer the following for a generic treatment `A` and covariates `X1`, `X2`, and `X3` that block noncausal paths (result in conditional exchangeability)?
+
+- What code would we use to estimate ATT weights using logistic regression to estimate the propensity score?
+    - Based on this code, what is our guess about how to estimate the ATE and the ATU?
+    - What if we wanted to estimate the propensity score with something other than a logistic regression model? What argument would need to change?
+    - How would we find specific answers to the above 2 questions?
+
+- What code would we use to inspect the quality of the weights?
+    - What metrics are used to quantify quality of the weights? What values do we want these metrics to take if weights are of good quality?
+
+- `bal.tab()` from the `cobalt` package computes balance statistics. We can see from the vignette that we supply:
+    - The result from `weightit()`
+    - A `stats` argument. Look up the `?bal.tab` documentation to understand how to set this argument.
+    - A `thresholds` argument. Look up the `?bal.tab` documentation to understand how to set this argument.
+
+- How do we use `lm_weightit()` and `avg_comparisons()` to estimate the treatment effect?
+
+
+## Exercise 3
+
+We will continue looking at the data from the National Supported Work Demonstration project. What was the effect of this job training program on income following the program?
+
+```{r}
+library(WeightIt)
+library(cobalt)
+library(marginaleffects)
+
+data(lalonde) # Load the job training data
+```
+
+Implement inverse probability weighting to estimate the ATE, ATT, and ATC using logistic regression to estimate the propensity score. We will continue using all covariates (`age + educ + race + married + nodegree + re74 + re75`) to block noncausal paths.
+
+```{r}
+weight_out_ate <- weightit(
+    ???
+)
+
+weight_out_att <- weightit(
+    ???
+)
+
+weight_out_atc <- weightit(
+    ???
+)
+```
+
+Check that the weights that you computed by hand are identical to the ones from `weightit()`:
+
+```{r}
+# all.equal() checks if 2 vectors are basically identical (give or take some 
+# differences in floating point precision)
+# We use unname to get rid of the unit IDs that show up as names for the
+# vector elements in our manual calculation
+all.equal(weight_out_ate$weights, unname(lalonde_with_wts$w_ate))
+all.equal(weight_out_att$weights, unname(lalonde_with_wts$w_att))
+all.equal(weight_out_atc$weights, unname(lalonde_with_wts$w_atc))
+```
+
+
+
+
+## Exercise 4
+
+When estimating the ATE, one adjustment we can consider for our weights is **weight stabilization**. By multiplying all the weights for the treated units by the same factor $k_1$ and all the weights for the control units by the same factor $k_2$ we can reduce the spread (range) of the weights, which can help in increasing the precision of our effect estimates (but isn't guaranteed).
+
+(If you want to explore this more: Section 12.3 of our supplemental reference [Causal Inference: What If](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/) discusses stabilized IP weighting.)
+
+The `stabilize` argument can be set to `TRUE` to compute stabilized weights. Compare the range of weights with and without stabilization.
+
+```{r}
+weight_out_ate_stabilized <- weightit(
+    treat ~ age + educ + race + married + nodegree + re74 + re75,
+    data = lalonde,
+    estimand = "ATE",
+    method = "glm",
+    stabilize = TRUE
+)
+
+summary(weight_out_ate)
+summary(weight_out_ate_stabilized)
+```
+
+We can compare the standard errors of our treatment effect estimates with and without stabilization. In this case, stabilized weights didn't reduce the variance of the treatment effect estimate, but it generally is a good idea to explore:
+
+```{r}
+# Using unstabilized weights
+fit_unstabilized <- lm_weightit(
+    re78 ~ treat * (age + educ + race + married + nodegree + re74 + re75),
+    data = lalonde,
+    weightit = weight_out_ate
+)
+
+avg_comparisons(
+    fit_unstabilized,
+    variables = "treat",
+    newdata = lalonde
+)
+
+# Using unstabilized weights
+fit_stabilized <- lm_weightit(
+    re78 ~ treat * (age + educ + race + married + nodegree + re74 + re75),
+    data = lalonde,
+    weightit = weight_out_ate_stabilized
+)
+
+avg_comparisons(
+    fit_stabilized,
+    variables = "treat",
+    newdata = lalonde
+)
+```
+
+
+
+
+
+
+## Exercise 5
+
+Entropy balancing is another weighting technique that solves a constrained optimization problem to find weights that *exactly* match **moments** of the covariates and minimize the variance of the weights (variance as quantified by a measure called **entropy**):
+
+- The p-th moment of a probability distribution for a random variable $X$ is $E[X^p]$.
+    - The 1st moment is the mean (expected value): $E[X]$
+    - The 2nd moment $E[X^2]$ is used in computing the variance ($\text{Var}(X) = E[X^2] - (E[X])^2$)
+
+Below we run entropy balancing to balance twice:
+
+- First time: We balance the first moment (the mean) of each covariate across the treatment groups
+- Second time: We balance the first 2 moments (which balances the mean and variance) of each covariate across the treatment groups
+
+```{r}
+weight_out_ebal_mom1 <- weightit(
+    treat ~ age + educ + race + married + nodegree + re74 + re75,
+    data = lalonde,
+    estimand = "ATT",
+    moments = 1,
+    method = "ebal"
+)
+
+weight_out_ebal_mom2 <- weightit(
+    treat ~ age + educ + race + married + nodegree + re74 + re75,
+    data = lalonde,
+    estimand = "ATT",
+    moments = 2,
+    method = "ebal"
+)
+```
+
+Compare the quality of the weights and the balance statistics across these two implementations:
+
+- In the balance table, how does `Diff.Adj` compare? Does this make sense?
+- In the balance table, how does `V.Ratio.Adj` compare? Does this make sense?
+- How does the variance of the weights compare between the two approaches?
+
+```{r}
+summary(weight_out_ebal_mom1)
+bal.tab(weight_out_ebal_mom1, stats = c("m", "v"), thresholds = c(m = .05))
+summary(weight_out_ebal_mom2)
+bal.tab(weight_out_ebal_mom2, stats = c("m", "v"), thresholds = c(m = .05))
+```
+
+
 
