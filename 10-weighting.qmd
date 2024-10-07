@@ -17,7 +17,8 @@ We will continue looking at the data from the National Supported Work Demonstrat
 
 ```{r setup, warning=FALSE, message=FALSE}
 library(tidyverse)
-library(MatchIt)
+library(WeightIt)
+library(cobalt)
 library(marginaleffects)
 
 data(lalonde)

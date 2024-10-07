@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>STAT 451 - Regression Discontinuity Designs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">STAT 451</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-activities" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Activities</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-activities">    
+        <li>
+    <a class="dropdown-item" href="./01-introductions.html">
+ <span class="dropdown-text">Introductions and foundational ideas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./02-identification.html">
+ <span class="dropdown-text">Causal identification: building intuition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./03-causal-graphs-intro.html">
+ <span class="dropdown-text">Causal graph fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./04-causal-graphs-simulation.html">
+ <span class="dropdown-text">Simulating data using causal graphs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./05-causal-graphs-identification.html">
+ <span class="dropdown-text">Identifying causal effects with causal graphs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./06-causal-graphs-testing.html">
+ <span class="dropdown-text">Testing causal graphs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./07-rct.html">
+ <span class="dropdown-text">Randomized experiments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./08-target-trial.html">
+ <span class="dropdown-text">Target trial framework</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./09-matching-part1.html">
+ <span class="dropdown-text">Matching (Part 1)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./09-matching-part2.html">
+ <span class="dropdown-text">Matching (Part 2)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./10-weighting.html">
+ <span class="dropdown-text">Weighting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./11-rdd.html">
+ <span class="dropdown-text">Regression Discontinuity Designs</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./assignments.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./project.html"> 
+<span class="menu-text">Project</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link active" data-scroll-target="#discussion">Discussion</a>
+  <ul class="collapse">
+  <li><a href="#big-idea" id="toc-big-idea" class="nav-link" data-scroll-target="#big-idea">Big idea</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#sharp-vs.-fuzzy-rdds" id="toc-sharp-vs.-fuzzy-rdds" class="nav-link" data-scroll-target="#sharp-vs.-fuzzy-rdds">Sharp vs.&nbsp;fuzzy RDDs</a></li>
+  <li><a href="#continuity-assumption" id="toc-continuity-assumption" class="nav-link" data-scroll-target="#continuity-assumption">Continuity assumption</a></li>
+  <li><a href="#causal-graph-underlying-rdd" id="toc-causal-graph-underlying-rdd" class="nav-link" data-scroll-target="#causal-graph-underlying-rdd">Causal graph underlying RDD</a></li>
+  <li><a href="#analyzing-an-rdd-overview" id="toc-analyzing-an-rdd-overview" class="nav-link" data-scroll-target="#analyzing-an-rdd-overview">Analyzing an RDD: overview</a></li>
+  </ul></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a>
+  <ul class="collapse">
+  <li><a href="#data-context" id="toc-data-context" class="nav-link" data-scroll-target="#data-context">Data context</a></li>
+  <li><a href="#read-in-data" id="toc-read-in-data" class="nav-link" data-scroll-target="#read-in-data">Read in data</a></li>
+  <li><a href="#step-1-sharp-or-fuzzy" id="toc-step-1-sharp-or-fuzzy" class="nav-link" data-scroll-target="#step-1-sharp-or-fuzzy">Step 1: Sharp or fuzzy?</a></li>
+  <li><a href="#step-2-assess-potential-manipulation-of-the-running-variable" id="toc-step-2-assess-potential-manipulation-of-the-running-variable" class="nav-link" data-scroll-target="#step-2-assess-potential-manipulation-of-the-running-variable">Step 2: Assess potential manipulation of the running variable</a>
+  <ul class="collapse">
+  <li><a href="#via-context" id="toc-via-context" class="nav-link" data-scroll-target="#via-context">Via context</a></li>
+  <li><a href="#via-plots" id="toc-via-plots" class="nav-link" data-scroll-target="#via-plots">Via plots</a></li>
+  <li><a href="#via-tests" id="toc-via-tests" class="nav-link" data-scroll-target="#via-tests">Via tests</a></li>
+  <li><a href="#application-to-the-dwi-data" id="toc-application-to-the-dwi-data" class="nav-link" data-scroll-target="#application-to-the-dwi-data">Application to the DWI data</a></li>
+  </ul></li>
+  <li><a href="#step-3-estimate-treatment-effect" id="toc-step-3-estimate-treatment-effect" class="nav-link" data-scroll-target="#step-3-estimate-treatment-effect">Step 3: Estimate treatment effect</a>
+  <ul class="collapse">
+  <li><a href="#get-a-sense-of-the-treatment-effect-with-a-plot" id="toc-get-a-sense-of-the-treatment-effect-with-a-plot" class="nav-link" data-scroll-target="#get-a-sense-of-the-treatment-effect-with-a-plot">Get a sense of the treatment effect with a plot</a></li>
+  <li><a href="#global-model" id="toc-global-model" class="nav-link" data-scroll-target="#global-model">Global model</a></li>
+  <li><a href="#local-model" id="toc-local-model" class="nav-link" data-scroll-target="#local-model">Local model</a></li>
+  </ul></li>
+  <li><a href="#step-4-placebo-tests" id="toc-step-4-placebo-tests" class="nav-link" data-scroll-target="#step-4-placebo-tests">Step 4: Placebo tests</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Regression Discontinuity Designs</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>You can download a template file for this activity <a href="templates/11-rdd.qmd">here</a>.</strong></p>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<section id="big-idea" class="level2">
+<h2 class="anchored" data-anchor-id="big-idea">Big idea</h2>
+<ul>
+<li>Cutoff on a continuous variable assigns units to treatment vs.&nbsp;control.
+<ul>
+<li>Called the <strong>running</strong> or <strong>forcing</strong> variable and often denoted as <span class="math inline">\(X\)</span></li>
+</ul></li>
+<li>Are units just above the cutoff vs.&nbsp;just below really all that different?
+<ul>
+<li>Probably not, and that’s helpful to us!</li>
+<li>Those just above the cutoff are good guesses for the counterfactual outcome for those just below, and vice versa.</li>
+</ul></li>
+</ul>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<ul>
+<li>Elections: Cutoff at 50% determines party in governance within a geographical unit
+<ul>
+<li>Variety of social, political, and economic outcomes of interest</li>
+<li>Are districts with 50.1% of votes for Democrats really different from those with 49.9%?</li>
+<li>The former are definitely governed by Democrats, and the latter are not.</li>
+</ul></li>
+<li>Environmental exposures: Thresholds define “high” levels of exposure
+<ul>
+<li>Radon test when buying a home: if measured radon exceeds 4 pCi/L (picocuries/liter), seller is more likely to pay for a radon mitigation system as part of closing the deal.</li>
+<li>Are homes with 4 pCi/L really different from those with 3.9 pCi/L?</li>
+<li>The former are more likely to have a radon mitigation system.</li>
+</ul></li>
+</ul>
+<p>Hilton Boon et al (<a href="http://dx.doi.org/10.1097/EDE.0000000000001274">2021</a>) provide an overview of forcing variables that are commonly used in health studies—take (see <a href="https://journals.lww.com/epidem/fulltext/2021/01000/regression_discontinuity_designs_in_health__a.12.aspx#T1">Table 1</a>).</p>
+</section>
+<section id="sharp-vs.-fuzzy-rdds" class="level2">
+<h2 class="anchored" data-anchor-id="sharp-vs.-fuzzy-rdds">Sharp vs.&nbsp;fuzzy RDDs</h2>
+<ul>
+<li>Scenario 1: Districts with over 50% of votes for a candidate are wholly governed by that candidate.</li>
+<li>Scenario 2: Homes with over 4 pCi/L of radon don’t always get a radon mitigation system.</li>
+<li>Scenario 1 is a sharp RDD because the probability of treatment goes from 0 to 1 at the cutoff.</li>
+<li>Scenario 2 is a fuzzy RDD because the probability of treatment changes sharply at the cutoff but not necessarily from 0 to 1.</li>
+</ul>
+<p><img src="https://www.theeffectbook.net/the-effect_files/figure-html/regressiondiscontinuity-treatmentshare-1.png" class="img-fluid">{fig-alt=“Difference betwen sharp and fuzzy regression discontinuity designs. Both panels show the proportion treated as a function of the cutoff.}</p>
+<p>We’ll focus on sharp RDDs for now. We’ll revisit fuzzy RDDs after we talk about instrumental variables.</p>
+</section>
+<section id="continuity-assumption" class="level2">
+<h2 class="anchored" data-anchor-id="continuity-assumption">Continuity assumption</h2>
+<p>The continuity assumption is the identification assumption underlying RDDs.</p>
+<p>It says that the potential outcomes as functions of the running variable <span class="math inline">\(X\)</span> are continuous.</p>
+<p>This allows us to identify the treatment effect as the size of the discontinuity at the cutoff. Notably, this means that our estimand is a <strong>local average treatment effect</strong>. It is a treatment effect (expected difference in potential outcomes only for units close to the cutoff).</p>
+</section>
+<section id="causal-graph-underlying-rdd" class="level2">
+<h2 class="anchored" data-anchor-id="causal-graph-underlying-rdd">Causal graph underlying RDD</h2>
+<ul>
+<li><span class="math inline">\(X\)</span>: running variable</li>
+<li><span class="math inline">\(D\)</span>: treatment</li>
+<li><span class="math inline">\(U\)</span>: unmeasured confounder(s)</li>
+<li><span class="math inline">\(Y\)</span>: outcome</li>
+</ul>
+<p><img src="https://mixtape.scunning.com/06-Regression_Discontinuity_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid"></p>
+<ul>
+<li>In the limit (as the running variable approaches the cutoff), the function of the potential outcomes vs <span class="math inline">\(X\)</span> is flat.</li>
+<li>Similarly the function of the running variable <span class="math inline">\(X\)</span> vs other confounders (like <span class="math inline">\(U\)</span>) is flat.</li>
+</ul>
+</section>
+<section id="analyzing-an-rdd-overview" class="level2">
+<h2 class="anchored" data-anchor-id="analyzing-an-rdd-overview">Analyzing an RDD: overview</h2>
+<ol type="1">
+<li>Determine if the RDD is sharp or fuzzy</li>
+<li>Assess potential manipulation of the running variable (via context and inspecting the data)</li>
+<li>Estimate treatment effect</li>
+<li>Placebo tests</li>
+</ol>
+</section>
+</section>
+<section id="analysis" class="level1">
+<h1>Analysis</h1>
+<section id="data-context" class="level2">
+<h2 class="anchored" data-anchor-id="data-context">Data context</h2>
+<p>Hansen, Benjamin. 2015. “Punishment and Deterrence: Evidence from Drunk Driving.” American Economic Review, 105 (4): 1581–1617. <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/aer.20130189">Link</a>.</p>
+<blockquote class="blockquote">
+<p>This paper offers quasi-experimental evidence concerning the effects that punishment severity has on the commission of future crimes. Taking advantage of administrative records on 512,964 DUI stops from the state of Washington (WA), I exploit discrete thresholds that determine both the current as well as potential future punishments for drunk drivers. Specifically, in WA [blood alcohol content] (BAC) measured above 0.08 is considered a DUI while a BAC above 0.15 is considered an aggravated DUI, or a DUI that results in higher fines, increased jail time, and a longer license suspension period. Importantly, the statutory future penalties increase for each DUI received, regardless of whether the previous offense was an ordinary DUI or aggravated DUI. The quantifiable nature of BAC, use of thresholds to determine punishment severity, and the inability of either drivers or police to manipulate BAC allows for a unique quasi-experiment to test whether the harsher punishments and sanctions offenders experience at the BAC thresholds are effective in reducing drunk driving.</p>
+</blockquote>
+</section>
+<section id="read-in-data" class="level2">
+<h2 class="anchored" data-anchor-id="read-in-data">Read in data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rdrobust)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rddensity)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>dwi <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"https://github.com/scunning1975/causal-inference-class/raw/master/hansen_dwi.dta"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dwi <span class="ot">&lt;-</span> dwi <span class="sc">%&gt;%</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Alcohol1, Alcohol2, bac2)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">bac =</span> bac1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Codebook</p>
+<ul>
+<li><code>recidivism</code>: Outcome (1 if the unit committed an offense after the breathalyzer, 0 otherwise)</li>
+<li><code>bac</code>: Blood alcohol content (running/forcing variable)</li>
+<li><code>low_score</code>: portable breath test (PBT) value</li>
+<li><code>male</code>: Indicator of male sex</li>
+<li><code>white</code>: Indicator of white race</li>
+<li><code>acc</code>: Indicator of an accident at the scene</li>
+<li><code>aged</code>: Age in years</li>
+</ul>
+<p>We create a treatment variable called <code>dui</code> that equals 1 if <code>bac &gt;= 0.08</code> and 0 otherwise. For convenience, we also create a centered version of <code>bac</code> (centered at 0.08) so that values greater than 0 indicate being above the DUI cutoff.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dwi <span class="ot">&lt;-</span> dwi <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">dui =</span> bac <span class="sc">&gt;=</span> <span class="fl">0.08</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">bac_centered =</span> bac <span class="sc">-</span> <span class="fl">0.08</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-1-sharp-or-fuzzy" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-sharp-or-fuzzy">Step 1: Sharp or fuzzy?</h2>
+<p>The treatment of interest in our study is exposure to a DUI law (fines, jail time, and a period of driver’s license suspension if DUI is above 0.08). We want to understand the impact of this punishment on the chance of repeat offenses (recidivism).</p>
+<p><strong>Question:</strong> Is this a sharp or fuzzy RD design and why?</p>
+</section>
+<section id="step-2-assess-potential-manipulation-of-the-running-variable" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-assess-potential-manipulation-of-the-running-variable">Step 2: Assess potential manipulation of the running variable</h2>
+<section id="via-context" class="level3">
+<h3 class="anchored" data-anchor-id="via-context">Via context</h3>
+<p>The study needs to describe how the values of the running variable were determined (often called a <em>scoring process</em>) and how treatment was assigned based on the values of the running variable. This description should include:</p>
+<ul>
+<li>What running variable was used? Who determined values of the running variables? (e.g., Who scored a test?)</li>
+<li>What cutoff value was selected? Who selected the cutoff?</li>
+<li>When was the cutoff selected relative to when the values of the running variable were determined?</li>
+</ul>
+</section>
+<section id="via-plots" class="level3">
+<h3 class="anchored" data-anchor-id="via-plots">Via plots</h3>
+<p>First make a histogram. Default bin settings (binwidth, # of bins) might not always be what you want.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">451</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="co"># Generate 1000 values from a std. normal distribution</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> x[x <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="sc">+</span> <span class="fl">0.05</span> <span class="co"># Shift the positive x's up by 0.05 to create a discontinuity in the density</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>sim_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_discont =</span> <span class="fu">round</span>(x, <span class="dv">3</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim_data, <span class="fu">aes</span>(<span class="at">x =</span> x_discont)) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Default binwidth (30 bins)"</span>) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim_data, <span class="fu">aes</span>(<span class="at">x =</span> x_discont)) <span class="sc">+</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="fu">nrow</span>(sim_data)<span class="sc">/</span><span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"~10 cases per bin"</span>) <span class="sc">+</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="via-tests" class="level3">
+<h3 class="anchored" data-anchor-id="via-tests">Via tests</h3>
+<p>The <code>rddensity()</code> functions tests for possible manipulation by testing the null hypothesis that the density of the running variable is smooth (continuous). Rejecting the null hypothesis makes the claim that there was some sort of discontinuity (possible manipulation) in the running variable.</p>
+<p>The key arguments are:</p>
+<ul>
+<li><code>X</code>: the running variable (in vector form)</li>
+<li><code>c</code>: the cutoff on the running variable</li>
+<li><code>fitselect</code>: how the density of X should be estimated. Let’s look at the documentation page by entering <code>?rddensity</code> in the Console.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>rddens_res_unrestricted <span class="ot">&lt;-</span> <span class="fu">rddensity</span>(<span class="at">X =</span> sim_data<span class="sc">$</span>x_discont, <span class="at">c =</span> <span class="dv">0</span>, <span class="at">fitselect =</span> <span class="st">"unrestricted"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rddens_res_unrestricted)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>rddens_res_restricted <span class="ot">&lt;-</span> <span class="fu">rddensity</span>(<span class="at">X =</span> sim_data<span class="sc">$</span>x_discont, <span class="at">c =</span> <span class="dv">0</span>, <span class="at">fitselect =</span> <span class="st">"restricted"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rddens_res_restricted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The top part of the output tells us how the command was run. In the second part of the output, we want to pay attention to the “Number of obs” and “Eff. Number of obs”, which give the sample size and effective sample size (after considering units with duplicate X values).</p>
+<p>The third part of the output is the test statistic and p-value.</p>
+<p>The fourth part of the output (p-values from binomial test) is one that we would generally ignore because it claims that if there is no manipulation, the proportions of cases in small windows above and below the cutoff should be 0.5, which won’t be true for curved distributions that are indeed continuous.</p>
+<hr>
+<p>We cam use a simulation study to better understand the difference between <code>fitselect = "unrestricted"</code> and <code>fitselect = "restricted"</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">451</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fitselect_sim_results <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    x[x <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> x[x <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="sc">+</span> <span class="fl">0.05</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">x_discont =</span> <span class="fu">round</span>(x, <span class="dv">3</span>),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">x_cont =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    res_discont_unrestricted <span class="ot">&lt;-</span> <span class="fu">rddensity</span>(<span class="at">X =</span> sim_data<span class="sc">$</span>x_discont, <span class="at">c =</span> <span class="dv">0</span>, <span class="at">fitselect =</span> <span class="st">"unrestricted"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    res_cont_unrestricted <span class="ot">&lt;-</span> <span class="fu">rddensity</span>(<span class="at">X =</span> sim_data<span class="sc">$</span>x_cont, <span class="at">c =</span> <span class="dv">0</span>, <span class="at">fitselect =</span> <span class="st">"unrestricted"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    res_discont_restricted <span class="ot">&lt;-</span> <span class="fu">rddensity</span>(<span class="at">X =</span> sim_data<span class="sc">$</span>x_discont, <span class="at">c =</span> <span class="dv">0</span>, <span class="at">fitselect =</span> <span class="st">"restricted"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    res_cont_restricted <span class="ot">&lt;-</span> <span class="fu">rddensity</span>(<span class="at">X =</span> sim_data<span class="sc">$</span>x_cont, <span class="at">c =</span> <span class="dv">0</span>, <span class="at">fitselect =</span> <span class="st">"restricted"</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">pval =</span> <span class="fu">c</span>(res_discont_unrestricted<span class="sc">$</span>test<span class="sc">$</span>p_jk, res_cont_unrestricted<span class="sc">$</span>test<span class="sc">$</span>p_jk, res_discont_restricted<span class="sc">$</span>test<span class="sc">$</span>p_jk, res_cont_restricted<span class="sc">$</span>test<span class="sc">$</span>p_jk),</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">fitselect =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"unrestricted"</span>, <span class="st">"restricted"</span>), <span class="at">each =</span> <span class="dv">2</span>),</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Discontinuous in X"</span>, <span class="st">"Continuous in X"</span>), <span class="dv">2</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>}, <span class="at">simplify =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fitselect_sim_results, <span class="fu">aes</span>(<span class="at">x =</span> fitselect, <span class="at">y =</span> pval)) <span class="sc">+</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(<span class="sc">~</span>type) <span class="sc">+</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>fitselect_sim_results <span class="sc">%&gt;%</span> </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(fitselect, type) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(pval <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We don’t see much of a difference between the two <code>fitselect</code> options in the left panel (when there is no manipulation).</p>
+<p>We see that in the “Discontinuous in X” panel, the “restricted” option results in lower p-values, which translates to better power to detect manipulation when it exists.</p>
+</section>
+<section id="application-to-the-dwi-data" class="level3">
+<h3 class="anchored" data-anchor-id="application-to-the-dwi-data">Application to the DWI data</h3>
+<p><strong>Exercise:</strong> Evaluate potential manipulation of the running variable in the DWI study using (1) data context, (2) plots, and (3) statistical testing.</p>
+</section>
+</section>
+<section id="step-3-estimate-treatment-effect" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-estimate-treatment-effect">Step 3: Estimate treatment effect</h2>
+<section id="get-a-sense-of-the-treatment-effect-with-a-plot" class="level3">
+<h3 class="anchored" data-anchor-id="get-a-sense-of-the-treatment-effect-with-a-plot">Get a sense of the treatment effect with a plot</h3>
+<p><strong>Exercise:</strong> Make a plot that shows the trend in our outcome (<code>recidivism</code>) as a function of our running variable (<code>bac_centered</code>) both before and after the cutoff. Is there a clear discontinuity?</p>
+</section>
+<section id="global-model" class="level3">
+<h3 class="anchored" data-anchor-id="global-model">Global model</h3>
+<p>To get a sense for things, we can first fit a global model using all of our data. This is a reasonable main model to fit if the RDD plot above (Y vs running variable) shows linear relationships before and after the cutoff.</p>
+<p>Note that when fitting a global model the importance of correct functional form becomes quite important:</p>
+<p><img src="https://www.theeffectbook.net/the-effect_files/figure-html/regressiondiscontinuity-poly-1.png" class="img-fluid"></p>
+<p>In our DWI study, let’s fit the following model:</p>
+<p><span class="math display">\[
+E[\text{recidivism} \mid \text{BAC, DUI}] = \beta_0 + \beta_1 (BAC-0.08) + \beta_2 DUI + \beta_3 DUI (BAC-0.08)
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(recidivism <span class="sc">~</span> bac_centered<span class="sc">*</span>dui, <span class="at">data =</span> dwi) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Exercise:</strong> What coefficient corresponds to our estimate of the treatment effect? How can we interpret this treatment effect? Also make sure that you know what the other coefficients represent.</p>
+</section>
+<section id="local-model" class="level3">
+<h3 class="anchored" data-anchor-id="local-model">Local model</h3>
+<p>If we’re not confident that a global model is a good fit for our data, we can focus on just modeling the small region near the cutoff.</p>
+<p>An ad-hoc way to do this would be to use the same process as with our global model but filter our cases down to a small window about the cutoff:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(recidivism <span class="sc">~</span> bac_centered<span class="sc">*</span>dui, <span class="at">data =</span> dwi <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">abs</span>(bac_centered) <span class="sc">&lt;</span> <span class="fl">0.05</span>)) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A better alternative is to use the <code>rdrobust</code> which chooses the bandwidth (window size around the cutoff) for us, implements local regression, and provides us standard error estimates that account for unequal variance (heteroskedasticity) and adjust for bias in standard error estimation:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>rd_all_data <span class="ot">&lt;-</span> <span class="fu">rdrobust</span>(<span class="at">y =</span> dwi<span class="sc">$</span>recidivism, <span class="at">x =</span> dwi<span class="sc">$</span>bac_centered, <span class="at">c =</span> <span class="dv">0</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rd_all_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="step-4-placebo-tests" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-placebo-tests">Step 4: Placebo tests</h2>
+<p>A placebo test is a test for which we expect to not reject the null hypothesis.</p>
+<p>If the theoretical underlying causal graph for RDD is true, then RDD is like a randomized experiment near the cutoff on the running variable. We can run identical RDD analyses except replacing our outcome with covariates that we expect to be balanced around the cutoff:</p>
+<p><strong>Exercise:</strong> Summarize your finding from the following placebo tests.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rdrobust</span>(<span class="at">y =</span> dwi<span class="sc">$</span>male, <span class="at">x =</span> dwi<span class="sc">$</span>bac_centered, <span class="at">c =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rdrobust</span>(<span class="at">y =</span> dwi<span class="sc">$</span>white, <span class="at">x =</span> dwi<span class="sc">$</span>bac_centered, <span class="at">c =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rdrobust</span>(<span class="at">y =</span> dwi<span class="sc">$</span>acc, <span class="at">x =</span> dwi<span class="sc">$</span>bac_centered, <span class="at">c =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rdrobust</span>(<span class="at">y =</span> dwi<span class="sc">$</span>aged, <span class="at">x =</span> dwi<span class="sc">$</span>bac_centered, <span class="at">c =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Leslie Myint, 2024<br> All content licensed under <img src="https://static.thenounproject.com/png/70967-200.png" height="20"> (<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>)</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

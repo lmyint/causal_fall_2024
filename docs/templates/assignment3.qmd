@@ -54,6 +54,7 @@ Age -> Y
 Biomarker -> Y
 }
 ')
+plot(dag)
 ```
 
 ## Part a
