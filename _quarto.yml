@@ -4,6 +4,7 @@ project:
   render:
     - "*.qmd"
     - "!templates/"
+    - "!draft-es-its.qmd"
   resources:
     - "data/*.csv"
 
@@ -41,6 +42,7 @@ website:
         - 09-matching-part2.qmd
         - 10-weighting.qmd
         - 11-rdd.qmd
+        - 12-es-its.qmd
   
   page-footer:
     left: |

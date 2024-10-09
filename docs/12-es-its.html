@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STAT 451 - Target trial framework</title>
+<title>STAT 451 - Event study/interrupted time series designs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -183,8 +212,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals</a></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link active" data-scroll-target="#discussion">Discussion</a></li>
   </ul>
 </nav>
     </div>
@@ -193,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Target trial framework</h1>
+<h1 class="title">Event study/interrupted time series designs</h1>
 </div>
 
 
@@ -210,46 +238,62 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="goals" class="level1">
-<h1>Goals</h1>
-<ul>
-<li>Communicate benefits of using the target trial framework to design the analysis of an observational study</li>
-<li>Practice the process of reading an academic journal article</li>
-</ul>
-<p><br><br><br><br></p>
-</section>
 <section id="discussion" class="level1">
 <h1>Discussion</h1>
-<p>The following prompts are adapted from the following guides for reading scholarly articles:</p>
+<p>Interrupted times series (event studies) are perhaps the most natural study design for assessing causal effects:</p>
 <ul>
-<li>Brown University’s guide <a href="https://libguides.brown.edu/evaluate/Read">How to Read a Scholarly Article</a></li>
-<li><a href="https://faculty.washington.edu/heagerty/Courses/b572/public/Murphy2007.pdf">How to Read the Statistical Methods Literature: A Guide for Students</a></li>
+<li>An event happens—compare what was happening before and after the event (hence the name “event study”)</li>
+<li>To frame it another way, we have a time series of the outcome evolving over time, an event happens, and that time series gets interrupted and changes after the event (hence the name “interrupted time series” (ITS))</li>
 </ul>
-<p>Read through the following prompts, and then open <a href="https://docs.google.com/document/d/1AV9NZPJXEt6uw16uvWbDdfZWquOBwrE2H11QPLd4zBA/edit?usp=sharing">this Google Doc</a> to record notes as you re-engage with today’s article: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5124536/pdf/nihms-790601.pdf">Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses</a>.</p>
-<ol type="1">
-<li>Reread the title, abstract, keywords, and introduction
+<p><img src="https://www.theeffectbook.net/the-effect_files/figure-html/eventstudies-twoexamples-1.png" class="img-fluid"></p>
+<p><br><br><br><br></p>
+<p><strong>Autocorrelation</strong> is an important statistical consideration when looking at ITS data: the outcome at a given time will almost certainly be correlated with the outcome at previous times.</p>
 <ul>
-<li>Based on this information, write a 2 sentence description of the problem the article is trying to address.</li>
-</ul></li>
-<li>Make note of the authors
+<li>We need to account for this autocorrelation when estimating standard errors.</li>
+<li>If we don’t, we will likely underestimate standard errors.
 <ul>
-<li>You might see the same authors repeatedly when exploring other articles referenced in the article. This helps you understand the breadth of topics that certain authors write about.</li>
+<li>Correlation between cases reduces the effective sample size. If we have two observations that are highly correlated, we don’t really have two full units of information.</li>
+<li>In the most extreme case, we could take our dataset and just copy and paste it twice. We really only have one dataset’s worth of information even if we have twice as many cases.</li>
 </ul></li>
-<li>Find a problem or context that you are familiar with and relate the article’s arguments to this context.
+</ul>
+<p><br><br><br><br></p>
+<p>An ITS design is rather similar to a regression discontinuity design with time as the running variable.</p>
+<p>But when time is the running variable, an important source of bias is relevant: <strong>history bias</strong>.</p>
 <ul>
-<li>For example, it could help to start with the context of a randomized experiment. As you read, ask yourself “What is different about the target trial approach?”</li>
-</ul></li>
-<li>As you skim the article again:
+<li>This refers to the fact that other events that influence the outcome can happen at (or around) the same time as the intervention.</li>
+<li>e.g., If the intervention is a new law, confounding events could include other laws that were introduced at roughly the same time or major economic events (like recessions).</li>
+<li>We need to think carefully about the data context</li>
+</ul>
+<p><br><br><br><br></p>
+<p>A <strong>comparative interrupted time series design</strong> is an extension of the ITS that not only looks at the outcome time series in the treatment unit(s) but also in <strong>control units</strong>.</p>
 <ul>
-<li>Write down unfamiliar jargon to look up later. If a sentence makes a claim that is hard to understand, try to find another concept or term in that sentence or in a nearby sentence that you do understand.</li>
-<li>If an unfamiliar concept is linked to a citation, write down that citation and categorize that citation as essential (top priority for what to read next) or secondary.</li>
-</ul></li>
-<li>As you reread the article:
+<li>Control units will not have experienced the intervention during the time period under study but SHOULD have experienced the confounding events.</li>
+</ul>
+<p>One example:</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+Wow this is a pretty compelling comparative interrupted time series graph. Don't usually see such a stark effect. <a href="https://t.co/VCPLwUrXby">https://t.co/VCPLwUrXby</a>
+</p>
+— Elizabeth Stuart (<span class="citation" data-cites="Lizstuartdc">@Lizstuartdc</span>) <a href="https://twitter.com/Lizstuartdc/status/1302604052753244161?ref_src=twsrc%5Etfw">September 6, 2020</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Another example: <a href="https://academic.oup.com/view-large/figure/226574210/dyaa152f3.tif">Figure 3</a> from the article <a href="https://doi.org/10.1093/ije/dyaa152">Can synthetic controls improve causal inference in interrupted time series evaluations of public health interventions?</a></p>
+<p><br><br><br><br></p>
+<p><strong>Exercise:</strong> A general model for the trends in outcomes before and after the intervention in treatment and control units is given below. (This model doesn’t adjust for any seasonal periodicity in the outcome. Accounting for seasonality doesn’t change the fundamental insights from this exercise, but we’ll look at modeling seasonality next time.)</p>
+<p>Variables:</p>
 <ul>
-<li>What arguments were hard to follow?</li>
-<li>What could the authors have done to make it easier for you to understand the article? Any such instances are good candidates for inclusion in your own communications about related ideas.</li>
-</ul></li>
-</ol>
+<li><code>post</code>: 1 if observation is in the post-intervention time period, 0 if in pre-period</li>
+<li><code>treated</code>: 1 if observation is from a treated unit, 0 if control</li>
+<li><code>T</code>: time (will be centered at the time of intervention <span class="math inline">\(T_0\)</span>)</li>
+</ul>
+<p><span class="math display">\[
+E[Y \mid \text{post,treated},T] = \beta_0 + \beta_1\text{post} + \beta_2\text{treated} + \beta_3(T-T_0) + \beta_4\text{post}\times\text{treated} + \beta_5\text{treated}\times(T-T_0) + \beta_6\text{post}\times (T-T_0) + \beta_7\text{post}\times\text{treated}\times (T-T_0)
+\]</span></p>
+<p>Write out the model formulas for <span class="math inline">\(Y\)</span> as a function of (centered) time (<span class="math inline">\(T-T_0\)</span>) in the treated and controls units, in the pre-intervention and post-intervention periods. Draw a diagram showing the 4 trends. Label slopes and intercepts.</p>
+<ul>
+<li>What coefficient(s) govern how similar the treatment and control units are in the pre-intervention time period?</li>
+<li>What coefficient(s) govern the discontinuity in the trend at <span class="math inline">\(T_0\)</span>?</li>
+</ul>
 
 
 </section>
