@@ -59,11 +59,18 @@ Check here to see what you should be doing before, during, and after each class 
     <td class="topleft">Work on <a href="assignments.html#assignment-3">Assignment 3</a> and addressing feedback on Assignment 2. Both due Wed, 10/9.</td>
   </tr>
   <tr>
-    <td class="topleft">6 (10/7 - 10/4)</td>
+    <td class="topleft">6 (10/7 - 10/11)</td>
     <td class="topleft"><a href="#day15">Regression discontinuity designs</a></td>
     <td class="topleft"><a href="#day16">Event studies / interrupted time series</a></td>
     <td class="topleft">Leslie won't be in class today but start thinking about project topics and finding data if pursuing the data analysis option</td>
     <td class="topleft">Work on <a href="assignments.html#assignment-3">Assignment 3</a> and addressing feedback on Assignment 2. Both due Wed, 10/9.</td>
+  </tr>
+  <tr>
+    <td class="topleft">7 (10/14 - 10/18)</td>
+    <td class="topleft"><a href="#day18">Interrupted time series and synthetic control designs</a></td>
+    <td class="topleft"><a href="#day19">Fixed effects models</a></td>
+    <td class="topleft">Fall Break!</td>
+    <td class="topleft"></td>
   </tr>
 </tbody>
 </table>
@@ -264,7 +271,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 
 
-# Week 5: Matching and regression discontinuity designs
+# Week 5: Matching and weighting
 
 ## Day 1: Matching (9/30) {#day12}
 
@@ -294,7 +301,7 @@ Formulate a research question that relates to an area that you're interested in.
 
 
 
-# Week 6: Longitudinal/panel data
+# Week 6: Regression discontinuity and longitudinal/panel data
 
 ## Day 1: Regression discontinuity (10/7) {#day15}
 
@@ -313,7 +320,7 @@ Formulate a research question that relates to an area that you're interested in.
 - *Mixtape* [Chapter 6: Regression Discontinuity](https://mixtape.scunning.com/06-regression_discontinuity) (~170 minutes)
 :::
 
-<!-- **During class:** [Regression discontinuity designs](10-rdd.qmd) -->
+**During class:** [Regression discontinuity designs](11-rdd.qmd)
 
 ## Day 2: Event studies / interrupted times series (10/9) {#day16}
 
@@ -327,7 +334,7 @@ Formulate a research question that relates to an area that you're interested in.
         - [Event Studies in Finance](https://youtu.be/1cBKzjp4_MI) (~11 minutes)
 :::
 
-**During class:** 
+**During class:** [Event studies / interrupted time series](12-es-its.qmd)
 
 
 ## Day 3: Flex Day (10/1) {#day17}
@@ -345,7 +352,7 @@ No class today because I will be attending a workshop.
 
 # Week 7: Synthetic control, fixed effects models
 
-## Day 1: Synthetic control
+## Day 1: Synthetic control {#day18}
 
 **Before class:**
 
@@ -361,7 +368,7 @@ No class today because I will be attending a workshop.
 
 **During class:** 
 
-## Day 2: Fixed effects models
+## Day 2: Fixed effects models {#day19}
 
 **Before class:**
 

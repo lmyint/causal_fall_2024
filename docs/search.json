@@ -200,14 +200,14 @@
     "href": "schedule.html#day15",
     "title": "Schedule",
     "section": "Day 1: Regression discontinuity (10/7)",
-    "text": "Day 1: Regression discontinuity (10/7)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)"
+    "text": "Day 1: Regression discontinuity (10/7)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)\n\n\n\n\nDuring class: Regression discontinuity designs"
   },
   {
     "objectID": "schedule.html#day16",
     "href": "schedule.html#day16",
     "title": "Schedule",
     "section": "Day 2: Event studies / interrupted times series (10/9)",
-    "text": "Day 2: Event studies / interrupted times series (10/9)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 17: Event Studies (~70 minutes)\n\nVideo alternatives:\n\nEvent Studies (~12 minutes)\nInterrupted Time Series (~8 minutes)\nEvent Studies in Finance (~11 minutes)\n\n\n\n\n\nDuring class:"
+    "text": "Day 2: Event studies / interrupted times series (10/9)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 17: Event Studies (~70 minutes)\n\nVideo alternatives:\n\nEvent Studies (~12 minutes)\nInterrupted Time Series (~8 minutes)\nEvent Studies in Finance (~11 minutes)\n\n\n\n\n\nDuring class: Event studies / interrupted time series"
   },
   {
     "objectID": "schedule.html#day17",
@@ -1366,5 +1366,19 @@
     "title": "Welcome to Causal Inference!",
     "section": "For next time",
     "text": "For next time\n\nCheck the Schedule for readings from The Effect. (Chapters 1, 2, and 5)\n\nReadings from The Effect always have video alternatives from the textbook author.\n\nUpdate your R and RStudio installations as described here."
+  },
+  {
+    "objectID": "schedule.html#day18",
+    "href": "schedule.html#day18",
+    "title": "Schedule",
+    "section": "Day 1: Synthetic control",
+    "text": "Day 1: Synthetic control\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class:"
+  },
+  {
+    "objectID": "schedule.html#day19",
+    "href": "schedule.html#day19",
+    "title": "Schedule",
+    "section": "Day 2: Fixed effects models",
+    "text": "Day 2: Fixed effects models\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\n\n\n\nDuring class:\n\n🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁\n🍁 No class on Friday, October 18 🍁"
   }
 ]
