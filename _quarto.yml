@@ -42,7 +42,7 @@ website:
         - 09-matching-part2.qmd
         - 10-weighting.qmd
         - 11-rdd.qmd
-        - 12-es-its.qmd
+        - 12-es-its-synth.qmd
   
   page-footer:
     left: |

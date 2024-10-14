@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Event study/interrupted time series designs and synthetic control – STAT 451</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">STAT 451</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-activities" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Activities</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-activities">    
+        <li>
+    <a class="dropdown-item" href="./01-introductions.html">
+ <span class="dropdown-text">Introductions and foundational ideas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./02-identification.html">
+ <span class="dropdown-text">Causal identification: building intuition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./03-causal-graphs-intro.html">
+ <span class="dropdown-text">Causal graph fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./04-causal-graphs-simulation.html">
+ <span class="dropdown-text">Simulating data using causal graphs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./05-causal-graphs-identification.html">
+ <span class="dropdown-text">Identifying causal effects with causal graphs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./06-causal-graphs-testing.html">
+ <span class="dropdown-text">Testing causal graphs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./07-rct.html">
+ <span class="dropdown-text">Randomized experiments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./08-target-trial.html">
+ <span class="dropdown-text">Target trial framework</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./09-matching-part1.html">
+ <span class="dropdown-text">Matching (Part 1)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./09-matching-part2.html">
+ <span class="dropdown-text">Matching (Part 2)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./10-weighting.html">
+ <span class="dropdown-text">Weighting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./11-rdd.html">
+ <span class="dropdown-text">Regression Discontinuity Designs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./12-es-its-synth.html">
+ <span class="dropdown-text">Event study/interrupted time series designs and synthetic control</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./assignments.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./project.html"> 
+<span class="menu-text">Project</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link active" data-scroll-target="#discussion">Discussion</a>
+  <ul class="collapse">
+  <li><a href="#what-are-interrupted-time-series-designs" id="toc-what-are-interrupted-time-series-designs" class="nav-link" data-scroll-target="#what-are-interrupted-time-series-designs">What are interrupted time series designs?</a></li>
+  <li><a href="#autocorrelation" id="toc-autocorrelation" class="nav-link" data-scroll-target="#autocorrelation">Autocorrelation</a></li>
+  <li><a href="#history-bias" id="toc-history-bias" class="nav-link" data-scroll-target="#history-bias">History bias</a></li>
+  <li><a href="#comparative-interrupted-time-series" id="toc-comparative-interrupted-time-series" class="nav-link" data-scroll-target="#comparative-interrupted-time-series">Comparative interrupted time series</a></li>
+  <li><a href="#modeling-for-cits" id="toc-modeling-for-cits" class="nav-link" data-scroll-target="#modeling-for-cits">Modeling for CITS</a></li>
+  <li><a href="#selection-of-control-units" id="toc-selection-of-control-units" class="nav-link" data-scroll-target="#selection-of-control-units">Selection of control units</a></li>
+  <li><a href="#the-synthetic-control-method" id="toc-the-synthetic-control-method" class="nav-link" data-scroll-target="#the-synthetic-control-method">The synthetic control method</a></li>
+  </ul></li>
+  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration">Data exploration</a>
+  <ul class="collapse">
+  <li><a href="#comparative-interrupted-time-series-1" id="toc-comparative-interrupted-time-series-1" class="nav-link" data-scroll-target="#comparative-interrupted-time-series-1">Comparative interrupted time series</a>
+  <ul class="collapse">
+  <li><a href="#initial-data-visualization" id="toc-initial-data-visualization" class="nav-link" data-scroll-target="#initial-data-visualization">Initial data visualization</a></li>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling">Modeling</a></li>
+  <li><a href="#adjusting-the-standard-errors-for-autocorrelation" id="toc-adjusting-the-standard-errors-for-autocorrelation" class="nav-link" data-scroll-target="#adjusting-the-standard-errors-for-autocorrelation">Adjusting the standard errors for autocorrelation</a></li>
+  </ul></li>
+  <li><a href="#synthetic-control" id="toc-synthetic-control" class="nav-link" data-scroll-target="#synthetic-control">Synthetic control</a>
+  <ul class="collapse">
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
+  <li><a href="#running-the-synthetic-control-method" id="toc-running-the-synthetic-control-method" class="nav-link" data-scroll-target="#running-the-synthetic-control-method">Running the synthetic control method</a></li>
+  <li><a href="#visualizing-the-results" id="toc-visualizing-the-results" class="nav-link" data-scroll-target="#visualizing-the-results">Visualizing the results</a></li>
+  <li><a href="#placebo-tests-and-statistical-inference" id="toc-placebo-tests-and-statistical-inference" class="nav-link" data-scroll-target="#placebo-tests-and-statistical-inference">Placebo tests and statistical inference</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Event study/interrupted time series designs and synthetic control</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>You can download a template file for this activity <a href="templates/12-es-its-synth.qmd">here</a>.</strong></p>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<section id="what-are-interrupted-time-series-designs" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-interrupted-time-series-designs">What are interrupted time series designs?</h2>
+<p>Interrupted times series (event studies) are perhaps the most natural study design for assessing causal effects:</p>
+<ul>
+<li>An event happens—compare what was happening before and after the event (hence the name “event study”)</li>
+<li>To frame it another way, we have a time series of the outcome evolving over time, an event happens, and that time series gets interrupted and changes after the event (hence the name “interrupted time series” (ITS))</li>
+</ul>
+<p><img src="https://www.theeffectbook.net/the-effect_files/figure-html/eventstudies-twoexamples-1.png" class="img-fluid"></p>
+</section>
+<section id="autocorrelation" class="level2">
+<h2 class="anchored" data-anchor-id="autocorrelation">Autocorrelation</h2>
+<p><strong>Autocorrelation</strong> is an important statistical consideration when looking at ITS data: the outcome at a given time will almost certainly be correlated with the outcome at previous times.</p>
+<ul>
+<li>We need to account for this autocorrelation when estimating standard errors.</li>
+<li>If we don’t, we will likely underestimate standard errors.
+<ul>
+<li>Correlation between cases reduces the effective sample size. If we have two observations that are highly correlated, we don’t really have two full units of information.</li>
+<li>In the most extreme case, we could take our dataset and just copy and paste it twice. We really only have one dataset’s worth of information even if we have twice as many cases.</li>
+</ul></li>
+</ul>
+</section>
+<section id="history-bias" class="level2">
+<h2 class="anchored" data-anchor-id="history-bias">History bias</h2>
+<p>An ITS design is rather similar to a regression discontinuity design with time as the running variable.</p>
+<p>But when time is the running variable, an important source of bias is relevant: <strong>history bias</strong>.</p>
+<ul>
+<li>This refers to the fact that other events that influence the outcome can happen at (or around) the same time as the intervention.</li>
+<li>e.g., If the intervention is a new law, confounding events could include other laws that were introduced at roughly the same time or major economic events (like recessions).</li>
+<li>We need to think carefully about the data context</li>
+</ul>
+</section>
+<section id="comparative-interrupted-time-series" class="level2">
+<h2 class="anchored" data-anchor-id="comparative-interrupted-time-series">Comparative interrupted time series</h2>
+<p>A <strong>comparative interrupted time series design</strong> is an extension of the ITS that not only looks at the outcome time series in the treatment unit(s) but also in <strong>control units</strong>.</p>
+<ul>
+<li>Control units will not have experienced the intervention during the time period under study but SHOULD have experienced the confounding events.</li>
+</ul>
+<p>One example:</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+Wow this is a pretty compelling comparative interrupted time series graph. Don't usually see such a stark effect. <a href="https://t.co/VCPLwUrXby">https://t.co/VCPLwUrXby</a>
+</p>
+— Elizabeth Stuart (<span class="citation" data-cites="Lizstuartdc">@Lizstuartdc</span>) <a href="https://twitter.com/Lizstuartdc/status/1302604052753244161?ref_src=twsrc%5Etfw">September 6, 2020</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Another example: <a href="https://academic.oup.com/view-large/figure/226574210/dyaa152f3.tif">Figure 3</a> from the article <a href="https://doi.org/10.1093/ije/dyaa152">Can synthetic controls improve causal inference in interrupted time series evaluations of public health interventions?</a></p>
+</section>
+<section id="modeling-for-cits" class="level2">
+<h2 class="anchored" data-anchor-id="modeling-for-cits">Modeling for CITS</h2>
+<p><strong>Exercise:</strong> A general model for the trends in outcomes before and after the intervention in treatment and control units is given below. (This model doesn’t adjust for any seasonal periodicity in the outcome. Accounting for seasonality doesn’t change the fundamental insights from this exercise, but we’ll look at modeling seasonality next time.)</p>
+<p>Variables:</p>
+<ul>
+<li><code>post</code>: 1 if observation is in the post-intervention time period, 0 if in pre-period</li>
+<li><code>treated</code>: 1 if observation is from a treated unit, 0 if control</li>
+<li><code>T</code>: time (will be centered at the time of intervention <span class="math inline">\(T_0\)</span>)</li>
+</ul>
+<p><span class="math display">\[
+E[Y \mid \text{post,treated},T] = \beta_0 + \beta_1\text{post} + \beta_2\text{treated} + \beta_3(T-T_0) + \beta_4\text{post}\times\text{treated} + \beta_5\text{treated}\times(T-T_0) + \beta_6\text{post}\times (T-T_0) + \beta_7\text{post}\times\text{treated}\times (T-T_0)
+\]</span></p>
+<p>Write out the model formulas for <span class="math inline">\(Y\)</span> as a function of (centered) time (<span class="math inline">\(T-T_0\)</span>) in the treated and controls units, in the pre-intervention and post-intervention periods. Draw a diagram showing the 4 trends. Label slopes and intercepts.</p>
+<ul>
+<li>What coefficient(s) govern how similar the treatment and control units are in the pre-intervention time period?</li>
+<li>What coefficient(s) govern the discontinuity in the trend at <span class="math inline">\(T_0\)</span>?</li>
+</ul>
+</section>
+<section id="selection-of-control-units" class="level2">
+<h2 class="anchored" data-anchor-id="selection-of-control-units">Selection of control units</h2>
+<p>Our upcoming data example: what was the effect of Florida’s 2005 Stand Your Ground law on homicide rates and homicide rates by firearm?</p>
+<ul>
+<li>Control states: New York, New Jersey, Ohio, and Virginia</li>
+</ul>
+<p>Selection of control units:</p>
+<ul>
+<li>In the CITS design, the choice of what control units to use can be somewhat subjective:
+<ul>
+<li>Choose units that don’t experience the intervention but do experience the hypothesized confounding event and have “similar” characteristics to the treated units</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-synthetic-control-method" class="level2">
+<h2 class="anchored" data-anchor-id="the-synthetic-control-method">The synthetic control method</h2>
+<ul>
+<li>The synthetic control method is a data-driven control group selection procedure.</li>
+<li>We have a set of control units (also called the <strong>control pool</strong> or <strong>donor pool</strong>)</li>
+<li>Want to find a set of positive weights that sum to 1 that reweight the control units to create a synthetic version of the treatment unit had they not received the intervention
+<ul>
+<li>This synthetic version of the treatment unit is called the <strong>synthetic control</strong>.</li>
+<li>Essentially, we are reweighting the controls in the pool to create a synthetic control as similar as possible</li>
+<li>Finding weights allows for control selection because some weights are almost zero.</li>
+</ul></li>
+</ul>
+<p>What does “as similar as possible on key characteristics” mean? The analyst can choose to have similarity determined by:</p>
+<ul>
+<li>Pre-intervention covariates
+<ul>
+<li>Factors that are constant over time (like geography)</li>
+<li>Factors that vary over time (like demographics) and are measured before the intervention happens
+<ul>
+<li>Generally each of these factors is summarized over a time span</li>
+<li>e.g., Have yearly unemployment rate in each of the 5 years from 2000-2004. Compute the mean unemployment rate over this time span—do this in the treated units and in the control units.</li>
+</ul></li>
+</ul></li>
+<li>Pre-intervention outcomes
+<ul>
+<li>Can create up to M different linear combinations of pre-intervention outcomes where M is at most the number of pre-intervention time periods</li>
+<li>Commonly, the average outcome over the pre-intervention time span is used.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="data-exploration" class="level1">
+<h1>Data exploration</h1>
+<p>We will be looking at data from the article <a href="https://doi.org/10.1093/ije/dyaa152">Can synthetic controls improve causal inference in interrupted time series evaluations of public health interventions?</a></p>
+<blockquote class="blockquote">
+<p><strong>Research question:</strong> What was the effect of Florida’s 2005 Stand Your Ground law on homicide rates and homicide rates by firearm?</p>
+</blockquote>
+<p><strong>Download two data files from Moodle <a href="https://moodle.macalester.edu/mod/folder/view.php?id=141362">here</a>.</strong></p>
+<p>Codebook: 16 years of monthly data from 1999-2014</p>
+<ul>
+<li><code>year</code> and <code>month</code></li>
+<li><code>hom</code>, <code>suic</code>, <code>fhom</code>, <code>fsuic</code>: Number of homicide, suicide, homicide by firearm, suicide by firearm deaths</li>
+<li><code>time</code>: time index from 1 to 192 (1 = Jan 1999, 192 = Dec 2014)</li>
+<li><code>post</code>: 1 if SYG law is in effect in Florida and 0 otherwise. (Indicator for the post intervention time period, which is Oct 2005 and beyond)</li>
+<li><code>case</code>: 1 if Florida (treatment state) and 0 if control state (New York, New Jersey, Ohio, Virginia)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>syg <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"syg_dat2.csv"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Some data cleaning</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>syg <span class="ot">&lt;-</span> syg <span class="sc">%&gt;%</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">hom_rate =</span> hom<span class="sc">*</span><span class="dv">100000</span><span class="sc">/</span>stdpop,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">time_c =</span> time <span class="sc">-</span> <span class="dv">82</span> <span class="co"># Create centered version of time (IMPORTANT!)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">...1</span><span class="st">`</span>, <span class="sc">-</span>stdpop2) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">post =</span> Effective, <span class="at">treated =</span> case) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">zone =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        post<span class="sc">==</span><span class="dv">0</span> <span class="sc">&amp;</span> treated<span class="sc">==</span><span class="dv">0</span> <span class="sc">~</span> <span class="st">"Controls (pre)"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        post<span class="sc">==</span><span class="dv">0</span> <span class="sc">&amp;</span> treated<span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">"Treated (pre)"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        post<span class="sc">==</span><span class="dv">1</span> <span class="sc">&amp;</span> treated<span class="sc">==</span><span class="dv">0</span> <span class="sc">~</span> <span class="st">"Controls (post)"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        post<span class="sc">==</span><span class="dv">1</span> <span class="sc">&amp;</span> treated<span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">"Treated (post)"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="comparative-interrupted-time-series-1" class="level2">
+<h2 class="anchored" data-anchor-id="comparative-interrupted-time-series-1">Comparative interrupted time series</h2>
+<p>Recall the general comparative interrupted time series model:</p>
+<p><span class="math display">\[
+E[Y \mid \text{post,treated},T] = \beta_0 + \beta_1\text{post} + \beta_2\text{treated} + \beta_3(T-T_0) + \beta_4\text{post}\times\text{treated} + \beta_5\text{treated}\times(T-T_0) + \beta_6\text{post}\times (T-T_0) + \beta_7\text{post}\times\text{treated}\times (T-T_0)
+\]</span></p>
+<p>It is helpful to break down the time trend into 4 components:</p>
+<ul>
+<li>Pre-intervention period:
+<ul>
+<li>Controls: <span class="math inline">\(\beta_0 + \beta_3(T-T_0)\)</span></li>
+<li>Treated: <span class="math inline">\((\beta_0+\beta_2) + (\beta_3+\beta_5)(T-T_0)\)</span></li>
+</ul></li>
+<li>Post-intervention period:
+<ul>
+<li>Controls: <span class="math inline">\((\beta_0+\beta_1) + (\beta_3+\beta_6)(T-T_0)\)</span></li>
+<li>Treated: <span class="math inline">\((\beta_0+\beta_1+\beta_2+\beta_4) + (\beta_3+\beta_5+\beta_6+\beta_7)(T-T_0)\)</span></li>
+</ul></li>
+<li>For the controls, the pre- to post-intervention jump is <span class="math inline">\(\beta_1\)</span>.
+<ul>
+<li><span class="math inline">\(\beta_1\)</span> captures the impact of the confounding event(s).</li>
+</ul></li>
+<li>For the treated, the pre- to post-intervention jump is <span class="math inline">\(\beta_1+\beta_4\)</span>.
+<ul>
+<li><span class="math inline">\(\beta_1+\beta_4\)</span> captures the impact of the confounding event(s) AND the intervention of interest.</li>
+<li>So to remove the impact of the confounding event(s) and just leave the intervention effect, we subtract off <span class="math inline">\(\beta_1\)</span>.</li>
+<li><span class="math inline">\(\beta_4\)</span> represents the intervention effect.</li>
+</ul></li>
+</ul>
+<section id="initial-data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="initial-data-visualization">Initial data visualization</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(syg, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> hom_rate, <span class="at">color =</span> zone)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">81.5</span>) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Controls (pre)"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>, <span class="st">"Controls (post)"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"Treated (pre)"</span> <span class="ot">=</span> <span class="st">"peachpuff"</span>, <span class="st">"Treated (post)"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(syg, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> hom_rate, <span class="at">color =</span> zone)) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">81.5</span>) <span class="sc">+</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Controls (pre)"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>, <span class="st">"Controls (post)"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"Treated (pre)"</span> <span class="ot">=</span> <span class="st">"peachpuff"</span>, <span class="st">"Treated (post)"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="modeling" class="level3">
+<h3 class="anchored" data-anchor-id="modeling">Modeling</h3>
+<p>The code provided in the supplement of the paper provides an interaction model that is not a full interaction model. We will explore theirs in <code>cits_mod1</code> and our own full interaction model. <strong>Based on our visualizations above, is a full interaction model appropriate?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cits_mod1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(hom_rate <span class="sc">~</span> post<span class="sc">*</span>treated <span class="sc">+</span> time_c<span class="sc">*</span>treated <span class="sc">+</span> <span class="fu">factor</span>(month), <span class="at">family =</span> <span class="fu">gaussian</span>(<span class="at">link =</span> <span class="st">"log"</span>), <span class="at">data =</span> syg)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cits_mod2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(hom_rate <span class="sc">~</span> post<span class="sc">*</span>time_c<span class="sc">*</span>treated <span class="sc">+</span> <span class="fu">factor</span>(month), <span class="at">family =</span> <span class="fu">gaussian</span>(<span class="at">link =</span> <span class="st">"log"</span>), <span class="at">data =</span> syg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s look at a residual plot to evaluate the quality of</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>residual_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(mod) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    mod_output <span class="ot">&lt;-</span> <span class="fu">augment</span>(mod)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(mod_output, <span class="fu">aes</span>(<span class="at">x =</span> time_c, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">residual_plot</span>(cits_mod1) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Not full interaction + month effects"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">residual_plot</span>(cits_mod2) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Full interaction + month effects"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>predicted_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(mod) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    mod_output <span class="ot">&lt;-</span> <span class="fu">augment</span>(mod, <span class="at">newdata =</span> syg, <span class="at">type.predict =</span> <span class="st">"response"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(mod_output, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> hom_rate, <span class="at">color =</span> zone)) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> .fitted)) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">81.5</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Controls (pre)"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>, <span class="st">"Controls (post)"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"Treated (pre)"</span> <span class="ot">=</span> <span class="st">"peachpuff"</span>, <span class="st">"Treated (post)"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">predicted_plot</span>(cits_mod1) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Not full interaction + month effects"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">predicted_plot</span>(cits_mod2) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Full interaction + month effects"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s look at the results (just for the coefficient estimates). We’ll account for the autocorrelation in the data to adjust standard errors next.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(cits_mod1, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>std.error)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(cits_mod2, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>std.error)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="adjusting-the-standard-errors-for-autocorrelation" class="level3">
+<h3 class="anchored" data-anchor-id="adjusting-the-standard-errors-for-autocorrelation">Adjusting the standard errors for autocorrelation</h3>
+<p>Time series data tend to exhibit autoregressive behavior. For example, an outcome in 2005 is likely a function of its 2004, 2003, 2002, …, EARLIEST_RELEVANT_YEAR values. 2005 - EARLIEST_RELEVANT_YEAR is called the order of a an autoregressive process.</p>
+<p>We can use the <strong>partial autocorrelation function (PACF)</strong> to get a sense of what this order could be for a given time series.</p>
+<ul>
+<li>The PACF at a given lag L tells us how correlated a time series is with a version of itself lagged by L time periods.</li>
+<li>For an order <span class="math inline">\(p\)</span> autoregressive process, the PACF drops to effectively zero (stays within the dashed confidence band) at lags greater than <span class="math inline">\(p\)</span>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(syg<span class="sc">$</span>hom_rate, <span class="at">na.action =</span> na.pass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>coeftest()</code> function in the <code>lmtest</code> package implements Newey-West standard errors which account for this autocorrelation (and heteroskedasticity). We specify the order of the autoregressive process in the <code>lag</code> argument:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(cits_mod1, <span class="at">vcov =</span> NeweyWest, <span class="at">lag =</span> <span class="dv">12</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(cits_mod2, <span class="at">vcov =</span> NeweyWest, <span class="at">lag =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="synthetic-control" class="level2">
+<h2 class="anchored" data-anchor-id="synthetic-control">Synthetic control</h2>
+<p>Now let’s explore the synthetic control methodology.</p>
+<p>Run the following commands in the Console to install packages:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"devtools"</span>, <span class="st">"Synth"</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"bcastanho/SCtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Read in data, load packages, data cleaning.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Synth)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SCtools)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>syg_full <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"syg_dat3.csv"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>syg_full_clean <span class="ot">&lt;-</span> syg_full <span class="sc">%&gt;%</span> </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">treated =</span> Case) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">...1</span><span class="st">`</span>, <span class="sc">-</span>Year.month,) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">!</span>State, as.numeric))</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>syg_full_clean <span class="ot">&lt;-</span> syg_full_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(State.Code)) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">HomicideRates =</span> homicide_total<span class="sc">*</span><span class="dv">100000</span><span class="sc">/</span>Population,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">Firearm.suicides =</span> Firearm.suicides<span class="sc">*</span><span class="dv">100000</span><span class="sc">/</span>Population,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">Suicides =</span> Suicides<span class="sc">*</span><span class="dv">100000</span><span class="sc">/</span>Population</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Force the data to be of the data.frame class (rather than tbl)</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Weird errors will result otherwise!</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>syg_full_clean <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(syg_full_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="data-preparation" class="level3">
+<h3 class="anchored" data-anchor-id="data-preparation">Data preparation</h3>
+<p>The <code>dataprep()</code> function in the <code>Synth</code> package prepares the data for the optimization process that gives us good weights that make the synthetic control as similar as possible to the treated unit before the intervention.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sc_prep <span class="ot">&lt;-</span> <span class="fu">dataprep</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">foo =</span> syg_full_clean, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">predictors =</span> <span class="fu">c</span>(<span class="st">"Unemployment_adj"</span>,<span class="st">"Firearm.suicides"</span>, <span class="st">"Suicides"</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">predictors.op =</span> <span class="st">"mean"</span>, </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">time.predictors.prior =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">81</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">special.predictors =</span> <span class="fu">list</span>(</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Format: list(VARNAME, PERIOD, AVERAGING METHOD)</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Yearly data</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Paid.Hunting.License.Holders"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Annual.Burglary.Rate"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Personal.income.per.capita..dollars."</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Annual.robbery.rate"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Annual.incarceration.rate"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Num_pop_over15"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Proportion.of.population.hispanic"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Proportion.of.population.AA.or.B"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Percentage.4.year.bachelors.or.above..25.years.old.and.over"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Proportion.of.15.24"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Gallons.of.ethanol"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Num_pov"</span>, <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">81</span>,<span class="dv">12</span>), <span class="st">"mean"</span>),</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Less than yearly (e.g., every 4 years)</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Number.of.sworn.officers.per.1.000.U.S..residents"</span>, <span class="fu">seq</span>(<span class="dv">13</span>,<span class="dv">81</span>,<span class="dv">48</span>), <span class="st">"mean"</span>), <span class="co"># every 4 years: 2000, 2004</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Percentage.of.republican.voters.in.presidential.election"</span>, <span class="fu">seq</span>(<span class="dv">13</span>,<span class="dv">81</span>,<span class="dv">48</span>), <span class="st">"mean"</span>), <span class="co"># every 4 years: 2000, 2004</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"Density"</span>, <span class="fu">seq</span>(<span class="dv">13</span>,<span class="dv">81</span>,<span class="dv">120</span>), <span class="st">"mean"</span>), <span class="co"># every decade starting 2000</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"MSA"</span>, <span class="fu">seq</span>(<span class="dv">13</span>,<span class="dv">81</span>,<span class="dv">120</span>), <span class="st">"mean"</span>), <span class="co"># every decade starting 2000</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="st">"prop_urban"</span>, <span class="fu">seq</span>(<span class="dv">13</span>,<span class="dv">81</span>,<span class="dv">120</span>), <span class="st">"mean"</span>) <span class="co"># every decade starting 2000</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">dependent =</span> <span class="st">"HomicideRates"</span>, <span class="co"># outcome variable</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">unit.variable =</span> <span class="st">"State.Code"</span>, <span class="co"># variable identifying unit number</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">unit.names.variable =</span> <span class="st">"State"</span>, <span class="co"># variable identifying unit name</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">time.variable =</span> <span class="st">"time"</span>, <span class="co"># time variable</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">treatment.identifier =</span> <span class="st">"Florida"</span>, <span class="co"># The unit name for the treatment unit</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">controls.identifier =</span> <span class="fu">c</span>(<span class="st">"Arkansas"</span>, <span class="st">"Connecticut"</span>, <span class="st">"Delaware"</span>, <span class="st">"Hawaii"</span>, <span class="st">"Iowa"</span>, <span class="st">"Maine"</span>, <span class="st">"Maryland"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"Nebraska"</span>, <span class="st">"New Jersey"</span>, <span class="st">"New York"</span>, <span class="st">"North Dakota"</span>, <span class="st">"Ohio"</span>, <span class="st">"Rhode Island"</span>, <span class="st">"Wyoming"</span>), <span class="co"># The unit names for the controls</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">time.optimize.ssr =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">81</span>, <span class="co"># Time period over which to optimize similarity of treated and controls</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">time.plot =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">192</span>) <span class="co"># Time period for making the time series plot</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="running-the-synthetic-control-method" class="level3">
+<h3 class="anchored" data-anchor-id="running-the-synthetic-control-method">Running the synthetic control method</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the synthetic control method</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>synth_out <span class="ot">&lt;-</span> <span class="fu">synth</span>(sc_prep)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># What were the weights for each control unit?</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># (rounded to 2 decimal places for ease of viewing)</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(synth_out<span class="sc">$</span>solution.w, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualizing-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-the-results">Visualizing the results</h3>
+<p>We can manually plot the treated unit and synthetic control time series. We can also plot the difference (gap) between these series.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save treatment and synthetic control for subsequent data analysis &amp; figures</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_paths <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">time =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">192</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">treated =</span> <span class="fu">as.numeric</span>(sc_prep<span class="sc">$</span>Y1plot),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">synth_control =</span> <span class="fu">as.numeric</span>(sc_prep<span class="sc">$</span>Y0plot <span class="sc">%*%</span> synth_out<span class="sc">$</span>solution.w)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_paths, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> treated)) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> synth_control), <span class="at">color =</span> <span class="st">"gray40"</span>, <span class="at">lty =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">81</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_paths, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> treated<span class="sc">-</span>synth_control)) <span class="sc">+</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">81</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>gaps.plot()</code> function in <code>Synth</code> also makes this plot:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gaps.plot</span>(synth_out, sc_prep, <span class="at">tr.intake =</span> <span class="dv">81</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="placebo-tests-and-statistical-inference" class="level3">
+<h3 class="anchored" data-anchor-id="placebo-tests-and-statistical-inference">Placebo tests and statistical inference</h3>
+<p>We can generate statistical inferential measures (p-values) for the synthetic control effect with <strong>placebo tests</strong>. We will have each control unit serve as the treated unit in turn. For each of these iterations, we’ll run the synthetic control method as normal.</p>
+<p>The <code>generate.placebos()</code> function in the <code>SCtools</code> package implements these placebo tests.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>placebos <span class="ot">&lt;-</span> <span class="fu">generate.placebos</span>(sc_prep, synth_out)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s inspect the placebo test results:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_placebos</span>(placebos)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mspe_plot</span>(placebos, <span class="at">plot.hist =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mspe_test</span>(placebos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Leslie Myint, 2024<br> All content licensed under <img src="https://static.thenounproject.com/png/70967-200.png" height="20"> (<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>)</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
