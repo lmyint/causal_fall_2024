@@ -8,6 +8,8 @@ eval: false
 
 # Discussion
 
+**Slides for a discussion on the synthetic control method are [here](https://docs.google.com/presentation/d/1RT_R5lhM904qWYG1weM256zM61jLhDBaUHUDLW3SDsY/edit?usp=sharing).**
+
 ## What are interrupted time series designs?
 
 Interrupted times series (event studies) are perhaps the most natural study design for assessing causal effects:
@@ -98,7 +100,7 @@ Selection of control units:
 - We have a set of control units (also called the **control pool** or **donor pool**)
 - Want to find a set of positive weights that sum to 1 that reweight the control units to create a synthetic version of the treatment unit had they not received the intervention
     - This synthetic version of the treatment unit is called the **synthetic control**.
-    - Essentially, we are reweighting the controls in the pool to create a synthetic control as similar as possible
+    - Essentially, we are reweighting the controls in the pool to create a synthetic control as similar as possible to the treatment unit in the pre-intervention time period.
     - Finding weights allows for control selection because some weights are almost zero.
 
 What does "as similar as possible on key characteristics" mean? The analyst can choose to have similarity determined by:
@@ -120,8 +122,6 @@ We will be looking at data from the article [Can synthetic controls improve caus
 
 > **Research question:** What was the effect of Florida's 2005 Stand Your Ground law on homicide rates and homicide rates by firearm?
 
-**Download two data files from Moodle [here](https://moodle.macalester.edu/mod/folder/view.php?id=141362).**
-
 Codebook: 16 years of monthly data from 1999-2014
 
 - `year` and `month`
@@ -136,7 +136,7 @@ library(sandwich)
 library(lmtest)
 library(broom)
 
-syg <- read_csv("syg_dat2.csv")
+syg <- read_csv("~/Desktop/teaching/STAT451/data/its_synthcont_supplementary_data/syg_dat2.csv")
 
 # Some data cleaning
 syg <- syg %>% 
@@ -289,7 +289,7 @@ Read in data, load packages, data cleaning.
 library(Synth)
 library(SCtools)
 
-syg_full <- read_csv("syg_dat3.csv")
+syg_full <- read_csv("~/Desktop/teaching/STAT451/data/its_synthcont_supplementary_data/syg_dat3.csv")
 
 syg_full_clean <- syg_full %>% 
     rename(treated = Case) %>% 
@@ -357,41 +357,76 @@ sc_prep <- dataprep(
 ```{r}
 # Run the synthetic control method
 synth_out <- synth(sc_prep)
-
-# What were the weights for each control unit?
-# (rounded to 2 decimal places for ease of viewing)
-round(synth_out$solution.w, 2)
 ```
+
+### Inspecting the results
+
+The `synth.tab()` function in the `Synth` package extracts some useful tables. We can first look at the weight assigned to each control unit by accessing the `tab.w` component:
+
+```{r}
+sc_tables <- synth.tab(dataprep.res = sc_prep, synth.res = synth_out)
+
+# What was the weight for each control unit?
+sc_tables$tab.w
+```
+
+We can take a look at the relative importance of each covariate by accessing the `tab.v` component. (Here, the variable names are so long that it's easier to enter `sc_tables$tab.v %>% View()` in the Console.)
+
+```{r}
+sc_tables$tab.v
+```
+
+The `tab.pred` component gives a table comparing pre-treatment covariate values for the treated unit (column 1), the synthetic control unit (column 2), and all the units in the sample (column 3). (Enter `sc_tables$tab.pred %>% View()` in the Console for easier viewing.)
+
+```{r}
+sc_tables$tab.pred
+```
+
 
 
 ### Visualizing the results
 
-We can manually plot the treated unit and synthetic control time series. We can also plot the difference (gap) between these series.
+We can manually plot the treated unit and synthetic control time series.
 
 ```{r}
 # Save treatment and synthetic control for subsequent data analysis & figures
 df_paths <- tibble(
     time = 1:192,
     treated = as.numeric(sc_prep$Y1plot),
-    synth_control = as.numeric(sc_prep$Y0plot %*% synth_out$solution.w)
+    synth_control = as.numeric(sc_prep$Y0plot %*% synth_out$solution.w) # Note that %*% is the matrix multiplication operator in R
 )
 ggplot(df_paths, aes(x = time, y = treated)) +
     geom_line(color = "black") +
     geom_line(aes(x = time, y = synth_control), color = "gray40", lty = "dashed") +
     theme_classic() +
-    geom_vline(xintercept = 81, color = "red")
+    geom_vline(xintercept = 81.5, color = "red")
 
+# We can also plot the time series using path.plot() in the Synth package
+path.plot(
+    synth.res = synth_out,
+    dataprep.res = sc_prep,
+    Ylab = "Homicide rate",
+    Xlab = "year",
+    Legend = c("Florida", "Synthetic Florida"),
+    tr.intake = 81.5
+)
+```
+
+We can also plot the difference (gap) between these series:
+
+```{r}
+# Manually with ggplot
 ggplot(df_paths, aes(x = time, y = treated-synth_control)) +
     geom_line(color = "black") +
     theme_classic() +
-    geom_vline(xintercept = 81, color = "red")
+    geom_vline(xintercept = 81.5, color = "red")
+
+# Using gaps.plot() in the Synth package
+gaps.plot(synth_out, sc_prep, tr.intake = 81.5)
 ```
 
-The `gaps.plot()` function in `Synth` also makes this plot:
 
-```{r}
-gaps.plot(synth_out, sc_prep, tr.intake = 81)
-```
+
 
 
 ### Placebo tests and statistical inference
@@ -406,11 +441,83 @@ placebos <- generate.placebos(sc_prep, synth_out)
 })
 ```
 
-Let's inspect the placebo test results:
+The `SCtools::plot_placebos()` function plots the following gap:
+
+actual time series for unit i - synthetic control time series for unit i
+
+This gap is shown for all units (our actual treated unit of Florida and the 15 control states).
+
+But the function has a bug in which the legend labels are switched, so we will use the following custom plotting function:
+
+```{r}
+plot_placebos_custom <- function (tdf = tdf, xlab = NULL, ylab = NULL, title = NULL, ...) {
+    year <- cont <- id <- Y1 <- synthetic.Y1 <- NULL
+    if (!is_tdf(tdf)) {
+        stop("Please pass a valid `tdf` object the tdf argument.\nThese are generated by the `generate.placebos` function.")
+    }
+    n <- tdf$n
+    t1 <- unique(tdf$df$year)[which(tdf$df$year == tdf$t1) - 
+        1]
+    tr <- tdf$tr
+    names.and.numbers <- tdf$names.and.numbers
+    treated.name <- as.character(tdf$treated.name)
+    df.plot <- NULL
+    for (i in 1:n) {
+        a <- cbind(tdf$df$year, tdf$df[, i], tdf$df[, n + i], i)
+        df.plot <- rbind(df.plot, a)
+    }
+    df.plot <- data.frame(df.plot)
+    colnames(df.plot) <- c("year", "cont", "tr", "id")
+    
+    df.plot <- bind_rows(
+        df.plot %>% mutate(id = as.character(id)),
+        data.frame(year = tdf$df$year, cont = tdf$df$synthetic.Y1, tr = tdf$df$Y1, id = "treated")
+    ) %>% 
+        mutate(treated = id=="treated")
+    p.gaps <- ggplot(data = data.frame(df.plot), aes(x = year, 
+        y = (tr - cont))) + 
+        geom_line(aes(group = id, color = treated)) +
+        geom_vline(xintercept = t1, linetype = "dotted") +
+        geom_hline(yintercept = 0, linetype = "dashed") +
+        ylim(c(1.5 * min(c(min(tdf$df$Y1 - tdf$df$synthetic.Y1), min(df.plot$tr - df.plot$cont))), 
+        1.5 * max(c(max(tdf$df$Y1 - tdf$df$synthetic.Y1), max(df.plot$tr - 
+            df.plot$cont))))) + 
+        labs(y = ylab, x = xlab, title = title) + 
+        scale_color_manual(
+            values = c("FALSE" = "gray80", "TRUE" = "black"),
+            labels = c("Control units", tdf$treated.name),
+            guide = guide_legend(NULL)
+        ) +
+        theme(
+            panel.background = element_blank(), 
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank(), 
+            axis.line.x = element_line(colour = "black"), 
+            axis.line.y = element_line(colour = "black"), 
+            legend.key = element_blank(),
+            axis.text.x = element_text(colour = "black"), 
+            axis.text.y = element_text(colour = "black"), 
+            legend.position = "bottom"
+        )
+    return(p.gaps)
+}
+```
+
 
 ```{r}
 plot_placebos(placebos)
+plot_placebos_custom(placebos)
+```
+
+`SCtools::mspe_plot()` shows the post MSPE/pre MSPE ratio for all units serving as the "treated" unit. From this we get a sense of how extreme the ratio is for the treated unit.
+
+```{r}
 mspe_plot(placebos, plot.hist = TRUE)
+```
+
+`SCtools::mspe_plot()` shows the MSPE ratios for every unit and computes the p-value as the proportion of units with an MSPE ratio as or more extreme than Florida's:
+
+```{r}
 mspe_test(placebos)
 ```
 

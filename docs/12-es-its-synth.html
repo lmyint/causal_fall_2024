@@ -268,6 +268,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
   <li><a href="#running-the-synthetic-control-method" id="toc-running-the-synthetic-control-method" class="nav-link" data-scroll-target="#running-the-synthetic-control-method">Running the synthetic control method</a></li>
+  <li><a href="#inspecting-the-results" id="toc-inspecting-the-results" class="nav-link" data-scroll-target="#inspecting-the-results">Inspecting the results</a></li>
   <li><a href="#visualizing-the-results" id="toc-visualizing-the-results" class="nav-link" data-scroll-target="#visualizing-the-results">Visualizing the results</a></li>
   <li><a href="#placebo-tests-and-statistical-inference" id="toc-placebo-tests-and-statistical-inference" class="nav-link" data-scroll-target="#placebo-tests-and-statistical-inference">Placebo tests and statistical inference</a></li>
   </ul></li>
@@ -300,6 +301,7 @@ window.Quarto = {
 <p><strong>You can download a template file for this activity <a href="templates/12-es-its-synth.qmd">here</a>.</strong></p>
 <section id="discussion" class="level1">
 <h1>Discussion</h1>
+<p><strong>Slides for a discussion on the synthetic control method are <a href="https://docs.google.com/presentation/d/1RT_R5lhM904qWYG1weM256zM61jLhDBaUHUDLW3SDsY/edit?usp=sharing">here</a>.</strong></p>
 <section id="what-are-interrupted-time-series-designs" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-interrupted-time-series-designs">What are interrupted time series designs?</h2>
 <p>Interrupted times series (event studies) are perhaps the most natural study design for assessing causal effects:</p>
@@ -387,7 +389,7 @@ E[Y \mid \text{post,treated},T] = \beta_0 + \beta_1\text{post} + \beta_2\text{tr
 <li>Want to find a set of positive weights that sum to 1 that reweight the control units to create a synthetic version of the treatment unit had they not received the intervention
 <ul>
 <li>This synthetic version of the treatment unit is called the <strong>synthetic control</strong>.</li>
-<li>Essentially, we are reweighting the controls in the pool to create a synthetic control as similar as possible</li>
+<li>Essentially, we are reweighting the controls in the pool to create a synthetic control as similar as possible to the treatment unit in the pre-intervention time period.</li>
 <li>Finding weights allows for control selection because some weights are almost zero.</li>
 </ul></li>
 </ul>
@@ -416,7 +418,6 @@ E[Y \mid \text{post,treated},T] = \beta_0 + \beta_1\text{post} + \beta_2\text{tr
 <blockquote class="blockquote">
 <p><strong>Research question:</strong> What was the effect of Florida’s 2005 Stand Your Ground law on homicide rates and homicide rates by firearm?</p>
 </blockquote>
-<p><strong>Download two data files from Moodle <a href="https://moodle.macalester.edu/mod/folder/view.php?id=141362">here</a>.</strong></p>
 <p>Codebook: 16 years of monthly data from 1999-2014</p>
 <ul>
 <li><code>year</code> and <code>month</code></li>
@@ -431,7 +432,7 @@ E[Y \mid \text{post,treated},T] = \beta_0 + \beta_1\text{post} + \beta_2\text{tr
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>syg <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"syg_dat2.csv"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>syg <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/teaching/STAT451/data/its_synthcont_supplementary_data/syg_dat2.csv"</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Some data cleaning</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>syg <span class="ot">&lt;-</span> syg <span class="sc">%&gt;%</span> </span>
@@ -566,7 +567,7 @@ E[Y \mid \text{post,treated},T] = \beta_0 + \beta_1\text{post} + \beta_2\text{tr
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Synth)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SCtools)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>syg_full <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"syg_dat3.csv"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>syg_full <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/teaching/STAT451/data/its_synthcont_supplementary_data/syg_dat3.csv"</span>)</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>syg_full_clean <span class="ot">&lt;-</span> syg_full <span class="sc">%&gt;%</span> </span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">treated =</span> Case) <span class="sc">%&gt;%</span> </span>
@@ -631,37 +632,63 @@ E[Y \mid \text{post,treated},T] = \beta_0 + \beta_1\text{post} + \beta_2\text{tr
 <h3 class="anchored" data-anchor-id="running-the-synthetic-control-method">Running the synthetic control method</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the synthetic control method</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>synth_out <span class="ot">&lt;-</span> <span class="fu">synth</span>(sc_prep)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># What were the weights for each control unit?</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># (rounded to 2 decimal places for ease of viewing)</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(synth_out<span class="sc">$</span>solution.w, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>synth_out <span class="ot">&lt;-</span> <span class="fu">synth</span>(sc_prep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="inspecting-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="inspecting-the-results">Inspecting the results</h3>
+<p>The <code>synth.tab()</code> function in the <code>Synth</code> package extracts some useful tables. We can first look at the weight assigned to each control unit by accessing the <code>tab.w</code> component:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sc_tables <span class="ot">&lt;-</span> <span class="fu">synth.tab</span>(<span class="at">dataprep.res =</span> sc_prep, <span class="at">synth.res =</span> synth_out)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># What was the weight for each control unit?</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>sc_tables<span class="sc">$</span>tab.w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can take a look at the relative importance of each covariate by accessing the <code>tab.v</code> component. (Here, the variable names are so long that it’s easier to enter <code>sc_tables$tab.v %&gt;% View()</code> in the Console.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sc_tables<span class="sc">$</span>tab.v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>tab.pred</code> component gives a table comparing pre-treatment covariate values for the treated unit (column 1), the synthetic control unit (column 2), and all the units in the sample (column 3). (Enter <code>sc_tables$tab.pred %&gt;% View()</code> in the Console for easier viewing.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sc_tables<span class="sc">$</span>tab.pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="visualizing-the-results" class="level3">
 <h3 class="anchored" data-anchor-id="visualizing-the-results">Visualizing the results</h3>
-<p>We can manually plot the treated unit and synthetic control time series. We can also plot the difference (gap) between these series.</p>
+<p>We can manually plot the treated unit and synthetic control time series.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save treatment and synthetic control for subsequent data analysis &amp; figures</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_paths <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">time =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">192</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">treated =</span> <span class="fu">as.numeric</span>(sc_prep<span class="sc">$</span>Y1plot),</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">synth_control =</span> <span class="fu">as.numeric</span>(sc_prep<span class="sc">$</span>Y0plot <span class="sc">%*%</span> synth_out<span class="sc">$</span>solution.w)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_paths, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> treated)) <span class="sc">+</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> synth_control), <span class="at">color =</span> <span class="st">"gray40"</span>, <span class="at">lty =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">81</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_paths, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> treated<span class="sc">-</span>synth_control)) <span class="sc">+</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">81</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save treatment and synthetic control for subsequent data analysis &amp; figures</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_paths <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">time =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">192</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">treated =</span> <span class="fu">as.numeric</span>(sc_prep<span class="sc">$</span>Y1plot),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">synth_control =</span> <span class="fu">as.numeric</span>(sc_prep<span class="sc">$</span>Y0plot <span class="sc">%*%</span> synth_out<span class="sc">$</span>solution.w) <span class="co"># Note that %*% is the matrix multiplication operator in R</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_paths, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> treated)) <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> synth_control), <span class="at">color =</span> <span class="st">"gray40"</span>, <span class="at">lty =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">81.5</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># We can also plot the time series using path.plot() in the Synth package</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">path.plot</span>(</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">synth.res =</span> synth_out,</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">dataprep.res =</span> sc_prep,</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ylab =</span> <span class="st">"Homicide rate"</span>,</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Xlab =</span> <span class="st">"year"</span>,</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Legend =</span> <span class="fu">c</span>(<span class="st">"Florida"</span>, <span class="st">"Synthetic Florida"</span>),</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">tr.intake =</span> <span class="fl">81.5</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <code>gaps.plot()</code> function in <code>Synth</code> also makes this plot:</p>
+<p>We can also plot the difference (gap) between these series:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gaps.plot</span>(synth_out, sc_prep, <span class="at">tr.intake =</span> <span class="dv">81</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Manually with ggplot</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_paths, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> treated<span class="sc">-</span>synth_control)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">81.5</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Using gaps.plot() in the Synth package</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gaps.plot</span>(synth_out, sc_prep, <span class="at">tr.intake =</span> <span class="fl">81.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="placebo-tests-and-statistical-inference" class="level3">
@@ -669,15 +696,78 @@ E[Y \mid \text{post,treated},T] = \beta_0 + \beta_1\text{post} + \beta_2\text{tr
 <p>We can generate statistical inferential measures (p-values) for the synthetic control effect with <strong>placebo tests</strong>. We will have each control unit serve as the treated unit in turn. For each of these iterations, we’ll run the synthetic control method as normal.</p>
 <p>The <code>generate.placebos()</code> function in the <code>SCtools</code> package implements these placebo tests.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>placebos <span class="ot">&lt;-</span> <span class="fu">generate.placebos</span>(sc_prep, synth_out)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>placebos <span class="ot">&lt;-</span> <span class="fu">generate.placebos</span>(sc_prep, synth_out)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s inspect the placebo test results:</p>
+<p>The <code>SCtools::plot_placebos()</code> function plots the following gap:</p>
+<p>actual time series for unit i - synthetic control time series for unit i</p>
+<p>This gap is shown for all units (our actual treated unit of Florida and the 15 control states).</p>
+<p>But the function has a bug in which the legend labels are switched, so we will use the following custom plotting function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_placebos</span>(placebos)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mspe_plot</span>(placebos, <span class="at">plot.hist =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mspe_test</span>(placebos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plot_placebos_custom <span class="ot">&lt;-</span> <span class="cf">function</span> (<span class="at">tdf =</span> tdf, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="cn">NULL</span>, ...) {</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    year <span class="ot">&lt;-</span> cont <span class="ot">&lt;-</span> id <span class="ot">&lt;-</span> Y1 <span class="ot">&lt;-</span> synthetic.Y1 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is_tdf</span>(tdf)) {</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">stop</span>(<span class="st">"Please pass a valid `tdf` object the tdf argument.</span><span class="sc">\n</span><span class="st">These are generated by the `generate.placebos` function."</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> tdf<span class="sc">$</span>n</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    t1 <span class="ot">&lt;-</span> <span class="fu">unique</span>(tdf<span class="sc">$</span>df<span class="sc">$</span>year)[<span class="fu">which</span>(tdf<span class="sc">$</span>df<span class="sc">$</span>year <span class="sc">==</span> tdf<span class="sc">$</span>t1) <span class="sc">-</span> </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span>]</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    tr <span class="ot">&lt;-</span> tdf<span class="sc">$</span>tr</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    names.and.numbers <span class="ot">&lt;-</span> tdf<span class="sc">$</span>names.and.numbers</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    treated.name <span class="ot">&lt;-</span> <span class="fu">as.character</span>(tdf<span class="sc">$</span>treated.name)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    df.plot <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        a <span class="ot">&lt;-</span> <span class="fu">cbind</span>(tdf<span class="sc">$</span>df<span class="sc">$</span>year, tdf<span class="sc">$</span>df[, i], tdf<span class="sc">$</span>df[, n <span class="sc">+</span> i], i)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>        df.plot <span class="ot">&lt;-</span> <span class="fu">rbind</span>(df.plot, a)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    df.plot <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(df.plot)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(df.plot) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"cont"</span>, <span class="st">"tr"</span>, <span class="st">"id"</span>)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    df.plot <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>        df.plot <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">as.character</span>(id)),</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">data.frame</span>(<span class="at">year =</span> tdf<span class="sc">$</span>df<span class="sc">$</span>year, <span class="at">cont =</span> tdf<span class="sc">$</span>df<span class="sc">$</span>synthetic.Y1, <span class="at">tr =</span> tdf<span class="sc">$</span>df<span class="sc">$</span>Y1, <span class="at">id =</span> <span class="st">"treated"</span>)</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">treated =</span> id<span class="sc">==</span><span class="st">"treated"</span>)</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    p.gaps <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(df.plot), <span class="fu">aes</span>(<span class="at">x =</span> year, </span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> (tr <span class="sc">-</span> cont))) <span class="sc">+</span> </span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> id, <span class="at">color =</span> treated)) <span class="sc">+</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> t1, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">min</span>(<span class="fu">c</span>(<span class="fu">min</span>(tdf<span class="sc">$</span>df<span class="sc">$</span>Y1 <span class="sc">-</span> tdf<span class="sc">$</span>df<span class="sc">$</span>synthetic.Y1), <span class="fu">min</span>(df.plot<span class="sc">$</span>tr <span class="sc">-</span> df.plot<span class="sc">$</span>cont))), </span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>        <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">max</span>(<span class="fu">c</span>(<span class="fu">max</span>(tdf<span class="sc">$</span>df<span class="sc">$</span>Y1 <span class="sc">-</span> tdf<span class="sc">$</span>df<span class="sc">$</span>synthetic.Y1), <span class="fu">max</span>(df.plot<span class="sc">$</span>tr <span class="sc">-</span> </span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>            df.plot<span class="sc">$</span>cont))))) <span class="sc">+</span> </span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(<span class="at">y =</span> ylab, <span class="at">x =</span> xlab, <span class="at">title =</span> title) <span class="sc">+</span> </span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_color_manual</span>(</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>            <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"gray80"</span>, <span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"black"</span>),</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control units"</span>, tdf<span class="sc">$</span>treated.name),</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>            <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="cn">NULL</span>)</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">+</span></span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>(</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>            <span class="at">panel.background =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>            <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>            <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"black"</span>), </span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.line.y =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"black"</span>), </span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.key =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"black"</span>), </span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">"black"</span>), </span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(p.gaps)</span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_placebos</span>(placebos)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_placebos_custom</span>(placebos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>SCtools::mspe_plot()</code> shows the post MSPE/pre MSPE ratio for all units serving as the “treated” unit. From this we get a sense of how extreme the ratio is for the treated unit.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mspe_plot</span>(placebos, <span class="at">plot.hist =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>SCtools::mspe_plot()</code> shows the MSPE ratios for every unit and computes the p-value as the proportion of units with an MSPE ratio as or more extreme than Florida’s:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mspe_test</span>(placebos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
