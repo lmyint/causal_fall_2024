@@ -972,22 +972,22 @@
     "objectID": "schedule.html#day17",
     "href": "schedule.html#day17",
     "title": "Schedule",
-    "section": "Day 3: Flex Day (10/1)",
-    "text": "Day 3: Flex Day (10/1)\nNo class today because I will be attending a workshop.\nOn your own: Start exploring options for the course project."
+    "section": "Day 3: Flex Day (10/11)",
+    "text": "Day 3: Flex Day (10/11)\nNo class today because I will be attending a workshop.\nOn your own: Start exploring options for the course project."
   },
   {
     "objectID": "schedule.html#day18",
     "href": "schedule.html#day18",
     "title": "Schedule",
-    "section": "Day 1: Synthetic control",
-    "text": "Day 1: Synthetic control\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class:"
+    "section": "Day 1: Synthetic control (10/14)",
+    "text": "Day 1: Synthetic control (10/14)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class: Interrupted time series and synthetic control"
   },
   {
     "objectID": "schedule.html#day19",
     "href": "schedule.html#day19",
     "title": "Schedule",
-    "section": "Day 2: Fixed effects models",
-    "text": "Day 2: Fixed effects models\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\n\n\n\nDuring class:\n\n🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁\n🍁 No class on Friday, October 18 🍁"
+    "section": "Day 2: Synthetic control (10/16)",
+    "text": "Day 2: Synthetic control (10/16)\nDuring class: Interrupted time series and synthetic control\n\n🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁\n🍁 No class on Friday, October 18 🍁"
   },
   {
     "objectID": "schedule.html#difference-in-differences-designs",
@@ -1043,7 +1043,7 @@
     "href": "schedule.html#sensitivity-analyses",
     "title": "Schedule",
     "section": "Sensitivity analyses",
-    "text": "Sensitivity analyses\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
+    "text": "Sensitivity analyses\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:\n🦃 Thanksgiving Break: Wednesday, November 27 - Sunday, December 1 🦃"
   },
   {
     "objectID": "schedule.html#sensitivity-analyses-1",
@@ -1456,5 +1456,47 @@
     "crumbs": [
       "Testing causal graphs"
     ]
+  },
+  {
+    "objectID": "schedule.html#day20",
+    "href": "schedule.html#day20",
+    "title": "Schedule",
+    "section": "Day 1: Synthesis day (10/21)",
+    "text": "Day 1: Synthesis day (10/21)\nDuring class: Working on Assignment 4"
+  },
+  {
+    "objectID": "schedule.html#day21",
+    "href": "schedule.html#day21",
+    "title": "Schedule",
+    "section": "Day 2: Synthesis day (10/23)",
+    "text": "Day 2: Synthesis day (10/23)\nDuring class: Working on Assignment 4"
+  },
+  {
+    "objectID": "schedule.html#day22",
+    "href": "schedule.html#day22",
+    "title": "Schedule",
+    "section": "Day 3: Fixed effects models (10/25)",
+    "text": "Day 3: Fixed effects models (10/25)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\n\n\n\nDuring class:"
+  },
+  {
+    "objectID": "schedule.html#day23",
+    "href": "schedule.html#day23",
+    "title": "Schedule",
+    "section": "Day 1: Difference-in-differences designs (10/28)",
+    "text": "Day 1: Difference-in-differences designs (10/28)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.1: How Does it Work? and Section 18.2: How Is It Performed?) (~60 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)"
+  },
+  {
+    "objectID": "schedule.html#day24",
+    "href": "schedule.html#day24",
+    "title": "Schedule",
+    "section": "Day 2: DiD continued (10/30)",
+    "text": "Day 2: DiD continued (10/30)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.3: How the Pros Do It) (~20 minutes)\n\nVideo alternatives:\n\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)"
+  },
+  {
+    "objectID": "schedule.html#day25",
+    "href": "schedule.html#day25",
+    "title": "Schedule",
+    "section": "Day 3: TBD",
+    "text": "Day 3: TBD"
   }
 ]

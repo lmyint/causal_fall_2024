@@ -78,12 +78,46 @@ Address feedback on your slides by doing the following:
 <br><br>
 
 
-
 # Assignment 3
 
 **Due Wednesday, October 9 on [Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=139488)**
 
 Download [this template](templates/assignment3.qmd). All instructions and exercises are contained in that file.
+
+
+
+<br><br>
+
+
+
+# Assignment 4
+
+**Due Wednesday, October 30 on [Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=142395) as a Word document (or a Google Doc).** (Not a PDF because it's harder to write longer comments on a PDF.)
+
+Identify a causal research question that you would be interested in pursuing if you chose the data analysis option for the final project.
+
+Consider the following study designs/methods that we have examined so far:
+
+- Randomized experiment/target trial: For this one, when addressing the questions below, talk about the randomized experiment that you would ideally run to estimate the causal effect and why it likely isn't feasible. When talking about the target trial emulation framework, talk about whether a relevant outcome for your research question is a *time-to-event* outcome (the time until some event occurs) and thus whether it would be useful to go through a target trial emulation process.
+- Matching
+- Weighting
+- Regression discontinuity
+- Interrupted time series
+- Synthetic control
+
+For each of the above study designs/methods, answer the following questions:
+
+- In big picture terms, how does this study design/method work? What's the main idea behind its strategy for identifying the causal effect?
+- What are advantageous features of this design/method? What are limitations/drawbacks?
+- How could you use this design/method for your research question? What data would you need to have access to? Do you think it would be feasible to use this design/method?
+
+
+
+
+<br><br>
+
+
+
 
 
 <!-- # Assignment 4 -->
