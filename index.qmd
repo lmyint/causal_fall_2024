@@ -17,5 +17,5 @@ sidebar: false
 **Instructor drop-in hours:**
 
 - Olin-Rice 232
-- Mondays and Fridays: 2-3pm
-- Tuesdays and Thursdays: 3:30-4:30pm
+- Mondays, Thursdays, and Fridays: 2-3pm
+- Tuesdays: 3:30-4:30pm
