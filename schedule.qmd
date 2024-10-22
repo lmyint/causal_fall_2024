@@ -77,7 +77,7 @@ Check here to see what you should be doing before, during, and after each class 
     <td class="topleft"><a href="#day20">Synthesis day</a></td>
     <td class="topleft"><a href="#day21">Synthesis day</a></td>
     <td class="topleft"><a href="#day22">Fixed effects models</a></td>
-    <td class="topleft"></td>
+    <td class="topleft">Work on <a href="assignments.html#assignment-4">Assignment 4 due Wed 10/30 at 5pm.</a></td>
   </tr>
   <tr>
     <td class="topleft">9 (10/28 - 11/1)</td>
