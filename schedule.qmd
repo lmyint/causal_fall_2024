@@ -67,8 +67,8 @@ Check here to see what you should be doing before, during, and after each class 
   </tr>
   <tr>
     <td class="topleft">7 (10/14 - 10/18)</td>
-    <td class="topleft"><a href="#day18">Interrupted time series and synthetic control designs</a></td>
-    <td class="topleft"><a href="#day19">Fixed effects models</a></td>
+    <td class="topleft"><a href="#day18">Interrupted time series and synthetic control</a></td>
+    <td class="topleft"><a href="#day19">Synthetic control</a></td>
     <td class="topleft">Fall Break!</td>
     <td class="topleft"></td>
   </tr>
@@ -364,7 +364,7 @@ No class today because I will be attending a workshop.
 
 
 
-# Week 7: Synthetic control, fixed effects models
+# Week 7: Synthetic control
 
 ## Day 1: Synthetic control (10/14) {#day18}
 
@@ -397,7 +397,7 @@ No class today because I will be attending a workshop.
 <!-- ============================================================= -->
 
 
-# Week 8
+# Week 8: Fixed effects models
 
 ## Day 1: Synthesis day (10/21) {#day20}
 
