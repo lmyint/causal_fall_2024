@@ -436,8 +436,6 @@ No class today because I will be attending a workshop.
         - [Parallel Trends](https://youtu.be/NcHT8pl57HY) (~9 minutes)
         - [Estimating Difference in Differences](https://youtu.be/95HxUdn-BJg) (~10 minutes)
         - [Supporting Parallel Trends](https://youtu.be/ihIWuC6ULjo) (~9 minutes)
-        - [Dynamic Difference-in-Differences](https://youtu.be/_nknBbw-HFQ) (~10 minutes)
-        - [Staggered Treatment in Difference-in-Differences](https://youtu.be/hu2nDbnpALA) (~9 minutes)
 :::
 
 ::: {.callout-note title="Optional" appearance="simple" collapse="true"}
