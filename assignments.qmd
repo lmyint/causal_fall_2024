@@ -104,6 +104,8 @@ I updated my code below: (put this above a code chunk where you update code)
 
 2. Write a paragraph summarizing what you changed and the key ways in which your understanding evolved over the course of working on Assignment 3 and these revisions.
 
+3. Submit an updated HTML and paragraph on Moodle.
+
 
 
 <br><br>

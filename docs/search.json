@@ -1499,6 +1499,6 @@
     "href": "assignments.html#addressing-feedback-1",
     "title": "Assignments",
     "section": "Addressing feedback",
-    "text": "Addressing feedback\nDue Monday, November 4 on Moodle\nAddress feedback on your assignment by doing both of the following:\n\nImplement changes to your assignment code and responses in light of feedback. Put new text responses in red text like this:\n\n&lt;span style=\"color: red;\"&gt;\nMy new explanation\n&lt;/span&gt;\n\n&lt;span style=\"color: red;\"&gt;\nI updated my code below: (put this above a code chunk where you update code)\n&lt;/span&gt;\n\nWrite a paragraph summarizing what you changed and the key ways in which your understanding evolved over the course of working on Assignment 3 and these revisions."
+    "text": "Addressing feedback\nDue Monday, November 4 on Moodle\nAddress feedback on your assignment by doing both of the following:\n\nImplement changes to your assignment code and responses in light of feedback. Put new text responses in red text like this:\n\n&lt;span style=\"color: red;\"&gt;\nMy new explanation\n&lt;/span&gt;\n\n&lt;span style=\"color: red;\"&gt;\nI updated my code below: (put this above a code chunk where you update code)\n&lt;/span&gt;\n\nWrite a paragraph summarizing what you changed and the key ways in which your understanding evolved over the course of working on Assignment 3 and these revisions.\nSubmit an updated HTML and paragraph on Moodle."
   }
 ]
