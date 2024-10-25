@@ -220,6 +220,10 @@ window.Quarto = {
     <a class="dropdown-item" href="./12-es-its-synth.html">
  <span class="dropdown-text">Event study/interrupted time series designs and synthetic control</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./13-fe.html">
+ <span class="dropdown-text">Fixed effects models</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -851,6 +855,7 @@ Discarded       0       0</code></pre>
 <li>If we performed our matching to estimate the ATE, we would not filter our data.</li>
 <li>If we performed our matching to estimate the ATC (ATU), we would filter to control (untreated) units.</li>
 </ul></li>
+<li><code>wts</code>: The name of the column containing the weights resulting from matching.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">avg_comparisons</span>(</span>

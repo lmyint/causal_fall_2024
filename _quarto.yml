@@ -4,7 +4,6 @@ project:
   render:
     - "*.qmd"
     - "!templates/"
-    - "!draft-es-its.qmd"
   resources:
     - "data/*.csv"
 
@@ -43,6 +42,7 @@ website:
         - 10-weighting.qmd
         - 11-rdd.qmd
         - 12-es-its-synth.qmd
+        - 13-fe.qmd
   
   page-footer:
     left: |

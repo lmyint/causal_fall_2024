@@ -220,6 +220,10 @@ window.Quarto = {
     <a class="dropdown-item" href="./12-es-its-synth.html">
  <span class="dropdown-text">Event study/interrupted time series designs and synthetic control</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./13-fe.html">
+ <span class="dropdown-text">Fixed effects models</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -537,14 +541,16 @@ Y^a \perp\!\!\!\perp A \mid e(Z) \qquad \text{for} \quad a = 0,1
 <li>If we performed our matching to estimate the ATE, we would not filter our data.</li>
 <li>If we performed our matching to estimate the ATC (ATU), we would filter to control (untreated) units.</li>
 </ul></li>
+<li><code>wts</code>: The name of the column containing the weights resulting from matching.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">avg_comparisons</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    mod,</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">"treat"</span>,</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">vcov =</span> <span class="st">"HC3"</span>,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">newdata =</span> <span class="fu">filter</span>(match_data_subclass, treat <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">newdata =</span> <span class="fu">filter</span>(match_data_subclass, treat <span class="sc">==</span> <span class="dv">1</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">wts =</span> <span class="st">"weights"</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Exercise:</strong> Summarize what you learn about the ATT from this output.</p>
 </section>

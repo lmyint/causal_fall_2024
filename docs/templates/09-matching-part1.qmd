@@ -379,6 +379,7 @@ Then we use `avg_comparisons()` from the `marginaleffects` package to use inform
 - `newdata`: The function uses the data here to predict the values of the outcome for the supplied units under treatment and control. Comparing the average values of these predictions estimates the treatment effect. Here, we filter to just the treated individuals so that the comparison estimates the ATT specifically.
     - If we performed our matching to estimate the ATE, we would not filter our data.
     - If we performed our matching to estimate the ATC (ATU), we would filter to control (untreated) units.
+- `wts`: The name of the column containing the weights resulting from matching.
 
 ```{r}
 avg_comparisons(

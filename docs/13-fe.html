@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Assignments – STAT 451</title>
+<title>Fixed effects models – STAT 451</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -67,6 +101,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -164,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./assignments.html" aria-current="page"> 
+    <a class="nav-link" href="./assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
@@ -187,13 +250,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link active" data-scroll-target="#assignment-1">Assignment 1</a></li>
-  <li><a href="#assignment-2" id="toc-assignment-2" class="nav-link" data-scroll-target="#assignment-2">Assignment 2</a>
+  <li><a href="#exploration" id="toc-exploration" class="nav-link active" data-scroll-target="#exploration">Exploration</a>
   <ul class="collapse">
-  <li><a href="#addressing-feedback" id="toc-addressing-feedback" class="nav-link" data-scroll-target="#addressing-feedback">Addressing feedback</a></li>
+  <li><a href="#gapminder-data" id="toc-gapminder-data" class="nav-link" data-scroll-target="#gapminder-data">Gapminder data</a>
+  <ul class="collapse">
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#fixed-effects-in-fixest" id="toc-fixed-effects-in-fixest" class="nav-link" data-scroll-target="#fixed-effects-in-fixest">Fixed effects in <code>fixest</code></a></li>
+  <li><a href="#random-effects-using-lmer" id="toc-random-effects-using-lmer" class="nav-link" data-scroll-target="#random-effects-using-lmer">Random effects using <code>lmer</code></a></li>
   </ul></li>
-  <li><a href="#assignment-3" id="toc-assignment-3" class="nav-link" data-scroll-target="#assignment-3">Assignment 3</a></li>
-  <li><a href="#assignment-4" id="toc-assignment-4" class="nav-link" data-scroll-target="#assignment-4">Assignment 4</a></li>
+  <li><a href="#data-on-school-expenditures-and-student-outcomes" id="toc-data-on-school-expenditures-and-student-outcomes" class="nav-link" data-scroll-target="#data-on-school-expenditures-and-student-outcomes">Data on school expenditures and student outcomes</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -202,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignments</h1>
+<h1 class="title">Fixed effects models</h1>
 </div>
 
 
@@ -219,89 +285,156 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>These assignments will build up your Portfolio. Recall from the <a href="./syllabus.html#portfolio">syllabus</a> that the goal of the Portfolio is create a reference that is tailored to the way that you think about and understand ideas.</p>
-<p>I hope that you feel proud of your Portfolio by the end of the semester. If you want to publish it, the Quarto files (<code>.qmd</code>) that you submit for your assignments can become the basis for a website that looks a lot like this course website or websites in the <a href="https://quarto.org/docs/gallery/#websites">Quarto gallery</a>. I’m happy to help you get this set up if you’re interested.</p>
-<p><br><br></p>
-<section id="assignment-1" class="level1">
-<h1>Assignment 1</h1>
-<p><strong>Due Wednesday, 9/11 at 5pm on <a href="https://moodle.macalester.edu/mod/assign/view.php?id=129327">Moodle</a></strong></p>
-<p>This first assignment is a short writing piece for me to get to know you. There are no length requirements—just use as many words as needed to convey what you want, and feel free to respond to my questions in any order.</p>
-<p><strong>Format:</strong> Please submit a link to a Google Doc (preferred) or a Word document. (No PDFs because comments end up being too scrunched in PDFs.) If submitting a Google Doc, make sure that I am added with either Editing or Commenting privileges.</p>
-<p><strong>Prompt:</strong></p>
-<p>I recently read a moving essay called <a href="https://lathamt.substack.com/p/an-education-of-his-own">An Education of His Own</a> by writer Latham Turner. I invite you to read this essay as you think about what you might want from this course experience. If you feel so moved, I’d love to hear what parts of the essay resonated with you.</p>
-<p>What would make this course of a success for you? What are you hoping to learn and accomplish? I know that there are a variety of reasons for taking the course, and I want to better understand how those reasons inform what you are hoping for.</p>
-<p>Reflect on other courses you’ve taken and other learning environments in which you’ve participated. What grading/motivation/incentive structures, classroom dynamics, and personal habits/practices were helpful for your learning? What hindered your learning?</p>
-<p>For the next questions, I want to be honest with you about where I am coming from. I mentioned in the <a href="./syllabus.html#my-philosophy">syllabus</a> that if I didn’t have to give grades, I wouldn’t. The act of grading (putting points and A/B/C-like marks on work) is quite draining for me because I feel immense pressure to be fair, be “accurate” (even though there is no way that something like a grade could accurately measure something as complex as learning), and keep your motivation levels high. I also feel that grading creates a charged power dynamic between the instructor and the student that I don’t like. I became a teacher because I love being a guide and a coach for students in ideas I find fascinating—not because I wanted to bestow judgment.</p>
-<p>If my aversion to grades seems like an aversion to high expectations for your learning, it’s not. It’s an aversion to what I see as a very problematic system when something more simple and more meaningful encourages learning so well: qualitative feedback. Note that grading is very different from qualitative feedback, which, simply put, is a collection of thoughtful comments on your work. I truly enjoy giving feedback when it is not tied to a grade. There’s so much rich information in qualitative feedback that grades, by virtue of being a single letter or number, can’t capture.</p>
-<p>With that background from me, I have a few questions for you: How would you feel about a system in which everyone gets an A so that we can ignore grades completely and focus on qualitative feedback? How would you feel about a system in which everyone was graded differently? How do you think we should approach the process of deciding to how to handle grades in this course?</p>
-<p>I know that the background I gave suggests what I would prefer for what we do with grades. I know that this may affect your comfort in being honest, but I truly do want to know your honest thoughts.</p>
-<p>Thanks for taking the time to reflect and share with me. I’m looking forward to reading what you write.</p>
-<p><br><br></p>
-</section>
-<section id="assignment-2" class="level1">
-<h1>Assignment 2</h1>
-<p><strong>Due Friday, 9/27 at 5pm on <a href="https://moodle.macalester.edu/mod/assign/view.php?id=129329">Moodle</a></strong></p>
-<p>Imagine that you are preparing your capstone talk on your project from this course. The start of that presentation should probably include a section that introduces orients them to what the course is even about: What <em>is</em> causal inference? What are causal graphs, and what role do they play in causal inference?</p>
-<p><strong>Task:</strong> Create slides for this presentation section. Add presenter notes beneath each slide to indicate what you would say. If you wish, you can record a video of you giving this presentation segment.</p>
-<p><strong>Audience:</strong> Aim for this presentation segment to be accessible to students who have taken STAT 155 but no upper-level courses.</p>
-<p><strong>Format:</strong></p>
 <ul>
-<li>For submitting slides, Google Slides is preferred—make sure that I am added with either Editing or Commenting privileges. If using another program for slides, submit both the slides and presenter notes beneath in PDF format.</li>
-<li>If submitting a video, upload the video or share a link where I can access it.</li>
+<li><strong>You can download a template file for this activity <a href="templates/13-fe.qmd">here</a>.</strong></li>
+<li>Slides for today are available <a href="https://docs.google.com/presentation/d/1GFgEghgpCxKmufScPU5W3Lci-0g694qYbGkAs1uVUUI/edit?usp=sharing">here</a>.</li>
 </ul>
-<section id="addressing-feedback" class="level2">
-<h2 class="anchored" data-anchor-id="addressing-feedback">Addressing feedback</h2>
-<p><strong>Due Wednesday, October 9 on <a href="https://moodle.macalester.edu/mod/assign/view.php?id=139487">Moodle</a></strong></p>
-<p>Address feedback on your slides by doing the following:</p>
-<ol type="1">
-<li>Write a paragraph summarizing the changes that you made and/or intend to make and why</li>
-<li>Implement changes to your slides and/or presenter notes in light of feedback.
+<section id="exploration" class="level1">
+<h1>Exploration</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fixest)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(causaldata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="gapminder-data" class="level2">
+<h2 class="anchored" data-anchor-id="gapminder-data">Gapminder data</h2>
+<p>We have yearly life expectancy data for all countries of the world from the <a href="https://www.gapminder.org/">Gapminder Institute</a>. We also have yearly GDP data.</p>
+<p>Let’s first load the Gapminder data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gm <span class="ot">&lt;-</span> causaldata<span class="sc">::</span>gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="visualization" class="level3">
+<h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
+<p>The first visualization shows the relationship between log(GDP) and life expectancy that would be estimated using the overall data without capitalizing on looking at variation within a geographical unit.</p>
+<p>The second visualization shows trends by continent.</p>
+<p><strong>Questions:</strong></p>
 <ul>
-<li>You don’t need to agree with everything I recommend!</li>
-<li>And you may not have time to implement everything that I recommend even if you agree.</li>
-<li>Make the changes that you are able to, being mindful of your time and other commitments.</li>
-<li>Whatever you want to address but cannot finish by the due date, tell me about in your paragraph.</li>
+<li>Which approach to exploring the relationship do you think is better and why?</li>
+<li>How would our inferences about the relationship between log(GDP) and life expectancy differ between the approaches?</li>
+<li>Now consider a generic situation with outcome Y, quantitative treatment A, and grouping variable G. Draw a scatterplot that depicts a situation in which the within-group relationship between Y and A shows a negative relationship but the overall relationship (ignoring group) shows a positive relationship.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One overall trend line</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gm, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(gdpPercap), <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(gdpPercap), <span class="at">y =</span> lifeExp), <span class="at">data =</span> gm, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">12</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">95</span>)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall trend line + continent-specific trends</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gm, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(gdpPercap), <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(gdpPercap), <span class="at">y =</span> lifeExp), <span class="at">data =</span> gm, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">12</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">95</span>)) <span class="sc">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fixed-effects-in-fixest" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-effects-in-fixest">Fixed effects in <code>fixest</code></h3>
+<p>The <code>fixest</code> package provides a fast way of estimating fixed effects models. The coefficient estimates are the same as from <code>lm()</code>, but it provides ways of adjusting the standard errors for correlation within a group.</p>
+<p>Below we use <code>feols()</code> function from <code>fixest</code> to fit a fixed effects model with country-specific indicator variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model formula: Y ~ A + time invariant covariates + time fixed covariates | variables that we want indicators for</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gm_mod_fe <span class="ot">&lt;-</span> <span class="fu">feols</span>(lifeExp <span class="sc">~</span> <span class="fu">log</span>(gdpPercap) <span class="sc">|</span> country, <span class="at">data =</span> gm)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gm_mod_fe, <span class="at">cluster =</span> <span class="sc">~</span> country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Interpretation: Within a given country, every one unit increase in log(GDP) is expected to increase life expectancy by 9.77 years.</li>
+</ul>
+<p>We can also have more than one set of fixed effects. It is common to have multiple observations for a unit over time, so we can have fixed effects for both unit and time (indicator variables for each unit and indicators for each time period). This is called a <strong>two-way fixed effects (TWFE)</strong> model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gm_mod_twfe <span class="ot">&lt;-</span> <span class="fu">feols</span>(lifeExp <span class="sc">~</span> <span class="fu">log</span>(gdpPercap) <span class="sc">|</span> country <span class="sc">+</span> year, <span class="at">data =</span> gm)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gm_mod_twfe, <span class="at">cluster =</span> <span class="sc">~</span> country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Interpretation: Within a given country and year, every one unit increase in log(GDP) is expected to increase life expectancy by 1.45 years.</li>
+</ul>
+<p>For comparison purposes, let’s look at the results from using <code>lm()</code>.</p>
+<ul>
+<li>We see the same coefficient estimates.</li>
+<li>We have lower standard errors with <code>lm()</code> because assuming all observations are independent is assuming that we have a lot more information than if some observations are correlated (as within a country).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gm_mod_fe_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(lifeExp <span class="sc">~</span> <span class="fu">log</span>(gdpPercap) <span class="sc">+</span> country, <span class="at">data =</span> gm)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(gm_mod_fe_lm) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(term, <span class="st">"gdp"</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>gm_mod_twfe_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(lifeExp <span class="sc">~</span> <span class="fu">log</span>(gdpPercap) <span class="sc">+</span> country <span class="sc">+</span> <span class="fu">factor</span>(year), <span class="at">data =</span> gm)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(gm_mod_twfe_lm) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(term, <span class="st">"gdp"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="random-effects-using-lmer" class="level3">
+<h3 class="anchored" data-anchor-id="random-effects-using-lmer">Random effects using <code>lmer</code></h3>
+<p>Another approach to fitting fixed effects models is to fit what are known as <strong>random effects models</strong>. Here we don’t estimate</p>
+<p>A standard fixed effects model with one set of fixed effects for units can be written as:</p>
+<p><span class="math display">\[
+Y_{it} = \beta_0 + b_i + \beta X_{it} + \epsilon_{it}
+\]</span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(b_i\)</span> are independent random variables following a <span class="math inline">\(\text{Normal}(0, \sigma_b^2)\)</span> distribution</li>
+<li><span class="math inline">\(X_{it}\)</span> is a set of covariates</li>
+<li><span class="math inline">\(\epsilon_{it}\)</span> are independent random variables following a <span class="math inline">\(\text{Normal}(0, \sigma_e^2)\)</span> distribution.</li>
+</ul>
+<p>Key points:</p>
+<ul>
+<li>Each observation from unit <span class="math inline">\(i\)</span> share the same <span class="math inline">\(b_i\)</span>. This induces correlation between repeated observations from the same unit.</li>
+<li>The individual <span class="math inline">\(b_i\)</span>’s are not estimated. Only the variance of the normal distribution <span class="math inline">\(\sigma_b^2\)</span> is estimated. Estimating fewer parameters increases statistical power.</li>
+</ul>
+<p>We can use the <code>lmer()</code> function in the <code>lme4</code> package to estimate this random effects model. (In the statistical literature, such a model is called a <strong>mixed effects model</strong>.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model formula for one-way FEs: Y ~ (1|unit_var) + covariates</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Model formula for two-way FEs: Y ~ (1|unit_var) + (1|time_var) + covariates</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>gm_mod_re <span class="ot">&lt;-</span> <span class="fu">lmer</span>(lifeExp <span class="sc">~</span> (<span class="dv">1</span><span class="sc">|</span>country) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>year) <span class="sc">+</span> <span class="fu">log</span>(gdpPercap), <span class="at">data =</span> gm)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gm_mod_re)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Interpretation: Within a given country and year, a one unit increase in log(GDP) is expected to increase life expectancy by 2.53 years.</li>
+</ul>
+<p>Note that this estimate is different from our fixed effects models. Why?</p>
+<p><strong>Important note:</strong> The statistical formulation of a random effects model assumes that <span class="math inline">\(b_i\)</span> (the unit specific effects) are independent of (and thus uncorrelated with) the covariates in the model.</p>
+<ul>
+<li>In other words, this says that all the time-fixed covariates that go into a unit-specific effect <span class="math inline">\(b_i\)</span> are unrelated to the other variables in our model.
+<ul>
+<li>In causal inference, the key other variable in our model is the treatment variable.</li>
+<li>So in a random effects model, the unit-specific factors are assumed to be uncorrelated with other variables in our model, including treatment.</li>
 </ul></li>
-</ol>
-<p><br><br></p>
-</section>
-</section>
-<section id="assignment-3" class="level1">
-<h1>Assignment 3</h1>
-<p><strong>Due Wednesday, October 9 on <a href="https://moodle.macalester.edu/mod/assign/view.php?id=139488">Moodle</a></strong></p>
-<p>Download <a href="templates/assignment3.qmd">this template</a>. All instructions and exercises are contained in that file.</p>
-<p><br><br></p>
-</section>
-<section id="assignment-4" class="level1">
-<h1>Assignment 4</h1>
-<p><strong>Due Wednesday, October 30 on <a href="https://moodle.macalester.edu/mod/assign/view.php?id=142395">Moodle</a> as a Word document (or a Google Doc).</strong> (Not a PDF because it’s harder to write longer comments on a PDF.)</p>
-<p>Identify a causal research question that you would be interested in pursuing if you chose the data analysis option for the final project.</p>
-<p>Consider the following study designs/methods that we have examined so far:</p>
+<li>In this context, time-fixed covariates that likely affect life expectancy include country geography, climate, environment, …
 <ul>
-<li>Randomized experiment/target trial: For this one, when addressing the questions below, talk about the randomized experiment that you would ideally run to estimate the causal effect and why it likely isn’t feasible. When talking about the target trial emulation framework, talk about whether a relevant outcome for your research question is a <em>time-to-event</em> outcome (the time until some event occurs) and thus whether it would be useful to go through a target trial emulation process.</li>
-<li>Matching</li>
-<li>Weighting</li>
-<li>Regression discontinuity</li>
-<li>Interrupted time series</li>
-<li>Synthetic control</li>
+<li>In our random effects model, these covariates are assumed to be uncorrelated with GDP. This seems unlikely.</li>
+</ul></li>
 </ul>
-<p>For each of the above study designs/methods, answer the following questions:</p>
+<p>The <a href="https://www.theeffectbook.net/ch-FixedEffects.html#advanced-random-effects">last section</a> of our textbook chapter discusses alterations to standard random effects models that can handle this.</p>
+</section>
+</section>
+<section id="data-on-school-expenditures-and-student-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="data-on-school-expenditures-and-student-outcomes">Data on school expenditures and student outcomes</h2>
+<p><strong>Research question:</strong> What is the effect of expenditures on math outcomes for 4th graders?</p>
+<p>We have data across many school districts over multiple years. Focus on the following variables:</p>
 <ul>
-<li>In big picture terms, how does this study design/method work? What’s the main idea behind its strategy for identifying the causal effect?</li>
-<li>What are advantageous features of this design/method? What are limitations/drawbacks?</li>
-<li>How could you use this design/method for your research question? What data would you need to have access to? Do you think it would be feasible to use this design/method?</li>
+<li><code>distid</code>: the district identifier</li>
+<li><code>year</code>: the year the data is from</li>
+<li><code>math4</code>: the percentage of 4th grade students who are “satisfactory” or better in math (outcome)</li>
+<li><code>expp</code>: expenditure per pupil (treatment)</li>
+<li><code>lunch</code>: the percentage of students eligible for free lunch (time-varying confounder as a proxy for district socioeconomic status)</li>
 </ul>
-<p><br><br></p>
-<!-- # Assignment 4 -->
-<!--
-General questions applicable to all study designs/methods
-- What is this study design/method? What's the main idea behind it?
-- When would we use this design/method? What are its advantageous features?
-- How do we analyze data from this design/method?
-- What are some limitations/drawbacks of this design?
--->
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>school <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/NickCH-K/TheEffectAssignments/refs/heads/main/mathpnl.csv"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Make distid and year categorical</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>school <span class="ot">&lt;-</span> school <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">distid =</span> <span class="fu">factor</span>(distid), <span class="at">year =</span> <span class="fu">factor</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Exercise:</strong></p>
+<ul>
+<li>Explore the difference between <code>lm()</code> and <code>feols()</code> to fit two-way fixed effects models that address our research question</li>
+<li>Compare results to a random effects model using <code>lmer()</code></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -83,7 +83,7 @@ Check here to see what you should be doing before, during, and after each class 
     <td class="topleft">9 (10/28 - 11/1)</td>
     <td class="topleft"><a href="#day23">Difference-in-differences (DiD)</a></td>
     <td class="topleft"><a href="#day24">DiD continued</a></td>
-    <td class="topleft"><a href="#day25">TBD</a></td>
+    <td class="topleft"><a href="#day25">Sensitivity analyses for unmeasured confounding</a></td>
     <td class="topleft"></td>
   </tr>
 </tbody>
@@ -419,7 +419,7 @@ No class today because I will be attending a workshop.
         - [Random Effects](https://youtu.be/Esp0LWTBuk4) (~6 minutes)
 :::
 
-**During class:** 
+**During class:** [Fixed effects models](13-fe.qmd)
 
 
 
@@ -454,7 +454,7 @@ No class today because I will be attending a workshop.
 :::
 
 
-## Day 3: TBD {#day25}
+## Day 3: Sensitivity analyses for unmeasured confounding {#day25}
 
 
 
