@@ -605,21 +605,21 @@
     "href": "schedule.html#day23",
     "title": "Schedule",
     "section": "Day 1: Difference-in-differences designs (10/28)",
-    "text": "Day 1: Difference-in-differences designs (10/28)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.1: How Does it Work? and Section 18.2: How Is It Performed?) (~60 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)"
+    "text": "Day 1: Difference-in-differences designs (10/28)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.1: How Does it Work? and Section 18.2: How Is It Performed?) (~60 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)\n\n\n\n\nDuring class:"
   },
   {
     "objectID": "schedule.html#day24",
     "href": "schedule.html#day24",
     "title": "Schedule",
     "section": "Day 2: DiD continued (10/30)",
-    "text": "Day 2: DiD continued (10/30)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.3: How the Pros Do It) (~20 minutes)\n\nVideo alternatives:\n\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)"
+    "text": "Day 2: DiD continued (10/30)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.3: How the Pros Do It) (~20 minutes)\n\nVideo alternatives:\n\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\nDuring class:"
   },
   {
     "objectID": "schedule.html#day25",
     "href": "schedule.html#day25",
     "title": "Schedule",
     "section": "Day 3: Sensitivity analyses for unmeasured confounding",
-    "text": "Day 3: Sensitivity analyses for unmeasured confounding"
+    "text": "Day 3: Sensitivity analyses for unmeasured confounding\nBefore class: No required reading or videos for today.\nDuring class:"
   },
   {
     "objectID": "schedule.html#instrumental-variables",
@@ -1500,5 +1500,12 @@
     "title": "Assignments",
     "section": "Addressing feedback",
     "text": "Addressing feedback\nDue Monday, November 4 on Moodle\nAddress feedback on your assignment by doing both of the following:\n\nImplement changes to your assignment code and responses in light of feedback. Put new text responses in red text like this:\n\n&lt;span style=\"color: red;\"&gt;\nMy new explanation\n&lt;/span&gt;\n\n&lt;span style=\"color: red;\"&gt;\nI updated my code below: (put this above a code chunk where you update code)\n&lt;/span&gt;\n\nWrite a paragraph summarizing what you changed and the key ways in which your understanding evolved over the course of working on Assignment 3 and these revisions.\nSubmit an updated HTML and paragraph on Moodle."
+  },
+  {
+    "objectID": "schedule.html#day26",
+    "href": "schedule.html#day26",
+    "title": "Schedule",
+    "section": "Day 1: Instrumental variables",
+    "text": "Day 1: Instrumental variables\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 19: Instrumental Variables (~85 minutes)\n\nVideo alternatives:\n\nInstrumental Variables (~10 minutes)\nInstrumental Variable Validity (~10 minutes)\nEstimating Instrumental Variables (~12 minutes)\nTesting Instrumental Variables Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 7: Instrumental Variables (~150 minutes)"
   }
 ]

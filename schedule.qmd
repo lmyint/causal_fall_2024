@@ -90,6 +90,16 @@ Check here to see what you should be doing before, during, and after each class 
         Work on <a href="project.html#milestone-1">Project Milestone 1</a> due Fri 11/8 at 5pm.
     </td>
   </tr>
+  <tr>
+    <td class="topleft">9 (11/4 - 11/8)</td>
+    <td class="topleft"><a href="#day26">Instrumental variables</a></td>
+    <td class="topleft"></td>
+    <td class="topleft"></td>
+    <td class="topleft">
+        <a href="assignments.html#addressing-feedback-1">Assignment 3 revisions</a> due Mon 11/4 at 5pm.<br>
+        <a href="project.html#milestone-1">Project Milestone 1</a> due Fri 11/8 at 5pm.
+    </td>
+  </tr>
 </tbody>
 </table>
 ```
@@ -426,8 +436,10 @@ No class today because I will be attending a workshop.
 **During class:** [Fixed effects models](13-fe.qmd)
 
 
+<!-- ============================================================= -->
 
-# Week 9
+
+# Week 9: Diff-in-diff, sensitivity analyses
 
 ## Day 1: Difference-in-differences designs (10/28) {#day23}
 
@@ -446,6 +458,8 @@ No class today because I will be attending a workshop.
 - *Mixtape* [Chapter 9: Difference-in-Differences](https://mixtape.scunning.com/09-difference_in_differences) (~230 minutes)
 :::
 
+**During class:**
+
 ## Day 2: DiD continued (10/30) {#day24}
 
 **Before class:**
@@ -457,16 +471,22 @@ No class today because I will be attending a workshop.
         - [Staggered Treatment in Difference-in-Differences](https://youtu.be/hu2nDbnpALA) (~9 minutes)
 :::
 
+**During class:**
+
 
 ## Day 3: Sensitivity analyses for unmeasured confounding {#day25}
 
+**Before class:** No required reading or videos for today.
+
+**During class:** 
 
 
-# Weeks 10-13
+<!-- ============================================================= -->
 
 
+# Week 10: Instrumental variables
 
-## Instrumental variables
+## Day 1: Instrumental variables {#day26}
 
 **Before class:**
 
@@ -483,44 +503,19 @@ No class today because I will be attending a workshop.
 - *Mixtape* [Chapter 7: Instrumental Variables](https://mixtape.scunning.com/07-instrumental_variables) (~150 minutes)
 :::
 
-## Doubly robust estimation
 
-**Before class:**
+# Weeks 11-14: Assorted topics, project work time
 
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
+Potential topics
 
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-## Causal discovery
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-## Sensitivity analyses
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-**During class:** 
-
+- Doubly robust estimation
+- Causal discovery
+- Interference
+- Generalizability/transportability
+- Machine learning and causal inference
+- Time-varying treatments framework
+- Dynamic treatment regimes
+- Mediation analysis
 
 
 🦃 Thanksgiving Break: Wednesday, November 27 - Sunday, December 1 🦃
@@ -531,55 +526,7 @@ No class today because I will be attending a workshop.
 
 
 
-# Week 14: Project work time
-
-## Day 1: Project work time
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-## Day 2: Project work time
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-**During class:** 
-
-## Day 3: Project work time
-
-**Before class:**
-
-::: {.callout-note title="Required" icon=false}
-- (~xx minutes)
-:::
-
-::: {.callout-note title="Optional" appearance="simple" collapse="true"}
-- (~xx)
-:::
-
-**During class:** 
-
-
-
-<!-- ============================================================= -->
-
-
-
-# Week 15: Wrapping up
+# Week 15: Project presentations
 
 ## Day 1: TBD
 
