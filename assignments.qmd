@@ -84,6 +84,26 @@ Address feedback on your slides by doing the following:
 
 Download [this template](templates/assignment3.qmd). All instructions and exercises are contained in that file.
 
+## Addressing feedback
+
+**Due Monday, November 4 on [Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=143313)**
+
+Address feedback on your assignment by doing both of the following:
+
+1. Implement changes to your assignment code and responses in light of feedback. Put new text responses in red text like this:
+
+```
+<span style="color: red;">
+My new explanation
+</span>
+
+<span style="color: red;">
+I updated my code below: (put this above a code chunk where you update code)
+</span>
+```
+
+2. Write a paragraph summarizing what you changed and the key ways in which your understanding evolved over the course of working on Assignment 3 and these revisions.
+
 
 
 <br><br>
