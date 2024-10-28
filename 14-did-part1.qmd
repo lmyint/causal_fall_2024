@@ -1,0 +1,27 @@
+---
+title: "Difference-in-differences (Part 1)"
+sidebar: false
+eval: false
+---
+
+# Triskaidekaphobia and apartment prices
+
+Read the article [Why do buildings skip the thirteenth floor?](https://academic.oup.com/jrssig/article/21/2/16/7641894)
+
+After reading, answer the following with your group:
+
+- How did the authors apply the difference-in-differences (DiD) framework to this setting?
+- Do you think the assumptions they made were reasonable?
+- What regression model underlies their DiD analyses?
+- Why did the authors repeat their analyses after matching relabelled and not relabelled apartment buildings?
+
+---
+
+Underlying code and data: [GitHub repo](https://github.com/MadisonHardesty/13th-Floor)
+
+```{r}
+library(tidyverse)
+
+nyc <- read_csv("https://raw.githubusercontent.com/MadisonHardesty/13th-Floor/refs/heads/main/dataNYC.csv")
+```
+

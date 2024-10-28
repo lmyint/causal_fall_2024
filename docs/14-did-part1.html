@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STAT 451: Causal Inference – STAT 451</title>
+<title>Difference-in-differences (Part 1) – STAT 451</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -89,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -186,16 +220,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#triskaidekaphobia-and-apartment-prices" id="toc-triskaidekaphobia-and-apartment-prices" class="nav-link active" data-scroll-target="#triskaidekaphobia-and-apartment-prices">Triskaidekaphobia and apartment prices</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">STAT 451: Causal Inference</h1>
-<p class="subtitle lead">Fall 2024</p>
+<h1 class="title">Difference-in-differences (Part 1)</h1>
 </div>
 
 
@@ -212,20 +251,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><img src="images/stat451_hex.png" width="300" style="float: right; padding-left: 20px; padding-bottom: 20px;"></p>
-<br>
-<div style="font-size: 30px;">
-Become a producer of actionable knowledge by exploring how to quantify the impact of interventions
-</div>
-<p><br><br><br><br></p>
-<p><strong>Instructor:</strong> <a href="https://www.lesliemyint.org">Leslie Myint</a> <br> <strong>Class meeting times:</strong> MWF 10:50-11:50am <br> <strong>Class location:</strong> THEATR 204 <br> <strong>Instructor drop-in hours:</strong></p>
+<section id="triskaidekaphobia-and-apartment-prices" class="level1">
+<h1>Triskaidekaphobia and apartment prices</h1>
+<p>Read the article <a href="https://academic.oup.com/jrssig/article/21/2/16/7641894">Why do buildings skip the thirteenth floor?</a></p>
+<p>After reading, answer the following with your group:</p>
 <ul>
-<li>Olin-Rice 232</li>
-<li>Mondays, Thursdays, and Fridays: 2-3pm</li>
-<li>Tuesdays: 3:30-4:30pm</li>
+<li>How did the authors apply the difference-in-differences (DiD) framework to this setting?</li>
+<li>Do you think the assumptions they made were reasonable?</li>
+<li>What regression model underlies their DiD analyses?</li>
+<li>Why did the authors repeat their analyses after matching relabelled and not relabelled apartment buildings?</li>
 </ul>
+<hr>
+<p>Underlying code and data: <a href="https://github.com/MadisonHardesty/13th-Floor">GitHub repo</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>nyc <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/MadisonHardesty/13th-Floor/refs/heads/main/dataNYC.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
