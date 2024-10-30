@@ -605,14 +605,14 @@
     "href": "schedule.html#day23",
     "title": "Schedule",
     "section": "Day 1: Difference-in-differences designs (10/28)",
-    "text": "Day 1: Difference-in-differences designs (10/28)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.1: How Does it Work? and Section 18.2: How Is It Performed?) (~60 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)\n\n\n\n\nDuring class:"
+    "text": "Day 1: Difference-in-differences designs (10/28)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.1: How Does it Work? and Section 18.2: How Is It Performed?) (~60 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)\n\n\n\n\nDuring class: Difference-in-Differences"
   },
   {
     "objectID": "schedule.html#day24",
     "href": "schedule.html#day24",
     "title": "Schedule",
     "section": "Day 2: DiD continued (10/30)",
-    "text": "Day 2: DiD continued (10/30)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.3: How the Pros Do It) (~20 minutes)\n\nVideo alternatives:\n\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\nDuring class:"
+    "text": "Day 2: DiD continued (10/30)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.3: How the Pros Do It) (~20 minutes)\n\nVideo alternatives:\n\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\nDuring class: Difference-in-Differences"
   },
   {
     "objectID": "schedule.html#day25",
@@ -738,14 +738,14 @@
     "href": "project.html",
     "title": "Project",
     "section": "",
-    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a projec for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here.\n\n\n\n\n\nOverview: Dig deeper into existing course topics or learn a new topic. Examples could include:\n\nMethods for transportability (generalizability) of effects\nInterference\nSpecialized considerations for particular study designs\nMachine learning in causal inference\nIndividual causal effect estimation\n\nCollaboration: Groups of up to 3. Individual work is fine.\n\n\n\n\nIf none of these options piques your interest, I’m happy to discuss alternatives with you. Some ideas:\n\nDesign a Shiny app to illustrate causal concepts to students\nWrite (part of) an R package for making it easier to work with causal graphs\nCritique of applied research\n\nThis is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.\nFind and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors’ data collection and analysis methods.\nDiscuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research."
+    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a project for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nOpen Science Framework\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here.\n\n\n\n\n\nOverview: Dig deeper into existing course topics or learn a new topic. Examples could include:\n\nMethods for transportability (generalizability) of effects\nInterference\nSpecialized considerations for particular study designs\nMachine learning in causal inference\nIndividual causal effect estimation\n\nCollaboration: Groups of up to 3. Individual work is fine.\n\n\n\n\nIf none of these options piques your interest, I’m happy to discuss alternatives with you. Some ideas:\n\nDesign a Shiny app to illustrate causal concepts to students\nWrite (part of) an R package for making it easier to work with causal graphs\nCritique of applied research\n\nThis is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.\nFind and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors’ data collection and analysis methods.\nDiscuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research."
   },
   {
     "objectID": "project.html#option-1-data-analysis",
     "href": "project.html#option-1-data-analysis",
     "title": "Project",
     "section": "",
-    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a projec for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here."
+    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a project for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nOpen Science Framework\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here."
   },
   {
     "objectID": "project.html#option-2-learn-an-advanced-topic",
@@ -1020,13 +1020,13 @@
     "text": "For next time\n\nCheck the Schedule for readings from The Effect. (Chapters 1, 2, and 5)\n\nReadings from The Effect always have video alternatives from the textbook author.\n\nUpdate your R and RStudio installations as described here."
   },
   {
-    "objectID": "14-did-part1.html",
-    "href": "14-did-part1.html",
-    "title": "Difference-in-differences (Part 1)",
+    "objectID": "14-did.html",
+    "href": "14-did.html",
+    "title": "Difference-in-differences",
     "section": "",
-    "text": "Triskaidekaphobia and apartment prices\nRead the article Why do buildings skip the thirteenth floor?\nAfter reading, answer the following with your group:\n\nHow did the authors apply the difference-in-differences (DiD) framework to this setting?\nDo you think the assumptions they made were reasonable?\nWhat regression model underlies their DiD analyses?\nWhy did the authors repeat their analyses after matching relabelled and not relabelled apartment buildings?\n\n\nUnderlying code and data: GitHub repo\n\nlibrary(tidyverse)\n\nnyc &lt;- read_csv(\"https://raw.githubusercontent.com/MadisonHardesty/13th-Floor/refs/heads/main/dataNYC.csv\")",
+    "text": "Slides for today are available here.\n\n\nExample: Triskaidekaphobia and apartment prices\nRead the article Why do buildings skip the thirteenth floor?\nAfter reading, answer the following with your group:\n\nHow did the authors apply the difference-in-differences (DiD) framework to this setting?\nDo you think the assumptions they made were reasonable?\nWhat regression model underlies their DiD analyses?\nWhy did the authors repeat their analyses after matching relabelled and not relabelled apartment buildings?\n\n\nUnderlying code and data: GitHub repo\n\nlibrary(tidyverse)\n\nnyc &lt;- read_csv(\"https://raw.githubusercontent.com/MadisonHardesty/13th-Floor/refs/heads/main/dataNYC.csv\")",
     "crumbs": [
-      "Difference-in-differences (Part 1)"
+      "Difference-in-differences"
     ]
   },
   {

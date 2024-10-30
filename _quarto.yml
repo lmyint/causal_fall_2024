@@ -43,7 +43,7 @@ website:
         - 11-rdd.qmd
         - 12-es-its-synth.qmd
         - 13-fe.qmd
-        - 14-did-part1.qmd
+        - 14-did.qmd
   
   page-footer:
     left: |

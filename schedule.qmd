@@ -458,7 +458,7 @@ No class today because I will be attending a workshop.
 - *Mixtape* [Chapter 9: Difference-in-Differences](https://mixtape.scunning.com/09-difference_in_differences) (~230 minutes)
 :::
 
-**During class:**
+**During class:** [Difference-in-Differences](14-did.qmd)
 
 ## Day 2: DiD continued (10/30) {#day24}
 
@@ -471,7 +471,7 @@ No class today because I will be attending a workshop.
         - [Staggered Treatment in Difference-in-Differences](https://youtu.be/hu2nDbnpALA) (~9 minutes)
 :::
 
-**During class:**
+**During class:** [Difference-in-Differences](14-did.qmd)
 
 
 ## Day 3: Sensitivity analyses for unmeasured confounding {#day25}

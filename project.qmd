@@ -13,9 +13,10 @@ sidebar: false
 
 Resources for finding data:
 
-It's fine with me if you use a dataset associated with an existing project (like an honors project) or a projec for another class (as long as it's ok with the other instructor).
+It's fine with me if you use a dataset associated with an existing project (like an honors project) or a project for another class (as long as it's ok with the other instructor).
 
 - [Google Dataset Search](https://datasetsearch.research.google.com/)
+- [Open Science Framework](https://osf.io/dashboard)
 - [Harvard Dataverse](https://dataverse.harvard.edu/)
 - [Inter-university Consortium for Political and Social Research (ICPSR)](https://www.icpsr.umich.edu/)
 - [IPUMS](https://ipums.org/)

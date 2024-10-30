@@ -1,10 +1,12 @@
 ---
-title: "Difference-in-differences (Part 1)"
+title: "Difference-in-differences"
 sidebar: false
 eval: false
 ---
 
-# Triskaidekaphobia and apartment prices
+- Slides for today are available [here](https://docs.google.com/presentation/d/1ZwlDOZK9E7O8cCMw52bNr1T9OiHbY9yQLdUi-OFEhWM/edit?usp=sharing).
+
+# Example: Triskaidekaphobia and apartment prices
 
 Read the article [Why do buildings skip the thirteenth floor?](https://academic.oup.com/jrssig/article/21/2/16/7641894)
 
@@ -24,4 +26,3 @@ library(tidyverse)
 
 nyc <- read_csv("https://raw.githubusercontent.com/MadisonHardesty/13th-Floor/refs/heads/main/dataNYC.csv")
 ```
-
