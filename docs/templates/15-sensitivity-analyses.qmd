@@ -1,0 +1,104 @@
+---
+title: "Sensitivity Analyses"
+author: "YOUR NAME"
+format: 
+  html:
+    embed-resources: true
+    toc: true
+---
+
+- Slides for today are available [here](https://docs.google.com/presentation/d/1Ei1Yvg9qQEGdhCoG14puyj-5Sc1gOs-VTN2sLKFaaoM/edit?usp=sharing).
+
+
+# Examples
+
+We will explore the `EValue` package via their [documentation website](https://louisahsmith.github.io/evalue). Install the `EValue` package in the Console before continuing.
+
+Hammond EC, Horn D. Smoking and death rates: report on forty four months of follow-up of 187,783 men. J Am Med Assoc. 1958;166:1159– 1172, 1294–1308.
+
+- This study estimated that the **relative risk (RR)** of lung cancer comparing smokers to non-smokers was 10.73 (95% CI: 8.02-14.36)
+- A **relative risk** is a probability ratio: $P(\text{Disease}\mid\text{Exposed})/P(\text{Disease}\mid\text{Unexposed})$
+
+R. A. Fisher countered that the observed association could be completely explained by a genetic variant---an unmeasured confounder. How strongly associated would that genetic variant have to be with smoking and with lung cancer to "explain away" the observed RR of 10.73?
+
+We can calculate the E-value for the estimate as well as lower endpoint of the confidence interval:
+
+```{r}
+# Provide the estimate and confidence interval endpoints
+evalues.RR(est = 10.73, lo = 8.02, hi = 14.36)
+```
+
+**Interpretation:**
+
+- If the estimate of the causal effect (relative risk) were 10.73, the E-value of 20.95 tells us that:
+    - The genetic variant would have to be 20.95 times more common in smokers than non-smokers (confounder-treatment association).
+    - Lung cancer would have to be 20.95 times more common in those with the genetic variant than those without the variant (confounder-outcome association).
+
+- If the estimate of the causal effect were 8.02 (lower end of CI), the E-value of 15.52 tells us that:
+    - The genetic variant would have to be 15.52 times more common in smokers than non-smokers (confounder-treatment association).
+    - Lung cancer would have to be 15.52 times more common in those with the genetic variant than those without the variant (confounder-outcome association).
+
+Even the E-value for the lower endpoint of the CI seems very large! It seems unlikely that a genetic variant could have such strong associations with smoking and lung cancer. This gives us evidence that the smoking-lung cancer association is robust to unmeasured confounding and that there likely is a true causal relationship.
+
+*Note:* Why wouldn't we compute the E-value for the upper endpoint?
+
+- It's not useless, but it doesn't really bolster our arguments because we know that the strength of unmeasured confounding would have to be even stronger to explain away the upper endpoint.
+- It's useful to repeat the E-value calculations for the CI endpoint that is closer to the null value because it gives us an idea of the smallest amount of unmeasured confounding that could explain away our results.
+
+---
+
+The E-value represents **one** particular set of sensitivity analysis parameters (confounder-treatment, confounder-outcome associations) that would explain away an observed effect estimate. We can view other sets of parameters with the `bias_plot()` function:
+
+- The E-value is shown as a point on the solid curved line.
+- The curved line gives the boundary between parameter combinations that would and would not explain away our observed effect.
+    - All parameter combinations on and above the solid line would explain away our effect.
+    - All parameter combinations below the solid line would *not* explain away our effect.
+- This plot is useful if we want to explore either the confounder-treatment or confounder-outcome associations being stronger than the other.
+
+```{r}
+# Look at sensitivity parameters that would explain away the original estimate
+bias_plot(10.73, xmax = 40)
+
+# Look at sensitivity parameters that would explain away the lower end of the 95% CI
+bias_plot(8.02, xmax = 40)
+```
+
+---
+
+We can also compute E-values for biasing an observed effect estimate to some value other than the null:
+
+```{r}
+# What would the E-value need to be to bias the smoking-lung cancer effect to a much smaller relative risk of 1.5?
+evalues.RR(est = 10.73, true = 1.5, lo = 8.02, hi = 14.36)
+```
+
+
+
+# Exercises
+
+## Exercise 1
+
+In our example above, our causal effect estimate was a relative risk (RR), so we used the `evalues.RR()` function to compute E-values. What if our estimate of 10.73 and 95% CI (8.02-14.36) were odds ratios?
+
+Open [this documentation page](https://louisahsmith.github.io/evalue/reference/index.html) for all functions in the `EValue` package.
+
+- Find the appropriate E-value computation function.
+- Read the documentation page for this function to implement the correct E-value computation.
+
+You'll need the original study data:
+
+```
+          Lung Cancer    No Lung Cancer
+Smoker    397            78557
+Nonsmoker 51             108778
+```
+
+
+
+## Exercise 2
+
+Unmeasured confounding is one source of bias in a causal analysis. Another important one is measurement error. In this exercise we'll explore the potential for simulation to perform nuanced investigations about the impact of measurement error.
+
+Suppose you knew that non-white race and low socioeconomic status increased the rate of misclassification of a binary covariate X. Explain how you could implement a simulation study to investigate how much the misclassification could bias results. Try to write pseudocode for this.
+
+

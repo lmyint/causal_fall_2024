@@ -440,381 +440,64 @@
     ]
   },
   {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
+    "objectID": "05-causal-graphs-identification.html",
+    "href": "05-causal-graphs-identification.html",
+    "title": "Identifying causal effects with causal graphs",
     "section": "",
-    "text": "Check here to see what you should be doing before, during, and after each class day."
-  },
-  {
-    "objectID": "schedule.html#day1",
-    "href": "schedule.html#day1",
-    "title": "Schedule",
-    "section": "Day 1: Welcome! (9/4)",
-    "text": "Day 1: Welcome! (9/4)\nBefore class:\n\nGet acquainted with our course by reading the syllabus and touring our course website and Moodle page.\n\nDuring class: Introductions and foundations\nAfter class:\n\n\n\n\n\n\nRequired\n\n\n\nThe following chapters from The Effect lay the foundation for asking good questions. They’re written in a fun, conversational style and have some nice humor interspersed throughout.\n\nThe Effect Chapter 1: Designing Research (~10 minutes)\n\nVideo alternative: Designing Research (~8 minutes)\n\nThe Effect Chapter 2: Research Questions (~30 minutes)\n\nVideo alternative: Research Questions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\nIf you would like to have an additional reference throughout the course that leans more technical and economics-leaning, I recommend starting Causal Inference: The Mixtape by reading Chapter 1: Introduction (~35 minutes).\n\nNote: Scott uses the term endogenous in Section 1.3 without defining it. This is an economics term that essentially parallels the term confounding in statistics. That is, an endogenous variable is (often) one that is a confounder."
-  },
-  {
-    "objectID": "schedule.html#day2",
-    "href": "schedule.html#day2",
-    "title": "Schedule",
-    "section": "Day 2: Causal identification (9/6)",
-    "text": "Day 2: Causal identification (9/6)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 5: Identification (~50 minutes)\n\nVideo alternatives:\n\nIdentification: Data Generating Processes (~8 minutes)\nIdentification: Alternative Explanations (~9 minutes)\nIdentification: Alcohol and Mortality (~9 minutes)"
-  },
-  {
-    "objectID": "schedule.html#day3",
-    "href": "schedule.html#day3",
-    "title": "Schedule",
-    "section": "Day 1: Causal graph fundamentals (9/9)",
-    "text": "Day 1: Causal graph fundamentals (9/9)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 6: Causal Diagrams (~40 min)\n\nVideo alternatives:\n\nCausal Diagrams: Causality (~9 minutes)\nCausal Diagrams (~12 minutes)\n\n\nThe Effect Chapter 7: Drawing Causal Diagrams (~30 min)\n\nVideo alternatives:\n\nDrawing Causal Diagrams (~13 minutes)\nSimplifying Causal Diagrams (~12 minutes)\n\n\n\nFormulate a research question that relates to an area that you’re interested in. In class, we will be using the principles in Chapters 6 and 7 to draw a causal diagram that addresses this research question.\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 3: Directed Acyclic Graphs but skip 3.1.3 Backdoor Criterion (~40 minutes)"
-  },
-  {
-    "objectID": "schedule.html#day4",
-    "href": "schedule.html#day4",
-    "title": "Schedule",
-    "section": "Day 2: Simulating data using causal graphs (9/11)",
-    "text": "Day 2: Simulating data using causal graphs (9/11)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Key structures in causal graphs (~12 min) (slides)\n\nNote 1: In this video, I refer to a concept called “exchangeability”. This is a concept that I included in the last offering of this course. Exchangeability is a causal identification assumption. When the exchangeability assumption is satisfied, we can identify causal effects. When it is not satisfied, I call this “a lack of exchangeability”. In the language we have used, this happens when there are alternate (noncausal) explanations for a relationship between two variables. So in the video, whenever you hear “creates a lack of exchangeability”, replace that with “leads to the presence of alternate (noncausal) explanations for the relationship between two variables”. When you hear “achieve conditional exchangeability”, replace that with “we are able to address this alternate explanation when analyzing the data”.\nNote 2: I use the formal probability ideas of marginal and conditional dependence and independence. You can get the essential ideas from this video by replacing terms in the list below. (If you want to learn or review these probability ideas (not required!), watch my Probability Essentials video.)\n\n“A and B are marginally [independent/dependent]” = “A and B are [unrelated/related] in a general population”\n“A and B are conditionally independent” = “A and B are [unrelated/related] in subgroups (in each group defined by one or more variables)”\n\n\n2 readings from Andrew Heiss’s Program Evaluation course:\n\nGenerating random numbers (~35 min)\nThe ultimate guide to generating synthetic data for causal inference (Stop when you get to the subsection “Visualizing one variable”) (~25 min)\n\n\n\n\nDuring class: Simulating data using causal graphs"
-  },
-  {
-    "objectID": "schedule.html#day5",
-    "href": "schedule.html#day5",
-    "title": "Schedule",
-    "section": "Day 3: Simulating data using causal graphs (9/13)",
-    "text": "Day 3: Simulating data using causal graphs (9/13)\n\nContinuation of last class"
-  },
-  {
-    "objectID": "schedule.html#day6",
-    "href": "schedule.html#day6",
-    "title": "Schedule",
-    "section": "Day 1: Identifying causal effects with causal graphs (9/16)",
-    "text": "Day 1: Identifying causal effects with causal graphs (9/16)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Causal and Noncausal Paths (~5 min)\nVideo: D-Separation (~8 min)\nReading: The Effect Chapter 8: Causal Paths and Closing Back Doors (~35 minutes)\n\nVideo alternatives:\n\nCausal Pathways (~9 minutes)\nClosing Causal Pathways, and Collider Variables (~11 minutes)\nTesting Causal Diagrams, and Placebo Tests (~8 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Section 3.1.3: Backdoor criterion (~5 minutes)\n\n\n\n\nDuring class: Identifying causal effects with causal graphs"
-  },
-  {
-    "objectID": "schedule.html#day7",
-    "href": "schedule.html#day7",
-    "title": "Schedule",
-    "section": "Day 2: Identifying causal effects with causal graphs (9/18)",
-    "text": "Day 2: Identifying causal effects with causal graphs (9/18)\n\nContinuation of previous class\n\nDuring class: Identifying causal effects with causal graphs and Testing causal graphs"
-  },
-  {
-    "objectID": "schedule.html#day8",
-    "href": "schedule.html#day8",
-    "title": "Schedule",
-    "section": "Day 3: Synthesis day (9/20)",
-    "text": "Day 3: Synthesis day (9/20)\n\nPause day to work on Assignment 2.\nPlease create a rough outline of your slides before class.\nWe will have a chance to get feedback on the outline, work on the slides, and then get additional feedback on the slide content."
-  },
-  {
-    "objectID": "schedule.html#day9",
-    "href": "schedule.html#day9",
-    "title": "Schedule",
-    "section": "Day 1: Randomized experiments (9/23)",
-    "text": "Day 1: Randomized experiments (9/23)\nBefore class: No required reading or videos for today.\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nReading: Treatment Allocation and Randomization (~20 minutes) from Penn State’s online notes for the course Design and Analysis of Clinical Trials\n\n\n\n\nDuring class: Randomized experiments"
-  },
-  {
-    "objectID": "schedule.html#day10",
-    "href": "schedule.html#day10",
-    "title": "Schedule",
-    "section": "Day 2: Target trial framework (9/25)",
-    "text": "Day 2: Target trial framework (9/25)\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses. Journal of Clinical Epidemiology, 79, 70–75. (~35 minutes)\n\n\n\nDuring class: Target trial framework"
-  },
-  {
-    "objectID": "schedule.html#day11",
-    "href": "schedule.html#day11",
-    "title": "Schedule",
-    "section": "Day 3: Matching (9/27)",
-    "text": "Day 3: Matching (9/27)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 14: Matching (~160 minutes)\n\nVideo alternatives:\n\nMatching (~11 minutes)\nFive Questions About Matching (~13 minutes)\nDistance Matching (~9 minutes)\nPropensity Score Matching (~10 minutes)\nCoarsened Exact Matching and Entropy Balancing (~8 minutes)\nWhen Matching Goes Wrong (~14 minutes)\nTreatment Effect Estimation with Matching (~7 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 5: Matching and Subclassification (~140 minutes)\nJournal article: Matching Methods for Causal Inference: A Review and a Look Forward (~60 minutes)\n\n\n\n\nDuring class: Matching (Part 1)"
-  },
-  {
-    "objectID": "schedule.html#day12",
-    "href": "schedule.html#day12",
-    "title": "Schedule",
-    "section": "Day 1: Matching (9/30)",
-    "text": "Day 1: Matching (9/30)\n\nContinuation of previous class\n\nDuring class: Matching (Part 2)"
-  },
-  {
-    "objectID": "schedule.html#day13",
-    "href": "schedule.html#day13",
-    "title": "Schedule",
-    "section": "Day 2: Weighting (10/2)",
-    "text": "Day 2: Weighting (10/2)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Inverse Probability Weighting (Time: 10:24) (Slides)\n\n\n\nDuring class: Weighting"
-  },
-  {
-    "objectID": "schedule.html#day14",
-    "href": "schedule.html#day14",
-    "title": "Schedule",
-    "section": "Day 3: Weighting (10/4)",
-    "text": "Day 3: Weighting (10/4)\n\nContinuation of previous class\n\nDuring class: Weighting"
-  },
-  {
-    "objectID": "schedule.html#day15",
-    "href": "schedule.html#day15",
-    "title": "Schedule",
-    "section": "Day 1: Regression discontinuity (10/7)",
-    "text": "Day 1: Regression discontinuity (10/7)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)\n\n\n\n\nDuring class: Regression discontinuity designs"
-  },
-  {
-    "objectID": "schedule.html#day16",
-    "href": "schedule.html#day16",
-    "title": "Schedule",
-    "section": "Day 2: Event studies / interrupted times series (10/9)",
-    "text": "Day 2: Event studies / interrupted times series (10/9)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 17: Event Studies (~70 minutes)\n\nVideo alternatives:\n\nEvent Studies (~12 minutes)\nInterrupted Time Series (~8 minutes)\nEvent Studies in Finance (~11 minutes)\n\n\n\n\n\nDuring class: Event studies / interrupted time series"
-  },
-  {
-    "objectID": "schedule.html#day17",
-    "href": "schedule.html#day17",
-    "title": "Schedule",
-    "section": "Day 3: Flex Day (10/11)",
-    "text": "Day 3: Flex Day (10/11)\nNo class today because I will be attending a workshop.\nOn your own: Start exploring options for the course project."
-  },
-  {
-    "objectID": "schedule.html#day18",
-    "href": "schedule.html#day18",
-    "title": "Schedule",
-    "section": "Day 1: Synthetic control (10/14)",
-    "text": "Day 1: Synthetic control (10/14)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class: Interrupted time series and synthetic control"
-  },
-  {
-    "objectID": "schedule.html#day19",
-    "href": "schedule.html#day19",
-    "title": "Schedule",
-    "section": "Day 2: Synthetic control (10/16)",
-    "text": "Day 2: Synthetic control (10/16)\nDuring class: Interrupted time series and synthetic control\n\n🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁\n🍁 No class on Friday, October 18 🍁"
-  },
-  {
-    "objectID": "schedule.html#day20",
-    "href": "schedule.html#day20",
-    "title": "Schedule",
-    "section": "Day 1: Synthesis day (10/21)",
-    "text": "Day 1: Synthesis day (10/21)\nDuring class: Working on Assignment 4"
-  },
-  {
-    "objectID": "schedule.html#day21",
-    "href": "schedule.html#day21",
-    "title": "Schedule",
-    "section": "Day 2: Synthesis day (10/23)",
-    "text": "Day 2: Synthesis day (10/23)\nDuring class: Working on Assignment 4"
-  },
-  {
-    "objectID": "schedule.html#day22",
-    "href": "schedule.html#day22",
-    "title": "Schedule",
-    "section": "Day 3: Fixed effects models (10/25)",
-    "text": "Day 3: Fixed effects models (10/25)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\n\n\n\nDuring class: Fixed effects models"
-  },
-  {
-    "objectID": "schedule.html#day23",
-    "href": "schedule.html#day23",
-    "title": "Schedule",
-    "section": "Day 1: Difference-in-differences designs (10/28)",
-    "text": "Day 1: Difference-in-differences designs (10/28)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.1: How Does it Work? and Section 18.2: How Is It Performed?) (~60 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)\n\n\n\n\nDuring class: Difference-in-Differences"
-  },
-  {
-    "objectID": "schedule.html#day24",
-    "href": "schedule.html#day24",
-    "title": "Schedule",
-    "section": "Day 2: DiD continued (10/30)",
-    "text": "Day 2: DiD continued (10/30)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.3: How the Pros Do It) (~20 minutes)\n\nVideo alternatives:\n\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\nDuring class: Difference-in-Differences"
-  },
-  {
-    "objectID": "schedule.html#day25",
-    "href": "schedule.html#day25",
-    "title": "Schedule",
-    "section": "Day 3: Sensitivity analyses for unmeasured confounding",
-    "text": "Day 3: Sensitivity analyses for unmeasured confounding\nBefore class: No required reading or videos for today.\nDuring class:"
-  },
-  {
-    "objectID": "schedule.html#day26",
-    "href": "schedule.html#day26",
-    "title": "Schedule",
-    "section": "Day 1: Instrumental variables",
-    "text": "Day 1: Instrumental variables\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 19: Instrumental Variables (~85 minutes)\n\nVideo alternatives:\n\nInstrumental Variables (~10 minutes)\nInstrumental Variable Validity (~10 minutes)\nEstimating Instrumental Variables (~12 minutes)\nTesting Instrumental Variables Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 7: Instrumental Variables (~150 minutes)"
-  },
-  {
-    "objectID": "schedule.html#day-1-tbd",
-    "href": "schedule.html#day-1-tbd",
-    "title": "Schedule",
-    "section": "Day 1: TBD",
-    "text": "Day 1: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
-  },
-  {
-    "objectID": "schedule.html#day-2-last-day-of-class",
-    "href": "schedule.html#day-2-last-day-of-class",
-    "title": "Schedule",
-    "section": "Day 2: Last day of class!",
-    "text": "Day 2: Last day of class!\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Syllabus",
-    "section": "",
-    "text": "This is a course that is dear to my heart, and I’m excited to rediscover the the fascinating tools of this field with you.\nAs a graduate student, I actually worked in a completely different area for my dissertation. I focused on studying data from biological technologies (mass spectrometers and sequencing machines) and developing methods to analyze that data.\nIt was a happy and fortuitous occasion that I decided to take the course Causal Inference in Public Health during my 3rd year. I was immediately drawn in by the goals, tools, and application areas of the field—causal inference researchers really seemed to be studying meaningful and impactful issues. While I had little time to explore more of causal inference for the remainder of my graduate studies, the fascination stuck with me.\nWhen I got to Macalester in 2018, the possibility of engaging more with causal inference opened up. I taught the first version of this course in Spring 2019 and have been steadily learning more over the years, improving this course along the way. I hope that you find ideas that intrigue you and applications that excite you.\nLet’s have a great semester!"
-  },
-  {
-    "objectID": "syllabus.html#community-is-key",
-    "href": "syllabus.html#community-is-key",
-    "title": "Syllabus",
-    "section": "Community is key",
-    "text": "Community is key\nA sense of community and connectedness can provide a powerful environment for learning: Research shows that learning is maximized when students feel a sense of belonging in the educational environment (e.g., Booker, 2016). A negative climate may create barriers to learning, while a positive climate can energize students’ learning (e.g., Pascarella & Terenzini, cited in How Learning Works, 2012).\nFor these reasons, I will be designing our in-class group activities to intentionally foster community and connectedness. You can help cultivate our classroom community by being thoughtful about the way you engage with others in class."
-  },
-  {
-    "objectID": "syllabus.html#reflection-is-paramount",
-    "href": "syllabus.html#reflection-is-paramount",
-    "title": "Syllabus",
-    "section": "Reflection is paramount",
-    "text": "Reflection is paramount\nThe content you learn will be cool (unbiased opinion!), but it is a guarantee that you will venture into areas not covered in your formal education. We only have a short time together, and fields evolve constantly. There will be many times in your career where you will need to learn on your own. What you will need to rely on when you leave Macalester is what I want to ensure you cultivate now: a good learning process. And the cornerstone of a good learning process is reflection.\nReflection is not just fundamental to learning content–it’s fundamental to learning any sort of intellectual, emotional, or physical skill. For this reason, I will be prioritizing reflection in our activities and assignments throughout the semester."
-  },
-  {
-    "objectID": "syllabus.html#mistakes-are-essential",
-    "href": "syllabus.html#mistakes-are-essential",
-    "title": "Syllabus",
-    "section": "Mistakes are essential",
-    "text": "Mistakes are essential\n\nAn expert is a person who has made all the mistakes which can be made in a narrow field.\n\nNiels Bohr, Nobel Prize-winning physicist\n\n\nPerhaps paradoxically, an important way to gain confidence in an area is to make a lot of mistakes. As you move through this course, make note of any time your understanding changed and the situation in which that change happened. Your understanding will grow richer for doing so."
-  },
-  {
-    "objectID": "syllabus.html#communication-is-a-superpower",
-    "href": "syllabus.html#communication-is-a-superpower",
-    "title": "Syllabus",
-    "section": "Communication is a superpower",
-    "text": "Communication is a superpower\nEvery time I go to a conference talk on a technical topic, it is striking how quickly laptops or phones come out because of the inability to follow. Academics notoriously struggle to make ideas accessible to others.\nI want communication to be very different for you.\nEvery time you communicate ideas–whether through writing, visuals, or oral presentation–I want you to be a total boss. The end product of strong communication is a better experience for all those who have given you their attention. What’s more, the process of crafting effective communication is invaluable for deepening your own understanding:\n\n\n\nRead to collect the dots, write to connect them pic.twitter.com/YbgnKKFUNn\n\n— David Perell (@david_perell) July 5, 2021"
-  },
-  {
-    "objectID": "syllabus.html#outside-of-class",
-    "href": "syllabus.html#outside-of-class",
-    "title": "Syllabus",
-    "section": "Outside of class",
-    "text": "Outside of class\nPre-class videos/readings: Most class periods will have a required video or reading to get acquainted with new concepts before seeing them again in class. Pre-class materials will focus more on conceptual ideas with less emphasis on code. My goal for these videos and readings is for you to familiarize yourself enough with the concepts so that we can go over both conceptual ideas and code in class.\n\n\n\n\n\n\nSuggestions\n\n\n\n\nAs you take notes on videos/readings, highlight or otherwise mark all the areas where you have questions. Gather up all of these questions in one place, and bring them to class with you.\nRecord any reflections from in-class time about your learning process or interactions with peers while they are still fresh.\nAfter learning a new topic in class, it is helpful to attempt the upcoming assignment as soon as possible. Just by getting some rough ideas down quickly, you avoid the difficulty of starting from a blank slate.\nCome to instructor drop-in hours to chat about the course or anything else! 😃"
-  },
-  {
-    "objectID": "syllabus.html#during-class",
-    "href": "syllabus.html#during-class",
-    "title": "Syllabus",
-    "section": "During class",
-    "text": "During class\nClass time will be a mixture of core idea days and flex days. On our schedule, any day that is not explicitly labeled as a flex day or project work day is a core idea day.\nOn core idea days, class time will be a mix of interactive lecture and stretches of group work. During the lecture portion, I will pause explanation frequently to prompt a short exercise.\nOn flex days, there will be options to continue practicing the topics that we have covered recently or to explore some ideas in more detail.\n\n\n\n\n\n\nSuggestions\n\n\n\n\nThroughout class time, reference your set of questions from the pre-class material. Have you made progress on addressing those questions? Who or what helped with improving your understanding, and how? Make notes of what concepts are still unclear so that you can review later."
-  },
-  {
-    "objectID": "syllabus.html#my-philosophy",
-    "href": "syllabus.html#my-philosophy",
-    "title": "Syllabus",
-    "section": "My philosophy",
-    "text": "My philosophy\nGrading is thorny issue for many educators because of its known negative effects on learning and motivation. Nonetheless, it is ever-present in the US education system and at Macalester. Because I am required to submit grades for this course, it’s worth me taking a minute to share my philosophy about grading with you.\nWhat excites me about being a teacher is your learning.\nLearning flourishes in an environment where you find meaning and value in what we’re exploring, feel supported when engaging with challenges, receive useful feedback, and regularly reflect on your learning.\nIf I didn’t have to give grades, I wouldn’t. But because I am required to, it is important to me to create a course structure and grading system that allow learning to flourish:\n\nFinding meaning and value: I am striving to achieve this by:\n\nCreating space for authentic connection between you, your peers, and myself\nBuilding flex days into our schedule so that you have time to focus on what you want to get out of the course\nEncouraging you to explore a topic that intrigues you for our course project\n\nSupport in engaging with challenges: The assignments and activities that we will use to learn are meant to be challenging, and it would be unreasonable for me to expect that you have perfect understanding on the first try. For this reason, the opportunity to revise without penalty on assignments is something I believe in strongly. Solid learning does not happen under excessive stress, and I think that a lot of that stress comes from the general culture of perfection in academia.\nReceiving useful feedback and reflecting regularly: My aim with feedback is to always provide guidance towards improvement, no matter where you are in your progress. However, good feedback alone is useless—learners need to engage deeply with feedback in order to benefit the most from it. For this reason, my stance on feedback is the following: I only want to give feedback on work that you want to read feedback on. This informs the approach that we’ll take for assignments in this course."
-  },
-  {
-    "objectID": "syllabus.html#assignments-and-assessments",
-    "href": "syllabus.html#assignments-and-assessments",
-    "title": "Syllabus",
-    "section": "Assignments and assessments",
-    "text": "Assignments and assessments\nThere are no in-class examinations (like quizzes or exams) in this course. A portfolio and a course project are the two sources of submitted work that will receive feedback.\n\nPortfolio\nPurpose: Over the course of the semester, you’ll build up a portfolio in which you organize course ideas that are most important to you in a way that is most beneficial to your future self. My hope is that you can easily use this portfolio in the future in case you want a reference that is tailored to you.\nOverview:\n\nStarting the 3rd week of the semester, an assignment will be due every Friday in which you add to this portfolio.\nThese assignments will ask you to reorganize the information from course topics in a way that is more optimal for you to navigate. In completing these assignments, you have the freedom to draw from class activities, but you will need to add explanations, transitions between ideas, and connections that we won’t necessarily do together in class activities.\nMost of the time, you’ll submit these assignments as Quarto files (.qmd) because you’ll be required to include both code and writing. I’ll add comments directly to your .qmd file and re-upload them as feedback on Moodle.\n\nDetails for all assignments can be found on the Assignments page.\n\n\nProject\nPurpose: Complete a project that you would be proud to talk about in depth during a job interview or present during MSCS Capstone Days in the spring.\nOverview:\n\nTwo main options for the project are available: (1) a data analysis using causal tools and (2) creating a tutorial on a topic not covered in class. If you feel strongly about pursuing a different type of project, we can meet to discuss.\nThrough weekly milestones at the end of the semester, you will make steady progress on your projects and iterate on feedback.\n\nFull details about the project can be found on the Project page."
-  },
-  {
-    "objectID": "syllabus.html#course-grading-system",
-    "href": "syllabus.html#course-grading-system",
-    "title": "Syllabus",
-    "section": "Course grading system",
-    "text": "Course grading system\n\n\n\n\n\n\nBefore Assignment 1\n\n\n\n\n\nBefore I decide on a course grading system, I would like your input. Everyone has different sources of motivation and thrives in different types of environments, and I would like to learn more about each of your motivations before making decisions on a system that could have notable impacts on your experience in the course.\nAssignment 1 will be a short piece of writing that helps me learn about you in this regard. We will use insights from your writing to inform a discussion on the grading system in the first weeks of class.\n\n\n\nConsistent themes that I saw throughout your responses to Assignment 1 included the following:\n\nThe idea of an A as a default starting point was intriguing to try given the existence of other strong motivators. Many of you mentioned that the desire to learn more about the field and to create a project you would be proud to share with others are powerful sources of motivation. Given these motivators, a system where an A is the default can relieve stress and encourage a focus on ideas rather than a preoccupation with performance on assessments.\nIt would feel better if a grade of an A as a default were linked with expectations. You offered ideas of earning an A contingent on coming to class most of the time and completing assignments rather than on “perfecting” assignments according to some point scale or rubric.\nQualitative feedback, reflection, and revision are essential parts of the learning process and should be part of the grading system. Some of you expressed the desire to require revisions and reflection in response to thoughtful qualitative feedback.\nIt is important to get everyone’s input and hear what others have to say. Many of you mentioned being open to whatever grading system works best for everyone and that a fair way to decide could be to vote or have an in-class discussion.\n\n\nBased on these themes, I am proposing the following Contract for an A this semester:\n\n\n\n\n\n\nContract for an A\n\n\n\nTo earn an A for the semester, we agree to the following:\n\nActively co-create our course learning community alongside peers and the instructor.\n\nOur strongest learning will occur when we feel like we’re doing work alongside others who want the same things.\nBeing an active co-creator of our learning community will entail coming prepared to class as much as we can: engaging with pre-class materials thoughtfully by noting down interesting ideas and questions that you hope to have answered and sharing them with peers in class.\nWe will support the learning of our peers by thoughtfully engaging with class activities.\nEveryone will advocate for their own learning by communicating regularly with the instructor about what is working well and can be improved.\n\nComplete all assignments to the best of your ability and consistently respond to feedback.\n\nResponding to feedback involves revising work and/or writing a message to the instructor to continue the conversation from the previous round of feedback.\nQualitative feedback will always communicate areas for growth. Sometimes that growth can be approached with a revision of prior work, and sometimes it can be approached by articulating plans for what to work on in the future.\n\nReflect on your progress at the midway point and at the end of the semester.\n\nI will provide prompts at both points to help you look back on past work and look forward to continued growth.\n\nCreate and present a high quality project that you would be proud to share on capstone days or with future employers.\n\nThrough regular milestones and qualitative feedback on each milestone, we’ll work towards creating work that you are proud of."
-  },
-  {
-    "objectID": "syllabus.html#late-work",
-    "href": "syllabus.html#late-work",
-    "title": "Syllabus",
-    "section": "Late work",
-    "text": "Late work\nHomework assignments will generally be due weekly on Fridays at 5pm. If you anticipate needing more time to complete an assignment, please email me ahead of time to discuss. My main constraint is the desire to give you feedback before the next assignment is due, and I’ll be working on feedback on the Monday-Thursday after an assignment is due."
-  },
-  {
-    "objectID": "syllabus.html#academic-integrity",
-    "href": "syllabus.html#academic-integrity",
-    "title": "Syllabus",
-    "section": "Academic integrity",
-    "text": "Academic integrity\nAcademic integrity is the cornerstone of our learning community. Students are expected to be familiar with the college’s standards on academic integrity.\nI encourage you to work with your classmates to discuss material and ideas for assignments, but in order for you to receive individualized feedback on your own learning, you must submit your own work. This involves writing your own code and putting explanations into your own words. Always cite any sources you use, including AI (see section below)."
-  },
-  {
-    "objectID": "syllabus.html#artificial-intelligence-ai-use",
-    "href": "syllabus.html#artificial-intelligence-ai-use",
-    "title": "Syllabus",
-    "section": "Artificial intelligence (AI) use",
-    "text": "Artificial intelligence (AI) use\nAI can both interfere with and enhance our capacity to learn. We must be mindful of when it might hinder us and when it might provide us with new understanding and/or assistance. What is most important to me about our AI usage in this course is the following:\n\nAI usage must always be cited with the prompt and full output.\n\nWhy do I care about this? I want to see and give feedback on your thinking.\nI will not use AI frequently out of personal preference, but when I do, I will always share the prompt and output.\n\nAI output can be a part of your responses on assignments, but it always needs to be accompanied by double-checking, commentary, and interpretation from you.\n\nWhy do I care about this? Again, I want to see and give feedback on your thinking. But also quite importantly, AI does not always generate complete and/or accurate output. Because of its training data, it will almost certainly hallucinate or give inaccurate information when asked about more modern advances in the field.\n\n\nPlease be aware of the following general limitations of AI:\n\nAI does not always generate accurate output. If it gives you a number, fact, or code, assume it is wrong unless you either know the answer or can check in with another source. AI works best for topics you already understand to a sufficient extent.\nIf you provide minimum effort prompts, you will get low quality results. You will need to refine your prompts in order to get good outcomes. This will take work.\nBe thoughtful about when this tool is useful. Don’t use it if it isn’t appropriate for the case or circumstance.\nThe environmental impact of AI should not be ignored. The building and usage of AI tools consume a lot of energy (see here and here). For this reason, let’s be thoughtful about when we use AI and think about other sustainability behaviors that we can incorporate into our lives to offset this usage.\n\nIf you have any questions about your use of AI tools, please contact me to discuss them."
-  },
-  {
-    "objectID": "project.html",
-    "href": "project.html",
-    "title": "Project",
-    "section": "",
-    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a project for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nOpen Science Framework\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here.\n\n\n\n\n\nOverview: Dig deeper into existing course topics or learn a new topic. Examples could include:\n\nMethods for transportability (generalizability) of effects\nInterference\nSpecialized considerations for particular study designs\nMachine learning in causal inference\nIndividual causal effect estimation\n\nCollaboration: Groups of up to 3. Individual work is fine.\n\n\n\n\nIf none of these options piques your interest, I’m happy to discuss alternatives with you. Some ideas:\n\nDesign a Shiny app to illustrate causal concepts to students\nWrite (part of) an R package for making it easier to work with causal graphs\nCritique of applied research\n\nThis is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.\nFind and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors’ data collection and analysis methods.\nDiscuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research."
-  },
-  {
-    "objectID": "project.html#option-1-data-analysis",
-    "href": "project.html#option-1-data-analysis",
-    "title": "Project",
-    "section": "",
-    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a project for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nOpen Science Framework\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here."
-  },
-  {
-    "objectID": "project.html#option-2-learn-an-advanced-topic",
-    "href": "project.html#option-2-learn-an-advanced-topic",
-    "title": "Project",
-    "section": "",
-    "text": "Overview: Dig deeper into existing course topics or learn a new topic. Examples could include:\n\nMethods for transportability (generalizability) of effects\nInterference\nSpecialized considerations for particular study designs\nMachine learning in causal inference\nIndividual causal effect estimation\n\nCollaboration: Groups of up to 3. Individual work is fine."
-  },
-  {
-    "objectID": "project.html#option-3-other",
-    "href": "project.html#option-3-other",
-    "title": "Project",
-    "section": "",
-    "text": "If none of these options piques your interest, I’m happy to discuss alternatives with you. Some ideas:\n\nDesign a Shiny app to illustrate causal concepts to students\nWrite (part of) an R package for making it easier to work with causal graphs\nCritique of applied research\n\nThis is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.\nFind and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors’ data collection and analysis methods.\nDiscuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research."
-  },
-  {
-    "objectID": "project.html#milestone-1",
-    "href": "project.html#milestone-1",
-    "title": "Project",
-    "section": "Milestone 1",
-    "text": "Milestone 1\nDue date: Friday, November 8 at 5PM\nAs part of this milestone, you will pick a project option, pick a specific topic, and form a group (if not working alone).\nYou will submit a short write-up that varies by project option. (No page length requirements—just convey the information that you need to.)\n\nData analysis option: You will write a draft of the Introduction, Data, and Methods sections of your paper.\n\nIntroduction: Give background for your topic, including relevant theory, domain knowledge, and prior research. Incorporate findings from at least 3 journal articles.\nData: Describe the data that you have and how it was collected. Include any limitations or cautions that are important to keep in mind about the data. Think about the who, what, when, where, why, and how behind your data to inform your discussion in this section.\nMethods: Write a detailed plan for the analyses that you will conduct. This part can be written in bullet points.\n\nAdvanced topic option: Your final paper will be structured as a tutorial, and for this milestone, you’ll make progress towards writing this tutorial.\n\nIntroduce the big idea behind this topic. Make connections between your topic and the topics we covered in class so that others can have a better sense of how this topic fits into the field of causal inference.\nExplain 1 idea that you learned from your research so far. Include a citation to at least 1 journal article.\nWrite a plan for your remaining research. Describe the ideas are you planning to learn in the remaining time. Describe a simulation study that you will perform to explore some of the theory behind your topic."
-  },
-  {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "Assignments",
-    "section": "",
-    "text": "These assignments will build up your Portfolio. Recall from the syllabus that the goal of the Portfolio is create a reference that is tailored to the way that you think about and understand ideas.\nI hope that you feel proud of your Portfolio by the end of the semester. If you want to publish it, the Quarto files (.qmd) that you submit for your assignments can become the basis for a website that looks a lot like this course website or websites in the Quarto gallery. I’m happy to help you get this set up if you’re interested."
-  },
-  {
-    "objectID": "assignments.html#addressing-feedback",
-    "href": "assignments.html#addressing-feedback",
-    "title": "Assignments",
-    "section": "Addressing feedback",
-    "text": "Addressing feedback\nDue Wednesday, October 9 on Moodle\nAddress feedback on your slides by doing the following:\n\nWrite a paragraph summarizing the changes that you made and/or intend to make and why\nImplement changes to your slides and/or presenter notes in light of feedback.\n\nYou don’t need to agree with everything I recommend!\nAnd you may not have time to implement everything that I recommend even if you agree.\nMake the changes that you are able to, being mindful of your time and other commitments.\nWhatever you want to address but cannot finish by the due date, tell me about in your paragraph."
-  },
-  {
-    "objectID": "assignments.html#addressing-feedback-1",
-    "href": "assignments.html#addressing-feedback-1",
-    "title": "Assignments",
-    "section": "Addressing feedback",
-    "text": "Addressing feedback\nDue Monday, November 4 on Moodle\nAddress feedback on your assignment by doing both of the following:\n\nImplement changes to your assignment code and responses in light of feedback. Put new text responses in red text like this:\n\n&lt;span style=\"color: red;\"&gt;\nMy new explanation\n&lt;/span&gt;\n\n&lt;span style=\"color: red;\"&gt;\nI updated my code below: (put this above a code chunk where you update code)\n&lt;/span&gt;\n\nWrite a paragraph summarizing what you changed and the key ways in which your understanding evolved over the course of working on Assignment 3 and these revisions.\nSubmit an updated HTML and paragraph on Moodle."
-  },
-  {
-    "objectID": "01-introductions.html",
-    "href": "01-introductions.html",
-    "title": "Introductions and foundational ideas",
-    "section": "",
-    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nSlides for today: HTML, PDF",
+    "text": "Explain how d-separation and causal/noncausal paths relate to identification of causal effects.\nApply d-separation to block noncausal paths in causal DAGs with and without unobserved variables.\nApply strategies to deal with identification problems caused by unobserved variables.\nDifferentiate confounding and selection bias in terms of graph structure and how they arise in applied studies.",
     "crumbs": [
-      "Introductions and foundational ideas"
+      "Identifying causal effects with causal graphs"
     ]
   },
   {
-    "objectID": "08-target-trial.html",
-    "href": "08-target-trial.html",
-    "title": "Target trial framework",
-    "section": "",
-    "text": "Goals\n\nCommunicate benefits of using the target trial framework to design the analysis of an observational study\nPractice the process of reading an academic journal article\n\n\n\n\nDiscussion\nThe following prompts are adapted from the following guides for reading scholarly articles:\n\nBrown University’s guide How to Read a Scholarly Article\nHow to Read the Statistical Methods Literature: A Guide for Students\n\nRead through the following prompts, and then open this Google Doc to record notes as you re-engage with today’s article: Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses.\n\nReread the title, abstract, keywords, and introduction\n\nBased on this information, write a 2 sentence description of the problem the article is trying to address.\n\nMake note of the authors\n\nYou might see the same authors repeatedly when exploring other articles referenced in the article. This helps you understand the breadth of topics that certain authors write about.\n\nFind a problem or context that you are familiar with and relate the article’s arguments to this context.\n\nFor example, it could help to start with the context of a randomized experiment. As you read, ask yourself “What is different about the target trial approach?”\n\nAs you skim the article again:\n\nWrite down unfamiliar jargon to look up later. If a sentence makes a claim that is hard to understand, try to find another concept or term in that sentence or in a nearby sentence that you do understand.\nIf an unfamiliar concept is linked to a citation, write down that citation and categorize that citation as essential (top priority for what to read next) or secondary.\n\nAs you reread the article:\n\nWhat arguments were hard to follow?\nWhat could the authors have done to make it easier for you to understand the article? Any such instances are good candidates for inclusion in your own communications about related ideas.",
+    "objectID": "05-causal-graphs-identification.html#exercise-1",
+    "href": "05-causal-graphs-identification.html#exercise-1",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFor each of the causal graphs below, identify the set of variables needed to block noncausal paths (if possible) between treatment \\(A\\) and outcome \\(Y\\). Any \\(U\\) variables displayed in the graphs are unobserved/unmeasured.",
     "crumbs": [
-      "Target trial framework"
+      "Identifying causal effects with causal graphs"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT 451: Causal Inference",
+    "objectID": "05-causal-graphs-identification.html#exercise-2",
+    "href": "05-causal-graphs-identification.html#exercise-2",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nHistorically, people have tried to create definitions for confounders by listing criteria that purely rely on associations. For example:\n\nA confounder must:\n1. Be associated with treatment and outcome\n2. Not be caused by treatment\n\nUsing the causal graph below, explain why this is not a good definition for a confounder.",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html#exercise-3",
+    "href": "05-causal-graphs-identification.html#exercise-3",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFirst, think through the relationships depicted in the causal graphs below and whether they make sense. These are intended to reflect a range of scenarios for why people drop out of studies.\nThen for each of the graphs, identify the set of variables that would block noncausal paths between the treatment \\(A\\) and outcome \\(Y\\). (\\(U\\) and \\(W\\) are unmeasured.) Check your answers to one of the graphs using DAGitty.",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "05-causal-graphs-identification.html#exercise-4",
+    "href": "05-causal-graphs-identification.html#exercise-4",
+    "title": "Identifying causal effects with causal graphs",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nIn this exercise, we’ll consider how causal graphs can inform study design. (Inspired by a 1970s study on the relationship between estrogen use and endometrial cancer.)\nResearchers have noticed a consistent association between use of a certain drug and disease. Research groups debated two hypotheses:\n\nThe drug does cause disease.\nThe drug doesn’t actually cause disease but leads to a side effect, leading to more frequent doctor visits, leading to increased diagnosis of existing disease.\n\nThe following study plan was proposed: restrict the study only to those with side effects and compare disease rates in drug-users and non-users. In this way, all participants have the same chance of being diagnosed.\nThe following causal graphs correspond to the two hypotheses:\n\n\n\n(The graphs don’t show confounders of the drug-true disease relationship for compactness. We can assume that these have already been adjusted for.)\n\nStudy design 1\nConsider the study proposal above: restrict analysis to those with side effects.\n\nBefore looking at the causal graphs: does the rationale for this study design make sense? Why did researchers want to only look at patients with side effects?\nUnder this study design, the researchers were expecting that if Hypothesis 1 were correct (the drug does cause disease), they would find an association between drug use and diagnosed disease. They expected that if Hypothesis 2 were correct (the drug does NOT cause disease), they would find NO association between drug use and diagnosed disease.\n\nAre these expectations correct? Explain in light of the causal graphs.\n\nBased on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?\n\n\n\nStudy design 2\nConsider another study proposal: ensure that everyone is screened for disease frequently, and we don’t restrict our analysis to only those with side effects.\n\nWhat arrow can be removed as a result of this study design? (It might help to draw an updated version of DAGs 1 and 2 with this arrow removed.)\nUnder this study design, the researchers had the same expectations: if Hypothesis 1 were correct, they would find an association between drug use and diagnosed disease. If Hypothesis 2 were correct, they would find NO association between drug use and diagnosed disease.\n\nAre these expectations correct? Explain in light of the causal graphs.\n\nBased on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?",
+    "crumbs": [
+      "Identifying causal effects with causal graphs"
+    ]
+  },
+  {
+    "objectID": "14-did.html",
+    "href": "14-did.html",
+    "title": "Difference-in-differences",
     "section": "",
-    "text": "Become a producer of actionable knowledge by exploring how to quantify the impact of interventions\n\n\nInstructor: Leslie Myint  Class meeting times: MWF 10:50-11:50am  Class location: THEATR 204  Instructor drop-in hours:\n\nOlin-Rice 232\nMondays, Thursdays, and Fridays: 2-3pm\nTuesdays: 3:30-4:30pm"
+    "text": "Slides for today are available here.\n\n\nExample: Triskaidekaphobia and apartment prices\nRead the article Why do buildings skip the thirteenth floor?\nAfter reading, answer the following with your group:\n\nHow did the authors apply the difference-in-differences (DiD) framework to this setting?\nDo you think the assumptions they made were reasonable?\nWhat regression model underlies their DiD analyses?\nWhy did the authors repeat their analyses after matching relabelled and not relabelled apartment buildings?\n\n\nUnderlying code and data: GitHub repo\n\nlibrary(tidyverse)\n\nnyc &lt;- read_csv(\"https://raw.githubusercontent.com/MadisonHardesty/13th-Floor/refs/heads/main/dataNYC.csv\")",
+    "crumbs": [
+      "Difference-in-differences"
+    ]
   },
   {
     "objectID": "slides/01-introductions.html#welcome-to-causal-inference",
@@ -1020,63 +703,410 @@
     "text": "For next time\n\nCheck the Schedule for readings from The Effect. (Chapters 1, 2, and 5)\n\nReadings from The Effect always have video alternatives from the textbook author.\n\nUpdate your R and RStudio installations as described here."
   },
   {
-    "objectID": "14-did.html",
-    "href": "14-did.html",
-    "title": "Difference-in-differences",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 451: Causal Inference",
     "section": "",
-    "text": "Slides for today are available here.\n\n\nExample: Triskaidekaphobia and apartment prices\nRead the article Why do buildings skip the thirteenth floor?\nAfter reading, answer the following with your group:\n\nHow did the authors apply the difference-in-differences (DiD) framework to this setting?\nDo you think the assumptions they made were reasonable?\nWhat regression model underlies their DiD analyses?\nWhy did the authors repeat their analyses after matching relabelled and not relabelled apartment buildings?\n\n\nUnderlying code and data: GitHub repo\n\nlibrary(tidyverse)\n\nnyc &lt;- read_csv(\"https://raw.githubusercontent.com/MadisonHardesty/13th-Floor/refs/heads/main/dataNYC.csv\")",
+    "text": "Become a producer of actionable knowledge by exploring how to quantify the impact of interventions\n\n\nInstructor: Leslie Myint  Class meeting times: MWF 10:50-11:50am  Class location: THEATR 204  Instructor drop-in hours:\n\nOlin-Rice 232\nMondays, Thursdays, and Fridays: 2-3pm\nTuesdays: 3:30-4:30pm"
+  },
+  {
+    "objectID": "08-target-trial.html",
+    "href": "08-target-trial.html",
+    "title": "Target trial framework",
+    "section": "",
+    "text": "Goals\n\nCommunicate benefits of using the target trial framework to design the analysis of an observational study\nPractice the process of reading an academic journal article\n\n\n\n\nDiscussion\nThe following prompts are adapted from the following guides for reading scholarly articles:\n\nBrown University’s guide How to Read a Scholarly Article\nHow to Read the Statistical Methods Literature: A Guide for Students\n\nRead through the following prompts, and then open this Google Doc to record notes as you re-engage with today’s article: Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses.\n\nReread the title, abstract, keywords, and introduction\n\nBased on this information, write a 2 sentence description of the problem the article is trying to address.\n\nMake note of the authors\n\nYou might see the same authors repeatedly when exploring other articles referenced in the article. This helps you understand the breadth of topics that certain authors write about.\n\nFind a problem or context that you are familiar with and relate the article’s arguments to this context.\n\nFor example, it could help to start with the context of a randomized experiment. As you read, ask yourself “What is different about the target trial approach?”\n\nAs you skim the article again:\n\nWrite down unfamiliar jargon to look up later. If a sentence makes a claim that is hard to understand, try to find another concept or term in that sentence or in a nearby sentence that you do understand.\nIf an unfamiliar concept is linked to a citation, write down that citation and categorize that citation as essential (top priority for what to read next) or secondary.\n\nAs you reread the article:\n\nWhat arguments were hard to follow?\nWhat could the authors have done to make it easier for you to understand the article? Any such instances are good candidates for inclusion in your own communications about related ideas.",
     "crumbs": [
-      "Difference-in-differences"
+      "Target trial framework"
     ]
   },
   {
-    "objectID": "05-causal-graphs-identification.html",
-    "href": "05-causal-graphs-identification.html",
-    "title": "Identifying causal effects with causal graphs",
+    "objectID": "01-introductions.html",
+    "href": "01-introductions.html",
+    "title": "Introductions and foundational ideas",
     "section": "",
-    "text": "Explain how d-separation and causal/noncausal paths relate to identification of causal effects.\nApply d-separation to block noncausal paths in causal DAGs with and without unobserved variables.\nApply strategies to deal with identification problems caused by unobserved variables.\nDifferentiate confounding and selection bias in terms of graph structure and how they arise in applied studies.",
+    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nSlides for today: HTML, PDF",
     "crumbs": [
-      "Identifying causal effects with causal graphs"
+      "Introductions and foundational ideas"
     ]
   },
   {
-    "objectID": "05-causal-graphs-identification.html#exercise-1",
-    "href": "05-causal-graphs-identification.html#exercise-1",
-    "title": "Identifying causal effects with causal graphs",
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Assignments",
+    "section": "",
+    "text": "These assignments will build up your Portfolio. Recall from the syllabus that the goal of the Portfolio is create a reference that is tailored to the way that you think about and understand ideas.\nI hope that you feel proud of your Portfolio by the end of the semester. If you want to publish it, the Quarto files (.qmd) that you submit for your assignments can become the basis for a website that looks a lot like this course website or websites in the Quarto gallery. I’m happy to help you get this set up if you’re interested."
+  },
+  {
+    "objectID": "assignments.html#addressing-feedback",
+    "href": "assignments.html#addressing-feedback",
+    "title": "Assignments",
+    "section": "Addressing feedback",
+    "text": "Addressing feedback\nDue Wednesday, October 9 on Moodle\nAddress feedback on your slides by doing the following:\n\nWrite a paragraph summarizing the changes that you made and/or intend to make and why\nImplement changes to your slides and/or presenter notes in light of feedback.\n\nYou don’t need to agree with everything I recommend!\nAnd you may not have time to implement everything that I recommend even if you agree.\nMake the changes that you are able to, being mindful of your time and other commitments.\nWhatever you want to address but cannot finish by the due date, tell me about in your paragraph."
+  },
+  {
+    "objectID": "assignments.html#addressing-feedback-1",
+    "href": "assignments.html#addressing-feedback-1",
+    "title": "Assignments",
+    "section": "Addressing feedback",
+    "text": "Addressing feedback\nDue Monday, November 4 on Moodle\nAddress feedback on your assignment by doing both of the following:\n\nImplement changes to your assignment code and responses in light of feedback. Put new text responses in red text like this:\n\n&lt;span style=\"color: red;\"&gt;\nMy new explanation\n&lt;/span&gt;\n\n&lt;span style=\"color: red;\"&gt;\nI updated my code below: (put this above a code chunk where you update code)\n&lt;/span&gt;\n\nWrite a paragraph summarizing what you changed and the key ways in which your understanding evolved over the course of working on Assignment 3 and these revisions.\nSubmit an updated HTML and paragraph on Moodle."
+  },
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Project",
+    "section": "",
+    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a project for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nOpen Science Framework\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here.\n\n\n\n\n\nOverview: Dig deeper into existing course topics or learn a new topic. Examples could include:\n\nMethods for transportability (generalizability) of effects\nInterference\nSpecialized considerations for particular study designs\nMachine learning in causal inference\nIndividual causal effect estimation\n\nCollaboration: Groups of up to 3. Individual work is fine.\n\n\n\n\nIf none of these options piques your interest, I’m happy to discuss alternatives with you. Some ideas:\n\nDesign a Shiny app to illustrate causal concepts to students\nWrite (part of) an R package for making it easier to work with causal graphs\nCritique of applied research\n\nThis is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.\nFind and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors’ data collection and analysis methods.\nDiscuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research."
+  },
+  {
+    "objectID": "project.html#option-1-data-analysis",
+    "href": "project.html#option-1-data-analysis",
+    "title": "Project",
+    "section": "",
+    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a project for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nOpen Science Framework\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here."
+  },
+  {
+    "objectID": "project.html#option-2-learn-an-advanced-topic",
+    "href": "project.html#option-2-learn-an-advanced-topic",
+    "title": "Project",
+    "section": "",
+    "text": "Overview: Dig deeper into existing course topics or learn a new topic. Examples could include:\n\nMethods for transportability (generalizability) of effects\nInterference\nSpecialized considerations for particular study designs\nMachine learning in causal inference\nIndividual causal effect estimation\n\nCollaboration: Groups of up to 3. Individual work is fine."
+  },
+  {
+    "objectID": "project.html#option-3-other",
+    "href": "project.html#option-3-other",
+    "title": "Project",
+    "section": "",
+    "text": "If none of these options piques your interest, I’m happy to discuss alternatives with you. Some ideas:\n\nDesign a Shiny app to illustrate causal concepts to students\nWrite (part of) an R package for making it easier to work with causal graphs\nCritique of applied research\n\nThis is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.\nFind and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors’ data collection and analysis methods.\nDiscuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research."
+  },
+  {
+    "objectID": "project.html#milestone-1",
+    "href": "project.html#milestone-1",
+    "title": "Project",
+    "section": "Milestone 1",
+    "text": "Milestone 1\nDue date: Friday, November 8 at 5PM\nAs part of this milestone, you will pick a project option, pick a specific topic, and form a group (if not working alone).\nYou will submit a short write-up that varies by project option. (No page length requirements—just convey the information that you need to.)\n\nData analysis option: You will write a draft of the Introduction, Data, and Methods sections of your paper.\n\nIntroduction: Give background for your topic, including relevant theory, domain knowledge, and prior research. Incorporate findings from at least 3 journal articles.\nData: Describe the data that you have and how it was collected. Include any limitations or cautions that are important to keep in mind about the data. Think about the who, what, when, where, why, and how behind your data to inform your discussion in this section.\nMethods: Write a detailed plan for the analyses that you will conduct. This part can be written in bullet points.\n\nAdvanced topic option: Your final paper will be structured as a tutorial, and for this milestone, you’ll make progress towards writing this tutorial.\n\nIntroduce the big idea behind this topic. Make connections between your topic and the topics we covered in class so that others can have a better sense of how this topic fits into the field of causal inference.\nExplain 1 idea that you learned from your research so far. Include a citation to at least 1 journal article.\nWrite a plan for your remaining research. Describe the ideas are you planning to learn in the remaining time. Describe a simulation study that you will perform to explore some of the theory behind your topic."
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "This is a course that is dear to my heart, and I’m excited to rediscover the the fascinating tools of this field with you.\nAs a graduate student, I actually worked in a completely different area for my dissertation. I focused on studying data from biological technologies (mass spectrometers and sequencing machines) and developing methods to analyze that data.\nIt was a happy and fortuitous occasion that I decided to take the course Causal Inference in Public Health during my 3rd year. I was immediately drawn in by the goals, tools, and application areas of the field—causal inference researchers really seemed to be studying meaningful and impactful issues. While I had little time to explore more of causal inference for the remainder of my graduate studies, the fascination stuck with me.\nWhen I got to Macalester in 2018, the possibility of engaging more with causal inference opened up. I taught the first version of this course in Spring 2019 and have been steadily learning more over the years, improving this course along the way. I hope that you find ideas that intrigue you and applications that excite you.\nLet’s have a great semester!"
+  },
+  {
+    "objectID": "syllabus.html#community-is-key",
+    "href": "syllabus.html#community-is-key",
+    "title": "Syllabus",
+    "section": "Community is key",
+    "text": "Community is key\nA sense of community and connectedness can provide a powerful environment for learning: Research shows that learning is maximized when students feel a sense of belonging in the educational environment (e.g., Booker, 2016). A negative climate may create barriers to learning, while a positive climate can energize students’ learning (e.g., Pascarella & Terenzini, cited in How Learning Works, 2012).\nFor these reasons, I will be designing our in-class group activities to intentionally foster community and connectedness. You can help cultivate our classroom community by being thoughtful about the way you engage with others in class."
+  },
+  {
+    "objectID": "syllabus.html#reflection-is-paramount",
+    "href": "syllabus.html#reflection-is-paramount",
+    "title": "Syllabus",
+    "section": "Reflection is paramount",
+    "text": "Reflection is paramount\nThe content you learn will be cool (unbiased opinion!), but it is a guarantee that you will venture into areas not covered in your formal education. We only have a short time together, and fields evolve constantly. There will be many times in your career where you will need to learn on your own. What you will need to rely on when you leave Macalester is what I want to ensure you cultivate now: a good learning process. And the cornerstone of a good learning process is reflection.\nReflection is not just fundamental to learning content–it’s fundamental to learning any sort of intellectual, emotional, or physical skill. For this reason, I will be prioritizing reflection in our activities and assignments throughout the semester."
+  },
+  {
+    "objectID": "syllabus.html#mistakes-are-essential",
+    "href": "syllabus.html#mistakes-are-essential",
+    "title": "Syllabus",
+    "section": "Mistakes are essential",
+    "text": "Mistakes are essential\n\nAn expert is a person who has made all the mistakes which can be made in a narrow field.\n\nNiels Bohr, Nobel Prize-winning physicist\n\n\nPerhaps paradoxically, an important way to gain confidence in an area is to make a lot of mistakes. As you move through this course, make note of any time your understanding changed and the situation in which that change happened. Your understanding will grow richer for doing so."
+  },
+  {
+    "objectID": "syllabus.html#communication-is-a-superpower",
+    "href": "syllabus.html#communication-is-a-superpower",
+    "title": "Syllabus",
+    "section": "Communication is a superpower",
+    "text": "Communication is a superpower\nEvery time I go to a conference talk on a technical topic, it is striking how quickly laptops or phones come out because of the inability to follow. Academics notoriously struggle to make ideas accessible to others.\nI want communication to be very different for you.\nEvery time you communicate ideas–whether through writing, visuals, or oral presentation–I want you to be a total boss. The end product of strong communication is a better experience for all those who have given you their attention. What’s more, the process of crafting effective communication is invaluable for deepening your own understanding:\n\n\n\nRead to collect the dots, write to connect them pic.twitter.com/YbgnKKFUNn\n\n— David Perell (@david_perell) July 5, 2021"
+  },
+  {
+    "objectID": "syllabus.html#outside-of-class",
+    "href": "syllabus.html#outside-of-class",
+    "title": "Syllabus",
+    "section": "Outside of class",
+    "text": "Outside of class\nPre-class videos/readings: Most class periods will have a required video or reading to get acquainted with new concepts before seeing them again in class. Pre-class materials will focus more on conceptual ideas with less emphasis on code. My goal for these videos and readings is for you to familiarize yourself enough with the concepts so that we can go over both conceptual ideas and code in class.\n\n\n\n\n\n\nSuggestions\n\n\n\n\nAs you take notes on videos/readings, highlight or otherwise mark all the areas where you have questions. Gather up all of these questions in one place, and bring them to class with you.\nRecord any reflections from in-class time about your learning process or interactions with peers while they are still fresh.\nAfter learning a new topic in class, it is helpful to attempt the upcoming assignment as soon as possible. Just by getting some rough ideas down quickly, you avoid the difficulty of starting from a blank slate.\nCome to instructor drop-in hours to chat about the course or anything else! 😃"
+  },
+  {
+    "objectID": "syllabus.html#during-class",
+    "href": "syllabus.html#during-class",
+    "title": "Syllabus",
+    "section": "During class",
+    "text": "During class\nClass time will be a mixture of core idea days and flex days. On our schedule, any day that is not explicitly labeled as a flex day or project work day is a core idea day.\nOn core idea days, class time will be a mix of interactive lecture and stretches of group work. During the lecture portion, I will pause explanation frequently to prompt a short exercise.\nOn flex days, there will be options to continue practicing the topics that we have covered recently or to explore some ideas in more detail.\n\n\n\n\n\n\nSuggestions\n\n\n\n\nThroughout class time, reference your set of questions from the pre-class material. Have you made progress on addressing those questions? Who or what helped with improving your understanding, and how? Make notes of what concepts are still unclear so that you can review later."
+  },
+  {
+    "objectID": "syllabus.html#my-philosophy",
+    "href": "syllabus.html#my-philosophy",
+    "title": "Syllabus",
+    "section": "My philosophy",
+    "text": "My philosophy\nGrading is thorny issue for many educators because of its known negative effects on learning and motivation. Nonetheless, it is ever-present in the US education system and at Macalester. Because I am required to submit grades for this course, it’s worth me taking a minute to share my philosophy about grading with you.\nWhat excites me about being a teacher is your learning.\nLearning flourishes in an environment where you find meaning and value in what we’re exploring, feel supported when engaging with challenges, receive useful feedback, and regularly reflect on your learning.\nIf I didn’t have to give grades, I wouldn’t. But because I am required to, it is important to me to create a course structure and grading system that allow learning to flourish:\n\nFinding meaning and value: I am striving to achieve this by:\n\nCreating space for authentic connection between you, your peers, and myself\nBuilding flex days into our schedule so that you have time to focus on what you want to get out of the course\nEncouraging you to explore a topic that intrigues you for our course project\n\nSupport in engaging with challenges: The assignments and activities that we will use to learn are meant to be challenging, and it would be unreasonable for me to expect that you have perfect understanding on the first try. For this reason, the opportunity to revise without penalty on assignments is something I believe in strongly. Solid learning does not happen under excessive stress, and I think that a lot of that stress comes from the general culture of perfection in academia.\nReceiving useful feedback and reflecting regularly: My aim with feedback is to always provide guidance towards improvement, no matter where you are in your progress. However, good feedback alone is useless—learners need to engage deeply with feedback in order to benefit the most from it. For this reason, my stance on feedback is the following: I only want to give feedback on work that you want to read feedback on. This informs the approach that we’ll take for assignments in this course."
+  },
+  {
+    "objectID": "syllabus.html#assignments-and-assessments",
+    "href": "syllabus.html#assignments-and-assessments",
+    "title": "Syllabus",
+    "section": "Assignments and assessments",
+    "text": "Assignments and assessments\nThere are no in-class examinations (like quizzes or exams) in this course. A portfolio and a course project are the two sources of submitted work that will receive feedback.\n\nPortfolio\nPurpose: Over the course of the semester, you’ll build up a portfolio in which you organize course ideas that are most important to you in a way that is most beneficial to your future self. My hope is that you can easily use this portfolio in the future in case you want a reference that is tailored to you.\nOverview:\n\nStarting the 3rd week of the semester, an assignment will be due every Friday in which you add to this portfolio.\nThese assignments will ask you to reorganize the information from course topics in a way that is more optimal for you to navigate. In completing these assignments, you have the freedom to draw from class activities, but you will need to add explanations, transitions between ideas, and connections that we won’t necessarily do together in class activities.\nMost of the time, you’ll submit these assignments as Quarto files (.qmd) because you’ll be required to include both code and writing. I’ll add comments directly to your .qmd file and re-upload them as feedback on Moodle.\n\nDetails for all assignments can be found on the Assignments page.\n\n\nProject\nPurpose: Complete a project that you would be proud to talk about in depth during a job interview or present during MSCS Capstone Days in the spring.\nOverview:\n\nTwo main options for the project are available: (1) a data analysis using causal tools and (2) creating a tutorial on a topic not covered in class. If you feel strongly about pursuing a different type of project, we can meet to discuss.\nThrough weekly milestones at the end of the semester, you will make steady progress on your projects and iterate on feedback.\n\nFull details about the project can be found on the Project page."
+  },
+  {
+    "objectID": "syllabus.html#course-grading-system",
+    "href": "syllabus.html#course-grading-system",
+    "title": "Syllabus",
+    "section": "Course grading system",
+    "text": "Course grading system\n\n\n\n\n\n\nBefore Assignment 1\n\n\n\n\n\nBefore I decide on a course grading system, I would like your input. Everyone has different sources of motivation and thrives in different types of environments, and I would like to learn more about each of your motivations before making decisions on a system that could have notable impacts on your experience in the course.\nAssignment 1 will be a short piece of writing that helps me learn about you in this regard. We will use insights from your writing to inform a discussion on the grading system in the first weeks of class.\n\n\n\nConsistent themes that I saw throughout your responses to Assignment 1 included the following:\n\nThe idea of an A as a default starting point was intriguing to try given the existence of other strong motivators. Many of you mentioned that the desire to learn more about the field and to create a project you would be proud to share with others are powerful sources of motivation. Given these motivators, a system where an A is the default can relieve stress and encourage a focus on ideas rather than a preoccupation with performance on assessments.\nIt would feel better if a grade of an A as a default were linked with expectations. You offered ideas of earning an A contingent on coming to class most of the time and completing assignments rather than on “perfecting” assignments according to some point scale or rubric.\nQualitative feedback, reflection, and revision are essential parts of the learning process and should be part of the grading system. Some of you expressed the desire to require revisions and reflection in response to thoughtful qualitative feedback.\nIt is important to get everyone’s input and hear what others have to say. Many of you mentioned being open to whatever grading system works best for everyone and that a fair way to decide could be to vote or have an in-class discussion.\n\n\nBased on these themes, I am proposing the following Contract for an A this semester:\n\n\n\n\n\n\nContract for an A\n\n\n\nTo earn an A for the semester, we agree to the following:\n\nActively co-create our course learning community alongside peers and the instructor.\n\nOur strongest learning will occur when we feel like we’re doing work alongside others who want the same things.\nBeing an active co-creator of our learning community will entail coming prepared to class as much as we can: engaging with pre-class materials thoughtfully by noting down interesting ideas and questions that you hope to have answered and sharing them with peers in class.\nWe will support the learning of our peers by thoughtfully engaging with class activities.\nEveryone will advocate for their own learning by communicating regularly with the instructor about what is working well and can be improved.\n\nComplete all assignments to the best of your ability and consistently respond to feedback.\n\nResponding to feedback involves revising work and/or writing a message to the instructor to continue the conversation from the previous round of feedback.\nQualitative feedback will always communicate areas for growth. Sometimes that growth can be approached with a revision of prior work, and sometimes it can be approached by articulating plans for what to work on in the future.\n\nReflect on your progress at the midway point and at the end of the semester.\n\nI will provide prompts at both points to help you look back on past work and look forward to continued growth.\n\nCreate and present a high quality project that you would be proud to share on capstone days or with future employers.\n\nThrough regular milestones and qualitative feedback on each milestone, we’ll work towards creating work that you are proud of."
+  },
+  {
+    "objectID": "syllabus.html#late-work",
+    "href": "syllabus.html#late-work",
+    "title": "Syllabus",
+    "section": "Late work",
+    "text": "Late work\nHomework assignments will generally be due weekly on Fridays at 5pm. If you anticipate needing more time to complete an assignment, please email me ahead of time to discuss. My main constraint is the desire to give you feedback before the next assignment is due, and I’ll be working on feedback on the Monday-Thursday after an assignment is due."
+  },
+  {
+    "objectID": "syllabus.html#academic-integrity",
+    "href": "syllabus.html#academic-integrity",
+    "title": "Syllabus",
+    "section": "Academic integrity",
+    "text": "Academic integrity\nAcademic integrity is the cornerstone of our learning community. Students are expected to be familiar with the college’s standards on academic integrity.\nI encourage you to work with your classmates to discuss material and ideas for assignments, but in order for you to receive individualized feedback on your own learning, you must submit your own work. This involves writing your own code and putting explanations into your own words. Always cite any sources you use, including AI (see section below)."
+  },
+  {
+    "objectID": "syllabus.html#artificial-intelligence-ai-use",
+    "href": "syllabus.html#artificial-intelligence-ai-use",
+    "title": "Syllabus",
+    "section": "Artificial intelligence (AI) use",
+    "text": "Artificial intelligence (AI) use\nAI can both interfere with and enhance our capacity to learn. We must be mindful of when it might hinder us and when it might provide us with new understanding and/or assistance. What is most important to me about our AI usage in this course is the following:\n\nAI usage must always be cited with the prompt and full output.\n\nWhy do I care about this? I want to see and give feedback on your thinking.\nI will not use AI frequently out of personal preference, but when I do, I will always share the prompt and output.\n\nAI output can be a part of your responses on assignments, but it always needs to be accompanied by double-checking, commentary, and interpretation from you.\n\nWhy do I care about this? Again, I want to see and give feedback on your thinking. But also quite importantly, AI does not always generate complete and/or accurate output. Because of its training data, it will almost certainly hallucinate or give inaccurate information when asked about more modern advances in the field.\n\n\nPlease be aware of the following general limitations of AI:\n\nAI does not always generate accurate output. If it gives you a number, fact, or code, assume it is wrong unless you either know the answer or can check in with another source. AI works best for topics you already understand to a sufficient extent.\nIf you provide minimum effort prompts, you will get low quality results. You will need to refine your prompts in order to get good outcomes. This will take work.\nBe thoughtful about when this tool is useful. Don’t use it if it isn’t appropriate for the case or circumstance.\nThe environmental impact of AI should not be ignored. The building and usage of AI tools consume a lot of energy (see here and here). For this reason, let’s be thoughtful about when we use AI and think about other sustainability behaviors that we can incorporate into our lives to offset this usage.\n\nIf you have any questions about your use of AI tools, please contact me to discuss them."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Check here to see what you should be doing before, during, and after each class day."
+  },
+  {
+    "objectID": "schedule.html#day1",
+    "href": "schedule.html#day1",
+    "title": "Schedule",
+    "section": "Day 1: Welcome! (9/4)",
+    "text": "Day 1: Welcome! (9/4)\nBefore class:\n\nGet acquainted with our course by reading the syllabus and touring our course website and Moodle page.\n\nDuring class: Introductions and foundations\nAfter class:\n\n\n\n\n\n\nRequired\n\n\n\nThe following chapters from The Effect lay the foundation for asking good questions. They’re written in a fun, conversational style and have some nice humor interspersed throughout.\n\nThe Effect Chapter 1: Designing Research (~10 minutes)\n\nVideo alternative: Designing Research (~8 minutes)\n\nThe Effect Chapter 2: Research Questions (~30 minutes)\n\nVideo alternative: Research Questions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\nIf you would like to have an additional reference throughout the course that leans more technical and economics-leaning, I recommend starting Causal Inference: The Mixtape by reading Chapter 1: Introduction (~35 minutes).\n\nNote: Scott uses the term endogenous in Section 1.3 without defining it. This is an economics term that essentially parallels the term confounding in statistics. That is, an endogenous variable is (often) one that is a confounder."
+  },
+  {
+    "objectID": "schedule.html#day2",
+    "href": "schedule.html#day2",
+    "title": "Schedule",
+    "section": "Day 2: Causal identification (9/6)",
+    "text": "Day 2: Causal identification (9/6)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 5: Identification (~50 minutes)\n\nVideo alternatives:\n\nIdentification: Data Generating Processes (~8 minutes)\nIdentification: Alternative Explanations (~9 minutes)\nIdentification: Alcohol and Mortality (~9 minutes)"
+  },
+  {
+    "objectID": "schedule.html#day3",
+    "href": "schedule.html#day3",
+    "title": "Schedule",
+    "section": "Day 1: Causal graph fundamentals (9/9)",
+    "text": "Day 1: Causal graph fundamentals (9/9)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 6: Causal Diagrams (~40 min)\n\nVideo alternatives:\n\nCausal Diagrams: Causality (~9 minutes)\nCausal Diagrams (~12 minutes)\n\n\nThe Effect Chapter 7: Drawing Causal Diagrams (~30 min)\n\nVideo alternatives:\n\nDrawing Causal Diagrams (~13 minutes)\nSimplifying Causal Diagrams (~12 minutes)\n\n\n\nFormulate a research question that relates to an area that you’re interested in. In class, we will be using the principles in Chapters 6 and 7 to draw a causal diagram that addresses this research question.\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 3: Directed Acyclic Graphs but skip 3.1.3 Backdoor Criterion (~40 minutes)"
+  },
+  {
+    "objectID": "schedule.html#day4",
+    "href": "schedule.html#day4",
+    "title": "Schedule",
+    "section": "Day 2: Simulating data using causal graphs (9/11)",
+    "text": "Day 2: Simulating data using causal graphs (9/11)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Key structures in causal graphs (~12 min) (slides)\n\nNote 1: In this video, I refer to a concept called “exchangeability”. This is a concept that I included in the last offering of this course. Exchangeability is a causal identification assumption. When the exchangeability assumption is satisfied, we can identify causal effects. When it is not satisfied, I call this “a lack of exchangeability”. In the language we have used, this happens when there are alternate (noncausal) explanations for a relationship between two variables. So in the video, whenever you hear “creates a lack of exchangeability”, replace that with “leads to the presence of alternate (noncausal) explanations for the relationship between two variables”. When you hear “achieve conditional exchangeability”, replace that with “we are able to address this alternate explanation when analyzing the data”.\nNote 2: I use the formal probability ideas of marginal and conditional dependence and independence. You can get the essential ideas from this video by replacing terms in the list below. (If you want to learn or review these probability ideas (not required!), watch my Probability Essentials video.)\n\n“A and B are marginally [independent/dependent]” = “A and B are [unrelated/related] in a general population”\n“A and B are conditionally independent” = “A and B are [unrelated/related] in subgroups (in each group defined by one or more variables)”\n\n\n2 readings from Andrew Heiss’s Program Evaluation course:\n\nGenerating random numbers (~35 min)\nThe ultimate guide to generating synthetic data for causal inference (Stop when you get to the subsection “Visualizing one variable”) (~25 min)\n\n\n\n\nDuring class: Simulating data using causal graphs"
+  },
+  {
+    "objectID": "schedule.html#day5",
+    "href": "schedule.html#day5",
+    "title": "Schedule",
+    "section": "Day 3: Simulating data using causal graphs (9/13)",
+    "text": "Day 3: Simulating data using causal graphs (9/13)\n\nContinuation of last class"
+  },
+  {
+    "objectID": "schedule.html#day6",
+    "href": "schedule.html#day6",
+    "title": "Schedule",
+    "section": "Day 1: Identifying causal effects with causal graphs (9/16)",
+    "text": "Day 1: Identifying causal effects with causal graphs (9/16)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Causal and Noncausal Paths (~5 min)\nVideo: D-Separation (~8 min)\nReading: The Effect Chapter 8: Causal Paths and Closing Back Doors (~35 minutes)\n\nVideo alternatives:\n\nCausal Pathways (~9 minutes)\nClosing Causal Pathways, and Collider Variables (~11 minutes)\nTesting Causal Diagrams, and Placebo Tests (~8 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Section 3.1.3: Backdoor criterion (~5 minutes)\n\n\n\n\nDuring class: Identifying causal effects with causal graphs"
+  },
+  {
+    "objectID": "schedule.html#day7",
+    "href": "schedule.html#day7",
+    "title": "Schedule",
+    "section": "Day 2: Identifying causal effects with causal graphs (9/18)",
+    "text": "Day 2: Identifying causal effects with causal graphs (9/18)\n\nContinuation of previous class\n\nDuring class: Identifying causal effects with causal graphs and Testing causal graphs"
+  },
+  {
+    "objectID": "schedule.html#day8",
+    "href": "schedule.html#day8",
+    "title": "Schedule",
+    "section": "Day 3: Synthesis day (9/20)",
+    "text": "Day 3: Synthesis day (9/20)\n\nPause day to work on Assignment 2.\nPlease create a rough outline of your slides before class.\nWe will have a chance to get feedback on the outline, work on the slides, and then get additional feedback on the slide content."
+  },
+  {
+    "objectID": "schedule.html#day9",
+    "href": "schedule.html#day9",
+    "title": "Schedule",
+    "section": "Day 1: Randomized experiments (9/23)",
+    "text": "Day 1: Randomized experiments (9/23)\nBefore class: No required reading or videos for today.\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nReading: Treatment Allocation and Randomization (~20 minutes) from Penn State’s online notes for the course Design and Analysis of Clinical Trials\n\n\n\n\nDuring class: Randomized experiments"
+  },
+  {
+    "objectID": "schedule.html#day10",
+    "href": "schedule.html#day10",
+    "title": "Schedule",
+    "section": "Day 2: Target trial framework (9/25)",
+    "text": "Day 2: Target trial framework (9/25)\n\n\n\n\n\n\nRequired\n\n\n\n\nReading: Hernán, M. A., Sauer, B. C., Hernández-Díaz, S., Platt, R., Shrier, I. (2016). Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses. Journal of Clinical Epidemiology, 79, 70–75. (~35 minutes)\n\n\n\nDuring class: Target trial framework"
+  },
+  {
+    "objectID": "schedule.html#day11",
+    "href": "schedule.html#day11",
+    "title": "Schedule",
+    "section": "Day 3: Matching (9/27)",
+    "text": "Day 3: Matching (9/27)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 14: Matching (~160 minutes)\n\nVideo alternatives:\n\nMatching (~11 minutes)\nFive Questions About Matching (~13 minutes)\nDistance Matching (~9 minutes)\nPropensity Score Matching (~10 minutes)\nCoarsened Exact Matching and Entropy Balancing (~8 minutes)\nWhen Matching Goes Wrong (~14 minutes)\nTreatment Effect Estimation with Matching (~7 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 5: Matching and Subclassification (~140 minutes)\nJournal article: Matching Methods for Causal Inference: A Review and a Look Forward (~60 minutes)\n\n\n\n\nDuring class: Matching (Part 1)"
+  },
+  {
+    "objectID": "schedule.html#day12",
+    "href": "schedule.html#day12",
+    "title": "Schedule",
+    "section": "Day 1: Matching (9/30)",
+    "text": "Day 1: Matching (9/30)\n\nContinuation of previous class\n\nDuring class: Matching (Part 2)"
+  },
+  {
+    "objectID": "schedule.html#day13",
+    "href": "schedule.html#day13",
+    "title": "Schedule",
+    "section": "Day 2: Weighting (10/2)",
+    "text": "Day 2: Weighting (10/2)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nVideo: Inverse Probability Weighting (Time: 10:24) (Slides)\n\n\n\nDuring class: Weighting"
+  },
+  {
+    "objectID": "schedule.html#day14",
+    "href": "schedule.html#day14",
+    "title": "Schedule",
+    "section": "Day 3: Weighting (10/4)",
+    "text": "Day 3: Weighting (10/4)\n\nContinuation of previous class\n\nDuring class: Weighting"
+  },
+  {
+    "objectID": "schedule.html#day15",
+    "href": "schedule.html#day15",
+    "title": "Schedule",
+    "section": "Day 1: Regression discontinuity (10/7)",
+    "text": "Day 1: Regression discontinuity (10/7)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 20: Regression Discontinuity (~130 minutes)\n\nVideo alternatives:\n\nRegression Discontinuity (~10 minutes)\nEstimating Regression Discontinuity (~11 minutes)\nAdjustments to Regression Discontinuity (~8 minutes)\nChecking Regression Discontinuity Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 6: Regression Discontinuity (~170 minutes)\n\n\n\n\nDuring class: Regression discontinuity designs"
+  },
+  {
+    "objectID": "schedule.html#day16",
+    "href": "schedule.html#day16",
+    "title": "Schedule",
+    "section": "Day 2: Event studies / interrupted times series (10/9)",
+    "text": "Day 2: Event studies / interrupted times series (10/9)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 17: Event Studies (~70 minutes)\n\nVideo alternatives:\n\nEvent Studies (~12 minutes)\nInterrupted Time Series (~8 minutes)\nEvent Studies in Finance (~11 minutes)\n\n\n\n\n\nDuring class: Event studies / interrupted time series"
+  },
+  {
+    "objectID": "schedule.html#day17",
+    "href": "schedule.html#day17",
+    "title": "Schedule",
+    "section": "Day 3: Flex Day (10/11)",
+    "text": "Day 3: Flex Day (10/11)\nNo class today because I will be attending a workshop.\nOn your own: Start exploring options for the course project."
+  },
+  {
+    "objectID": "schedule.html#day18",
+    "href": "schedule.html#day18",
+    "title": "Schedule",
+    "section": "Day 1: Synthetic control (10/14)",
+    "text": "Day 1: Synthetic control (10/14)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Section 21.2.1: Synthetic Control (~10 minutes)\n\nVideo alternatives:\n\nOther Standard Research Designs (~5 minutes) (Just the part on the synthetic control method)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 10: Synthetic Control (~70 minutes)\n\n\n\n\nDuring class: Interrupted time series and synthetic control"
+  },
+  {
+    "objectID": "schedule.html#day19",
+    "href": "schedule.html#day19",
+    "title": "Schedule",
+    "section": "Day 2: Synthetic control (10/16)",
+    "text": "Day 2: Synthetic control (10/16)\nDuring class: Interrupted time series and synthetic control\n\n🍁 Fall Break: Thursday, October 17 - Sunday, October 20 🍁\n🍁 No class on Friday, October 18 🍁"
+  },
+  {
+    "objectID": "schedule.html#day20",
+    "href": "schedule.html#day20",
+    "title": "Schedule",
+    "section": "Day 1: Synthesis day (10/21)",
+    "text": "Day 1: Synthesis day (10/21)\nDuring class: Working on Assignment 4"
+  },
+  {
+    "objectID": "schedule.html#day21",
+    "href": "schedule.html#day21",
+    "title": "Schedule",
+    "section": "Day 2: Synthesis day (10/23)",
+    "text": "Day 2: Synthesis day (10/23)\nDuring class: Working on Assignment 4"
+  },
+  {
+    "objectID": "schedule.html#day22",
+    "href": "schedule.html#day22",
+    "title": "Schedule",
+    "section": "Day 3: Fixed effects models (10/25)",
+    "text": "Day 3: Fixed effects models (10/25)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 16: Fixed Effects (~70 minutes)\n\nVideo alternatives:\n\nFixed Effects (~12 minutes)\nEstimating Fixed Effects (~8 minutes)\nRandom Effects (~6 minutes)\n\n\n\n\n\nDuring class: Fixed effects models"
+  },
+  {
+    "objectID": "schedule.html#day23",
+    "href": "schedule.html#day23",
+    "title": "Schedule",
+    "section": "Day 1: Difference-in-differences designs (10/28)",
+    "text": "Day 1: Difference-in-differences designs (10/28)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.1: How Does it Work? and Section 18.2: How Is It Performed?) (~60 minutes)\n\nVideo alternatives:\n\nDifference in Differences (~11 minutes)\nParallel Trends (~9 minutes)\nEstimating Difference in Differences (~10 minutes)\nSupporting Parallel Trends (~9 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 9: Difference-in-Differences (~230 minutes)\n\n\n\n\nDuring class: Difference-in-Differences"
+  },
+  {
+    "objectID": "schedule.html#day24",
+    "href": "schedule.html#day24",
+    "title": "Schedule",
+    "section": "Day 2: DiD continued (10/30)",
+    "text": "Day 2: DiD continued (10/30)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 18: Difference-in-Differences (Section 18.3: How the Pros Do It) (~20 minutes)\n\nVideo alternatives:\n\nDynamic Difference-in-Differences (~10 minutes)\nStaggered Treatment in Difference-in-Differences (~9 minutes)\n\n\n\n\n\nDuring class: Difference-in-Differences"
+  },
+  {
+    "objectID": "schedule.html#day25",
+    "href": "schedule.html#day25",
+    "title": "Schedule",
+    "section": "Day 3: Sensitivity analyses (11/1)",
+    "text": "Day 3: Sensitivity analyses (11/1)\nBefore class: No required reading or videos for today.\nDuring class: Sensitivity Analyses"
+  },
+  {
+    "objectID": "schedule.html#day26",
+    "href": "schedule.html#day26",
+    "title": "Schedule",
+    "section": "Day 1: Instrumental variables (11/4)",
+    "text": "Day 1: Instrumental variables (11/4)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 19: Instrumental Variables (~85 minutes)\n\nVideo alternatives:\n\nInstrumental Variables (~10 minutes)\nInstrumental Variable Validity (~10 minutes)\nEstimating Instrumental Variables (~12 minutes)\nTesting Instrumental Variables Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 7: Instrumental Variables (~150 minutes)"
+  },
+  {
+    "objectID": "schedule.html#day-1-tbd",
+    "href": "schedule.html#day-1-tbd",
+    "title": "Schedule",
+    "section": "Day 1: TBD",
+    "text": "Day 1: TBD\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)"
+  },
+  {
+    "objectID": "schedule.html#day-2-last-day-of-class",
+    "href": "schedule.html#day-2-last-day-of-class",
+    "title": "Schedule",
+    "section": "Day 2: Last day of class!",
+    "text": "Day 2: Last day of class!\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\n(~xx minutes)\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\n(~xx)\n\n\n\n\nDuring class:"
+  },
+  {
+    "objectID": "15-sensitivity-analyses.html",
+    "href": "15-sensitivity-analyses.html",
+    "title": "Sensitivity Analyses",
+    "section": "",
+    "text": "Slides for today are available here.\nYou can download a template file for this activity here.",
+    "crumbs": [
+      "Sensitivity Analyses"
+    ]
+  },
+  {
+    "objectID": "15-sensitivity-analyses.html#exercise-1",
+    "href": "15-sensitivity-analyses.html#exercise-1",
+    "title": "Sensitivity Analyses",
     "section": "Exercise 1",
-    "text": "Exercise 1\nFor each of the causal graphs below, identify the set of variables needed to block noncausal paths (if possible) between treatment \\(A\\) and outcome \\(Y\\). Any \\(U\\) variables displayed in the graphs are unobserved/unmeasured.",
+    "text": "Exercise 1\nIn our example above, our causal effect estimate was a relative risk (RR), so we used the evalues.RR() function to compute E-values. What if our estimate of 10.73 and 95% CI (8.02-14.36) were odds ratios?\nOpen this documentation page for all functions in the EValue package.\n\nFind the appropriate E-value computation function.\nRead the documentation page for this function to implement the correct E-value computation.\n\nYou’ll need the original study data:\n          Lung Cancer    No Lung Cancer\nSmoker    397            78557\nNonsmoker 51             108778",
     "crumbs": [
-      "Identifying causal effects with causal graphs"
+      "Sensitivity Analyses"
     ]
   },
   {
-    "objectID": "05-causal-graphs-identification.html#exercise-2",
-    "href": "05-causal-graphs-identification.html#exercise-2",
-    "title": "Identifying causal effects with causal graphs",
+    "objectID": "15-sensitivity-analyses.html#exercise-2",
+    "href": "15-sensitivity-analyses.html#exercise-2",
+    "title": "Sensitivity Analyses",
     "section": "Exercise 2",
-    "text": "Exercise 2\nHistorically, people have tried to create definitions for confounders by listing criteria that purely rely on associations. For example:\n\nA confounder must:\n1. Be associated with treatment and outcome\n2. Not be caused by treatment\n\nUsing the causal graph below, explain why this is not a good definition for a confounder.",
+    "text": "Exercise 2\nUnmeasured confounding is one source of bias in a causal analysis. Another important one is measurement error. In this exercise we’ll explore the potential for simulation to perform nuanced investigations about the impact of measurement error.\nSuppose you knew that non-white race and low socioeconomic status increased the rate of misclassification of a binary covariate X. Explain how you could implement a simulation study to investigate how much the misclassification could bias results. Try to write pseudocode for this.",
     "crumbs": [
-      "Identifying causal effects with causal graphs"
-    ]
-  },
-  {
-    "objectID": "05-causal-graphs-identification.html#exercise-3",
-    "href": "05-causal-graphs-identification.html#exercise-3",
-    "title": "Identifying causal effects with causal graphs",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nFirst, think through the relationships depicted in the causal graphs below and whether they make sense. These are intended to reflect a range of scenarios for why people drop out of studies.\nThen for each of the graphs, identify the set of variables that would block noncausal paths between the treatment \\(A\\) and outcome \\(Y\\). (\\(U\\) and \\(W\\) are unmeasured.) Check your answers to one of the graphs using DAGitty.",
-    "crumbs": [
-      "Identifying causal effects with causal graphs"
-    ]
-  },
-  {
-    "objectID": "05-causal-graphs-identification.html#exercise-4",
-    "href": "05-causal-graphs-identification.html#exercise-4",
-    "title": "Identifying causal effects with causal graphs",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nIn this exercise, we’ll consider how causal graphs can inform study design. (Inspired by a 1970s study on the relationship between estrogen use and endometrial cancer.)\nResearchers have noticed a consistent association between use of a certain drug and disease. Research groups debated two hypotheses:\n\nThe drug does cause disease.\nThe drug doesn’t actually cause disease but leads to a side effect, leading to more frequent doctor visits, leading to increased diagnosis of existing disease.\n\nThe following study plan was proposed: restrict the study only to those with side effects and compare disease rates in drug-users and non-users. In this way, all participants have the same chance of being diagnosed.\nThe following causal graphs correspond to the two hypotheses:\n\n\n\n(The graphs don’t show confounders of the drug-true disease relationship for compactness. We can assume that these have already been adjusted for.)\n\nStudy design 1\nConsider the study proposal above: restrict analysis to those with side effects.\n\nBefore looking at the causal graphs: does the rationale for this study design make sense? Why did researchers want to only look at patients with side effects?\nUnder this study design, the researchers were expecting that if Hypothesis 1 were correct (the drug does cause disease), they would find an association between drug use and diagnosed disease. They expected that if Hypothesis 2 were correct (the drug does NOT cause disease), they would find NO association between drug use and diagnosed disease.\n\nAre these expectations correct? Explain in light of the causal graphs.\n\nBased on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?\n\n\n\nStudy design 2\nConsider another study proposal: ensure that everyone is screened for disease frequently, and we don’t restrict our analysis to only those with side effects.\n\nWhat arrow can be removed as a result of this study design? (It might help to draw an updated version of DAGs 1 and 2 with this arrow removed.)\nUnder this study design, the researchers had the same expectations: if Hypothesis 1 were correct, they would find an association between drug use and diagnosed disease. If Hypothesis 2 were correct, they would find NO association between drug use and diagnosed disease.\n\nAre these expectations correct? Explain in light of the causal graphs.\n\nBased on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?",
-    "crumbs": [
-      "Identifying causal effects with causal graphs"
+      "Sensitivity Analyses"
     ]
   },
   {

@@ -44,6 +44,7 @@ website:
         - 12-es-its-synth.qmd
         - 13-fe.qmd
         - 14-did.qmd
+        - 15-sensitivity-analyses.qmd
   
   page-footer:
     left: |

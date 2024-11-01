@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Fixed effects models – STAT 451</title>
+<title>Sensitivity Analyses – STAT 451</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -258,15 +258,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exploration" id="toc-exploration" class="nav-link active" data-scroll-target="#exploration">Exploration</a>
+  <li><a href="#examples" id="toc-examples" class="nav-link active" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-  <li><a href="#gapminder-data" id="toc-gapminder-data" class="nav-link" data-scroll-target="#gapminder-data">Gapminder data</a>
-  <ul class="collapse">
-  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
-  <li><a href="#fixed-effects-in-fixest" id="toc-fixed-effects-in-fixest" class="nav-link" data-scroll-target="#fixed-effects-in-fixest">Fixed effects in <code>fixest</code></a></li>
-  <li><a href="#random-effects-using-lmer" id="toc-random-effects-using-lmer" class="nav-link" data-scroll-target="#random-effects-using-lmer">Random effects using <code>lmer</code></a></li>
-  </ul></li>
-  <li><a href="#data-on-school-expenditures-and-student-outcomes" id="toc-data-on-school-expenditures-and-student-outcomes" class="nav-link" data-scroll-target="#data-on-school-expenditures-and-student-outcomes">Data on school expenditures and student outcomes</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -276,7 +272,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Fixed effects models</h1>
+<h1 class="title">Sensitivity Analyses</h1>
 </div>
 
 
@@ -294,152 +290,86 @@ window.Quarto = {
 
 
 <ul>
-<li><strong>You can download a template file for this activity <a href="templates/13-fe.qmd">here</a>.</strong></li>
-<li>Slides for today are available <a href="https://docs.google.com/presentation/d/1GFgEghgpCxKmufScPU5W3Lci-0g694qYbGkAs1uVUUI/edit?usp=sharing">here</a>.</li>
+<li>Slides for today are available <a href="https://docs.google.com/presentation/d/1Ei1Yvg9qQEGdhCoG14puyj-5Sc1gOs-VTN2sLKFaaoM/edit?usp=sharing">here</a>.</li>
+<li>You can download a template file for this activity <a href="templates/15-sensitivity-analyses.qmd">here</a>.</li>
 </ul>
-<section id="exploration" class="level1">
-<h1>Exploration</h1>
+<section id="examples" class="level1">
+<h1>Examples</h1>
+<p>We will explore the <code>EValue</code> package via their <a href="https://louisahsmith.github.io/evalue">documentation website</a>. Install the <code>EValue</code> package in the Console before continuing.</p>
+<p>Hammond EC, Horn D. Smoking and death rates: report on forty four months of follow-up of 187,783 men. J Am Med Assoc. 1958;166:1159– 1172, 1294–1308.</p>
+<ul>
+<li>This study estimated that the <strong>relative risk (RR)</strong> of lung cancer comparing smokers to non-smokers was 10.73 (95% CI: 8.02-14.36)</li>
+<li>A <strong>relative risk</strong> is a probability ratio: <span class="math inline">\(P(\text{Disease}\mid\text{Exposed})/P(\text{Disease}\mid\text{Unexposed})\)</span></li>
+</ul>
+<p>R. A. Fisher countered that the observed association could be completely explained by a genetic variant—an unmeasured confounder. How strongly associated would that genetic variant have to be with smoking and with lung cancer to “explain away” the observed RR of 10.73?</p>
+<p>We can calculate the E-value for the estimate as well as lower endpoint of the confidence interval:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fixest)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(causaldata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Provide the estimate and confidence interval endpoints</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evalues.RR</span>(<span class="at">est =</span> <span class="fl">10.73</span>, <span class="at">lo =</span> <span class="fl">8.02</span>, <span class="at">hi =</span> <span class="fl">14.36</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="gapminder-data" class="level2">
-<h2 class="anchored" data-anchor-id="gapminder-data">Gapminder data</h2>
-<p>We have yearly life expectancy data for all countries of the world from the <a href="https://www.gapminder.org/">Gapminder Institute</a>. We also have yearly GDP data.</p>
-<p>Let’s first load the Gapminder data:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gm <span class="ot">&lt;-</span> causaldata<span class="sc">::</span>gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="visualization" class="level3">
-<h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
-<p>The first visualization shows the relationship between log(GDP) and life expectancy that would be estimated using the overall data without capitalizing on looking at variation within a geographical unit.</p>
-<p>The second visualization shows trends by continent.</p>
-<p><strong>Questions:</strong></p>
+<p><strong>Interpretation:</strong></p>
 <ul>
-<li>Which approach to exploring the relationship do you think is better and why?</li>
-<li>How would our inferences about the relationship between log(GDP) and life expectancy differ between the approaches?</li>
-<li>Now consider a generic situation with outcome Y, quantitative treatment A, and grouping variable G. Draw a scatterplot that depicts a situation in which the within-group relationship between Y and A shows a negative relationship but the overall relationship (ignoring group) shows a positive relationship.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One overall trend line</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gm, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(gdpPercap), <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(gdpPercap), <span class="at">y =</span> lifeExp), <span class="at">data =</span> gm, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">12</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">95</span>)) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall trend line + continent-specific trends</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gm, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(gdpPercap), <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(gdpPercap), <span class="at">y =</span> lifeExp), <span class="at">data =</span> gm, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">12</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">95</span>)) <span class="sc">+</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="fixed-effects-in-fixest" class="level3">
-<h3 class="anchored" data-anchor-id="fixed-effects-in-fixest">Fixed effects in <code>fixest</code></h3>
-<p>The <code>fixest</code> package provides a fast way of estimating fixed effects models. The coefficient estimates are the same as from <code>lm()</code>, but it provides ways of adjusting the standard errors for correlation within a group.</p>
-<p>Below we use <code>feols()</code> function from <code>fixest</code> to fit a fixed effects model with country-specific indicator variables.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model formula: Y ~ A + time invariant covariates + time fixed covariates | variables that we want indicators for</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gm_mod_fe <span class="ot">&lt;-</span> <span class="fu">feols</span>(lifeExp <span class="sc">~</span> <span class="fu">log</span>(gdpPercap) <span class="sc">|</span> country, <span class="at">data =</span> gm)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gm_mod_fe, <span class="at">cluster =</span> <span class="sc">~</span> country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<li>If the estimate of the causal effect (relative risk) were 10.73, the E-value of 20.95 tells us that:
 <ul>
-<li>Interpretation: Within a given country, every one unit increase in log(GDP) is expected to increase life expectancy by 9.77 years.</li>
-</ul>
-<p>We can also have more than one set of fixed effects. It is common to have multiple observations for a unit over time, so we can have fixed effects for both unit and time (indicator variables for each unit and indicators for each time period). This is called a <strong>two-way fixed effects (TWFE)</strong> model.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gm_mod_twfe <span class="ot">&lt;-</span> <span class="fu">feols</span>(lifeExp <span class="sc">~</span> <span class="fu">log</span>(gdpPercap) <span class="sc">|</span> country <span class="sc">+</span> year, <span class="at">data =</span> gm)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gm_mod_twfe, <span class="at">cluster =</span> <span class="sc">~</span> country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Interpretation: Within a given country and year, every one unit increase in log(GDP) is expected to increase life expectancy by 1.45 years.</li>
-</ul>
-<p>For comparison purposes, let’s look at the results from using <code>lm()</code>.</p>
-<ul>
-<li>We see the same coefficient estimates.</li>
-<li>We have lower standard errors with <code>lm()</code> because assuming all observations are independent is assuming that we have a lot more information than if some observations are correlated (as within a country).</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gm_mod_fe_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(lifeExp <span class="sc">~</span> <span class="fu">log</span>(gdpPercap) <span class="sc">+</span> country, <span class="at">data =</span> gm)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(gm_mod_fe_lm) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(term, <span class="st">"gdp"</span>))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>gm_mod_twfe_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(lifeExp <span class="sc">~</span> <span class="fu">log</span>(gdpPercap) <span class="sc">+</span> country <span class="sc">+</span> <span class="fu">factor</span>(year), <span class="at">data =</span> gm)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(gm_mod_twfe_lm) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(term, <span class="st">"gdp"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="random-effects-using-lmer" class="level3">
-<h3 class="anchored" data-anchor-id="random-effects-using-lmer">Random effects using <code>lmer</code></h3>
-<p>Another approach to fitting fixed effects models is to fit what are known as <strong>random effects models</strong>. Here we don’t estimate</p>
-<p>A standard fixed effects model with one set of fixed effects for units can be written as:</p>
-<p><span class="math display">\[
-Y_{it} = \beta_0 + b_i + \beta X_{it} + \epsilon_{it}
-\]</span></p>
-<p>where</p>
-<ul>
-<li><span class="math inline">\(b_i\)</span> are independent random variables following a <span class="math inline">\(\text{Normal}(0, \sigma_b^2)\)</span> distribution</li>
-<li><span class="math inline">\(X_{it}\)</span> is a set of covariates</li>
-<li><span class="math inline">\(\epsilon_{it}\)</span> are independent random variables following a <span class="math inline">\(\text{Normal}(0, \sigma_e^2)\)</span> distribution.</li>
-</ul>
-<p>Key points:</p>
-<ul>
-<li>Each observation from unit <span class="math inline">\(i\)</span> share the same <span class="math inline">\(b_i\)</span>. This induces correlation between repeated observations from the same unit.</li>
-<li>The individual <span class="math inline">\(b_i\)</span>’s are not estimated. Only the variance of the normal distribution <span class="math inline">\(\sigma_b^2\)</span> is estimated. Estimating fewer parameters increases statistical power.</li>
-</ul>
-<p>We can use the <code>lmer()</code> function in the <code>lme4</code> package to estimate this random effects model. (In the statistical literature, such a model is called a <strong>mixed effects model</strong>.)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model formula for one-way FEs: Y ~ (1|unit_var) + covariates</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Model formula for two-way FEs: Y ~ (1|unit_var) + (1|time_var) + covariates</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>gm_mod_re <span class="ot">&lt;-</span> <span class="fu">lmer</span>(lifeExp <span class="sc">~</span> (<span class="dv">1</span><span class="sc">|</span>country) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>year) <span class="sc">+</span> <span class="fu">log</span>(gdpPercap), <span class="at">data =</span> gm)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gm_mod_re)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Interpretation: Within a given country and year, a one unit increase in log(GDP) is expected to increase life expectancy by 2.53 years.</li>
-</ul>
-<p>Note that this estimate is different from our fixed effects models. Why?</p>
-<p><strong>Important note:</strong> The statistical formulation of a random effects model assumes that <span class="math inline">\(b_i\)</span> (the unit specific effects) are independent of (and thus uncorrelated with) the covariates in the model.</p>
-<ul>
-<li>In other words, this says that all the time-fixed covariates that go into a unit-specific effect <span class="math inline">\(b_i\)</span> are unrelated to the other variables in our model.
-<ul>
-<li>In causal inference, the key other variable in our model is the treatment variable.</li>
-<li>So in a random effects model, the unit-specific factors are assumed to be uncorrelated with other variables in our model, including treatment.</li>
+<li>The genetic variant would have to be 20.95 times more common in smokers than non-smokers (confounder-treatment association).</li>
+<li>Lung cancer would have to be 20.95 times more common in those with the genetic variant than those without the variant (confounder-outcome association).</li>
 </ul></li>
-<li>In this context, time-fixed covariates that likely affect life expectancy include country geography, climate, environment, …
+<li>If the estimate of the causal effect were 8.02 (lower end of CI), the E-value of 15.52 tells us that:
 <ul>
-<li>In our random effects model, these covariates are assumed to be uncorrelated with GDP. This seems unlikely.</li>
+<li>The genetic variant would have to be 15.52 times more common in smokers than non-smokers (confounder-treatment association).</li>
+<li>Lung cancer would have to be 15.52 times more common in those with the genetic variant than those without the variant (confounder-outcome association).</li>
 </ul></li>
 </ul>
-<p>The <a href="https://www.theeffectbook.net/ch-FixedEffects.html#advanced-random-effects">last section</a> of our textbook chapter discusses alterations to standard random effects models that can handle this.</p>
-</section>
-</section>
-<section id="data-on-school-expenditures-and-student-outcomes" class="level2">
-<h2 class="anchored" data-anchor-id="data-on-school-expenditures-and-student-outcomes">Data on school expenditures and student outcomes</h2>
-<p><strong>Research question:</strong> What is the effect of expenditures on math outcomes for 4th graders?</p>
-<p>We have data across many school districts over multiple years. Focus on the following variables:</p>
+<p>Even the E-value for the lower endpoint of the CI seems very large! It seems unlikely that a genetic variant could have such strong associations with smoking and lung cancer. This gives us evidence that the smoking-lung cancer association is robust to unmeasured confounding and that there likely is a true causal relationship.</p>
+<p><em>Note:</em> Why wouldn’t we compute the E-value for the upper endpoint?</p>
 <ul>
-<li><code>distid</code>: the district identifier</li>
-<li><code>year</code>: the year the data is from</li>
-<li><code>math4</code>: the percentage of 4th grade students who are “satisfactory” or better in math (outcome)</li>
-<li><code>expp</code>: expenditure per pupil (treatment)</li>
-<li><code>lunch</code>: the percentage of students eligible for free lunch (time-varying confounder as a proxy for district socioeconomic status)</li>
+<li>It’s not useless, but it doesn’t really bolster our arguments because we know that the strength of unmeasured confounding would have to be even stronger to explain away the upper endpoint.</li>
+<li>It’s useful to repeat the E-value calculations for the CI endpoint that is closer to the null value because it gives us an idea of the smallest amount of unmeasured confounding that could explain away our results.</li>
+</ul>
+<hr>
+<p>The E-value represents <strong>one</strong> particular set of sensitivity analysis parameters (confounder-treatment, confounder-outcome associations) that would explain away an observed effect estimate. We can view other sets of parameters with the <code>bias_plot()</code> function:</p>
+<ul>
+<li>The E-value is shown as a point on the solid curved line.</li>
+<li>The curved line gives the boundary between parameter combinations that would and would not explain away our observed effect.
+<ul>
+<li>All parameter combinations on and above the solid line would explain away our effect.</li>
+<li>All parameter combinations below the solid line would <em>not</em> explain away our effect.</li>
+</ul></li>
+<li>This plot is useful if we want to explore either the confounder-treatment or confounder-outcome associations being stronger than the other.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>school <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/NickCH-K/TheEffectAssignments/refs/heads/main/mathpnl.csv"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Make distid and year categorical</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>school <span class="ot">&lt;-</span> school <span class="sc">%&gt;%</span> </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">distid =</span> <span class="fu">factor</span>(distid), <span class="at">year =</span> <span class="fu">factor</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at sensitivity parameters that would explain away the original estimate</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bias_plot</span>(<span class="fl">10.73</span>, <span class="at">xmax =</span> <span class="dv">40</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at sensitivity parameters that would explain away the lower end of the 95% CI</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bias_plot</span>(<span class="fl">8.02</span>, <span class="at">xmax =</span> <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Exercise:</strong></p>
+<hr>
+<p>We can also compute E-values for biasing an observed effect estimate to some value other than the null:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What would the E-value need to be to bias the smoking-lung cancer effect to a much smaller relative risk of 1.5?</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evalues.RR</span>(<span class="at">est =</span> <span class="fl">10.73</span>, <span class="at">true =</span> <span class="fl">1.5</span>, <span class="at">lo =</span> <span class="fl">8.02</span>, <span class="at">hi =</span> <span class="fl">14.36</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>In our example above, our causal effect estimate was a relative risk (RR), so we used the <code>evalues.RR()</code> function to compute E-values. What if our estimate of 10.73 and 95% CI (8.02-14.36) were odds ratios?</p>
+<p>Open <a href="https://louisahsmith.github.io/evalue/reference/index.html">this documentation page</a> for all functions in the <code>EValue</code> package.</p>
 <ul>
-<li>Explore the difference between <code>lm()</code> and <code>feols()</code> to fit two-way fixed effects models that address our research question</li>
-<li>Compare results to a random effects model using <code>lmer()</code></li>
+<li>Find the appropriate E-value computation function.</li>
+<li>Read the documentation page for this function to implement the correct E-value computation.</li>
 </ul>
+<p>You’ll need the original study data:</p>
+<pre><code>          Lung Cancer    No Lung Cancer
+Smoker    397            78557
+Nonsmoker 51             108778</code></pre>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Unmeasured confounding is one source of bias in a causal analysis. Another important one is measurement error. In this exercise we’ll explore the potential for simulation to perform nuanced investigations about the impact of measurement error.</p>
+<p>Suppose you knew that non-white race and low socioeconomic status increased the rate of misclassification of a binary covariate X. Explain how you could implement a simulation study to investigate how much the misclassification could bias results. Try to write pseudocode for this.</p>
 
 
 </section>

@@ -474,19 +474,19 @@ No class today because I will be attending a workshop.
 **During class:** [Difference-in-Differences](14-did.qmd)
 
 
-## Day 3: Sensitivity analyses for unmeasured confounding {#day25}
+## Day 3: Sensitivity analyses (11/1) {#day25}
 
 **Before class:** No required reading or videos for today.
 
-**During class:** 
+**During class:** [Sensitivity Analyses](15-sensitivity-analyses.qmd)
 
 
 <!-- ============================================================= -->
 
 
-# Week 10: Instrumental variables
+# Week 10: Instrumental variables and project work
 
-## Day 1: Instrumental variables {#day26}
+## Day 1: Instrumental variables (11/4) {#day26}
 
 **Before class:**
 
