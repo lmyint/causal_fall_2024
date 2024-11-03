@@ -59,9 +59,49 @@ If none of these options piques your interest, I'm happy to discuss alternatives
 
 # Deliverables
 
-Each group will turn in a **final paper** and give a **presentation**.
+Each group will turn in a **paper** and give a **presentation**.
 
-**Citations:** In-text citations and references should follow the [APA format](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/in_text_citations_author_authors.html).
+**Important dates:**
+
+- Final paper due Wednesday, December 18 at 5pm
+- Final presentations will span the last 2 class days of class (Monday 12/9 and Wednesday 12/11) and our final exam period (Tuesday 12/17 from 10:30-12:30)
+
+## Paper
+
+- **Format (data analysis option):** Your paper should resemble an academic journal article and have the following sections:
+    - **Introduction:**
+        - Conduct a literature review using at least 3 sources. This literature review should provide necessary background for your investigation and explain how your work provides new understanding.
+    - **Data and Methods:**
+        - Describe the context behind and contents of your data. (Examine who, what, when, where, why, and how questions)
+        - Describe any data cleaning and/or processing that you performed.
+        - Describe the statistical analyses performed. This should include modeling to estimate treatment effects as well as placebo tests and/or sensitivity analyses.
+    - **Results:**
+        - Interpret causal effect estimates in context, being careful to note the particular estimand that was targeted.
+        - Interpret measures of uncertainty (confidence intervals and/or p-values).
+        - Discuss results from placebo tests and/or sensitivity analyses.
+    - **Discussion:**
+        - Summarize key results and the extent to which they were what you expected or were surprising.
+        - Discuss limitations of the analysis in terms of data quality, scope of the analysis, and generalizability. 
+        - Discuss concrete future directions for the project.
+
+- **Format (advanced topic option):** Your paper should resemble a textbook chapter and have the following general structure:
+    - **Introduction:**
+        - Give an overview of the method/topic and its importance in causal inference.
+        - How does this method/topic relate to topics that we have covered in class?
+    - **Subsequent sections:** These sections should correspond to key concepts for this topic. Each section should explain a concept and show examples.
+    - **Conclusion:**
+        - Summarize when researchers would want to use this method/topic in their own work.
+        - Discuss the limitations of this tutorial paper in terms of scope. e.g., "We did discuss concepts X, Y, and Z in this tutorial, but important subareas within this topic include A, B, and C (include citations to relevant articles where readers can learn more)."
+
+
+- **Citations:** In-text citations and references should follow the [APA format](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/in_text_citations_author_authors.html).
+
+
+## Presentation
+
+- 8-10 minute presentation (depending on the number of groups)
+- Target audience is our class (students who have taken causal inference)
+- Share your slides with the instructor the day before your presentation. We will use the instructor's laptop for presentations to streamline and avoid technical difficulties.
 
 
 <br><br><br><br>
@@ -86,3 +126,19 @@ You will submit a short write-up that varies by project option. (No page length 
     - Introduce the big idea behind this topic. Make connections between your topic and the topics we covered in class so that others can have a better sense of how this topic fits into the field of causal inference.
     - Explain 1 idea that you learned from your research so far. Include a citation to at least 1 journal article.
     - Write a plan for your remaining research. Describe the ideas are you planning to learn in the remaining time. Describe a simulation study that you will perform to explore some of the theory behind your topic.
+
+
+
+## Milestone 2
+
+**Due date:** Friday, November 22 at 5PM
+
+For both the data analysis and advanced topic options:
+
+- Conduct analyses according to your Milestone 1 plan as well as updates to your plan based on instructor feedback
+- Submit a rendered HTML of your analyses and interpretations.
+
+
+
+
+

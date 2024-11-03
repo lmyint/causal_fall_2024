@@ -201,10 +201,15 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#option-2-learn-an-advanced-topic" id="toc-option-2-learn-an-advanced-topic" class="nav-link" data-scroll-target="#option-2-learn-an-advanced-topic">Option 2: Learn an advanced topic</a></li>
   <li><a href="#option-3-other" id="toc-option-3-other" class="nav-link" data-scroll-target="#option-3-other">Option 3: Other</a></li>
   </ul></li>
-  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">Deliverables</a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">Deliverables</a>
+  <ul class="collapse">
+  <li><a href="#paper" id="toc-paper" class="nav-link" data-scroll-target="#paper">Paper</a></li>
+  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation">Presentation</a></li>
+  </ul></li>
   <li><a href="#timeline" id="toc-timeline" class="nav-link" data-scroll-target="#timeline">Timeline</a>
   <ul class="collapse">
   <li><a href="#milestone-1" id="toc-milestone-1" class="nav-link" data-scroll-target="#milestone-1">Milestone 1</a></li>
+  <li><a href="#milestone-2" id="toc-milestone-2" class="nav-link" data-scroll-target="#milestone-2">Milestone 2</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -280,9 +285,66 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="deliverables" class="level1">
 <h1>Deliverables</h1>
-<p>Each group will turn in a <strong>final paper</strong> and give a <strong>presentation</strong>.</p>
-<p><strong>Citations:</strong> In-text citations and references should follow the <a href="https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/in_text_citations_author_authors.html">APA format</a>.</p>
+<p>Each group will turn in a <strong>paper</strong> and give a <strong>presentation</strong>.</p>
+<p><strong>Important dates:</strong></p>
+<ul>
+<li>Final paper due Wednesday, December 18 at 5pm</li>
+<li>Final presentations will span the last 2 class days of class (Monday 12/9 and Wednesday 12/11) and our final exam period (Tuesday 12/17 from 10:30-12:30)</li>
+</ul>
+<section id="paper" class="level2">
+<h2 class="anchored" data-anchor-id="paper">Paper</h2>
+<ul>
+<li><strong>Format (data analysis option):</strong> Your paper should resemble an academic journal article and have the following sections:
+<ul>
+<li><strong>Introduction:</strong>
+<ul>
+<li>Conduct a literature review using at least 3 sources. This literature review should provide necessary background for your investigation and explain how your work provides new understanding.</li>
+</ul></li>
+<li><strong>Data and Methods:</strong>
+<ul>
+<li>Describe the context behind and contents of your data. (Examine who, what, when, where, why, and how questions)</li>
+<li>Describe any data cleaning and/or processing that you performed.</li>
+<li>Describe the statistical analyses performed. This should include modeling to estimate treatment effects as well as placebo tests and/or sensitivity analyses.</li>
+</ul></li>
+<li><strong>Results:</strong>
+<ul>
+<li>Interpret causal effect estimates in context, being careful to note the particular estimand that was targeted.</li>
+<li>Interpret measures of uncertainty (confidence intervals and/or p-values).</li>
+<li>Discuss results from placebo tests and/or sensitivity analyses.</li>
+</ul></li>
+<li><strong>Discussion:</strong>
+<ul>
+<li>Summarize key results and the extent to which they were what you expected or were surprising.</li>
+<li>Discuss limitations of the analysis in terms of data quality, scope of the analysis, and generalizability.</li>
+<li>Discuss concrete future directions for the project.</li>
+</ul></li>
+</ul></li>
+<li><strong>Format (advanced topic option):</strong> Your paper should resemble a textbook chapter and have the following general structure:
+<ul>
+<li><strong>Introduction:</strong>
+<ul>
+<li>Give an overview of the method/topic and its importance in causal inference.</li>
+<li>How does this method/topic relate to topics that we have covered in class?</li>
+</ul></li>
+<li><strong>Subsequent sections:</strong> These sections should correspond to key concepts for this topic. Each section should explain a concept and show examples.</li>
+<li><strong>Conclusion:</strong>
+<ul>
+<li>Summarize when researchers would want to use this method/topic in their own work.</li>
+<li>Discuss the limitations of this tutorial paper in terms of scope. e.g., “We did discuss concepts X, Y, and Z in this tutorial, but important subareas within this topic include A, B, and C (include citations to relevant articles where readers can learn more).”</li>
+</ul></li>
+</ul></li>
+<li><strong>Citations:</strong> In-text citations and references should follow the <a href="https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/in_text_citations_author_authors.html">APA format</a>.</li>
+</ul>
+</section>
+<section id="presentation" class="level2">
+<h2 class="anchored" data-anchor-id="presentation">Presentation</h2>
+<ul>
+<li>8-10 minute presentation (depending on the number of groups)</li>
+<li>Target audience is our class (students who have taken causal inference)</li>
+<li>Share your slides with the instructor the day before your presentation. We will use the instructor’s laptop for presentations to streamline and avoid technical difficulties.</li>
+</ul>
 <p><br><br><br><br></p>
+</section>
 </section>
 <section id="timeline" class="level1">
 <h1>Timeline</h1>
@@ -304,6 +366,15 @@ ul.task-list li input[type="checkbox"] {
 <li>Explain 1 idea that you learned from your research so far. Include a citation to at least 1 journal article.</li>
 <li>Write a plan for your remaining research. Describe the ideas are you planning to learn in the remaining time. Describe a simulation study that you will perform to explore some of the theory behind your topic.</li>
 </ul></li>
+</ul>
+</section>
+<section id="milestone-2" class="level2">
+<h2 class="anchored" data-anchor-id="milestone-2">Milestone 2</h2>
+<p><strong>Due date:</strong> Friday, November 22 at 5PM</p>
+<p>For both the data analysis and advanced topic options:</p>
+<ul>
+<li>Conduct analyses according to your Milestone 1 plan as well as updates to your plan based on instructor feedback</li>
+<li>Submit a rendered HTML of your analyses and interpretations.</li>
 </ul>
 
 
