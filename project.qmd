@@ -74,6 +74,7 @@ Each group will turn in a **paper** and give a **presentation**.
     - **Data and Methods:**
         - Describe the context behind and contents of your data. (Examine who, what, when, where, why, and how questions)
         - Describe any data cleaning and/or processing that you performed.
+        - Show the causal graph that you use to identify what variables need to be included in the analysis. Discuss key decision points in your causal graph construction.
         - Describe the statistical analyses performed. This should include modeling to estimate treatment effects as well as placebo tests and/or sensitivity analyses.
     - **Results:**
         - Interpret causal effect estimates in context, being careful to note the particular estimand that was targeted.

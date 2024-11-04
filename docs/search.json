@@ -490,14 +490,259 @@
     ]
   },
   {
-    "objectID": "14-did.html",
-    "href": "14-did.html",
-    "title": "Difference-in-differences",
+    "objectID": "16-iv.html",
+    "href": "16-iv.html",
+    "title": "Instrumental Variables",
     "section": "",
-    "text": "Slides for today are available here.\n\n\nExample: Triskaidekaphobia and apartment prices\nRead the article Why do buildings skip the thirteenth floor?\nAfter reading, answer the following with your group:\n\nHow did the authors apply the difference-in-differences (DiD) framework to this setting?\nDo you think the assumptions they made were reasonable?\nWhat regression model underlies their DiD analyses?\nWhy did the authors repeat their analyses after matching relabelled and not relabelled apartment buildings?\n\n\nUnderlying code and data: GitHub repo\n\nlibrary(tidyverse)\n\nnyc &lt;- read_csv(\"https://raw.githubusercontent.com/MadisonHardesty/13th-Floor/refs/heads/main/dataNYC.csv\")",
+    "text": "Slides for today are available here.",
     "crumbs": [
-      "Difference-in-differences"
+      "Instrumental Variables"
     ]
+  },
+  {
+    "objectID": "16-iv.html#exercise-1",
+    "href": "16-iv.html#exercise-1",
+    "title": "Instrumental Variables",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nIn health services research, the distance that one lives from a specialty care provider is often considered as an instrument. In particular, studies have looked at the causal effect of high-level vs low-level neonatal intensive care units (high vs. low level NICUs) on birth outcomes. (High vs. low is differentiated by the amount of technology available and number of babies delivered per year.)\nThe instrument used in this setting was a differential distance (excess travel time): travel time to the nearest high-level NICU minus travel time to the nearest low-level NICU. This instrument was binarized as follows:\n\n\\(IV = 1\\) if this excess travel time was ≤ 10 minutes\n\\(IV = 0\\) if this excess travel time was &gt; 10 minutes\n\nDistance to these health services is known to be a reflection of where mothers live which, in turn, is often a reflection of socioeconomic status indicators.\n\nBased on the context provided here, draw the underlying causal graph.\nBased on your graph, identify a conditioning set such that the instrument would be valid.\nLet’s consider if there might be other important variables missing from the graph.\n\nDo you think that there might be other variables that would make the unconfoundedness assumption not hold?\nDo you think that there might be other variables that would make the exclusion restriction assumption not hold?",
+    "crumbs": [
+      "Instrumental Variables"
+    ]
+  },
+  {
+    "objectID": "16-iv.html#exercise-2",
+    "href": "16-iv.html#exercise-2",
+    "title": "Instrumental Variables",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nConsider the following canonical causal graph for an IV design:\n\nlibrary(dagitty)\ndag &lt;- dagitty('\ndag {\nbb=\"0,0,1,1\"\nA [exposure,pos=\"0.264,0.498\"]\nIV [pos=\"0.115,0.294\"]\nU [latent,pos=\"0.456,0.220\"]\nY [outcome,pos=\"0.657,0.494\"]\nA -&gt; Y\nIV -&gt; A\nU -&gt; A\nU -&gt; Y\n}\n')\nplot(dag)\n\n\n\n\n\n\n\n\nSome analysts have believed that it is possible to perform a hypothesis test to test the exclusion restriction assumption with the regression Y ~ A + IV. Their rationale is that conditioning on A blocks the IV -&gt; A -&gt; Y path, and if IV and Y are still associated, there must be a direct path IV -&gt; Y.\nExplain why this reasoning is flawed.",
+    "crumbs": [
+      "Instrumental Variables"
+    ]
+  },
+  {
+    "objectID": "16-iv.html#exercise-3",
+    "href": "16-iv.html#exercise-3",
+    "title": "Instrumental Variables",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWhile randomized experiments are the gold standard for causal inference when everything runs perfectly, noncompliance can be an issue. Noncompliance occurs when an individual does not comply with the treatment that was randomly assigned.\nDraw a causal graph illustrating how the instrumental variables design can be applied in this situation.",
+    "crumbs": [
+      "Instrumental Variables"
+    ]
+  },
+  {
+    "objectID": "16-iv.html#exercise-4",
+    "href": "16-iv.html#exercise-4",
+    "title": "Instrumental Variables",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nIn regression discontinuity designs (RDD), a sharp RDD is one in which being on one side of a cutoff results in a 100% chance of being treated. A fuzzy RDD is one in which the probability of treatment changes suddenly at the cutoff but not necessarily from 0 to 100%.\n\nDraw a causal graph illustrating or explain in words how the instrumental variables design can be applied for analyzing fuzzy RDDs.",
+    "crumbs": [
+      "Instrumental Variables"
+    ]
+  },
+  {
+    "objectID": "16-iv.html#exercise-5",
+    "href": "16-iv.html#exercise-5",
+    "title": "Instrumental Variables",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nCould an instrumental variables approach be useful in your project setting? What might a potential instrument be?",
+    "crumbs": [
+      "Instrumental Variables"
+    ]
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "This is a course that is dear to my heart, and I’m excited to rediscover the the fascinating tools of this field with you.\nAs a graduate student, I actually worked in a completely different area for my dissertation. I focused on studying data from biological technologies (mass spectrometers and sequencing machines) and developing methods to analyze that data.\nIt was a happy and fortuitous occasion that I decided to take the course Causal Inference in Public Health during my 3rd year. I was immediately drawn in by the goals, tools, and application areas of the field—causal inference researchers really seemed to be studying meaningful and impactful issues. While I had little time to explore more of causal inference for the remainder of my graduate studies, the fascination stuck with me.\nWhen I got to Macalester in 2018, the possibility of engaging more with causal inference opened up. I taught the first version of this course in Spring 2019 and have been steadily learning more over the years, improving this course along the way. I hope that you find ideas that intrigue you and applications that excite you.\nLet’s have a great semester!"
+  },
+  {
+    "objectID": "syllabus.html#community-is-key",
+    "href": "syllabus.html#community-is-key",
+    "title": "Syllabus",
+    "section": "Community is key",
+    "text": "Community is key\nA sense of community and connectedness can provide a powerful environment for learning: Research shows that learning is maximized when students feel a sense of belonging in the educational environment (e.g., Booker, 2016). A negative climate may create barriers to learning, while a positive climate can energize students’ learning (e.g., Pascarella & Terenzini, cited in How Learning Works, 2012).\nFor these reasons, I will be designing our in-class group activities to intentionally foster community and connectedness. You can help cultivate our classroom community by being thoughtful about the way you engage with others in class."
+  },
+  {
+    "objectID": "syllabus.html#reflection-is-paramount",
+    "href": "syllabus.html#reflection-is-paramount",
+    "title": "Syllabus",
+    "section": "Reflection is paramount",
+    "text": "Reflection is paramount\nThe content you learn will be cool (unbiased opinion!), but it is a guarantee that you will venture into areas not covered in your formal education. We only have a short time together, and fields evolve constantly. There will be many times in your career where you will need to learn on your own. What you will need to rely on when you leave Macalester is what I want to ensure you cultivate now: a good learning process. And the cornerstone of a good learning process is reflection.\nReflection is not just fundamental to learning content–it’s fundamental to learning any sort of intellectual, emotional, or physical skill. For this reason, I will be prioritizing reflection in our activities and assignments throughout the semester."
+  },
+  {
+    "objectID": "syllabus.html#mistakes-are-essential",
+    "href": "syllabus.html#mistakes-are-essential",
+    "title": "Syllabus",
+    "section": "Mistakes are essential",
+    "text": "Mistakes are essential\n\nAn expert is a person who has made all the mistakes which can be made in a narrow field.\n\nNiels Bohr, Nobel Prize-winning physicist\n\n\nPerhaps paradoxically, an important way to gain confidence in an area is to make a lot of mistakes. As you move through this course, make note of any time your understanding changed and the situation in which that change happened. Your understanding will grow richer for doing so."
+  },
+  {
+    "objectID": "syllabus.html#communication-is-a-superpower",
+    "href": "syllabus.html#communication-is-a-superpower",
+    "title": "Syllabus",
+    "section": "Communication is a superpower",
+    "text": "Communication is a superpower\nEvery time I go to a conference talk on a technical topic, it is striking how quickly laptops or phones come out because of the inability to follow. Academics notoriously struggle to make ideas accessible to others.\nI want communication to be very different for you.\nEvery time you communicate ideas–whether through writing, visuals, or oral presentation–I want you to be a total boss. The end product of strong communication is a better experience for all those who have given you their attention. What’s more, the process of crafting effective communication is invaluable for deepening your own understanding:\n\n\n\nRead to collect the dots, write to connect them pic.twitter.com/YbgnKKFUNn\n\n— David Perell (@david_perell) July 5, 2021"
+  },
+  {
+    "objectID": "syllabus.html#outside-of-class",
+    "href": "syllabus.html#outside-of-class",
+    "title": "Syllabus",
+    "section": "Outside of class",
+    "text": "Outside of class\nPre-class videos/readings: Most class periods will have a required video or reading to get acquainted with new concepts before seeing them again in class. Pre-class materials will focus more on conceptual ideas with less emphasis on code. My goal for these videos and readings is for you to familiarize yourself enough with the concepts so that we can go over both conceptual ideas and code in class.\n\n\n\n\n\n\nSuggestions\n\n\n\n\nAs you take notes on videos/readings, highlight or otherwise mark all the areas where you have questions. Gather up all of these questions in one place, and bring them to class with you.\nRecord any reflections from in-class time about your learning process or interactions with peers while they are still fresh.\nAfter learning a new topic in class, it is helpful to attempt the upcoming assignment as soon as possible. Just by getting some rough ideas down quickly, you avoid the difficulty of starting from a blank slate.\nCome to instructor drop-in hours to chat about the course or anything else! 😃"
+  },
+  {
+    "objectID": "syllabus.html#during-class",
+    "href": "syllabus.html#during-class",
+    "title": "Syllabus",
+    "section": "During class",
+    "text": "During class\nClass time will be a mixture of core idea days and flex days. On our schedule, any day that is not explicitly labeled as a flex day or project work day is a core idea day.\nOn core idea days, class time will be a mix of interactive lecture and stretches of group work. During the lecture portion, I will pause explanation frequently to prompt a short exercise.\nOn flex days, there will be options to continue practicing the topics that we have covered recently or to explore some ideas in more detail.\n\n\n\n\n\n\nSuggestions\n\n\n\n\nThroughout class time, reference your set of questions from the pre-class material. Have you made progress on addressing those questions? Who or what helped with improving your understanding, and how? Make notes of what concepts are still unclear so that you can review later."
+  },
+  {
+    "objectID": "syllabus.html#my-philosophy",
+    "href": "syllabus.html#my-philosophy",
+    "title": "Syllabus",
+    "section": "My philosophy",
+    "text": "My philosophy\nGrading is thorny issue for many educators because of its known negative effects on learning and motivation. Nonetheless, it is ever-present in the US education system and at Macalester. Because I am required to submit grades for this course, it’s worth me taking a minute to share my philosophy about grading with you.\nWhat excites me about being a teacher is your learning.\nLearning flourishes in an environment where you find meaning and value in what we’re exploring, feel supported when engaging with challenges, receive useful feedback, and regularly reflect on your learning.\nIf I didn’t have to give grades, I wouldn’t. But because I am required to, it is important to me to create a course structure and grading system that allow learning to flourish:\n\nFinding meaning and value: I am striving to achieve this by:\n\nCreating space for authentic connection between you, your peers, and myself\nBuilding flex days into our schedule so that you have time to focus on what you want to get out of the course\nEncouraging you to explore a topic that intrigues you for our course project\n\nSupport in engaging with challenges: The assignments and activities that we will use to learn are meant to be challenging, and it would be unreasonable for me to expect that you have perfect understanding on the first try. For this reason, the opportunity to revise without penalty on assignments is something I believe in strongly. Solid learning does not happen under excessive stress, and I think that a lot of that stress comes from the general culture of perfection in academia.\nReceiving useful feedback and reflecting regularly: My aim with feedback is to always provide guidance towards improvement, no matter where you are in your progress. However, good feedback alone is useless—learners need to engage deeply with feedback in order to benefit the most from it. For this reason, my stance on feedback is the following: I only want to give feedback on work that you want to read feedback on. This informs the approach that we’ll take for assignments in this course."
+  },
+  {
+    "objectID": "syllabus.html#assignments-and-assessments",
+    "href": "syllabus.html#assignments-and-assessments",
+    "title": "Syllabus",
+    "section": "Assignments and assessments",
+    "text": "Assignments and assessments\nThere are no in-class examinations (like quizzes or exams) in this course. A portfolio and a course project are the two sources of submitted work that will receive feedback.\n\nPortfolio\nPurpose: Over the course of the semester, you’ll build up a portfolio in which you organize course ideas that are most important to you in a way that is most beneficial to your future self. My hope is that you can easily use this portfolio in the future in case you want a reference that is tailored to you.\nOverview:\n\nStarting the 3rd week of the semester, an assignment will be due every Friday in which you add to this portfolio.\nThese assignments will ask you to reorganize the information from course topics in a way that is more optimal for you to navigate. In completing these assignments, you have the freedom to draw from class activities, but you will need to add explanations, transitions between ideas, and connections that we won’t necessarily do together in class activities.\nMost of the time, you’ll submit these assignments as Quarto files (.qmd) because you’ll be required to include both code and writing. I’ll add comments directly to your .qmd file and re-upload them as feedback on Moodle.\n\nDetails for all assignments can be found on the Assignments page.\n\n\nProject\nPurpose: Complete a project that you would be proud to talk about in depth during a job interview or present during MSCS Capstone Days in the spring.\nOverview:\n\nTwo main options for the project are available: (1) a data analysis using causal tools and (2) creating a tutorial on a topic not covered in class. If you feel strongly about pursuing a different type of project, we can meet to discuss.\nThrough weekly milestones at the end of the semester, you will make steady progress on your projects and iterate on feedback.\n\nFull details about the project can be found on the Project page."
+  },
+  {
+    "objectID": "syllabus.html#course-grading-system",
+    "href": "syllabus.html#course-grading-system",
+    "title": "Syllabus",
+    "section": "Course grading system",
+    "text": "Course grading system\n\n\n\n\n\n\nBefore Assignment 1\n\n\n\n\n\nBefore I decide on a course grading system, I would like your input. Everyone has different sources of motivation and thrives in different types of environments, and I would like to learn more about each of your motivations before making decisions on a system that could have notable impacts on your experience in the course.\nAssignment 1 will be a short piece of writing that helps me learn about you in this regard. We will use insights from your writing to inform a discussion on the grading system in the first weeks of class.\n\n\n\nConsistent themes that I saw throughout your responses to Assignment 1 included the following:\n\nThe idea of an A as a default starting point was intriguing to try given the existence of other strong motivators. Many of you mentioned that the desire to learn more about the field and to create a project you would be proud to share with others are powerful sources of motivation. Given these motivators, a system where an A is the default can relieve stress and encourage a focus on ideas rather than a preoccupation with performance on assessments.\nIt would feel better if a grade of an A as a default were linked with expectations. You offered ideas of earning an A contingent on coming to class most of the time and completing assignments rather than on “perfecting” assignments according to some point scale or rubric.\nQualitative feedback, reflection, and revision are essential parts of the learning process and should be part of the grading system. Some of you expressed the desire to require revisions and reflection in response to thoughtful qualitative feedback.\nIt is important to get everyone’s input and hear what others have to say. Many of you mentioned being open to whatever grading system works best for everyone and that a fair way to decide could be to vote or have an in-class discussion.\n\n\nBased on these themes, I am proposing the following Contract for an A this semester:\n\n\n\n\n\n\nContract for an A\n\n\n\nTo earn an A for the semester, we agree to the following:\n\nActively co-create our course learning community alongside peers and the instructor.\n\nOur strongest learning will occur when we feel like we’re doing work alongside others who want the same things.\nBeing an active co-creator of our learning community will entail coming prepared to class as much as we can: engaging with pre-class materials thoughtfully by noting down interesting ideas and questions that you hope to have answered and sharing them with peers in class.\nWe will support the learning of our peers by thoughtfully engaging with class activities.\nEveryone will advocate for their own learning by communicating regularly with the instructor about what is working well and can be improved.\n\nComplete all assignments to the best of your ability and consistently respond to feedback.\n\nResponding to feedback involves revising work and/or writing a message to the instructor to continue the conversation from the previous round of feedback.\nQualitative feedback will always communicate areas for growth. Sometimes that growth can be approached with a revision of prior work, and sometimes it can be approached by articulating plans for what to work on in the future.\n\nReflect on your progress at the midway point and at the end of the semester.\n\nI will provide prompts at both points to help you look back on past work and look forward to continued growth.\n\nCreate and present a high quality project that you would be proud to share on capstone days or with future employers.\n\nThrough regular milestones and qualitative feedback on each milestone, we’ll work towards creating work that you are proud of."
+  },
+  {
+    "objectID": "syllabus.html#late-work",
+    "href": "syllabus.html#late-work",
+    "title": "Syllabus",
+    "section": "Late work",
+    "text": "Late work\nHomework assignments will generally be due weekly on Fridays at 5pm. If you anticipate needing more time to complete an assignment, please email me ahead of time to discuss. My main constraint is the desire to give you feedback before the next assignment is due, and I’ll be working on feedback on the Monday-Thursday after an assignment is due."
+  },
+  {
+    "objectID": "syllabus.html#academic-integrity",
+    "href": "syllabus.html#academic-integrity",
+    "title": "Syllabus",
+    "section": "Academic integrity",
+    "text": "Academic integrity\nAcademic integrity is the cornerstone of our learning community. Students are expected to be familiar with the college’s standards on academic integrity.\nI encourage you to work with your classmates to discuss material and ideas for assignments, but in order for you to receive individualized feedback on your own learning, you must submit your own work. This involves writing your own code and putting explanations into your own words. Always cite any sources you use, including AI (see section below)."
+  },
+  {
+    "objectID": "syllabus.html#artificial-intelligence-ai-use",
+    "href": "syllabus.html#artificial-intelligence-ai-use",
+    "title": "Syllabus",
+    "section": "Artificial intelligence (AI) use",
+    "text": "Artificial intelligence (AI) use\nAI can both interfere with and enhance our capacity to learn. We must be mindful of when it might hinder us and when it might provide us with new understanding and/or assistance. What is most important to me about our AI usage in this course is the following:\n\nAI usage must always be cited with the prompt and full output.\n\nWhy do I care about this? I want to see and give feedback on your thinking.\nI will not use AI frequently out of personal preference, but when I do, I will always share the prompt and output.\n\nAI output can be a part of your responses on assignments, but it always needs to be accompanied by double-checking, commentary, and interpretation from you.\n\nWhy do I care about this? Again, I want to see and give feedback on your thinking. But also quite importantly, AI does not always generate complete and/or accurate output. Because of its training data, it will almost certainly hallucinate or give inaccurate information when asked about more modern advances in the field.\n\n\nPlease be aware of the following general limitations of AI:\n\nAI does not always generate accurate output. If it gives you a number, fact, or code, assume it is wrong unless you either know the answer or can check in with another source. AI works best for topics you already understand to a sufficient extent.\nIf you provide minimum effort prompts, you will get low quality results. You will need to refine your prompts in order to get good outcomes. This will take work.\nBe thoughtful about when this tool is useful. Don’t use it if it isn’t appropriate for the case or circumstance.\nThe environmental impact of AI should not be ignored. The building and usage of AI tools consume a lot of energy (see here and here). For this reason, let’s be thoughtful about when we use AI and think about other sustainability behaviors that we can incorporate into our lives to offset this usage.\n\nIf you have any questions about your use of AI tools, please contact me to discuss them."
+  },
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Project",
+    "section": "",
+    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a project for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nOpen Science Framework\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here.\n\n\n\n\n\nOverview: Dig deeper into existing course topics or learn a new topic. Examples could include:\n\nMethods for transportability (generalizability) of effects\nInterference\nSpecialized considerations for particular study designs\nMachine learning in causal inference\nIndividual causal effect estimation\n\nCollaboration: Groups of up to 3. Individual work is fine.\n\n\n\n\nIf none of these options piques your interest, I’m happy to discuss alternatives with you. Some ideas:\n\nDesign a Shiny app to illustrate causal concepts to students\nWrite (part of) an R package for making it easier to work with causal graphs\nCritique of applied research\n\nThis is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.\nFind and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors’ data collection and analysis methods.\nDiscuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research."
+  },
+  {
+    "objectID": "project.html#option-1-data-analysis",
+    "href": "project.html#option-1-data-analysis",
+    "title": "Project",
+    "section": "",
+    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a project for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nOpen Science Framework\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here."
+  },
+  {
+    "objectID": "project.html#option-2-learn-an-advanced-topic",
+    "href": "project.html#option-2-learn-an-advanced-topic",
+    "title": "Project",
+    "section": "",
+    "text": "Overview: Dig deeper into existing course topics or learn a new topic. Examples could include:\n\nMethods for transportability (generalizability) of effects\nInterference\nSpecialized considerations for particular study designs\nMachine learning in causal inference\nIndividual causal effect estimation\n\nCollaboration: Groups of up to 3. Individual work is fine."
+  },
+  {
+    "objectID": "project.html#option-3-other",
+    "href": "project.html#option-3-other",
+    "title": "Project",
+    "section": "",
+    "text": "If none of these options piques your interest, I’m happy to discuss alternatives with you. Some ideas:\n\nDesign a Shiny app to illustrate causal concepts to students\nWrite (part of) an R package for making it easier to work with causal graphs\nCritique of applied research\n\nThis is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.\nFind and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors’ data collection and analysis methods.\nDiscuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research."
+  },
+  {
+    "objectID": "project.html#paper",
+    "href": "project.html#paper",
+    "title": "Project",
+    "section": "Paper",
+    "text": "Paper\n\nFormat (data analysis option): Your paper should resemble an academic journal article and have the following sections:\n\nIntroduction:\n\nConduct a literature review using at least 3 sources. This literature review should provide necessary background for your investigation and explain how your work provides new understanding.\n\nData and Methods:\n\nDescribe the context behind and contents of your data. (Examine who, what, when, where, why, and how questions)\nDescribe any data cleaning and/or processing that you performed.\nShow the causal graph that you use to identify what variables need to be included in the analysis. Discuss key decision points in your causal graph construction.\nDescribe the statistical analyses performed. This should include modeling to estimate treatment effects as well as placebo tests and/or sensitivity analyses.\n\nResults:\n\nInterpret causal effect estimates in context, being careful to note the particular estimand that was targeted.\nInterpret measures of uncertainty (confidence intervals and/or p-values).\nDiscuss results from placebo tests and/or sensitivity analyses.\n\nDiscussion:\n\nSummarize key results and the extent to which they were what you expected or were surprising.\nDiscuss limitations of the analysis in terms of data quality, scope of the analysis, and generalizability.\nDiscuss concrete future directions for the project.\n\n\nFormat (advanced topic option): Your paper should resemble a textbook chapter and have the following general structure:\n\nIntroduction:\n\nGive an overview of the method/topic and its importance in causal inference.\nHow does this method/topic relate to topics that we have covered in class?\n\nSubsequent sections: These sections should correspond to key concepts for this topic. Each section should explain a concept and show examples.\nConclusion:\n\nSummarize when researchers would want to use this method/topic in their own work.\nDiscuss the limitations of this tutorial paper in terms of scope. e.g., “We did discuss concepts X, Y, and Z in this tutorial, but important subareas within this topic include A, B, and C (include citations to relevant articles where readers can learn more).”\n\n\nCitations: In-text citations and references should follow the APA format."
+  },
+  {
+    "objectID": "project.html#presentation",
+    "href": "project.html#presentation",
+    "title": "Project",
+    "section": "Presentation",
+    "text": "Presentation\n\n8-10 minute presentation (depending on the number of groups)\nTarget audience is our class (students who have taken causal inference)\nShare your slides with the instructor the day before your presentation. We will use the instructor’s laptop for presentations to streamline and avoid technical difficulties."
+  },
+  {
+    "objectID": "project.html#milestone-1",
+    "href": "project.html#milestone-1",
+    "title": "Project",
+    "section": "Milestone 1",
+    "text": "Milestone 1\nDue date: Friday, November 8 at 5PM\nAs part of this milestone, you will pick a project option, pick a specific topic, and form a group (if not working alone).\nYou will submit a short write-up that varies by project option. (No page length requirements—just convey the information that you need to.)\n\nData analysis option: You will write a draft of the Introduction, Data, and Methods sections of your paper.\n\nIntroduction: Give background for your topic, including relevant theory, domain knowledge, and prior research. Incorporate findings from at least 3 journal articles.\nData: Describe the data that you have and how it was collected. Include any limitations or cautions that are important to keep in mind about the data. Think about the who, what, when, where, why, and how behind your data to inform your discussion in this section.\nMethods: Write a detailed plan for the analyses that you will conduct. This part can be written in bullet points.\n\nAdvanced topic option: Your final paper will be structured as a tutorial, and for this milestone, you’ll make progress towards writing this tutorial.\n\nIntroduce the big idea behind this topic. Make connections between your topic and the topics we covered in class so that others can have a better sense of how this topic fits into the field of causal inference.\nExplain 1 idea that you learned from your research so far. Include a citation to at least 1 journal article.\nWrite a plan for your remaining research. Describe the ideas are you planning to learn in the remaining time. Describe a simulation study that you will perform to explore some of the theory behind your topic."
+  },
+  {
+    "objectID": "project.html#milestone-2",
+    "href": "project.html#milestone-2",
+    "title": "Project",
+    "section": "Milestone 2",
+    "text": "Milestone 2\nDue date: Friday, November 22 at 5PM\nFor both the data analysis and advanced topic options:\n\nConduct analyses according to your Milestone 1 plan as well as updates to your plan based on instructor feedback\nSubmit a rendered HTML of your analyses and interpretations."
+  },
+  {
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Assignments",
+    "section": "",
+    "text": "These assignments will build up your Portfolio. Recall from the syllabus that the goal of the Portfolio is create a reference that is tailored to the way that you think about and understand ideas.\nI hope that you feel proud of your Portfolio by the end of the semester. If you want to publish it, the Quarto files (.qmd) that you submit for your assignments can become the basis for a website that looks a lot like this course website or websites in the Quarto gallery. I’m happy to help you get this set up if you’re interested."
+  },
+  {
+    "objectID": "assignments.html#addressing-feedback",
+    "href": "assignments.html#addressing-feedback",
+    "title": "Assignments",
+    "section": "Addressing feedback",
+    "text": "Addressing feedback\nDue Wednesday, October 9 on Moodle\nAddress feedback on your slides by doing the following:\n\nWrite a paragraph summarizing the changes that you made and/or intend to make and why\nImplement changes to your slides and/or presenter notes in light of feedback.\n\nYou don’t need to agree with everything I recommend!\nAnd you may not have time to implement everything that I recommend even if you agree.\nMake the changes that you are able to, being mindful of your time and other commitments.\nWhatever you want to address but cannot finish by the due date, tell me about in your paragraph."
+  },
+  {
+    "objectID": "assignments.html#addressing-feedback-1",
+    "href": "assignments.html#addressing-feedback-1",
+    "title": "Assignments",
+    "section": "Addressing feedback",
+    "text": "Addressing feedback\nDue Monday, November 4 on Moodle\nAddress feedback on your assignment by doing both of the following:\n\nImplement changes to your assignment code and responses in light of feedback. Put new text responses in red text like this:\n\n&lt;span style=\"color: red;\"&gt;\nMy new explanation\n&lt;/span&gt;\n\n&lt;span style=\"color: red;\"&gt;\nI updated my code below: (put this above a code chunk where you update code)\n&lt;/span&gt;\n\nWrite a paragraph summarizing what you changed and the key ways in which your understanding evolved over the course of working on Assignment 3 and these revisions.\nSubmit an updated HTML and paragraph on Moodle."
+  },
+  {
+    "objectID": "01-introductions.html",
+    "href": "01-introductions.html",
+    "title": "Introductions and foundational ideas",
+    "section": "",
+    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nSlides for today: HTML, PDF",
+    "crumbs": [
+      "Introductions and foundational ideas"
+    ]
+  },
+  {
+    "objectID": "08-target-trial.html",
+    "href": "08-target-trial.html",
+    "title": "Target trial framework",
+    "section": "",
+    "text": "Goals\n\nCommunicate benefits of using the target trial framework to design the analysis of an observational study\nPractice the process of reading an academic journal article\n\n\n\n\nDiscussion\nThe following prompts are adapted from the following guides for reading scholarly articles:\n\nBrown University’s guide How to Read a Scholarly Article\nHow to Read the Statistical Methods Literature: A Guide for Students\n\nRead through the following prompts, and then open this Google Doc to record notes as you re-engage with today’s article: Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses.\n\nReread the title, abstract, keywords, and introduction\n\nBased on this information, write a 2 sentence description of the problem the article is trying to address.\n\nMake note of the authors\n\nYou might see the same authors repeatedly when exploring other articles referenced in the article. This helps you understand the breadth of topics that certain authors write about.\n\nFind a problem or context that you are familiar with and relate the article’s arguments to this context.\n\nFor example, it could help to start with the context of a randomized experiment. As you read, ask yourself “What is different about the target trial approach?”\n\nAs you skim the article again:\n\nWrite down unfamiliar jargon to look up later. If a sentence makes a claim that is hard to understand, try to find another concept or term in that sentence or in a nearby sentence that you do understand.\nIf an unfamiliar concept is linked to a citation, write down that citation and categorize that citation as essential (top priority for what to read next) or secondary.\n\nAs you reread the article:\n\nWhat arguments were hard to follow?\nWhat could the authors have done to make it easier for you to understand the article? Any such instances are good candidates for inclusion in your own communications about related ideas.",
+    "crumbs": [
+      "Target trial framework"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 451: Causal Inference",
+    "section": "",
+    "text": "Become a producer of actionable knowledge by exploring how to quantify the impact of interventions\n\n\nInstructor: Leslie Myint  Class meeting times: MWF 10:50-11:50am  Class location: THEATR 204  Instructor drop-in hours:\n\nOlin-Rice 232\nMondays, Thursdays, and Fridays: 2-3pm\nTuesdays: 3:30-4:30pm"
   },
   {
     "objectID": "slides/01-introductions.html#welcome-to-causal-inference",
@@ -703,178 +948,14 @@
     "text": "For next time\n\nCheck the Schedule for readings from The Effect. (Chapters 1, 2, and 5)\n\nReadings from The Effect always have video alternatives from the textbook author.\n\nUpdate your R and RStudio installations as described here."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT 451: Causal Inference",
+    "objectID": "14-did.html",
+    "href": "14-did.html",
+    "title": "Difference-in-differences",
     "section": "",
-    "text": "Become a producer of actionable knowledge by exploring how to quantify the impact of interventions\n\n\nInstructor: Leslie Myint  Class meeting times: MWF 10:50-11:50am  Class location: THEATR 204  Instructor drop-in hours:\n\nOlin-Rice 232\nMondays, Thursdays, and Fridays: 2-3pm\nTuesdays: 3:30-4:30pm"
-  },
-  {
-    "objectID": "08-target-trial.html",
-    "href": "08-target-trial.html",
-    "title": "Target trial framework",
-    "section": "",
-    "text": "Goals\n\nCommunicate benefits of using the target trial framework to design the analysis of an observational study\nPractice the process of reading an academic journal article\n\n\n\n\nDiscussion\nThe following prompts are adapted from the following guides for reading scholarly articles:\n\nBrown University’s guide How to Read a Scholarly Article\nHow to Read the Statistical Methods Literature: A Guide for Students\n\nRead through the following prompts, and then open this Google Doc to record notes as you re-engage with today’s article: Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses.\n\nReread the title, abstract, keywords, and introduction\n\nBased on this information, write a 2 sentence description of the problem the article is trying to address.\n\nMake note of the authors\n\nYou might see the same authors repeatedly when exploring other articles referenced in the article. This helps you understand the breadth of topics that certain authors write about.\n\nFind a problem or context that you are familiar with and relate the article’s arguments to this context.\n\nFor example, it could help to start with the context of a randomized experiment. As you read, ask yourself “What is different about the target trial approach?”\n\nAs you skim the article again:\n\nWrite down unfamiliar jargon to look up later. If a sentence makes a claim that is hard to understand, try to find another concept or term in that sentence or in a nearby sentence that you do understand.\nIf an unfamiliar concept is linked to a citation, write down that citation and categorize that citation as essential (top priority for what to read next) or secondary.\n\nAs you reread the article:\n\nWhat arguments were hard to follow?\nWhat could the authors have done to make it easier for you to understand the article? Any such instances are good candidates for inclusion in your own communications about related ideas.",
+    "text": "Slides for today are available here.\n\n\nExample: Triskaidekaphobia and apartment prices\nRead the article Why do buildings skip the thirteenth floor?\nAfter reading, answer the following with your group:\n\nHow did the authors apply the difference-in-differences (DiD) framework to this setting?\nDo you think the assumptions they made were reasonable?\nWhat regression model underlies their DiD analyses?\nWhy did the authors repeat their analyses after matching relabelled and not relabelled apartment buildings?\n\n\nUnderlying code and data: GitHub repo\n\nlibrary(tidyverse)\n\nnyc &lt;- read_csv(\"https://raw.githubusercontent.com/MadisonHardesty/13th-Floor/refs/heads/main/dataNYC.csv\")",
     "crumbs": [
-      "Target trial framework"
+      "Difference-in-differences"
     ]
-  },
-  {
-    "objectID": "01-introductions.html",
-    "href": "01-introductions.html",
-    "title": "Introductions and foundational ideas",
-    "section": "",
-    "text": "Goals\n\nMeet and get to know your peers\nGain an understanding of what this course is about\nReflect on intuitions about causation\nGet acquainted with a framework for thinking about causal effects\n\n\nSlides for today: HTML, PDF",
-    "crumbs": [
-      "Introductions and foundational ideas"
-    ]
-  },
-  {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "Assignments",
-    "section": "",
-    "text": "These assignments will build up your Portfolio. Recall from the syllabus that the goal of the Portfolio is create a reference that is tailored to the way that you think about and understand ideas.\nI hope that you feel proud of your Portfolio by the end of the semester. If you want to publish it, the Quarto files (.qmd) that you submit for your assignments can become the basis for a website that looks a lot like this course website or websites in the Quarto gallery. I’m happy to help you get this set up if you’re interested."
-  },
-  {
-    "objectID": "assignments.html#addressing-feedback",
-    "href": "assignments.html#addressing-feedback",
-    "title": "Assignments",
-    "section": "Addressing feedback",
-    "text": "Addressing feedback\nDue Wednesday, October 9 on Moodle\nAddress feedback on your slides by doing the following:\n\nWrite a paragraph summarizing the changes that you made and/or intend to make and why\nImplement changes to your slides and/or presenter notes in light of feedback.\n\nYou don’t need to agree with everything I recommend!\nAnd you may not have time to implement everything that I recommend even if you agree.\nMake the changes that you are able to, being mindful of your time and other commitments.\nWhatever you want to address but cannot finish by the due date, tell me about in your paragraph."
-  },
-  {
-    "objectID": "assignments.html#addressing-feedback-1",
-    "href": "assignments.html#addressing-feedback-1",
-    "title": "Assignments",
-    "section": "Addressing feedback",
-    "text": "Addressing feedback\nDue Monday, November 4 on Moodle\nAddress feedback on your assignment by doing both of the following:\n\nImplement changes to your assignment code and responses in light of feedback. Put new text responses in red text like this:\n\n&lt;span style=\"color: red;\"&gt;\nMy new explanation\n&lt;/span&gt;\n\n&lt;span style=\"color: red;\"&gt;\nI updated my code below: (put this above a code chunk where you update code)\n&lt;/span&gt;\n\nWrite a paragraph summarizing what you changed and the key ways in which your understanding evolved over the course of working on Assignment 3 and these revisions.\nSubmit an updated HTML and paragraph on Moodle."
-  },
-  {
-    "objectID": "project.html",
-    "href": "project.html",
-    "title": "Project",
-    "section": "",
-    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a project for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nOpen Science Framework\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here.\n\n\n\n\n\nOverview: Dig deeper into existing course topics or learn a new topic. Examples could include:\n\nMethods for transportability (generalizability) of effects\nInterference\nSpecialized considerations for particular study designs\nMachine learning in causal inference\nIndividual causal effect estimation\n\nCollaboration: Groups of up to 3. Individual work is fine.\n\n\n\n\nIf none of these options piques your interest, I’m happy to discuss alternatives with you. Some ideas:\n\nDesign a Shiny app to illustrate causal concepts to students\nWrite (part of) an R package for making it easier to work with causal graphs\nCritique of applied research\n\nThis is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.\nFind and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors’ data collection and analysis methods.\nDiscuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research."
-  },
-  {
-    "objectID": "project.html#option-1-data-analysis",
-    "href": "project.html#option-1-data-analysis",
-    "title": "Project",
-    "section": "",
-    "text": "Overview: Perform a causal analysis on a dataset of your choice.\nCollaboration: Groups of up to 3. Individual work is fine.\nResources for finding data:\nIt’s fine with me if you use a dataset associated with an existing project (like an honors project) or a project for another class (as long as it’s ok with the other instructor).\n\nGoogle Dataset Search\nOpen Science Framework\nHarvard Dataverse\nInter-university Consortium for Political and Social Research (ICPSR)\nIPUMS\nMacalester’s librarians can also be a great resource for finding data. Schedule an appointment with them here."
-  },
-  {
-    "objectID": "project.html#option-2-learn-an-advanced-topic",
-    "href": "project.html#option-2-learn-an-advanced-topic",
-    "title": "Project",
-    "section": "",
-    "text": "Overview: Dig deeper into existing course topics or learn a new topic. Examples could include:\n\nMethods for transportability (generalizability) of effects\nInterference\nSpecialized considerations for particular study designs\nMachine learning in causal inference\nIndividual causal effect estimation\n\nCollaboration: Groups of up to 3. Individual work is fine."
-  },
-  {
-    "objectID": "project.html#option-3-other",
-    "href": "project.html#option-3-other",
-    "title": "Project",
-    "section": "",
-    "text": "If none of these options piques your interest, I’m happy to discuss alternatives with you. Some ideas:\n\nDesign a Shiny app to illustrate causal concepts to students\nWrite (part of) an R package for making it easier to work with causal graphs\nCritique of applied research\n\nThis is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.\nFind and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors’ data collection and analysis methods.\nDiscuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research."
-  },
-  {
-    "objectID": "project.html#milestone-1",
-    "href": "project.html#milestone-1",
-    "title": "Project",
-    "section": "Milestone 1",
-    "text": "Milestone 1\nDue date: Friday, November 8 at 5PM\nAs part of this milestone, you will pick a project option, pick a specific topic, and form a group (if not working alone).\nYou will submit a short write-up that varies by project option. (No page length requirements—just convey the information that you need to.)\n\nData analysis option: You will write a draft of the Introduction, Data, and Methods sections of your paper.\n\nIntroduction: Give background for your topic, including relevant theory, domain knowledge, and prior research. Incorporate findings from at least 3 journal articles.\nData: Describe the data that you have and how it was collected. Include any limitations or cautions that are important to keep in mind about the data. Think about the who, what, when, where, why, and how behind your data to inform your discussion in this section.\nMethods: Write a detailed plan for the analyses that you will conduct. This part can be written in bullet points.\n\nAdvanced topic option: Your final paper will be structured as a tutorial, and for this milestone, you’ll make progress towards writing this tutorial.\n\nIntroduce the big idea behind this topic. Make connections between your topic and the topics we covered in class so that others can have a better sense of how this topic fits into the field of causal inference.\nExplain 1 idea that you learned from your research so far. Include a citation to at least 1 journal article.\nWrite a plan for your remaining research. Describe the ideas are you planning to learn in the remaining time. Describe a simulation study that you will perform to explore some of the theory behind your topic."
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Syllabus",
-    "section": "",
-    "text": "This is a course that is dear to my heart, and I’m excited to rediscover the the fascinating tools of this field with you.\nAs a graduate student, I actually worked in a completely different area for my dissertation. I focused on studying data from biological technologies (mass spectrometers and sequencing machines) and developing methods to analyze that data.\nIt was a happy and fortuitous occasion that I decided to take the course Causal Inference in Public Health during my 3rd year. I was immediately drawn in by the goals, tools, and application areas of the field—causal inference researchers really seemed to be studying meaningful and impactful issues. While I had little time to explore more of causal inference for the remainder of my graduate studies, the fascination stuck with me.\nWhen I got to Macalester in 2018, the possibility of engaging more with causal inference opened up. I taught the first version of this course in Spring 2019 and have been steadily learning more over the years, improving this course along the way. I hope that you find ideas that intrigue you and applications that excite you.\nLet’s have a great semester!"
-  },
-  {
-    "objectID": "syllabus.html#community-is-key",
-    "href": "syllabus.html#community-is-key",
-    "title": "Syllabus",
-    "section": "Community is key",
-    "text": "Community is key\nA sense of community and connectedness can provide a powerful environment for learning: Research shows that learning is maximized when students feel a sense of belonging in the educational environment (e.g., Booker, 2016). A negative climate may create barriers to learning, while a positive climate can energize students’ learning (e.g., Pascarella & Terenzini, cited in How Learning Works, 2012).\nFor these reasons, I will be designing our in-class group activities to intentionally foster community and connectedness. You can help cultivate our classroom community by being thoughtful about the way you engage with others in class."
-  },
-  {
-    "objectID": "syllabus.html#reflection-is-paramount",
-    "href": "syllabus.html#reflection-is-paramount",
-    "title": "Syllabus",
-    "section": "Reflection is paramount",
-    "text": "Reflection is paramount\nThe content you learn will be cool (unbiased opinion!), but it is a guarantee that you will venture into areas not covered in your formal education. We only have a short time together, and fields evolve constantly. There will be many times in your career where you will need to learn on your own. What you will need to rely on when you leave Macalester is what I want to ensure you cultivate now: a good learning process. And the cornerstone of a good learning process is reflection.\nReflection is not just fundamental to learning content–it’s fundamental to learning any sort of intellectual, emotional, or physical skill. For this reason, I will be prioritizing reflection in our activities and assignments throughout the semester."
-  },
-  {
-    "objectID": "syllabus.html#mistakes-are-essential",
-    "href": "syllabus.html#mistakes-are-essential",
-    "title": "Syllabus",
-    "section": "Mistakes are essential",
-    "text": "Mistakes are essential\n\nAn expert is a person who has made all the mistakes which can be made in a narrow field.\n\nNiels Bohr, Nobel Prize-winning physicist\n\n\nPerhaps paradoxically, an important way to gain confidence in an area is to make a lot of mistakes. As you move through this course, make note of any time your understanding changed and the situation in which that change happened. Your understanding will grow richer for doing so."
-  },
-  {
-    "objectID": "syllabus.html#communication-is-a-superpower",
-    "href": "syllabus.html#communication-is-a-superpower",
-    "title": "Syllabus",
-    "section": "Communication is a superpower",
-    "text": "Communication is a superpower\nEvery time I go to a conference talk on a technical topic, it is striking how quickly laptops or phones come out because of the inability to follow. Academics notoriously struggle to make ideas accessible to others.\nI want communication to be very different for you.\nEvery time you communicate ideas–whether through writing, visuals, or oral presentation–I want you to be a total boss. The end product of strong communication is a better experience for all those who have given you their attention. What’s more, the process of crafting effective communication is invaluable for deepening your own understanding:\n\n\n\nRead to collect the dots, write to connect them pic.twitter.com/YbgnKKFUNn\n\n— David Perell (@david_perell) July 5, 2021"
-  },
-  {
-    "objectID": "syllabus.html#outside-of-class",
-    "href": "syllabus.html#outside-of-class",
-    "title": "Syllabus",
-    "section": "Outside of class",
-    "text": "Outside of class\nPre-class videos/readings: Most class periods will have a required video or reading to get acquainted with new concepts before seeing them again in class. Pre-class materials will focus more on conceptual ideas with less emphasis on code. My goal for these videos and readings is for you to familiarize yourself enough with the concepts so that we can go over both conceptual ideas and code in class.\n\n\n\n\n\n\nSuggestions\n\n\n\n\nAs you take notes on videos/readings, highlight or otherwise mark all the areas where you have questions. Gather up all of these questions in one place, and bring them to class with you.\nRecord any reflections from in-class time about your learning process or interactions with peers while they are still fresh.\nAfter learning a new topic in class, it is helpful to attempt the upcoming assignment as soon as possible. Just by getting some rough ideas down quickly, you avoid the difficulty of starting from a blank slate.\nCome to instructor drop-in hours to chat about the course or anything else! 😃"
-  },
-  {
-    "objectID": "syllabus.html#during-class",
-    "href": "syllabus.html#during-class",
-    "title": "Syllabus",
-    "section": "During class",
-    "text": "During class\nClass time will be a mixture of core idea days and flex days. On our schedule, any day that is not explicitly labeled as a flex day or project work day is a core idea day.\nOn core idea days, class time will be a mix of interactive lecture and stretches of group work. During the lecture portion, I will pause explanation frequently to prompt a short exercise.\nOn flex days, there will be options to continue practicing the topics that we have covered recently or to explore some ideas in more detail.\n\n\n\n\n\n\nSuggestions\n\n\n\n\nThroughout class time, reference your set of questions from the pre-class material. Have you made progress on addressing those questions? Who or what helped with improving your understanding, and how? Make notes of what concepts are still unclear so that you can review later."
-  },
-  {
-    "objectID": "syllabus.html#my-philosophy",
-    "href": "syllabus.html#my-philosophy",
-    "title": "Syllabus",
-    "section": "My philosophy",
-    "text": "My philosophy\nGrading is thorny issue for many educators because of its known negative effects on learning and motivation. Nonetheless, it is ever-present in the US education system and at Macalester. Because I am required to submit grades for this course, it’s worth me taking a minute to share my philosophy about grading with you.\nWhat excites me about being a teacher is your learning.\nLearning flourishes in an environment where you find meaning and value in what we’re exploring, feel supported when engaging with challenges, receive useful feedback, and regularly reflect on your learning.\nIf I didn’t have to give grades, I wouldn’t. But because I am required to, it is important to me to create a course structure and grading system that allow learning to flourish:\n\nFinding meaning and value: I am striving to achieve this by:\n\nCreating space for authentic connection between you, your peers, and myself\nBuilding flex days into our schedule so that you have time to focus on what you want to get out of the course\nEncouraging you to explore a topic that intrigues you for our course project\n\nSupport in engaging with challenges: The assignments and activities that we will use to learn are meant to be challenging, and it would be unreasonable for me to expect that you have perfect understanding on the first try. For this reason, the opportunity to revise without penalty on assignments is something I believe in strongly. Solid learning does not happen under excessive stress, and I think that a lot of that stress comes from the general culture of perfection in academia.\nReceiving useful feedback and reflecting regularly: My aim with feedback is to always provide guidance towards improvement, no matter where you are in your progress. However, good feedback alone is useless—learners need to engage deeply with feedback in order to benefit the most from it. For this reason, my stance on feedback is the following: I only want to give feedback on work that you want to read feedback on. This informs the approach that we’ll take for assignments in this course."
-  },
-  {
-    "objectID": "syllabus.html#assignments-and-assessments",
-    "href": "syllabus.html#assignments-and-assessments",
-    "title": "Syllabus",
-    "section": "Assignments and assessments",
-    "text": "Assignments and assessments\nThere are no in-class examinations (like quizzes or exams) in this course. A portfolio and a course project are the two sources of submitted work that will receive feedback.\n\nPortfolio\nPurpose: Over the course of the semester, you’ll build up a portfolio in which you organize course ideas that are most important to you in a way that is most beneficial to your future self. My hope is that you can easily use this portfolio in the future in case you want a reference that is tailored to you.\nOverview:\n\nStarting the 3rd week of the semester, an assignment will be due every Friday in which you add to this portfolio.\nThese assignments will ask you to reorganize the information from course topics in a way that is more optimal for you to navigate. In completing these assignments, you have the freedom to draw from class activities, but you will need to add explanations, transitions between ideas, and connections that we won’t necessarily do together in class activities.\nMost of the time, you’ll submit these assignments as Quarto files (.qmd) because you’ll be required to include both code and writing. I’ll add comments directly to your .qmd file and re-upload them as feedback on Moodle.\n\nDetails for all assignments can be found on the Assignments page.\n\n\nProject\nPurpose: Complete a project that you would be proud to talk about in depth during a job interview or present during MSCS Capstone Days in the spring.\nOverview:\n\nTwo main options for the project are available: (1) a data analysis using causal tools and (2) creating a tutorial on a topic not covered in class. If you feel strongly about pursuing a different type of project, we can meet to discuss.\nThrough weekly milestones at the end of the semester, you will make steady progress on your projects and iterate on feedback.\n\nFull details about the project can be found on the Project page."
-  },
-  {
-    "objectID": "syllabus.html#course-grading-system",
-    "href": "syllabus.html#course-grading-system",
-    "title": "Syllabus",
-    "section": "Course grading system",
-    "text": "Course grading system\n\n\n\n\n\n\nBefore Assignment 1\n\n\n\n\n\nBefore I decide on a course grading system, I would like your input. Everyone has different sources of motivation and thrives in different types of environments, and I would like to learn more about each of your motivations before making decisions on a system that could have notable impacts on your experience in the course.\nAssignment 1 will be a short piece of writing that helps me learn about you in this regard. We will use insights from your writing to inform a discussion on the grading system in the first weeks of class.\n\n\n\nConsistent themes that I saw throughout your responses to Assignment 1 included the following:\n\nThe idea of an A as a default starting point was intriguing to try given the existence of other strong motivators. Many of you mentioned that the desire to learn more about the field and to create a project you would be proud to share with others are powerful sources of motivation. Given these motivators, a system where an A is the default can relieve stress and encourage a focus on ideas rather than a preoccupation with performance on assessments.\nIt would feel better if a grade of an A as a default were linked with expectations. You offered ideas of earning an A contingent on coming to class most of the time and completing assignments rather than on “perfecting” assignments according to some point scale or rubric.\nQualitative feedback, reflection, and revision are essential parts of the learning process and should be part of the grading system. Some of you expressed the desire to require revisions and reflection in response to thoughtful qualitative feedback.\nIt is important to get everyone’s input and hear what others have to say. Many of you mentioned being open to whatever grading system works best for everyone and that a fair way to decide could be to vote or have an in-class discussion.\n\n\nBased on these themes, I am proposing the following Contract for an A this semester:\n\n\n\n\n\n\nContract for an A\n\n\n\nTo earn an A for the semester, we agree to the following:\n\nActively co-create our course learning community alongside peers and the instructor.\n\nOur strongest learning will occur when we feel like we’re doing work alongside others who want the same things.\nBeing an active co-creator of our learning community will entail coming prepared to class as much as we can: engaging with pre-class materials thoughtfully by noting down interesting ideas and questions that you hope to have answered and sharing them with peers in class.\nWe will support the learning of our peers by thoughtfully engaging with class activities.\nEveryone will advocate for their own learning by communicating regularly with the instructor about what is working well and can be improved.\n\nComplete all assignments to the best of your ability and consistently respond to feedback.\n\nResponding to feedback involves revising work and/or writing a message to the instructor to continue the conversation from the previous round of feedback.\nQualitative feedback will always communicate areas for growth. Sometimes that growth can be approached with a revision of prior work, and sometimes it can be approached by articulating plans for what to work on in the future.\n\nReflect on your progress at the midway point and at the end of the semester.\n\nI will provide prompts at both points to help you look back on past work and look forward to continued growth.\n\nCreate and present a high quality project that you would be proud to share on capstone days or with future employers.\n\nThrough regular milestones and qualitative feedback on each milestone, we’ll work towards creating work that you are proud of."
-  },
-  {
-    "objectID": "syllabus.html#late-work",
-    "href": "syllabus.html#late-work",
-    "title": "Syllabus",
-    "section": "Late work",
-    "text": "Late work\nHomework assignments will generally be due weekly on Fridays at 5pm. If you anticipate needing more time to complete an assignment, please email me ahead of time to discuss. My main constraint is the desire to give you feedback before the next assignment is due, and I’ll be working on feedback on the Monday-Thursday after an assignment is due."
-  },
-  {
-    "objectID": "syllabus.html#academic-integrity",
-    "href": "syllabus.html#academic-integrity",
-    "title": "Syllabus",
-    "section": "Academic integrity",
-    "text": "Academic integrity\nAcademic integrity is the cornerstone of our learning community. Students are expected to be familiar with the college’s standards on academic integrity.\nI encourage you to work with your classmates to discuss material and ideas for assignments, but in order for you to receive individualized feedback on your own learning, you must submit your own work. This involves writing your own code and putting explanations into your own words. Always cite any sources you use, including AI (see section below)."
-  },
-  {
-    "objectID": "syllabus.html#artificial-intelligence-ai-use",
-    "href": "syllabus.html#artificial-intelligence-ai-use",
-    "title": "Syllabus",
-    "section": "Artificial intelligence (AI) use",
-    "text": "Artificial intelligence (AI) use\nAI can both interfere with and enhance our capacity to learn. We must be mindful of when it might hinder us and when it might provide us with new understanding and/or assistance. What is most important to me about our AI usage in this course is the following:\n\nAI usage must always be cited with the prompt and full output.\n\nWhy do I care about this? I want to see and give feedback on your thinking.\nI will not use AI frequently out of personal preference, but when I do, I will always share the prompt and output.\n\nAI output can be a part of your responses on assignments, but it always needs to be accompanied by double-checking, commentary, and interpretation from you.\n\nWhy do I care about this? Again, I want to see and give feedback on your thinking. But also quite importantly, AI does not always generate complete and/or accurate output. Because of its training data, it will almost certainly hallucinate or give inaccurate information when asked about more modern advances in the field.\n\n\nPlease be aware of the following general limitations of AI:\n\nAI does not always generate accurate output. If it gives you a number, fact, or code, assume it is wrong unless you either know the answer or can check in with another source. AI works best for topics you already understand to a sufficient extent.\nIf you provide minimum effort prompts, you will get low quality results. You will need to refine your prompts in order to get good outcomes. This will take work.\nBe thoughtful about when this tool is useful. Don’t use it if it isn’t appropriate for the case or circumstance.\nThe environmental impact of AI should not be ignored. The building and usage of AI tools consume a lot of energy (see here and here). For this reason, let’s be thoughtful about when we use AI and think about other sustainability behaviors that we can incorporate into our lives to offset this usage.\n\nIf you have any questions about your use of AI tools, please contact me to discuss them."
   },
   {
     "objectID": "schedule.html",
@@ -1063,7 +1144,7 @@
     "href": "schedule.html#day26",
     "title": "Schedule",
     "section": "Day 1: Instrumental variables (11/4)",
-    "text": "Day 1: Instrumental variables (11/4)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 19: Instrumental Variables (~85 minutes)\n\nVideo alternatives:\n\nInstrumental Variables (~10 minutes)\nInstrumental Variable Validity (~10 minutes)\nEstimating Instrumental Variables (~12 minutes)\nTesting Instrumental Variables Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 7: Instrumental Variables (~150 minutes)"
+    "text": "Day 1: Instrumental variables (11/4)\nBefore class:\n\n\n\n\n\n\nRequired\n\n\n\n\nThe Effect Chapter 19: Instrumental Variables (~85 minutes)\n\nVideo alternatives:\n\nInstrumental Variables (~10 minutes)\nInstrumental Variable Validity (~10 minutes)\nEstimating Instrumental Variables (~12 minutes)\nTesting Instrumental Variables Assumptions (~11 minutes)\n\n\n\n\n\n\n\n\n\n\n\nOptional\n\n\n\n\n\n\nMixtape Chapter 7: Instrumental Variables (~150 minutes)\n\n\n\n\nDuring class: Instrumental Variables"
   },
   {
     "objectID": "schedule.html#day-1-tbd",
@@ -1498,26 +1579,5 @@
     "crumbs": [
       "Testing causal graphs"
     ]
-  },
-  {
-    "objectID": "project.html#paper",
-    "href": "project.html#paper",
-    "title": "Project",
-    "section": "Paper",
-    "text": "Paper\n\nFormat (data analysis option): Your paper should resemble an academic journal article and have the following sections:\n\nIntroduction:\n\nConduct a literature review using at least 3 sources. This literature review should provide necessary background for your investigation and explain how your work provides new understanding.\n\nData and Methods:\n\nDescribe the context behind and contents of your data. (Examine who, what, when, where, why, and how questions)\nDescribe any data cleaning and/or processing that you performed.\nDescribe the statistical analyses performed. This should include modeling to estimate treatment effects as well as placebo tests and/or sensitivity analyses.\n\nResults:\n\nInterpret causal effect estimates in context, being careful to note the particular estimand that was targeted.\nInterpret measures of uncertainty (confidence intervals and/or p-values).\nDiscuss results from placebo tests and/or sensitivity analyses.\n\nDiscussion:\n\nSummarize key results and the extent to which they were what you expected or were surprising.\nDiscuss limitations of the analysis in terms of data quality, scope of the analysis, and generalizability.\nDiscuss concrete future directions for the project.\n\n\nFormat (advanced topic option): Your paper should resemble a textbook chapter and have the following general structure:\n\nIntroduction:\n\nGive an overview of the method/topic and its importance in causal inference.\nHow does this method/topic relate to topics that we have covered in class?\n\nSubsequent sections: These sections should correspond to key concepts for this topic. Each section should explain a concept and show examples.\nConclusion:\n\nSummarize when researchers would want to use this method/topic in their own work.\nDiscuss the limitations of this tutorial paper in terms of scope. e.g., “We did discuss concepts X, Y, and Z in this tutorial, but important subareas within this topic include A, B, and C (include citations to relevant articles where readers can learn more).”\n\n\nCitations: In-text citations and references should follow the APA format."
-  },
-  {
-    "objectID": "project.html#presentation",
-    "href": "project.html#presentation",
-    "title": "Project",
-    "section": "Presentation",
-    "text": "Presentation\n\n8-10 minute presentation (depending on the number of groups)\nTarget audience is our class (students who have taken causal inference)\nShare your slides with the instructor the day before your presentation. We will use the instructor’s laptop for presentations to streamline and avoid technical difficulties."
-  },
-  {
-    "objectID": "project.html#milestone-2",
-    "href": "project.html#milestone-2",
-    "title": "Project",
-    "section": "Milestone 2",
-    "text": "Milestone 2\nDue date: Friday, November 22 at 5PM\nFor both the data analysis and advanced topic options:\n\nConduct analyses according to your Milestone 1 plan as well as updates to your plan based on instructor feedback\nSubmit a rendered HTML of your analyses and interpretations."
   }
 ]

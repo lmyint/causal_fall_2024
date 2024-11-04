@@ -45,6 +45,7 @@ website:
         - 13-fe.qmd
         - 14-did.qmd
         - 15-sensitivity-analyses.qmd
+        - 16-iv.qmd
   
   page-footer:
     left: |

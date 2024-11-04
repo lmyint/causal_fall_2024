@@ -503,6 +503,8 @@ No class today because I will be attending a workshop.
 - *Mixtape* [Chapter 7: Instrumental Variables](https://mixtape.scunning.com/07-instrumental_variables) (~150 minutes)
 :::
 
+**During class:** [Instrumental Variables](16-iv.qmd)
+
 
 # Weeks 11-14: Assorted topics, project work time
 
