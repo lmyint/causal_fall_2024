@@ -91,18 +91,102 @@ Check here to see what you should be doing before, during, and after each class 
     </td>
   </tr>
   <tr>
-    <td class="topleft">9 (11/4 - 11/8)</td>
+    <td class="topleft">10 (11/4 - 11/8)</td>
     <td class="topleft"><a href="#day26">Instrumental variables</a></td>
-    <td class="topleft"></td>
-    <td class="topleft"></td>
+    <td class="topleft">Project work day</td>
+    <td class="topleft">Project work day</td>
     <td class="topleft">
         <a href="assignments.html#addressing-feedback-1">Assignment 3 revisions</a> due Mon 11/4 at 5pm.<br>
         <a href="project.html#milestone-1">Project Milestone 1</a> due Fri 11/8 at 5pm.
     </td>
   </tr>
+  <tr>
+    <td class="topleft">11 (11/11 - 11/15)</td>
+    <td class="topleft">Project work day</td>
+    <td class="topleft">
+        Mini-lesson: mediation analysis<br>
+        Slides
+    </td>
+    <td class="topleft">
+        Mini-lesson: time-varying treatments<br>
+        Slides
+    </td>
+    <td class="topleft">
+        <a href="project.html#milestone-2">Project Milestone 1</a> due Fri 11/22 at 5pm.
+    </td>
+  </tr>
+  <tr>
+    <td class="topleft">12 (11/18 - 11/22)</td>
+    <td class="topleft">
+        Mini-lesson: causal discovery<br>
+        Slides
+    </td>
+    <td class="topleft">
+        Mini-lesson: doubly robust estimation<br>
+        Slides
+    </td>
+    <td class="topleft">
+        Mini-lesson: generalizability/transportability<br>
+        Slides
+    </td>
+    <td class="topleft">
+        <a href="project.html#milestone-2">Project Milestone 1</a> due Fri 11/22 at 5pm.
+    </td>
+  </tr>
+  <tr>
+    <td class="topleft">13 (11/25 - 11/29)</td>
+    <td class="topleft">
+        How do we make the world a better place? How can we make Macalester a better place? How can we make our home departments better communities?
+    </td>
+    <td class="topleft">
+        🦃 Thanksgiving Break
+    </td>
+    <td class="topleft">
+        🦃 Thanksgiving Break
+    </td>
+    <td class="topleft"></td>
+  </tr>
+  <tr>
+    <td class="topleft">14 (12/2 - 12/6)</td>
+    <td class="topleft">
+    </td>
+    <td class="topleft">
+    </td>
+    <td class="topleft">
+    </td>
+    <td class="topleft">
+    </td>
+  </tr>
+  <tr>
+    <td class="topleft">15 (12/9 - 12/13)</td>
+    <td class="topleft">
+        Project presentations (day 1 of 3)
+    </td>
+    <td class="topleft">
+        Project presentations (day 2 of 3)<br>
+        <b>(last day of classes)</b>
+    </td>
+    <td class="topleft">
+    </td>
+    <td class="topleft">
+    </td>
+  </tr>
+  <tr>
+    <td class="topleft">16 (12/16 - 12/20)</td>
+    <td class="topleft" colspan=2>
+        <b>Tuesday 12/17</b><br>
+        Project presentations (day 3 of 3)
+    </td>
+    <td class="topleft">
+    </td>
+    <td class="topleft">
+        Final project paper due Wed 12/18 at 5pm
+    </td>
+  </tr>
 </tbody>
 </table>
 ```
+
 
 
 # Week 1: Foundations

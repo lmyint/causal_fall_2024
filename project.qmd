@@ -94,13 +94,12 @@ Each group will turn in a **paper** and give a **presentation**.
         - Summarize when researchers would want to use this method/topic in their own work.
         - Discuss the limitations of this tutorial paper in terms of scope. e.g., "We did discuss concepts X, Y, and Z in this tutorial, but important subareas within this topic include A, B, and C (include citations to relevant articles where readers can learn more)."
 
-
-- **Citations:** In-text citations and references should follow the [APA format](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/in_text_citations_author_authors.html).
+- **Bibliography:** In-text citations and references should follow the [APA format](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/in_text_citations_author_authors.html).
 
 
 ## Presentation
 
-- 8-10 minute presentation (depending on the number of groups)
+- 10-12 minute presentation
 - Target audience is our class (students who have taken causal inference)
 - Share your slides with the instructor the day before your presentation. We will use the instructor's laptop for presentations to streamline and avoid technical difficulties.
 
