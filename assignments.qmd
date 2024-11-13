@@ -135,19 +135,37 @@ For each of the above study designs/methods, answer the following questions:
 
 
 
-
 <br><br>
 
 
 
+# Assignment 5
 
+**Goal:** The goal of this assignment is to reflect on your learning and to think about how to make the most of the remainder of our semester.
 
-<!-- # Assignment 4 -->
+**Due date:** Wedesnday 11/20 at 5pm
 
-<!--
-General questions applicable to all study designs/methods
-- What is this study design/method? What's the main idea behind it?
-- When would we use this design/method? What are its advantageous features?
-- How do we analyze data from this design/method?
-- What are some limitations/drawbacks of this design?
--->
+**Prepare to reflect:**
+
+First, consider the following broad learning goals for the course:
+
+- Communicate the role that causal graphs play in designing a sound causal analysis. Construct and use a causal graph to analyze data for answering causal research questions.
+- Appreciate the role that simulation studies can play in facilitating understanding of statistical tools.
+- Identify and implement appropriate causal methods/study designs for addressing a research question.
+- Interpret causal effect estimates in context.
+- Communicate the role that sensitivity analyses play in causal research.
+
+Second, review Assignments 2 to 4, the feedback you received, and your understanding from class time.
+
+**Reflect:**
+
+Write a reflection in which you address the following prompts:
+
+- For which of the above learning goals do you feel confident? Where would you most like to continue growing? Why? 
+- How do the above goals compare to your own goals for taking this course? How do you feel about progress towards your own goals? Why?
+- What were the biggest sources of change in your understanding from the beginning of the semester to now?
+- In light of our goals, how can we make the most of the last few weeks of the semester?
+    - What feedback do you want from the instructor?
+    - What learning experiences do you want to have?
+
+Share a Google Doc reflection with me by Wednesday 11/20 at 5pm. Submit the link [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=145988), and make sure that I have commenting privileges.
