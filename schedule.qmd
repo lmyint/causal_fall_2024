@@ -109,7 +109,7 @@ Check here to see what you should be doing before, during, and after each class 
     </td>
     <td class="topleft">
         Mini-lesson: time-varying treatments<br>
-        Slides
+        <a href="https://docs.google.com/presentation/d/1FWBor_r8sx5q6Q2q6-yGuKx9oc29NcTwHeD5bm4so1c/edit?usp=sharing">Slides</a>
     </td>
     <td class="topleft">
         <a href="project.html#milestone-2">Project Milestone 1</a> due Fri 11/22 at 5pm.
