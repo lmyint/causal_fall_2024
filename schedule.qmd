@@ -123,7 +123,7 @@ Check here to see what you should be doing before, during, and after each class 
     </td>
     <td class="topleft">
         Mini-lesson: doubly robust estimation<br>
-        Slides
+        <a href="https://docs.google.com/presentation/d/1N7_DAmbtjqNv_kTS6WniAna0CPfqXoE8bXt9eO0oDw0/edit?usp=sharing">Slides</a>
     </td>
     <td class="topleft">
         Mini-lesson: generalizability/transportability<br>
