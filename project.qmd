@@ -99,7 +99,8 @@ Each group will turn in a **paper** and give a **presentation**.
 
 ## Presentation
 
-- 10-12 minute presentation
+- 10-12 minute presentation with 2-5 minutes for questions
+    - Schedule posted [here](https://moodle.macalester.edu/mod/url/view.php?id=147560)
 - Target audience is our class (students who have taken causal inference)
 - Share your slides with the instructor the day before your presentation. We will use the instructor's laptop for presentations to streamline and avoid technical difficulties.
 
