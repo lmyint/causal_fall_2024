@@ -563,12 +563,13 @@ E[Y \mid \text{post,treated},T] = \beta_0 + \beta_1\text{post} + \beta_2\text{tr
 <li>For an order <span class="math inline">\(p\)</span> autoregressive process, the PACF drops to effectively zero (stays within the dashed confidence band) at lags greater than <span class="math inline">\(p\)</span>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(syg<span class="sc">$</span>hom_rate, <span class="at">na.action =</span> na.pass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>syg_subs <span class="ot">&lt;-</span> syg <span class="sc">%&gt;%</span> <span class="fu">filter</span>(treated<span class="sc">==</span><span class="dv">1</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(syg_subs<span class="sc">$</span>hom_rate, <span class="at">na.action =</span> na.pass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>coeftest()</code> function in the <code>lmtest</code> package implements Newey-West standard errors which account for this autocorrelation (and heteroskedasticity). We specify the order of the autoregressive process in the <code>lag</code> argument:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(cits_mod1, <span class="at">vcov =</span> NeweyWest, <span class="at">lag =</span> <span class="dv">12</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(cits_mod2, <span class="at">vcov =</span> NeweyWest, <span class="at">lag =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(cits_mod1, <span class="at">vcov =</span> NeweyWest, <span class="at">lag =</span> <span class="dv">3</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(cits_mod2, <span class="at">vcov =</span> NeweyWest, <span class="at">lag =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

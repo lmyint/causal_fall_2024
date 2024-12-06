@@ -258,14 +258,15 @@ We can use the **partial autocorrelation function (PACF)** to get a sense of wha
 - For an order $p$ autoregressive process, the PACF drops to effectively zero (stays within the dashed confidence band) at lags greater than $p$.
 
 ```{r}
-pacf(syg$hom_rate, na.action = na.pass)
+syg_subs <- syg %>% filter(treated==1)
+pacf(syg_subs$hom_rate, na.action = na.pass)
 ```
 
 The `coeftest()` function in the `lmtest` package implements Newey-West standard errors which account for this autocorrelation (and heteroskedasticity). We specify the order of the autoregressive process in the `lag` argument:
 
 ```{r}
-coeftest(cits_mod1, vcov = NeweyWest, lag = 12)
-coeftest(cits_mod2, vcov = NeweyWest, lag = 12)
+coeftest(cits_mod1, vcov = NeweyWest, lag = 3)
+coeftest(cits_mod2, vcov = NeweyWest, lag = 3)
 ```
 
 
